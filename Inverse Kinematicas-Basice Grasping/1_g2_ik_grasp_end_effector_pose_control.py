@@ -7,15 +7,15 @@ GDK 2.6.3, 使用 Robot.end_effector_pose_control()
 重要说明：
 1. 本程序从 TF 读取双臂当前末端位姿，并在 base_link 坐标系下生成相对轨迹。
 2. end_effector_pose_control() 按 50 Hz 连续发送，位置和姿态均插值，避免阶跃。
-3. 该接口无碰撞检测。本程序默认 DRY_RUN=True，只打印轨迹；确认后改为 False。
-4. 当前版本先验证双臂 IK 运动。OmniPicker 开合保留为独立函数，调用方式需与你已验证程序一致。
+3. 该接口无碰撞检测。请确保机器人周围安全！
+4. 夹爪控制使用 move_ee_pos() 接口，支持 OmniPicker。
 """
 
 import math
 import time
 import traceback
 from dataclasses import dataclass
-from typing import List, Dict
+from typing import List
 
 import agibot_gdk
 
@@ -25,11 +25,10 @@ RATE_HZ = 50.0
 DT = 1.0 / RATE_HZ
 LIFE_TIME = 0.02
 MAX_TRANSLATION_STEP_M = 0.001  # 每帧最大 1 mm
-DRY_RUN = True                  # 首次运行必须保持 True
 
 # 相对动作参数，先用保守小距离验证
 APPROACH_DX = 0.030             # 双手沿 base_link +X 前进 3 cm
-DESCEND_DZ = -0.020             # 双手下降 2 cm
+DESCEND_DZ = -0.20             # 双手下降 2 cm
 INWARD_DY = 0.010               # 左手 y 减小、右手 y 增大，各内收 1 cm
 LIFT_DZ = 0.050                 # 抓紧后上抬 5 cm
 RETREAT_DX = -0.030             # 后撤 3 cm
@@ -62,12 +61,13 @@ class G2IKGraspController:
             raise RuntimeError(f"TF 不存在: base_link <- {LEFT_FRAME}")
         if not self.tf.can_transform("base_link", RIGHT_FRAME):
             raise RuntimeError(f"TF 不存在: base_link <- {RIGHT_FRAME}")
-        print("GDK、Robot、TF 初始化成功")
+        print("✅ GDK、Robot、TF 初始化成功")
 
     def shutdown(self):
         if self.initialized:
             try:
                 agibot_gdk.gdk_release()
+                print("✅ GDK 已释放")
             finally:
                 self.initialized = False
 
@@ -143,10 +143,6 @@ class G2IKGraspController:
         print(f"  左目标: {[round(v, 4) for v in goal_left.position]}")
         print(f"  右目标: {[round(v, 4) for v in goal_right.position]}")
 
-        if DRY_RUN:
-            print("  DRY_RUN=True，未发送运动命令")
-            return
-
         for i in range(1, steps + 1):
             a = i / steps
             left = PoseData(
@@ -162,8 +158,6 @@ class G2IKGraspController:
         self.hold(goal_left, goal_right, 0.30)
 
     def hold(self, left: PoseData, right: PoseData, seconds: float):
-        if DRY_RUN:
-            return
         cycles = max(1, int(seconds * RATE_HZ))
         for _ in range(cycles):
             self.set_end_pose(left, right)
@@ -178,21 +172,56 @@ class G2IKGraspController:
         return out
 
     def open_grippers(self):
-        print("[夹爪] 请把已验证程序中的 OmniPicker 打开函数接入这里")
-        # 示例位置，不能在未确认 move_ee_pos 数据结构前盲目下发：
-        # self.robot.move_ee_pos(...)
+        """打开夹爪（OmniPicker）"""
+        print("[夹爪] 正在打开 OmniPicker...")
+        joint_states = agibot_gdk.JointStates()
+        joint_states.group = "dual_tool"
+        joint_states.target_type = "omnipicker"
+
+        left_joint = agibot_gdk.JointState()
+        left_joint.position = -0.785  # 打开位置
+        right_joint = agibot_gdk.JointState()
+        right_joint.position = -0.785  # 打开位置
+
+        joint_states.states = [left_joint, right_joint]
+        joint_states.nums = 2
+
+        result = self.robot.move_ee_pos(joint_states)
+        if result != 0:
+            raise RuntimeError(f"夹爪打开失败，错误码: {result}")
+        print("✅ 夹爪已打开")
+        time.sleep(0.5)
 
     def close_grippers(self):
-        print("[夹爪] 请把已验证程序中的 OmniPicker 关闭函数接入这里")
-        # self.robot.move_ee_pos(...)
+        """关闭夹爪（OmniPicker）"""
+        print("[夹爪] 正在关闭 OmniPicker...")
+        joint_states = agibot_gdk.JointStates()
+        joint_states.group = "dual_tool"
+        joint_states.target_type = "omnipicker"
+
+        left_joint = agibot_gdk.JointState()
+        left_joint.position = 0.0  # 关闭位置
+        right_joint = agibot_gdk.JointState()
+        right_joint.position = 0.0  # 关闭位置
+
+        joint_states.states = [left_joint, right_joint]
+        joint_states.nums = 2
+
+        result = self.robot.move_ee_pos(joint_states)
+        if result != 0:
+            raise RuntimeError(f"夹爪关闭失败，错误码: {result}")
+        print("✅ 夹爪已关闭")
+        time.sleep(0.5)
 
     def run(self):
         left0 = self.read_pose(LEFT_FRAME)
         right0 = self.read_pose(RIGHT_FRAME)
+        print("\n" + "=" * 60)
         print("当前末端位姿（base_link）:")
-        print("  左:", [round(v, 5) for v in left0.position], [round(v, 5) for v in left0.orientation])
-        print("  右:", [round(v, 5) for v in right0.position], [round(v, 5) for v in right0.orientation])
-        print(f"安全模式: DRY_RUN={DRY_RUN}")
+        print(f"  左: {[round(v, 5) for v in left0.position]} {[round(v, 5) for v in left0.orientation]}")
+        print(f"  右: {[round(v, 5) for v in right0.position]} {[round(v, 5) for v in right0.orientation]}")
+        print("=" * 60)
+        print("\n🚀 开始执行抓取动作序列...")
 
         self.open_grippers()
 
@@ -223,9 +252,9 @@ class G2IKGraspController:
         right5 = self.offset(right4, dx=RETREAT_DX)
         self.move_both(left5, right5, "抬升后后撤")
 
-        print("\n逆运动学抓取测试流程结束")
-        if DRY_RUN:
-            print("确认打印出的目标位姿安全后，将 DRY_RUN 改为 False 再进行真机小步测试。")
+        print("\n" + "=" * 60)
+        print("✅ 逆运动学抓取测试流程结束")
+        print("=" * 60)
 
 
 def main():
@@ -234,9 +263,9 @@ def main():
         controller.initialize()
         controller.run()
     except KeyboardInterrupt:
-        print("\n用户中断")
+        print("\n⚠️ 用户中断")
     except Exception as exc:
-        print(f"程序异常: {exc}")
+        print(f"❌ 程序异常: {exc}")
         traceback.print_exc()
     finally:
         controller.shutdown()
