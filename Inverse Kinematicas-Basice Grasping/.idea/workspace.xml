@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="435cf974-797f-4d61-b90d-345d1f2c7fde" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/../15_right_hand_camera_preview.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/.idea/Basic Hardware Testing.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/10_full_body_motion.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/11_joints_status.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/14_display.launch.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/15_base_moving.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/16_wrist_camera_viewer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/1_demo_gdk.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/2_hello_g2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/3_head_node.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/4_camera_reader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/5_camera_stream.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/6_depth_reader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/7_point_cloud.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/8-plyfile_handle.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/9_arm_swing.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Basic Hardware Testing/open3d_grasp_tutorial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/.idea/Forward Kinematicas-Basice Grasping.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/12_grasp_basin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/13_go_taget_pose.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/13_go_taget_pose_calibrated_height_omnipicker.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/13_go_taget_pose_full_chassis50_wider2cm_checked.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/13_go_taget_pose_full_combined_errors_fixed.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/13_go_taget_pose_joint_angles_updated.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/13_go_taget_pose_latest_synced.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/13_go_taget_pose_omnipicker_safe_dynamic_waist.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/13_go_taget_pose_pnc_numeric_cycle_fixed.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/13_go_taget_pose_pnc_numeric_dual_gripper_fixed.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/13_go_taget_pose_reset_then_turn90_safe_place.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/13_go_taget_pose_reset_then_turn90_safe_place_fixed.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/13_go_taget_pose_table76_no_waist.py0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/13_go_taget_pose_table76_rim_horizontal.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/13_go_taget_pose_task_sync_fast_tight1cm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/13_go_taget_pose_upright_waist90_fast.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/python3.10.INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/python3.10.log.INFO.20260902-153801.15972.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Forward Kinematicas-Basice Grasping/python3.10.log.INFO.20260902-153911.16046.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Inverse Kinematicas-Basice Grasping.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/1_g2_ik_grasp_end_effector_pose_control.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2_g2_ik_grasp_end_effector_pose_control.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/3_g2_torchforth_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-155908.17450.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-160355.17845.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-160408.17881.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-160519.17960.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-160734.18091.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-160800.18146.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-161147.18363.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-161215.18439.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-161538.18560.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-161806.18729.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-161858.18830.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-161932.18906.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-162024.18999.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-162145.19102.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-162609.19312.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-162703.19411.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-162808.19494.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-162931.19612.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-163200.19809.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-163438.19958.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-163516.20036.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-163707.20158.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python3.10.log.INFO.20260902-164012.20328.0" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3IlOpazlaAj6I6feq1HnUmRpcbE" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.14_g2_ik_grasp_end_effector_pose_control.executor": "Run",
+    "Python.15_right_hand_camera_preview.executor": "Run",
+    "Python.1_g2_ik_grasp_end_effector_pose_control.executor": "Run",
+    "Python.2_g2_ik_grasp_end_effector_pose_control.executor": "Run",
+    "Python.3_g2_torchforth_test.executor": "Run",
+    "Python.camera_demo.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/isaac-workstation/g2-project/inverse_kinematicas-basice-grasping",
+    "node.js.detected.package.jshint": "true",
+    "node.js.selected.package.jshint": "",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.15_right_hand_camera_preview">
+    <configuration name="15_right_hand_camera_preview" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Inverse Kinematicas-Basice Grasping" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="AORTA_DISCOVERY_URI" value="http://10.42.1.101:2379" />
+        <env name="AORTA_DISPATCHER_THREAD_NUM" value="6" />
+        <env name="LD_LIBRARY_PATH" value="$USER_HOME$/.cache/agibot/app/gdk/cpp/x86_64/lib:/usr/local/cuda-13.0/lib64:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:$USER_HOME$/.cache/agibot/app/lib:$USER_HOME$/.cache/agibot/app/lib/engines-3:$USER_HOME$/.cache/agibot/app/lib/ossl-modules:$USER_HOME$/.cache/agibot/app/lib/pulse-14.2/modules:$USER_HOME$/.cache/agibot/app/lib/pulseaudio:$USER_HOME$/.cache/agibot/app/lib/python3.10/lib-dynload" />
+        <env name="PYTHONPATH" value="$USER_HOME$/.cache/agibot/app/gdk/lib:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="~/g2-project/Inverse Kinematicas-Basice Grasping/.venv" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/15_right_hand_camera_preview.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="1_g2_ik_grasp_end_effector_pose_control" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="Inverse Kinematicas-Basice Grasping" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="AORTA_DISCOVERY_URI" value="http://10.42.1.101:2379" />
+        <env name="AORTA_DISPATCHER_THREAD_NUM" value="6" />
+        <env name="LD_LIBRARY_PATH" value="$USER_HOME$/.cache/agibot/app/gdk/cpp/x86_64/lib:/usr/local/cuda-13.0/lib64:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:$USER_HOME$/.cache/agibot/app/lib:$USER_HOME$/.cache/agibot/app/lib/engines-3:$USER_HOME$/.cache/agibot/app/lib/ossl-modules:$USER_HOME$/.cache/agibot/app/lib/pulse-14.2/modules:$USER_HOME$/.cache/agibot/app/lib/pulseaudio:$USER_HOME$/.cache/agibot/app/lib/python3.10/lib-dynload" />
+        <env name="PYTHONPATH" value="$USER_HOME$/.cache/agibot/app/gdk/lib:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.10" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/1_g2_ik_grasp_end_effector_pose_control.py" />
+      <option name="PARAMETERS" value="--run" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="2_g2_ik_grasp_end_effector_pose_control" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Inverse Kinematicas-Basice Grasping" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="AORTA_DISCOVERY_URI" value="http://10.42.1.101:2379" />
+        <env name="AORTA_DISPATCHER_THREAD_NUM" value="6" />
+        <env name="LD_LIBRARY_PATH" value="$USER_HOME$/.cache/agibot/app/gdk/cpp/x86_64/lib:/usr/local/cuda-13.0/lib64:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:$USER_HOME$/.cache/agibot/app/lib:$USER_HOME$/.cache/agibot/app/lib/engines-3:$USER_HOME$/.cache/agibot/app/lib/ossl-modules:$USER_HOME$/.cache/agibot/app/lib/pulse-14.2/modules:$USER_HOME$/.cache/agibot/app/lib/pulseaudio:$USER_HOME$/.cache/agibot/app/lib/python3.10/lib-dynload" />
+        <env name="PYTHONPATH" value="$USER_HOME$/.cache/agibot/app/gdk/lib:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2_g2_ik_grasp_end_effector_pose_control.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="3_g2_torchforth_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Inverse Kinematicas-Basice Grasping" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="AORTA_DISCOVERY_URI" value="http://10.42.1.101:2379" />
+        <env name="AORTA_DISPATCHER_THREAD_NUM" value="6" />
+        <env name="LD_LIBRARY_PATH" value="$USER_HOME$/.cache/agibot/app/gdk/cpp/x86_64/lib:/usr/local/cuda-13.0/lib64:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:$USER_HOME$/.cache/agibot/app/lib:$USER_HOME$/.cache/agibot/app/lib/engines-3:$USER_HOME$/.cache/agibot/app/lib/ossl-modules:$USER_HOME$/.cache/agibot/app/lib/pulse-14.2/modules:$USER_HOME$/.cache/agibot/app/lib/pulseaudio:$USER_HOME$/.cache/agibot/app/lib/python3.10/lib-dynload" />
+        <env name="PYTHONPATH" value="$USER_HOME$/.cache/agibot/app/gdk/lib:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/3_g2_torchforth_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="Inverse Kinematicas-Basice Grasping" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="AORTA_DISCOVERY_URI" value="http://10.42.1.101:2379" />
+        <env name="AORTA_DISPATCHER_THREAD_NUM" value="6" />
+        <env name="LD_LIBRARY_PATH" value="$USER_HOME$/.cache/agibot/app/gdk/cpp/x86_64/lib:/usr/local/cuda-13.0/lib64:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:$USER_HOME$/.cache/agibot/app/lib:$USER_HOME$/.cache/agibot/app/lib/engines-3:$USER_HOME$/.cache/agibot/app/lib/ossl-modules:$USER_HOME$/.cache/agibot/app/lib/pulse-14.2/modules:$USER_HOME$/.cache/agibot/app/lib/pulseaudio:$USER_HOME$/.cache/agibot/app/lib/python3.10/lib-dynload" />
+        <env name="PYTHONPATH" value="$USER_HOME$/.cache/agibot/app/gdk/lib:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="~/g2-project/Inverse Kinematicas-Basice Grasping/.venv" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="camera_demo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Inverse Kinematicas-Basice Grasping" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="AORTA_DISCOVERY_URI" value="http://10.42.1.101:2379" />
+        <env name="AORTA_DISPATCHER_THREAD_NUM" value="6" />
+        <env name="LD_LIBRARY_PATH" value="$USER_HOME$/.cache/agibot/app/gdk/cpp/x86_64/lib:/usr/local/cuda-13.0/lib64:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:$USER_HOME$/.cache/agibot/app/lib:$USER_HOME$/.cache/agibot/app/lib/engines-3:$USER_HOME$/.cache/agibot/app/lib/ossl-modules:$USER_HOME$/.cache/agibot/app/lib/pulse-14.2/modules:$USER_HOME$/.cache/agibot/app/lib/pulseaudio:$USER_HOME$/.cache/agibot/app/lib/python3.10/lib-dynload" />
+        <env name="PYTHONPATH" value="$USER_HOME$/.cache/agibot/app/gdk/lib:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="~/g2-project/Inverse Kinematicas-Basice Grasping/.venv" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/camera_demo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.1_g2_ik_grasp_end_effector_pose_control" />
+      <item itemvalue="Python.15_right_hand_camera_preview" />
+      <item itemvalue="Python.camera_demo" />
+      <item itemvalue="Python.3_g2_torchforth_test" />
+      <item itemvalue="Python.2_g2_ik_grasp_end_effector_pose_control" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.15_right_hand_camera_preview" />
+        <item itemvalue="Python.camera_demo" />
+        <item itemvalue="Python.3_g2_torchforth_test" />
+        <item itemvalue="Python.2_g2_ik_grasp_end_effector_pose_control" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-6fa658e1df1a-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.8665.369" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="435cf974-797f-4d61-b90d-345d1f2c7fde" name="更改" comment="" />
+      <created>1788335871396</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1788335871396</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
