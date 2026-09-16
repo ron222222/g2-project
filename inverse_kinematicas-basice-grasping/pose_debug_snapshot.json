@@ -1,0 +1,84 @@
+{
+  "read_only": true,
+  "coordinate_frame": "base_link",
+  "rgb_pixel": [
+    345,
+    215
+  ],
+  "depth_pixel": [
+    345,
+    215
+  ],
+  "raw_depth": 827.0,
+  "camera_xyz_m": [
+    0.070093,
+    0.037031,
+    0.827
+  ],
+  "target_base_xyz_m": [
+    0.765113,
+    -0.054569,
+    0.743467
+  ],
+  "right_hand_base_xyz_m": [
+    0.589121,
+    -0.243474,
+    0.815927
+  ],
+  "right_hand_orientation_xyzw": [
+    0.70775251,
+    2.347e-05,
+    0.70646046,
+    -2.246e-05
+  ],
+  "pregrasp_base_xyz_m": [
+    0.765113,
+    -0.054569,
+    0.893467
+  ],
+  "hand_to_pregrasp_delta_xyz_m": [
+    0.175991,
+    0.188905,
+    0.077539
+  ],
+  "hand_to_pregrasp_distance_m": 0.269575,
+  "motion_status": {
+    "mode": 5,
+    "error_code": 0,
+    "error_msg": "",
+    "collision_pairs": []
+  },
+  "right_arm_wrench": {
+    "force": [
+      -4.648667,
+      0.0,
+      0.0
+    ],
+    "torque": [
+      0.0,
+      0.438103,
+      0.0
+    ],
+    "baseline_force": [
+      -4.66426,
+      0.0,
+      0.0
+    ],
+    "baseline_torque": [
+      0.0,
+      0.437571,
+      0.0
+    ],
+    "delta_force": [
+      0.015593,
+      0.0,
+      0.0
+    ],
+    "delta_torque": [
+      0.0,
+      0.000531,
+      0.0
+    ]
+  },
+  "rgb_depth_timestamp_delta_ms": 33.332
+}

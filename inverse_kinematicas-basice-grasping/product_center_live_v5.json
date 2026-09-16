@@ -1,0 +1,19 @@
+{
+  "program": "27_auto_product_center_detector_live_v5.py",
+  "read_only": true,
+  "roi": [
+    260,
+    90,
+    460,
+    230
+  ],
+  "center_pixel": [
+    298,
+    224
+  ],
+  "angle_deg": 0.0,
+  "contour_area": 364.0,
+  "long_side_px": 77.0,
+  "short_side_px": 9.0,
+  "aspect_ratio": 8.555555555555555
+}

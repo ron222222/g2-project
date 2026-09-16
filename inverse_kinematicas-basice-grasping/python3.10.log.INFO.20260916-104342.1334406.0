@@ -1,0 +1,980 @@
+Log file created at: 2026/09/16 10:43:42
+Running on machine: isaac-workstation
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0916 10:43:42.549813 1334406 dylog_impl.cpp:641] [DYLOG] set dylog default level to INFO
+W0916 10:43:42.549829 1334406 dylog_impl.cpp:681] [DYLOG] can't find available soc record file with path : /proc/device-tree/model, use s1
+I0916 10:43:42.549831 1334406 dylog_impl.cpp:690] [DYLOG] soc num : s1
+I0916 10:43:42.549834 1334406 dylog_impl.cpp:695] [DYLOG] can't read scene_mode, use sud
+W0916 10:43:42.549837 1334406 dylog_impl.cpp:757] [DYLOG] can't find available json config file with path : /home/agi/app/conf/scene_server/dylog_sud_default.json, use default.
+I0916 10:43:42.549860 1334406 dylog_impl.cpp:293] [DYLOG] register dsd_name : dylog/python3.10/cosine_internal
+I0916 10:43:42.552286 1334406 cosine_bus_manager.cpp:142] [cosine_internal][CosineBusManager] cosine bus config path not set, use default config.
+I0916 10:43:42.552295 1334406 cosine_bus_manager.cpp:175] [cosine_internal][CosineBusManager] initial cosine_bus_config:
+I0916 10:43:42.553016 1334406 cosine_bus_global_sync.cpp:30] [cosine_internal][BusGlobalSync] set default middleware name:aorta
+I0916 10:43:42.553030 1334406 scheduler_classic.cpp:28] [cosine_internal]Proc number set to be: 1
+I0916 10:43:42.553373 1334406 dynamic_object.cpp:521] [cosine_internal][DynamicObject] open libdynamic_aorta.so success.
+I0916 10:43:42.553478 1334406 dynamic_object.cpp:581] [cosine_internal][DynamicObject] Successfully enumerated 66 symbols in libdynamic_aorta.so
+I0916 10:43:42.553480 1334406 resource_loader.cpp:13] [cosine_internal][ResourceLoader] Attempting to load function: aorta_get_object
+I0916 10:43:42.553481 1334406 resource_loader.cpp:17] [cosine_internal][ResourceLoader] Trying address() method for C++ symbol: aorta_get_object
+I0916 10:43:42.553484 1334406 resource_loader.cpp:20] [cosine_internal][ResourceLoader] Successfully loaded C++ symbol: aorta_get_object
+I0916 10:43:42.553485 1334406 resource_loader.cpp:13] [cosine_internal][ResourceLoader] Attempting to load function: aorta_call_object_func
+I0916 10:43:42.553488 1334406 resource_loader.cpp:17] [cosine_internal][ResourceLoader] Trying address() method for C++ symbol: aorta_call_object_func
+I0916 10:43:42.553488 1334406 resource_loader.cpp:20] [cosine_internal][ResourceLoader] Successfully loaded C++ symbol: aorta_call_object_func
+I0916 10:43:42.553490 1334406 resource_loader.cpp:13] [cosine_internal][ResourceLoader] Attempting to load function: aorta_clean_up
+I0916 10:43:42.553491 1334406 resource_loader.cpp:17] [cosine_internal][ResourceLoader] Trying address() method for C++ symbol: aorta_clean_up
+I0916 10:43:42.553498 1334406 resource_loader.cpp:25] [cosine_internal][ResourceLoader] C++ symbol failed, trying c_address() method for C symbol: aorta_clean_up
+I0916 10:43:42.553500 1334406 resource_loader.cpp:28] [cosine_internal][ResourceLoader] Successfully loaded C symbol: aorta_clean_up
+W0916 10:43:42.553503 1334406 aorta_component.cpp:90] [cosine_internal]Environment variable [LOCATOR_IP/DDS_IP] not set, fallback to 127.0.0.1
+I0916 10:43:42.553505 1334406 aorta_component.cpp:100] [cosine_internal][AortaComponent] use env var [AORTA_DISCOVERY_URI]:http://10.42.1.101:2379
+I0916 10:43:42.553506 1334406 aorta_component.cpp:106] [cosine_internal][AortaComponent] use env var [AORTA_DISPATCHER_THREAD_NUM]:6
+I0916 10:43:42.553508 1334406 aorta_component.cpp:496] [cosine_internal][AortaComponent] locator_ip: 127.0.0.1; Check network before domain init 
+I0916 10:43:42.553519 1334406 aorta_component.cpp:515] [cosine_internal][AortaComponent] Network check start. locator_ip: 127.0.0.1, timeout: 60 seconds , check_start_time: 1789526622
+I0916 10:43:42.553525 1334406 aorta_component.cpp:526] [cosine_internal][AortaComponent] locator_ip: 127.0.0.1; network is ready.
+I0916 10:43:42.553539 1334406 dylog_impl.cpp:293] [DYLOG] register dsd_name : dylog/python3.10/aorta
+I0916 10:43:42.553576 1334406 os.cc:88] [aorta]Got host_id from system files: 607f2788553644599e19b319b3e3f373
+I0916 10:43:42.553649 1334406 message_monitor_config.cc:398] [aorta]run in  mode
+I0916 10:43:42.554132 1334406 domain_impl.cc:58] [aorta]aorta version:b80ec961
+I0916 10:43:42.554138 1334406 json_comm.cc:35] [aorta]file path:  not exist.
+I0916 10:43:42.554142 1334406 message_monitor_config.cc:398] [aorta]run in  mode
+W0916 10:43:42.554150 1334406 transport_config.cc:91] [aorta]Failed to open the file /home/agi/app/conf/aorta/function/aorta_transport_conf.json
+I0916 10:43:42.554157 1334406 discovery_factory.cc:14] [aorta]type:1, host:10.42.1.101, port:2379, ttl:15, minor_cycle:100, major_cycle:3
+I0916 10:43:42.554323 1334406 config.cc:53] [aorta]AORTA_IP_MASK not set.
+I0916 10:43:42.554325 1334406 discovery.cc:245] [aorta]get ip masks empty.
+I0916 10:43:42.554327 1334406 config.cc:200] [aorta]AORTA_EXTRA_LOCAL_IPS not set.
+I0916 10:43:42.554330 1334406 discovery.cc:266] [aorta]local_publisher_ips_ empty.
+I0916 10:43:42.554335 1334406 config.cc:124] [aorta]ip match, ip:127.0.0.1
+I0916 10:43:42.554338 1334406 config.cc:124] [aorta]ip match, ip:172.20.10.4
+I0916 10:43:42.554340 1334406 discovery.cc:275] [aorta]default emplace ip:10.42.1.11
+I0916 10:43:42.554342 1334406 centralized_discovery.cc:55] [aorta]lease_ttl_:15
+I0916 10:43:42.554669 1334406 aorta_component.cpp:561] [cosine_internal][AortaComponent] aorta create domain success. uri:http://10.42.1.101:2379
+I0916 10:43:42.554704 1334406 aorta_component.cpp:447] [cosine_internal][AortaComponent] aorta domain created node: python3.10_S1 , domain_uri:http://10.42.1.101:2379
+I0916 10:43:42.554706 1334406 aorta_component.cpp:126] [cosine_internal][AortaComponent] aorta component init success. node:python3.10_S1, uri:http://10.42.1.101:2379, locator_kind(1:shm,2:tcp,3:udp):2, locator_ip:127.0.0.1, locator_port:0, aorta_dispatcher_thread_num:6
+I0916 10:43:42.558380 1334472 processor.cpp:40] [cosine_internal]processor_tid: 1334472
+I0916 10:43:42.558393 1334475 executor_impl.cc:91] [aorta]aorta-dispatch0 start spinning
+I0916 10:43:42.558418 1334476 executor_impl.cc:91] [aorta]aorta-dispatch1 start spinning
+I0916 10:43:42.558439 1334477 executor_impl.cc:91] [aorta]aorta-dispatch2 start spinning
+I0916 10:43:42.558449 1334479 executor_impl.cc:91] [aorta]aorta-dispatch4 start spinning
+I0916 10:43:42.558447 1334478 executor_impl.cc:91] [aorta]aorta-dispatch3 start spinning
+I0916 10:43:42.558457 1334480 executor_impl.cc:91] [aorta]aorta-dispatch5 start spinning
+I0916 10:43:42.558813 1334406 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/gdk/config_request , middleware:aorta
+I0916 10:43:42.558832 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.558835 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.558835 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.558837 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.558838 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.558840 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.558842 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.558844 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.558845 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.558846 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.558848 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.558849 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.558851 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.558852 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.558853 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.558856 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.558913 1334406 tcp_publisher.cc:179] [aorta]topic /gdk/config_request, pub_queue_size_ 5, latch_queue_size_ 0
+I0916 10:43:42.558974 1334482 tcp_socket_server.cc:200] [aorta]The ip info is0.0.0.0:38745
+I0916 10:43:42.559010 1334482 shm_socket_server.cc:101] [aorta][/gdk/config_request] bind at pipe sock name d2379|python3.10|p1334406|n0|/gdk/config_request|p0
+I0916 10:43:42.559031 1334406 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:38745, sockname:d2379|python3.10|p1334406|n0|/gdk/config_request|p0, topic:/gdk/config_request, uid:4a3b5204-b4ec-4d37-bca1-5eb801c20ff2-4991715019463590898 topic_uid:-1
+I0916 10:43:42.559041 1334406 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/gdk/config_request, type:genie_msgs.msg.pb.CommonRequest, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.559067 1334406 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/gdk/config_request, uri:
+I0916 10:43:42.559072 1334406 dylog_impl.cpp:293] [DYLOG] register dsd_name : dylog/python3.10/GDK
+I0916 10:43:42.559075 1334406 publisher.cpp:27] [GDK]create publisher: /gdk/config_request type: genie_msgs.msg.pb.CommonRequest qos: 1 1 5 2
+I0916 10:43:42.559080 1334406 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/gdk/camera_conf_request , middleware:aorta
+I0916 10:43:42.559089 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.559091 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.559092 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559095 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.559096 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559098 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.559099 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.559100 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559101 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559103 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559104 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.559105 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.559106 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.559108 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.559109 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.559110 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.559115 1334406 tcp_publisher.cc:179] [aorta]topic /gdk/camera_conf_request, pub_queue_size_ 5, latch_queue_size_ 0
+I0916 10:43:42.559129 1334482 tcp_socket_server.cc:200] [aorta]The ip info is0.0.0.0:39193
+I0916 10:43:42.559142 1334482 shm_socket_server.cc:101] [aorta][/gdk/camera_conf_request] bind at pipe sock name d2379|python3.10|p1334406|n0|/gdk/camera_conf_request|p1
+I0916 10:43:42.559150 1334406 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:39193, sockname:d2379|python3.10|p1334406|n0|/gdk/camera_conf_request|p1, topic:/gdk/camera_conf_request, uid:6de79e9f-60af-4b46-8299-1ed4ae170afc-9117180461459404870 topic_uid:-1
+I0916 10:43:42.559156 1334406 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/gdk/camera_conf_request, type:genie_msgs.msg.pb.CommonRequest, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.559180 1334406 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/gdk/camera_conf_request, uri:
+I0916 10:43:42.559182 1334406 publisher.cpp:27] [GDK]create publisher: /gdk/camera_conf_request type: genie_msgs.msg.pb.CommonRequest qos: 1 1 5 2
+I0916 10:43:42.559194 1334406 cosine_bus_manager.cpp:478] [cosine_internal][CosineBusManager] create subscriber. topic name:/gdk/config_response , middleware:aorta , need async callback:0, frame_skip_rate:1
+I0916 10:43:42.559199 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/gdk/config_responsehttp://10.42.1.101:2379
+I0916 10:43:42.559226 1334406 dynamic_object.cpp:521] [cosine_internal][DynamicObject] open  success.
+I0916 10:43:42.559269 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___gdk__config_response, type genie_msgs.msg.pb.CommonResponse, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 1, enable_event_sync_subscriber 1], buffer id = 1
+I0916 10:43:42.559280 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___gdk__config_response, type:genie_msgs.msg.pb.CommonResponse, size:5
+I0916 10:43:42.559295 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/gdk/config_response, uid:d149c032-f5dd-47ea-a4e9-b6cfd57dc639-9533047780102618842 topic_uid:-1
+I0916 10:43:42.559343 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.559345 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.559346 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559348 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.559350 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559351 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.559352 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.559355 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559355 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559356 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559357 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.559358 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.559360 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.559361 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.559366 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.559367 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.559374 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/gdk/config_response, type:genie_msgs.msg.pb.CommonResponse, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.559379 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/gdk/config_response, uri:
+I0916 10:43:42.559383 1334406 cosine_bus_manager.cpp:478] [cosine_internal][CosineBusManager] create subscriber. topic name:/gdk/camera_conf_response , middleware:aorta , need async callback:0, frame_skip_rate:1
+I0916 10:43:42.559386 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/gdk/camera_conf_responsehttp://10.42.1.101:2379
+I0916 10:43:42.559396 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___gdk__camera_conf_response, type genie_msgs.msg.pb.CommonResponse, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 1, enable_event_sync_subscriber 1], buffer id = 2
+I0916 10:43:42.559401 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___gdk__camera_conf_response, type:genie_msgs.msg.pb.CommonResponse, size:5
+I0916 10:43:42.559412 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/gdk/camera_conf_response, uid:420563ca-a200-46de-93d6-3b92ef96dfc4-3551884323222435368 topic_uid:-1
+I0916 10:43:42.559422 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.559422 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.559424 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559427 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.559427 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559429 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.559430 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.559432 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559432 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559434 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559435 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.559437 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.559437 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.559438 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.559440 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.559441 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.559446 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/gdk/camera_conf_response, type:genie_msgs.msg.pb.CommonResponse, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.559448 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/gdk/camera_conf_response, uri:
+I0916 10:43:42.559460 1334406 cosine_bus_manager.cpp:130] [cosine_internal][CosineBusManager] cosine bus already initialised
+I0916 10:43:42.559465 1334406 cosine_bus_manager.cpp:423] [cosine_internal][CosineBusManager] create default subscriber. topic name:/camera/head_back_fisheye
+I0916 10:43:42.559468 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/camera/head_back_fisheyehttp://10.42.1.101:2379
+I0916 10:43:42.559481 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___camera__head_back_fisheye, type CosineDataPacket, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 0, enable_event_sync_subscriber 1], buffer id = 3
+I0916 10:43:42.559484 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___camera__head_back_fisheye, type:CosineDataPacket, size:5
+I0916 10:43:42.559495 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/camera/head_back_fisheye, uid:d6911406-daf5-43df-9616-07f681e7e3f6-10407449922038425096 topic_uid:-1
+I0916 10:43:42.559504 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.559504 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.559505 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559506 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.559508 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559509 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.559510 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.559511 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559512 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559514 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559515 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.559516 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.559517 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.559520 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.559520 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.559522 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.559525 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/camera/head_back_fisheye, type:CosineDataPacket, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.559527 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/camera/head_back_fisheye, uri:
+I0916 10:43:42.559535 1334406 cosine_bus_manager.cpp:130] [cosine_internal][CosineBusManager] cosine bus already initialised
+I0916 10:43:42.559538 1334406 cosine_bus_manager.cpp:423] [cosine_internal][CosineBusManager] create default subscriber. topic name:/camera/head_left_fisheye
+I0916 10:43:42.559540 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/camera/head_left_fisheyehttp://10.42.1.101:2379
+I0916 10:43:42.559548 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___camera__head_left_fisheye, type CosineDataPacket, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 0, enable_event_sync_subscriber 1], buffer id = 4
+I0916 10:43:42.559552 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___camera__head_left_fisheye, type:CosineDataPacket, size:5
+I0916 10:43:42.559561 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/camera/head_left_fisheye, uid:2ade6737-8840-410c-8d31-2585e2b835ac-14591831445956696588 topic_uid:-1
+I0916 10:43:42.559569 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.559571 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.559571 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559573 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.559574 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559576 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.559576 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.559577 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559579 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559581 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559583 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.559584 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.559585 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.559587 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.559588 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.559589 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.559592 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/camera/head_left_fisheye, type:CosineDataPacket, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.559594 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/camera/head_left_fisheye, uri:
+I0916 10:43:42.559599 1334406 cosine_bus_manager.cpp:130] [cosine_internal][CosineBusManager] cosine bus already initialised
+I0916 10:43:42.559602 1334406 cosine_bus_manager.cpp:423] [cosine_internal][CosineBusManager] create default subscriber. topic name:/camera/head_right_fisheye
+I0916 10:43:42.559603 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/camera/head_right_fisheyehttp://10.42.1.101:2379
+I0916 10:43:42.559613 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___camera__head_right_fisheye, type CosineDataPacket, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 0, enable_event_sync_subscriber 1], buffer id = 5
+I0916 10:43:42.559616 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___camera__head_right_fisheye, type:CosineDataPacket, size:5
+I0916 10:43:42.559624 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/camera/head_right_fisheye, uid:d5000ed9-edb6-4a8d-8129-9af2de85b48a-11724137809755197201 topic_uid:-1
+I0916 10:43:42.559631 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.559633 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.559633 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559635 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.559638 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559638 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.559639 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.559640 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559641 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559643 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559644 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.559645 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.559646 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.559648 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.559649 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.559650 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.559654 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/camera/head_right_fisheye, type:CosineDataPacket, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.559656 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/camera/head_right_fisheye, uri:
+I0916 10:43:42.559659 1334406 cosine_bus_manager.cpp:130] [cosine_internal][CosineBusManager] cosine bus already initialised
+I0916 10:43:42.559662 1334406 cosine_bus_manager.cpp:423] [cosine_internal][CosineBusManager] create default subscriber. topic name:/camera/head_stereo_left
+I0916 10:43:42.559664 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/camera/head_stereo_lefthttp://10.42.1.101:2379
+I0916 10:43:42.559674 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___camera__head_stereo_left, type CosineDataPacket, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 0, enable_event_sync_subscriber 1], buffer id = 6
+I0916 10:43:42.559675 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___camera__head_stereo_left, type:CosineDataPacket, size:5
+I0916 10:43:42.559685 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/camera/head_stereo_left, uid:ea776ae2-c239-42be-8670-c1d16ebd6b16-2772564262404746643 topic_uid:-1
+I0916 10:43:42.559691 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.559692 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.559695 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559695 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.559696 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559697 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.559698 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.559700 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559701 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559702 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559703 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.559705 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.559706 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.559707 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.559708 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.559710 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.559713 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/camera/head_stereo_left, type:CosineDataPacket, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.559715 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/camera/head_stereo_left, uri:
+I0916 10:43:42.559718 1334406 cosine_bus_manager.cpp:130] [cosine_internal][CosineBusManager] cosine bus already initialised
+I0916 10:43:42.559722 1334406 cosine_bus_manager.cpp:423] [cosine_internal][CosineBusManager] create default subscriber. topic name:/camera/head_stereo_right
+I0916 10:43:42.559724 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/camera/head_stereo_righthttp://10.42.1.101:2379
+I0916 10:43:42.559731 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___camera__head_stereo_right, type CosineDataPacket, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 0, enable_event_sync_subscriber 1], buffer id = 7
+I0916 10:43:42.559736 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___camera__head_stereo_right, type:CosineDataPacket, size:5
+I0916 10:43:42.559744 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/camera/head_stereo_right, uid:ed0ba558-b736-463a-b73b-8c270d49cda5-8400981831882539399 topic_uid:-1
+I0916 10:43:42.559751 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.559752 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.559754 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559755 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.559756 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559757 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.559758 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.559760 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559762 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559763 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559764 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.559765 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.559767 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.559768 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.559769 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.559770 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.559773 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/camera/head_stereo_right, type:CosineDataPacket, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.559775 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/camera/head_stereo_right, uri:
+I0916 10:43:42.559779 1334406 cosine_bus_manager.cpp:130] [cosine_internal][CosineBusManager] cosine bus already initialised
+I0916 10:43:42.559783 1334406 cosine_bus_manager.cpp:423] [cosine_internal][CosineBusManager] create default subscriber. topic name:/camera/hand_left_color
+I0916 10:43:42.559785 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/camera/hand_left_colorhttp://10.42.1.101:2379
+I0916 10:43:42.559794 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___camera__hand_left_color, type CosineDataPacket, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 0, enable_event_sync_subscriber 1], buffer id = 8
+I0916 10:43:42.559796 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___camera__hand_left_color, type:CosineDataPacket, size:5
+I0916 10:43:42.559805 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/camera/hand_left_color, uid:d4881376-bd5e-40f7-b220-27d2f3559e6e-16768487626907404343 topic_uid:-1
+I0916 10:43:42.559813 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.559813 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.559814 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559816 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.559818 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559819 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.559820 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.559821 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559823 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559823 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559825 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.559826 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.559827 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.559828 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.559829 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.559831 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.559834 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/camera/hand_left_color, type:CosineDataPacket, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.559837 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/camera/hand_left_color, uri:
+I0916 10:43:42.559840 1334406 cosine_bus_manager.cpp:130] [cosine_internal][CosineBusManager] cosine bus already initialised
+I0916 10:43:42.559844 1334406 cosine_bus_manager.cpp:423] [cosine_internal][CosineBusManager] create default subscriber. topic name:/camera/hand_right_color
+I0916 10:43:42.559845 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/camera/hand_right_colorhttp://10.42.1.101:2379
+I0916 10:43:42.559854 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___camera__hand_right_color, type CosineDataPacket, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 0, enable_event_sync_subscriber 1], buffer id = 9
+I0916 10:43:42.559856 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___camera__hand_right_color, type:CosineDataPacket, size:5
+I0916 10:43:42.559866 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/camera/hand_right_color, uid:205dd4bc-00a3-4782-85ea-05335a5ff0db-8629761233962563373 topic_uid:-1
+I0916 10:43:42.559872 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.559873 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.559875 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559876 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.559877 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559878 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.559880 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.559880 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559882 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559883 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559885 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.559885 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.559886 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.559888 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.559890 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.559891 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.559894 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/camera/hand_right_color, type:CosineDataPacket, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.559896 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/camera/hand_right_color, uri:
+I0916 10:43:42.559899 1334406 cosine_bus_manager.cpp:130] [cosine_internal][CosineBusManager] cosine bus already initialised
+I0916 10:43:42.559903 1334406 cosine_bus_manager.cpp:423] [cosine_internal][CosineBusManager] create default subscriber. topic name:/camera/head_color
+I0916 10:43:42.559906 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/camera/head_colorhttp://10.42.1.101:2379
+I0916 10:43:42.559912 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___camera__head_color, type CosineDataPacket, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 0, enable_event_sync_subscriber 1], buffer id = 10
+I0916 10:43:42.559917 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___camera__head_color, type:CosineDataPacket, size:5
+I0916 10:43:42.559926 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/camera/head_color, uid:949e7548-bfe7-48f3-bf9b-a7cdf2d3387a-2515219504367417955 topic_uid:-1
+I0916 10:43:42.559932 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.559934 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.559935 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559938 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.559939 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559940 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.559942 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.559943 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.559944 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559947 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.559948 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.559950 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.559952 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.559953 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.559954 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.559957 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.559959 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/camera/head_color, type:CosineDataPacket, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.559962 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/camera/head_color, uri:
+I0916 10:43:42.559967 1334406 cosine_bus_manager.cpp:130] [cosine_internal][CosineBusManager] cosine bus already initialised
+I0916 10:43:42.559971 1334406 cosine_bus_manager.cpp:423] [cosine_internal][CosineBusManager] create default subscriber. topic name:/camera/head_depth
+I0916 10:43:42.559973 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/camera/head_depthhttp://10.42.1.101:2379
+I0916 10:43:42.559984 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___camera__head_depth, type CosineDataPacket, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 0, enable_event_sync_subscriber 1], buffer id = 11
+I0916 10:43:42.559989 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___camera__head_depth, type:CosineDataPacket, size:5
+I0916 10:43:42.560002 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/camera/head_depth, uid:a84658cd-8815-411c-ab0f-f2a22ed1fd99-14849645885661810178 topic_uid:-1
+I0916 10:43:42.560019 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.560019 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.560021 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560022 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.560024 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560025 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.560027 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.560029 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560029 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560031 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560034 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.560034 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.560036 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.560037 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.560039 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.560040 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.560045 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/camera/head_depth, type:CosineDataPacket, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.560047 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/camera/head_depth, uri:
+I0916 10:43:42.560052 1334406 cosine_bus_manager.cpp:130] [cosine_internal][CosineBusManager] cosine bus already initialised
+I0916 10:43:42.560057 1334406 cosine_bus_manager.cpp:423] [cosine_internal][CosineBusManager] create default subscriber. topic name:/camera/hand_left_depth
+I0916 10:43:42.560060 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/camera/hand_left_depthhttp://10.42.1.101:2379
+I0916 10:43:42.560070 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___camera__hand_left_depth, type CosineDataPacket, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 0, enable_event_sync_subscriber 1], buffer id = 12
+I0916 10:43:42.560073 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___camera__hand_left_depth, type:CosineDataPacket, size:5
+I0916 10:43:42.560087 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/camera/hand_left_depth, uid:1e6698dd-95cd-4d7c-a539-a69a3618b41d-13237741933269507762 topic_uid:-1
+I0916 10:43:42.560098 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.560101 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.560102 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560103 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.560111 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560113 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.560114 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.560115 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560117 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560117 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560119 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.560120 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.560122 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.560123 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.560124 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.560125 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.560129 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/camera/hand_left_depth, type:CosineDataPacket, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.560132 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/camera/hand_left_depth, uri:
+I0916 10:43:42.560135 1334406 cosine_bus_manager.cpp:130] [cosine_internal][CosineBusManager] cosine bus already initialised
+I0916 10:43:42.560141 1334406 cosine_bus_manager.cpp:423] [cosine_internal][CosineBusManager] create default subscriber. topic name:/camera/hand_right_depth
+I0916 10:43:42.560142 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/camera/hand_right_depthhttp://10.42.1.101:2379
+I0916 10:43:42.560153 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___camera__hand_right_depth, type CosineDataPacket, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 0, enable_event_sync_subscriber 1], buffer id = 13
+I0916 10:43:42.560155 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___camera__hand_right_depth, type:CosineDataPacket, size:5
+I0916 10:43:42.560165 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/camera/hand_right_depth, uid:ad9a1a5e-c725-4213-96c7-4114fd13da62-17867573658284279546 topic_uid:-1
+I0916 10:43:42.560171 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.560173 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.560174 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560175 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.560176 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560178 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.560179 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.560180 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560181 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560182 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560184 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.560185 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.560186 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.560187 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.560189 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.560190 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.560194 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/camera/hand_right_depth, type:CosineDataPacket, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.560195 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/camera/hand_right_depth, uri:
+I0916 10:43:42.560199 1334406 cosine_bus_manager.cpp:130] [cosine_internal][CosineBusManager] cosine bus already initialised
+I0916 10:43:42.560202 1334406 cosine_bus_manager.cpp:423] [cosine_internal][CosineBusManager] create default subscriber. topic name:/camera/hand_left_upper_color
+I0916 10:43:42.560204 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/camera/hand_left_upper_colorhttp://10.42.1.101:2379
+I0916 10:43:42.560213 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___camera__hand_left_upper_color, type CosineDataPacket, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 0, enable_event_sync_subscriber 1], buffer id = 14
+I0916 10:43:42.560217 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___camera__hand_left_upper_color, type:CosineDataPacket, size:5
+I0916 10:43:42.560226 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/camera/hand_left_upper_color, uid:76ce9f5f-cd10-4fd7-9d98-9ec91e8ebe6a-10419009240684809358 topic_uid:-1
+I0916 10:43:42.560233 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.560235 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.560236 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560237 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.560238 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560240 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.560241 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.560242 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560243 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560245 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560245 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.560247 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.560248 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.560249 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.560250 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.560252 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.560256 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/camera/hand_left_upper_color, type:CosineDataPacket, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.560258 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/camera/hand_left_upper_color, uri:
+I0916 10:43:42.560261 1334406 cosine_bus_manager.cpp:130] [cosine_internal][CosineBusManager] cosine bus already initialised
+I0916 10:43:42.560266 1334406 cosine_bus_manager.cpp:423] [cosine_internal][CosineBusManager] create default subscriber. topic name:/camera/hand_right_upper_color
+I0916 10:43:42.560267 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/camera/hand_right_upper_colorhttp://10.42.1.101:2379
+I0916 10:43:42.560276 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___camera__hand_right_upper_color, type CosineDataPacket, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 0, enable_event_sync_subscriber 1], buffer id = 15
+I0916 10:43:42.560279 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___camera__hand_right_upper_color, type:CosineDataPacket, size:5
+I0916 10:43:42.560287 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/camera/hand_right_upper_color, uid:92ee01fa-ef3b-4b5a-ae47-55daa783c5d9-14436869942545931775 topic_uid:-1
+I0916 10:43:42.560294 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.560295 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.560297 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560298 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.560299 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560300 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.560302 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.560303 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560304 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560305 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560307 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.560308 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.560309 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.560312 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.560312 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.560313 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.560316 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/camera/hand_right_upper_color, type:CosineDataPacket, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.560318 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/camera/hand_right_upper_color, uri:
+I0916 10:43:42.560321 1334406 cosine_bus_manager.cpp:130] [cosine_internal][CosineBusManager] cosine bus already initialised
+I0916 10:43:42.560326 1334406 cosine_bus_manager.cpp:423] [cosine_internal][CosineBusManager] create default subscriber. topic name:/camera/hand_left_lower_color
+I0916 10:43:42.560328 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/camera/hand_left_lower_colorhttp://10.42.1.101:2379
+I0916 10:43:42.560338 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___camera__hand_left_lower_color, type CosineDataPacket, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 0, enable_event_sync_subscriber 1], buffer id = 16
+I0916 10:43:42.560340 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___camera__hand_left_lower_color, type:CosineDataPacket, size:5
+I0916 10:43:42.560348 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/camera/hand_left_lower_color, uid:69d9372b-03e7-4e41-9879-9e225d34d60d-4503626684902531612 topic_uid:-1
+I0916 10:43:42.560355 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.560356 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.560357 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560359 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.560360 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560361 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.560366 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.560367 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560369 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560369 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560370 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.560372 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.560374 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.560374 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.560375 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.560376 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.560379 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/camera/hand_left_lower_color, type:CosineDataPacket, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.560384 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/camera/hand_left_lower_color, uri:
+I0916 10:43:42.560386 1334406 cosine_bus_manager.cpp:130] [cosine_internal][CosineBusManager] cosine bus already initialised
+I0916 10:43:42.560389 1334406 cosine_bus_manager.cpp:423] [cosine_internal][CosineBusManager] create default subscriber. topic name:/camera/hand_right_lower_color
+I0916 10:43:42.560391 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/camera/hand_right_lower_colorhttp://10.42.1.101:2379
+I0916 10:43:42.560400 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___camera__hand_right_lower_color, type CosineDataPacket, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 0, enable_event_sync_subscriber 1], buffer id = 17
+I0916 10:43:42.560402 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___camera__hand_right_lower_color, type:CosineDataPacket, size:5
+I0916 10:43:42.560411 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/camera/hand_right_lower_color, uid:15dc3f2c-5d09-49be-8ab3-9bbc861e21d5-8186110446424813557 topic_uid:-1
+I0916 10:43:42.560420 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.560420 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.560421 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560422 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.560423 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560425 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.560426 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.560427 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560428 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560429 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560431 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.560432 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.560433 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.560434 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.560436 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.560437 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.560441 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/camera/hand_right_lower_color, type:CosineDataPacket, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.560443 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/camera/hand_right_lower_color, uri:
+I0916 10:43:42.560446 1334406 cosine_bus_manager.cpp:130] [cosine_internal][CosineBusManager] cosine bus already initialised
+I0916 10:43:42.560449 1334406 cosine_bus_manager.cpp:423] [cosine_internal][CosineBusManager] create default subscriber. topic name:/camera/hand_left_upper_depth
+I0916 10:43:42.560451 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/camera/hand_left_upper_depthhttp://10.42.1.101:2379
+I0916 10:43:42.560459 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___camera__hand_left_upper_depth, type CosineDataPacket, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 0, enable_event_sync_subscriber 1], buffer id = 18
+I0916 10:43:42.560463 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___camera__hand_left_upper_depth, type:CosineDataPacket, size:5
+I0916 10:43:42.560472 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/camera/hand_left_upper_depth, uid:3ef45264-ab28-4088-a06c-4a47647c89cc-12072037676595526463 topic_uid:-1
+I0916 10:43:42.560478 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.560479 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.560480 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560482 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.560482 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560484 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.560485 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.560487 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560488 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560490 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560491 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.560492 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.560493 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.560494 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.560496 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.560497 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.560500 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/camera/hand_left_upper_depth, type:CosineDataPacket, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.560503 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/camera/hand_left_upper_depth, uri:
+I0916 10:43:42.560506 1334406 cosine_bus_manager.cpp:130] [cosine_internal][CosineBusManager] cosine bus already initialised
+I0916 10:43:42.560510 1334406 cosine_bus_manager.cpp:423] [cosine_internal][CosineBusManager] create default subscriber. topic name:/camera/hand_right_upper_depth
+I0916 10:43:42.560511 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/camera/hand_right_upper_depthhttp://10.42.1.101:2379
+I0916 10:43:42.560520 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___camera__hand_right_upper_depth, type CosineDataPacket, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 0, enable_event_sync_subscriber 1], buffer id = 19
+I0916 10:43:42.560523 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___camera__hand_right_upper_depth, type:CosineDataPacket, size:5
+I0916 10:43:42.560531 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/camera/hand_right_upper_depth, uid:5ee1d913-cab5-4f34-825d-bb3f1976a61c-15534589775061933553 topic_uid:-1
+I0916 10:43:42.560539 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.560539 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.560542 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560544 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.560544 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560545 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.560546 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.560549 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560549 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560550 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560551 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.560552 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.560554 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.560555 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.560556 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.560557 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.560561 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/camera/hand_right_upper_depth, type:CosineDataPacket, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.560563 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/camera/hand_right_upper_depth, uri:
+I0916 10:43:42.560566 1334406 cosine_bus_manager.cpp:130] [cosine_internal][CosineBusManager] cosine bus already initialised
+I0916 10:43:42.560570 1334406 cosine_bus_manager.cpp:423] [cosine_internal][CosineBusManager] create default subscriber. topic name:/camera/hand_left_lower_depth
+I0916 10:43:42.560571 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/camera/hand_left_lower_depthhttp://10.42.1.101:2379
+I0916 10:43:42.560580 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___camera__hand_left_lower_depth, type CosineDataPacket, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 0, enable_event_sync_subscriber 1], buffer id = 20
+I0916 10:43:42.560582 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___camera__hand_left_lower_depth, type:CosineDataPacket, size:5
+I0916 10:43:42.560591 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/camera/hand_left_lower_depth, uid:aad29c60-9570-431f-be9b-84a5864fa293-14499789538593900557 topic_uid:-1
+I0916 10:43:42.560598 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.560599 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.560600 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560601 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.560603 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560604 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.560606 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.560606 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560607 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560608 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560611 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.560611 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.560612 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.560614 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.560616 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.560617 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.560619 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/camera/hand_left_lower_depth, type:CosineDataPacket, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.560622 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/camera/hand_left_lower_depth, uri:
+I0916 10:43:42.560626 1334406 cosine_bus_manager.cpp:130] [cosine_internal][CosineBusManager] cosine bus already initialised
+I0916 10:43:42.560629 1334406 cosine_bus_manager.cpp:423] [cosine_internal][CosineBusManager] create default subscriber. topic name:/camera/hand_right_lower_depth
+I0916 10:43:42.560631 1334406 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/camera/hand_right_lower_depthhttp://10.42.1.101:2379
+I0916 10:43:42.560639 1334406 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___camera__hand_right_lower_depth, type CosineDataPacket, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 0, enable_event_sync_subscriber 1], buffer id = 21
+I0916 10:43:42.560642 1334406 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___camera__hand_right_lower_depth, type:CosineDataPacket, size:5
+I0916 10:43:42.560650 1334406 node_impl.cc:344] [aorta]CreateSubscriber topic:/camera/hand_right_lower_depth, uid:654ae189-f6b9-4074-82c0-9436897a3923-9839082178762803487 topic_uid:-1
+I0916 10:43:42.560657 1334406 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.560658 1334406 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.560659 1334406 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560660 1334406 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.560662 1334406 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560663 1334406 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.560667 1334406 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.560667 1334406 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.560668 1334406 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560669 1334406 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.560670 1334406 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.560672 1334406 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.560673 1334406 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.560674 1334406 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.560675 1334406 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.560676 1334406 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.560679 1334406 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/camera/hand_right_lower_depth, type:CosineDataPacket, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I0916 10:43:42.560681 1334406 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/camera/hand_right_lower_depth, uri:
+I0916 10:43:42.565052 1334474 centralized_discovery.cc:1110] [aorta]poll thread: revision:999
+I0916 10:43:42.565063 1334474 centralized_discovery.cc:1123] [aorta]inotify_fd_:14 inotify_watch_:-1 inotify_watch_path:/home/agi/app/conf/aorta/function
+I0916 10:43:42.568578 1334474 centralized_discovery.cc:615] [aorta]grant lease for node python3.10_S1 lease_id = 7587720947200047986
+I0916 10:43:42.571743 1334474 centralized_discovery.cc:681] [aorta]publisher uid:4a3b5204-b4ec-4d37-bca1-5eb801c20ff2-4991715019463590898 topic:/gdk/config_request
+I0916 10:43:42.574487 1334474 centralized_discovery.cc:681] [aorta]publisher uid:6de79e9f-60af-4b46-8299-1ed4ae170afc-9117180461459404870 topic:/gdk/camera_conf_request
+I0916 10:43:42.575592 1334482 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/gdk/config_request,local 10.42.1.11:38745, peer 10.42.1.101:41345
+I0916 10:43:42.576295 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:d149c032-f5dd-47ea-a4e9-b6cfd57dc639-9533047780102618842 topic:/gdk/config_response
+I0916 10:43:42.576999 1334482 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/gdk/camera_conf_request,local 10.42.1.11:39193, peer 10.42.1.101:36863
+I0916 10:43:42.577719 1334474 topology_rule.cc:233] [aorta]Subnet match found. Original pub_ip: 10.42.1.101 sub_ip: 127.0.0.1 using matched pub_ip: 10.42.1.101 sub_ip: 10.42.1.11
+I0916 10:43:42.577729 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:420563ca-a200-46de-93d6-3b92ef96dfc4-3551884323222435368 topic:/gdk/camera_conf_response
+I0916 10:43:42.577984 1334483 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /gdk/config_response, local 10.42.1.11:35755, peer 10.42.1.101:43437
+I0916 10:43:42.578002 1334483 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.578003 1334483 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.578004 1334483 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.578006 1334483 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.578006 1334483 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.578007 1334483 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.578007 1334483 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.578008 1334483 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.578009 1334483 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.578011 1334483 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.578011 1334483 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.578011 1334483 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.578012 1334483 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.578013 1334483 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.578014 1334483 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.578014 1334483 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.580183 1334474 topology_rule.cc:233] [aorta]Subnet match found. Original pub_ip: 10.42.1.101 sub_ip: 127.0.0.1 using matched pub_ip: 10.42.1.101 sub_ip: 10.42.1.11
+I0916 10:43:42.580191 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:d6911406-daf5-43df-9616-07f681e7e3f6-10407449922038425096 topic:/camera/head_back_fisheye
+I0916 10:43:42.580349 1334483 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /gdk/camera_conf_response, local 10.42.1.11:43563, peer 10.42.1.101:37257
+I0916 10:43:42.580356 1334483 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.580358 1334483 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.580358 1334483 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.580359 1334483 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.580359 1334483 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.580360 1334483 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.580361 1334483 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.580361 1334483 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.580364 1334483 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.580364 1334483 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.580366 1334483 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.580367 1334483 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.580368 1334483 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.580368 1334483 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.580369 1334483 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.580370 1334483 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.581501 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:2ade6737-8840-410c-8d31-2585e2b835ac-14591831445956696588 topic:/camera/head_left_fisheye
+I0916 10:43:42.582816 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:d5000ed9-edb6-4a8d-8129-9af2de85b48a-11724137809755197201 topic:/camera/head_right_fisheye
+I0916 10:43:42.584444 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:ea776ae2-c239-42be-8670-c1d16ebd6b16-2772564262404746643 topic:/camera/head_stereo_left
+I0916 10:43:42.585723 1334474 topology_rule.cc:233] [aorta]Subnet match found. Original pub_ip: 10.42.1.101 sub_ip: 127.0.0.1 using matched pub_ip: 10.42.1.101 sub_ip: 10.42.1.11
+I0916 10:43:42.585734 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:ed0ba558-b736-463a-b73b-8c270d49cda5-8400981831882539399 topic:/camera/head_stereo_right
+I0916 10:43:42.585868 1334483 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /camera/head_stereo_left, local 10.42.1.11:41809, peer 10.42.1.101:33643
+I0916 10:43:42.585875 1334483 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.585875 1334483 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.585876 1334483 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.585876 1334483 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.585877 1334483 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.585878 1334483 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.585878 1334483 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.585879 1334483 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.585880 1334483 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.585881 1334483 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.585881 1334483 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.585882 1334483 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.585883 1334483 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.585883 1334483 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.585884 1334483 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.585886 1334483 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.587299 1334474 topology_rule.cc:233] [aorta]Subnet match found. Original pub_ip: 10.42.1.101 sub_ip: 127.0.0.1 using matched pub_ip: 10.42.1.101 sub_ip: 10.42.1.11
+I0916 10:43:42.587307 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:d4881376-bd5e-40f7-b220-27d2f3559e6e-16768487626907404343 topic:/camera/hand_left_color
+I0916 10:43:42.587383 1334483 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /camera/head_stereo_right, local 10.42.1.11:34081, peer 10.42.1.101:37063
+I0916 10:43:42.587386 1334483 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.587387 1334483 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.587388 1334483 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.587388 1334483 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.587390 1334483 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.587391 1334483 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.587396 1334483 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.587396 1334483 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.587397 1334483 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.587399 1334483 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.587399 1334483 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.587399 1334483 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.587399 1334483 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.587400 1334483 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.587401 1334483 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.587401 1334483 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.588562 1334474 topology_rule.cc:233] [aorta]Subnet match found. Original pub_ip: 10.42.1.101 sub_ip: 127.0.0.1 using matched pub_ip: 10.42.1.101 sub_ip: 10.42.1.11
+I0916 10:43:42.588570 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:205dd4bc-00a3-4782-85ea-05335a5ff0db-8629761233962563373 topic:/camera/hand_right_color
+I0916 10:43:42.588650 1334483 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /camera/hand_left_color, local 10.42.1.11:34305, peer 10.42.1.101:46831
+I0916 10:43:42.588653 1334483 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.588654 1334483 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.588655 1334483 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.588656 1334483 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.588657 1334483 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.588657 1334483 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.588658 1334483 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.588660 1334483 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.588660 1334483 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.588660 1334483 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.588661 1334483 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.588662 1334483 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.588662 1334483 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.588663 1334483 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.588665 1334483 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.588665 1334483 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.590229 1334474 topology_rule.cc:233] [aorta]Subnet match found. Original pub_ip: 10.42.1.101 sub_ip: 127.0.0.1 using matched pub_ip: 10.42.1.101 sub_ip: 10.42.1.11
+I0916 10:43:42.590240 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:949e7548-bfe7-48f3-bf9b-a7cdf2d3387a-2515219504367417955 topic:/camera/head_color
+I0916 10:43:42.590332 1334483 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /camera/hand_right_color, local 10.42.1.11:41397, peer 10.42.1.101:42347
+I0916 10:43:42.590334 1334483 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.590335 1334483 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.590337 1334483 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.590337 1334483 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.590337 1334483 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.590337 1334483 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.590338 1334483 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.590339 1334483 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.590340 1334483 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.590341 1334483 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.590341 1334483 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.590342 1334483 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.590342 1334483 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.590343 1334483 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.590344 1334483 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.590344 1334483 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.592536 1334474 topology_rule.cc:233] [aorta]Subnet match found. Original pub_ip: 10.42.1.101 sub_ip: 127.0.0.1 using matched pub_ip: 10.42.1.101 sub_ip: 10.42.1.11
+I0916 10:43:42.592545 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:a84658cd-8815-411c-ab0f-f2a22ed1fd99-14849645885661810178 topic:/camera/head_depth
+I0916 10:43:42.592649 1334483 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /camera/head_color, local 10.42.1.11:33417, peer 10.42.1.101:43625
+I0916 10:43:42.592653 1334483 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.592653 1334483 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.592654 1334483 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.592654 1334483 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.592655 1334483 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.592656 1334483 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.592656 1334483 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.592657 1334483 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.592658 1334483 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.592658 1334483 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.592659 1334483 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.592660 1334483 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.592660 1334483 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.592661 1334483 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.592662 1334483 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.592662 1334483 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.593820 1334474 topology_rule.cc:233] [aorta]Subnet match found. Original pub_ip: 10.42.1.101 sub_ip: 127.0.0.1 using matched pub_ip: 10.42.1.101 sub_ip: 10.42.1.11
+I0916 10:43:42.593827 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:1e6698dd-95cd-4d7c-a539-a69a3618b41d-13237741933269507762 topic:/camera/hand_left_depth
+I0916 10:43:42.594034 1334483 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /camera/head_depth, local 10.42.1.11:38607, peer 10.42.1.101:39957
+I0916 10:43:42.594036 1334483 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I0916 10:43:42.594038 1334483 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I0916 10:43:42.594038 1334483 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.594038 1334483 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I0916 10:43:42.594039 1334483 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.594039 1334483 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I0916 10:43:42.594040 1334483 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I0916 10:43:42.594041 1334483 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I0916 10:43:42.594041 1334483 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.594043 1334483 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I0916 10:43:42.594043 1334483 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I0916 10:43:42.594043 1334483 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I0916 10:43:42.594044 1334483 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I0916 10:43:42.594044 1334483 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I0916 10:43:42.594045 1334483 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I0916 10:43:42.594045 1334483 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I0916 10:43:42.595377 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:ad9a1a5e-c725-4213-96c7-4114fd13da62-17867573658284279546 topic:/camera/hand_right_depth
+I0916 10:43:42.596653 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:76ce9f5f-cd10-4fd7-9d98-9ec91e8ebe6a-10419009240684809358 topic:/camera/hand_left_upper_color
+I0916 10:43:42.597875 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:92ee01fa-ef3b-4b5a-ae47-55daa783c5d9-14436869942545931775 topic:/camera/hand_right_upper_color
+I0916 10:43:42.599463 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:69d9372b-03e7-4e41-9879-9e225d34d60d-4503626684902531612 topic:/camera/hand_left_lower_color
+I0916 10:43:42.602643 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:15dc3f2c-5d09-49be-8ab3-9bbc861e21d5-8186110446424813557 topic:/camera/hand_right_lower_color
+I0916 10:43:42.606072 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:3ef45264-ab28-4088-a06c-4a47647c89cc-12072037676595526463 topic:/camera/hand_left_upper_depth
+I0916 10:43:42.608628 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:5ee1d913-cab5-4f34-825d-bb3f1976a61c-15534589775061933553 topic:/camera/hand_right_upper_depth
+W0916 10:43:42.609365 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_depth end to end latency is 1789526622609ms. sqn:249280 pub_ts:0.000000000 tcp size:512128 
+I0916 10:43:42.612440 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:aad29c60-9570-431f-be9b-84a5864fa293-14499789538593900557 topic:/camera/hand_left_lower_depth
+W0916 10:43:42.613384 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_left_color end to end latency is 1789526622613ms. sqn:249280 pub_ts:0.000000000 tcp size:208456 
+I0916 10:43:42.614964 1334474 centralized_discovery.cc:733] [aorta]subscriber uid:654ae189-f6b9-4074-82c0-9436897a3923-9839082178762803487 topic:/camera/hand_right_lower_depth
+I0916 10:43:42.617565 1334474 watch_state.cc:54] [aorta]watch connect success.
+W0916 10:43:42.618225 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_color end to end latency is 1789526622618ms. sqn:249280 pub_ts:0.000000000 tcp size:78622 
+I0916 10:43:42.619187 1334474 centralized_discovery.cc:1615] [aorta]recv watch response created.
+W0916 10:43:42.619445 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_right end to end latency is 1789526622619ms. sqn:249279 pub_ts:0.000000000 tcp size:526613 
+W0916 10:43:42.620442 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_right_color end to end latency is 1789526622620ms. sqn:249280 pub_ts:0.000000000 tcp size:152842 
+W0916 10:43:42.625231 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_left end to end latency is 1789526622625ms. sqn:249280 pub_ts:0.000000000 tcp size:511641 
+W0916 10:43:42.638024 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_depth end to end latency is 1789526622638ms. sqn:249281 pub_ts:0.000000000 tcp size:512128 
+W0916 10:43:42.639957 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_left_color end to end latency is 1789526622639ms. sqn:249281 pub_ts:0.000000000 tcp size:208659 
+W0916 10:43:42.647449 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_color end to end latency is 1789526622647ms. sqn:249281 pub_ts:0.000000000 tcp size:77903 
+W0916 10:43:42.648012 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_right_color end to end latency is 1789526622648ms. sqn:249281 pub_ts:0.000000000 tcp size:152562 
+W0916 10:43:42.939253 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_color end to end latency is 1789526622939ms. sqn:249290 pub_ts:0.000000000 tcp size:78053 
+W0916 10:43:42.941394 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_depth end to end latency is 1789526622941ms. sqn:249290 pub_ts:0.000000000 tcp size:512128 
+W0916 10:43:42.942675 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_left_color end to end latency is 1789526622942ms. sqn:249290 pub_ts:0.000000000 tcp size:208977 
+W0916 10:43:42.946583 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_right end to end latency is 1789526622946ms. sqn:249289 pub_ts:0.000000000 tcp size:526163 
+W0916 10:43:42.949327 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_right_color end to end latency is 1789526622949ms. sqn:249290 pub_ts:0.000000000 tcp size:152919 
+W0916 10:43:42.952795 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_left end to end latency is 1789526622952ms. sqn:249290 pub_ts:0.000000000 tcp size:511880 
+W0916 10:43:49.610582 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_depth end to end latency is 1789526629610ms. sqn:249490 pub_ts:0.000000000 tcp size:512128 
+W0916 10:43:49.613329 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_left_color end to end latency is 1789526629613ms. sqn:249490 pub_ts:0.000000000 tcp size:234067 
+W0916 10:43:49.613353 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_color end to end latency is 1789526629613ms. sqn:249490 pub_ts:0.000000000 tcp size:76591 
+W0916 10:43:49.617292 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_right_color end to end latency is 1789526629617ms. sqn:249490 pub_ts:0.000000000 tcp size:152524 
+W0916 10:43:49.617877 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_right end to end latency is 1789526629617ms. sqn:249489 pub_ts:0.000000000 tcp size:526178 
+W0916 10:43:49.622550 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_left end to end latency is 1789526629622ms. sqn:249490 pub_ts:0.000000000 tcp size:509677 
+W0916 10:43:56.277205 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_color end to end latency is 1789526636277ms. sqn:249690 pub_ts:0.000000000 tcp size:76822 
+W0916 10:43:56.282915 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_left_color end to end latency is 1789526636282ms. sqn:249690 pub_ts:0.000000000 tcp size:230581 
+W0916 10:43:56.285072 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_left end to end latency is 1789526636285ms. sqn:249690 pub_ts:0.000000000 tcp size:509194 
+W0916 10:43:56.285964 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_right end to end latency is 1789526636285ms. sqn:249689 pub_ts:0.000000000 tcp size:525184 
+W0916 10:43:56.288317 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_right_color end to end latency is 1789526636288ms. sqn:249690 pub_ts:0.000000000 tcp size:152800 
+W0916 10:43:56.301568 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_depth end to end latency is 1789526636301ms. sqn:249690 pub_ts:0.000000000 tcp size:512128 
+W0916 10:44:02.944574 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_color end to end latency is 1789526642944ms. sqn:249890 pub_ts:0.000000000 tcp size:77830 
+W0916 10:44:02.945683 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_depth end to end latency is 1789526642945ms. sqn:249890 pub_ts:0.000000000 tcp size:512128 
+W0916 10:44:02.950243 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_right_color end to end latency is 1789526642950ms. sqn:249890 pub_ts:0.000000000 tcp size:152194 
+W0916 10:44:02.951269 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_left_color end to end latency is 1789526642951ms. sqn:249890 pub_ts:0.000000000 tcp size:229107 
+W0916 10:44:02.952987 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_right end to end latency is 1789526642952ms. sqn:249889 pub_ts:0.000000000 tcp size:527248 
+W0916 10:44:02.954862 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_left end to end latency is 1789526642954ms. sqn:249890 pub_ts:0.000000000 tcp size:509706 
+W0916 10:44:09.619251 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_depth end to end latency is 1789526649619ms. sqn:250090 pub_ts:0.000000000 tcp size:512128 
+W0916 10:44:09.627007 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_color end to end latency is 1789526649626ms. sqn:250090 pub_ts:0.000000000 tcp size:77499 
+W0916 10:44:09.631291 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_left end to end latency is 1789526649631ms. sqn:250090 pub_ts:0.000000000 tcp size:507890 
+W0916 10:44:09.631335 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_right_color end to end latency is 1789526649631ms. sqn:250090 pub_ts:0.000000000 tcp size:153194 
+W0916 10:44:09.633263 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_right end to end latency is 1789526649633ms. sqn:250089 pub_ts:0.000000000 tcp size:525595 
+W0916 10:44:09.635078 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_left_color end to end latency is 1789526649635ms. sqn:250090 pub_ts:0.000000000 tcp size:226728 
+W0916 10:44:16.287346 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_depth end to end latency is 1789526656287ms. sqn:250290 pub_ts:0.000000000 tcp size:512128 
+W0916 10:44:16.293881 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_left_color end to end latency is 1789526656293ms. sqn:250290 pub_ts:0.000000000 tcp size:209033 
+W0916 10:44:16.294548 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_right_color end to end latency is 1789526656294ms. sqn:250290 pub_ts:0.000000000 tcp size:153615 
+W0916 10:44:16.296296 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_color end to end latency is 1789526656296ms. sqn:250290 pub_ts:0.000000000 tcp size:77946 
+W0916 10:44:16.297178 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_left end to end latency is 1789526656297ms. sqn:250290 pub_ts:0.000000000 tcp size:509944 
+W0916 10:44:16.297463 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_right end to end latency is 1789526656297ms. sqn:250289 pub_ts:0.000000000 tcp size:524693 
+W0916 10:44:22.953293 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_depth end to end latency is 1789526662953ms. sqn:250490 pub_ts:0.000000000 tcp size:512128 
+W0916 10:44:22.956377 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_color end to end latency is 1789526662956ms. sqn:250490 pub_ts:0.000000000 tcp size:77773 
+W0916 10:44:22.958470 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_right_color end to end latency is 1789526662958ms. sqn:250490 pub_ts:0.000000000 tcp size:153621 
+W0916 10:44:22.959990 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_left_color end to end latency is 1789526662959ms. sqn:250490 pub_ts:0.000000000 tcp size:208788 
+W0916 10:44:22.963526 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_right end to end latency is 1789526662963ms. sqn:250489 pub_ts:0.000000000 tcp size:525820 
+W0916 10:44:22.965641 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_left end to end latency is 1789526662965ms. sqn:250490 pub_ts:0.000000000 tcp size:509500 
+W0916 10:44:29.621218 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_depth end to end latency is 1789526669621ms. sqn:250690 pub_ts:0.000000000 tcp size:512128 
+W0916 10:44:29.627866 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_color end to end latency is 1789526669627ms. sqn:250690 pub_ts:0.000000000 tcp size:77538 
+W0916 10:44:29.628877 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_right_color end to end latency is 1789526669628ms. sqn:250690 pub_ts:0.000000000 tcp size:153601 
+W0916 10:44:29.629376 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_left_color end to end latency is 1789526669629ms. sqn:250690 pub_ts:0.000000000 tcp size:208684 
+W0916 10:44:29.632189 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_right end to end latency is 1789526669632ms. sqn:250689 pub_ts:0.000000000 tcp size:524746 
+W0916 10:44:29.635241 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_left end to end latency is 1789526669635ms. sqn:250690 pub_ts:0.000000000 tcp size:509601 
+W0916 10:44:36.287789 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_depth end to end latency is 1789526676287ms. sqn:250890 pub_ts:0.000000000 tcp size:512128 
+W0916 10:44:36.296800 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_right end to end latency is 1789526676296ms. sqn:250889 pub_ts:0.000000000 tcp size:526036 
+W0916 10:44:36.299288 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_color end to end latency is 1789526676299ms. sqn:250890 pub_ts:0.000000000 tcp size:77424 
+W0916 10:44:36.300110 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_left end to end latency is 1789526676300ms. sqn:250890 pub_ts:0.000000000 tcp size:509899 
+W0916 10:44:36.300480 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_left_color end to end latency is 1789526676300ms. sqn:250890 pub_ts:0.000000000 tcp size:208735 
+W0916 10:44:36.301641 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_right_color end to end latency is 1789526676301ms. sqn:250890 pub_ts:0.000000000 tcp size:153141 
+W0916 10:44:42.954751 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_depth end to end latency is 1789526682954ms. sqn:251090 pub_ts:0.000000000 tcp size:512128 
+W0916 10:44:42.955439 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_color end to end latency is 1789526682955ms. sqn:251090 pub_ts:0.000000000 tcp size:75763 
+W0916 10:44:42.962590 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_left end to end latency is 1789526682962ms. sqn:251090 pub_ts:0.000000000 tcp size:506898 
+W0916 10:44:42.962775 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_left_color end to end latency is 1789526682962ms. sqn:251090 pub_ts:0.000000000 tcp size:209038 
+W0916 10:44:42.963068 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_right end to end latency is 1789526682963ms. sqn:251089 pub_ts:0.000000000 tcp size:525294 
+W0916 10:44:42.966774 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_right_color end to end latency is 1789526682966ms. sqn:251090 pub_ts:0.000000000 tcp size:153044 
+W0916 10:44:49.621038 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_depth end to end latency is 1789526689621ms. sqn:251290 pub_ts:0.000000000 tcp size:512128 
+W0916 10:44:49.626752 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_color end to end latency is 1789526689626ms. sqn:251290 pub_ts:0.000000000 tcp size:76994 
+W0916 10:44:49.626811 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_left_color end to end latency is 1789526689626ms. sqn:251290 pub_ts:0.000000000 tcp size:214720 
+W0916 10:44:49.633607 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_left end to end latency is 1789526689633ms. sqn:251290 pub_ts:0.000000000 tcp size:507287 
+W0916 10:44:49.634032 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_right_color end to end latency is 1789526689634ms. sqn:251290 pub_ts:0.000000000 tcp size:152382 
+W0916 10:44:49.635357 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_right end to end latency is 1789526689635ms. sqn:251289 pub_ts:0.000000000 tcp size:526995 
+W0916 10:44:56.291805 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_right_color end to end latency is 1789526696291ms. sqn:251490 pub_ts:0.000000000 tcp size:153429 
+W0916 10:44:56.292960 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_depth end to end latency is 1789526696292ms. sqn:251490 pub_ts:0.000000000 tcp size:512128 
+W0916 10:44:56.294157 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_color end to end latency is 1789526696294ms. sqn:251490 pub_ts:0.000000000 tcp size:76476 
+W0916 10:44:56.297662 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_right end to end latency is 1789526696297ms. sqn:251489 pub_ts:0.000000000 tcp size:527104 
+W0916 10:44:56.305003 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/head_stereo_left end to end latency is 1789526696304ms. sqn:251490 pub_ts:0.000000000 tcp size:504152 
+W0916 10:44:56.379266 1334483 frame_data_statistics.cc:112] [aorta][Latency] /camera/hand_left_color end to end latency is 1789526696379ms. sqn:251490 pub_ts:0.000000000 tcp size:229468 
+I0916 10:45:02.139123 1334406 cosine_bus_message_buffer.cpp:147] [cosine_internal][CosineBusMessageBuffer] buffer:bus_buffer___camera__head_stereo_right release.
+I0916 10:45:02.139248 1334406 subscriber_impl.cc:40] [aorta]Subscriber destory, UnRegisterSubscriber uid:ed0ba558-b736-463a-b73b-8c270d49cda5-8400981831882539399
+I0916 10:45:02.139343 1334406 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/camera/head_stereo_righthttp://10.42.1.101:2379 release.
+I0916 10:45:02.139346 1334406 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /camera/head_stereo_right
+I0916 10:45:02.139348 1334406 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I0916 10:45:02.139348 1334406 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I0916 10:45:02.139355 1334406 cosine_bus_message_buffer.cpp:147] [cosine_internal][CosineBusMessageBuffer] buffer:bus_buffer___camera__head_stereo_left release.
+I0916 10:45:02.139465 1334406 subscriber_impl.cc:40] [aorta]Subscriber destory, UnRegisterSubscriber uid:ea776ae2-c239-42be-8670-c1d16ebd6b16-2772564262404746643
+I0916 10:45:02.139492 1334406 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/camera/head_stereo_lefthttp://10.42.1.101:2379 release.
+I0916 10:45:02.139493 1334406 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /camera/head_stereo_left
+I0916 10:45:02.139495 1334406 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I0916 10:45:02.139496 1334406 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I0916 10:45:02.139501 1334406 cosine_bus_message_buffer.cpp:147] [cosine_internal][CosineBusMessageBuffer] buffer:bus_buffer___camera__head_right_fisheye release.
+I0916 10:45:02.139505 1334406 subscriber_impl.cc:40] [aorta]Subscriber destory, UnRegisterSubscriber uid:d5000ed9-edb6-4a8d-8129-9af2de85b48a-11724137809755197201
+I0916 10:45:02.139523 1334406 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/camera/head_right_fisheyehttp://10.42.1.101:2379 release.
+I0916 10:45:02.139524 1334406 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /camera/head_right_fisheye
+I0916 10:45:02.139525 1334406 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I0916 10:45:02.139528 1334406 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I0916 10:45:02.139532 1334406 cosine_bus_message_buffer.cpp:147] [cosine_internal][CosineBusMessageBuffer] buffer:bus_buffer___camera__head_left_fisheye release.
+I0916 10:45:02.139534 1334406 subscriber_impl.cc:40] [aorta]Subscriber destory, UnRegisterSubscriber uid:2ade6737-8840-410c-8d31-2585e2b835ac-14591831445956696588
+I0916 10:45:02.139550 1334406 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/camera/head_left_fisheyehttp://10.42.1.101:2379 release.
+I0916 10:45:02.139552 1334406 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /camera/head_left_fisheye
+I0916 10:45:02.139554 1334406 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I0916 10:45:02.139554 1334406 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I0916 10:45:02.139560 1334406 cosine_bus_message_buffer.cpp:147] [cosine_internal][CosineBusMessageBuffer] buffer:bus_buffer___camera__head_depth release.
+I0916 10:45:02.139565 1334406 subscriber_impl.cc:40] [aorta]Subscriber destory, UnRegisterSubscriber uid:a84658cd-8815-411c-ab0f-f2a22ed1fd99-14849645885661810178
+I0916 10:45:02.139585 1334406 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/camera/head_depthhttp://10.42.1.101:2379 release.
+I0916 10:45:02.139587 1334406 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /camera/head_depth
+I0916 10:45:02.139588 1334406 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I0916 10:45:02.139590 1334406 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I0916 10:45:02.139595 1334406 cosine_bus_message_buffer.cpp:147] [cosine_internal][CosineBusMessageBuffer] buffer:bus_buffer___camera__head_color release.
+I0916 10:45:02.139595 1334406 subscriber_impl.cc:40] [aorta]Subscriber destory, UnRegisterSubscriber uid:949e7548-bfe7-48f3-bf9b-a7cdf2d3387a-2515219504367417955
+I0916 10:45:02.139629 1334406 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/camera/head_colorhttp://10.42.1.101:2379 release.
+I0916 10:45:02.139631 1334406 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /camera/head_color
+I0916 10:45:02.139633 1334406 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I0916 10:45:02.139634 1334406 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I0916 10:45:02.139637 1334406 cosine_bus_message_buffer.cpp:147] [cosine_internal][CosineBusMessageBuffer] buffer:bus_buffer___camera__head_back_fisheye release.
+I0916 10:45:02.139642 1334406 subscriber_impl.cc:40] [aorta]Subscriber destory, UnRegisterSubscriber uid:d6911406-daf5-43df-9616-07f681e7e3f6-10407449922038425096
+I0916 10:45:02.139658 1334406 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/camera/head_back_fisheyehttp://10.42.1.101:2379 release.
+I0916 10:45:02.139659 1334406 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /camera/head_back_fisheye
+I0916 10:45:02.139660 1334406 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I0916 10:45:02.139662 1334406 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I0916 10:45:02.139667 1334406 cosine_bus_message_buffer.cpp:147] [cosine_internal][CosineBusMessageBuffer] buffer:bus_buffer___camera__hand_right_upper_depth release.
+I0916 10:45:02.139669 1334406 subscriber_impl.cc:40] [aorta]Subscriber destory, UnRegisterSubscriber uid:5ee1d913-cab5-4f34-825d-bb3f1976a61c-15534589775061933553
+I0916 10:45:02.139686 1334406 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/camera/hand_right_upper_depthhttp://10.42.1.101:2379 release.
+I0916 10:45:02.139688 1334406 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /camera/hand_right_upper_depth
+I0916 10:45:02.139689 1334406 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I0916 10:45:02.139690 1334406 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I0916 10:45:02.139694 1334406 cosine_bus_message_buffer.cpp:147] [cosine_internal][CosineBusMessageBuffer] buffer:bus_buffer___camera__hand_right_upper_color release.
+I0916 10:45:02.139698 1334406 subscriber_impl.cc:40] [aorta]Subscriber destory, UnRegisterSubscriber uid:92ee01fa-ef3b-4b5a-ae47-55daa783c5d9-14436869942545931775
+I0916 10:45:02.139714 1334406 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/camera/hand_right_upper_colorhttp://10.42.1.101:2379 release.
+I0916 10:45:02.139715 1334406 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /camera/hand_right_upper_color
+I0916 10:45:02.139716 1334406 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I0916 10:45:02.139717 1334406 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I0916 10:45:02.139722 1334406 cosine_bus_message_buffer.cpp:147] [cosine_internal][CosineBusMessageBuffer] buffer:bus_buffer___camera__hand_right_lower_depth release.
+I0916 10:45:02.139724 1334406 subscriber_impl.cc:40] [aorta]Subscriber destory, UnRegisterSubscriber uid:654ae189-f6b9-4074-82c0-9436897a3923-9839082178762803487
+I0916 10:45:02.139742 1334406 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/camera/hand_right_lower_depthhttp://10.42.1.101:2379 release.
+I0916 10:45:02.139744 1334406 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /camera/hand_right_lower_depth
+I0916 10:45:02.139745 1334406 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I0916 10:45:02.139746 1334406 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I0916 10:45:02.139750 1334406 cosine_bus_message_buffer.cpp:147] [cosine_internal][CosineBusMessageBuffer] buffer:bus_buffer___camera__hand_right_lower_color release.
+I0916 10:45:02.139752 1334406 subscriber_impl.cc:40] [aorta]Subscriber destory, UnRegisterSubscriber uid:15dc3f2c-5d09-49be-8ab3-9bbc861e21d5-8186110446424813557
+I0916 10:45:02.139770 1334406 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/camera/hand_right_lower_colorhttp://10.42.1.101:2379 release.
+I0916 10:45:02.139770 1334406 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /camera/hand_right_lower_color
+I0916 10:45:02.139771 1334406 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I0916 10:45:02.139772 1334406 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I0916 10:45:02.139776 1334406 cosine_bus_message_buffer.cpp:147] [cosine_internal][CosineBusMessageBuffer] buffer:bus_buffer___camera__hand_right_depth release.
+I0916 10:45:02.139778 1334406 subscriber_impl.cc:40] [aorta]Subscriber destory, UnRegisterSubscriber uid:ad9a1a5e-c725-4213-96c7-4114fd13da62-17867573658284279546
+I0916 10:45:02.139796 1334406 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/camera/hand_right_depthhttp://10.42.1.101:2379 release.
+I0916 10:45:02.139796 1334406 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /camera/hand_right_depth
+I0916 10:45:02.139797 1334406 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I0916 10:45:02.139798 1334406 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I0916 10:45:02.139803 1334406 cosine_bus_message_buffer.cpp:147] [cosine_internal][CosineBusMessageBuffer] buffer:bus_buffer___camera__hand_right_color release.
+I0916 10:45:02.139806 1334406 subscriber_impl.cc:40] [aorta]Subscriber destory, UnRegisterSubscriber uid:205dd4bc-00a3-4782-85ea-05335a5ff0db-8629761233962563373
+I0916 10:45:02.139825 1334406 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/camera/hand_right_colorhttp://10.42.1.101:2379 release.
+I0916 10:45:02.139827 1334406 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /camera/hand_right_color
+I0916 10:45:02.139828 1334406 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I0916 10:45:02.139829 1334406 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I0916 10:45:02.139834 1334406 cosine_bus_message_buffer.cpp:147] [cosine_internal][CosineBusMessageBuffer] buffer:bus_buffer___camera__hand_left_upper_depth release.
+I0916 10:45:02.139837 1334406 subscriber_impl.cc:40] [aorta]Subscriber destory, UnRegisterSubscriber uid:3ef45264-ab28-4088-a06c-4a47647c89cc-12072037676595526463
+I0916 10:45:02.139853 1334406 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/camera/hand_left_upper_depthhttp://10.42.1.101:2379 release.
+I0916 10:45:02.139855 1334406 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /camera/hand_left_upper_depth
+I0916 10:45:02.139856 1334406 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I0916 10:45:02.139858 1334406 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I0916 10:45:02.139861 1334406 cosine_bus_message_buffer.cpp:147] [cosine_internal][CosineBusMessageBuffer] buffer:bus_buffer___camera__hand_left_upper_color release.
+I0916 10:45:02.139863 1334406 subscriber_impl.cc:40] [aorta]Subscriber destory, UnRegisterSubscriber uid:76ce9f5f-cd10-4fd7-9d98-9ec91e8ebe6a-10419009240684809358
+I0916 10:45:02.139879 1334406 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/camera/hand_left_upper_colorhttp://10.42.1.101:2379 release.
+I0916 10:45:02.139881 1334406 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /camera/hand_left_upper_color
+I0916 10:45:02.139882 1334406 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I0916 10:45:02.139883 1334406 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I0916 10:45:02.139887 1334406 cosine_bus_message_buffer.cpp:147] [cosine_internal][CosineBusMessageBuffer] buffer:bus_buffer___camera__hand_left_lower_depth release.
+I0916 10:45:02.139889 1334406 subscriber_impl.cc:40] [aorta]Subscriber destory, UnRegisterSubscriber uid:aad29c60-9570-431f-be9b-84a5864fa293-14499789538593900557
+I0916 10:45:02.139905 1334406 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/camera/hand_left_lower_depthhttp://10.42.1.101:2379 release.
+I0916 10:45:02.139907 1334406 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /camera/hand_left_lower_depth
+I0916 10:45:02.139909 1334406 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I0916 10:45:02.139909 1334406 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I0916 10:45:02.139912 1334406 cosine_bus_message_buffer.cpp:147] [cosine_internal][CosineBusMessageBuffer] buffer:bus_buffer___camera__hand_left_lower_color release.
+I0916 10:45:02.139915 1334406 subscriber_impl.cc:40] [aorta]Subscriber destory, UnRegisterSubscriber uid:69d9372b-03e7-4e41-9879-9e225d34d60d-4503626684902531612
+I0916 10:45:02.139933 1334406 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/camera/hand_left_lower_colorhttp://10.42.1.101:2379 release.
+I0916 10:45:02.139935 1334406 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /camera/hand_left_lower_color
+I0916 10:45:02.139935 1334406 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I0916 10:45:02.139936 1334406 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I0916 10:45:02.139940 1334406 cosine_bus_message_buffer.cpp:147] [cosine_internal][CosineBusMessageBuffer] buffer:bus_buffer___camera__hand_left_depth release.
+I0916 10:45:02.139943 1334406 subscriber_impl.cc:40] [aorta]Subscriber destory, UnRegisterSubscriber uid:1e6698dd-95cd-4d7c-a539-a69a3618b41d-13237741933269507762
+I0916 10:45:02.139961 1334406 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/camera/hand_left_depthhttp://10.42.1.101:2379 release.
+I0916 10:45:02.139961 1334406 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /camera/hand_left_depth
+I0916 10:45:02.139962 1334406 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I0916 10:45:02.139963 1334406 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I0916 10:45:02.139967 1334406 cosine_bus_message_buffer.cpp:147] [cosine_internal][CosineBusMessageBuffer] buffer:bus_buffer___camera__hand_left_color release.
+I0916 10:45:02.139971 1334406 subscriber_impl.cc:40] [aorta]Subscriber destory, UnRegisterSubscriber uid:d4881376-bd5e-40f7-b220-27d2f3559e6e-16768487626907404343
+I0916 10:45:02.139990 1334406 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/camera/hand_left_colorhttp://10.42.1.101:2379 release.
+I0916 10:45:02.139992 1334406 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /camera/hand_left_color
+I0916 10:45:02.139993 1334406 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I0916 10:45:02.139994 1334406 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I0916 10:45:02.142844 1334406 sensors.cpp:97] [GDK]Camera destructor

@@ -1,0 +1,5 @@
+path: /home/isaac-workstation/g2-project/inverse_kinematicas-basice-grasping/dataset
+train: images/train
+val: images/val
+names:
+  0: product
