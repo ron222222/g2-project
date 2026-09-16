@@ -44,11 +44,13 @@ try:
         except Exception:
             pass
 
-    print('全部公开成员:')
+    print('
+全部公开成员:')
     for name,is_callable in methods:
         print(f'[{"FUNC" if is_callable else "ATTR"}] {name}')
 
-    print('重点接口筛选:')
+    print('
+重点接口筛选:')
     for name,is_callable in methods:
         lower=name.lower()
         if any(k in lower for k in KEYWORDS):
