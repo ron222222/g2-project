@@ -1,0 +1,154 @@
+{
+  "program": "43_tcp_pregrasp_move_safe.py",
+  "enable_real_motion": true,
+  "source_plan": "tcp_pregrasp_plan.json",
+  "target_end_position": [
+    0.5164692735494971,
+    -0.05706892316563383,
+    0.9812287165241866
+  ],
+  "target_end_quaternion": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "target_tcp_position": [
+    0.5164692735494971,
+    -0.05706892316563383,
+    0.8381487165241867
+  ],
+  "target_tcp_quaternion": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "motion_command_sent": true,
+  "stages": [
+    {
+      "name": "raise_to_clearance",
+      "steps": 74,
+      "target_position": [
+        0.6067582736072092,
+        -0.24349970137828483,
+        1.0112287165241867
+      ]
+    },
+    {
+      "name": "rotate_at_clearance",
+      "steps": 68,
+      "target_quaternion": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "translate_at_clearance",
+      "steps": 229,
+      "target_position": [
+        0.5164692735494971,
+        -0.05706892316563383,
+        1.0112287165241867
+      ]
+    },
+    {
+      "name": "descend_to_pregrasp",
+      "steps": 221,
+      "target_position": [
+        0.5164692735494971,
+        -0.05706892316563383,
+        0.9812287165241866
+      ]
+    }
+  ],
+  "status": "TARGET_NOT_REACHED",
+  "initial_left_pose": {
+    "position": [
+      0.5890628522983115,
+      0.24349686876973964,
+      0.8161942081984207
+    ],
+    "orientation": [
+      0.7071775914811487,
+      -1.7963810953071877e-06,
+      0.7070359637893049,
+      -3.496188551076318e-06
+    ]
+  },
+  "initial_end_pose": {
+    "position": [
+      0.6067582736072092,
+      -0.24349970137828483,
+      0.9381647820179188
+    ],
+    "orientation": [
+      0.8597939267274997,
+      -4.5973639543871056e-07,
+      0.5106411690798199,
+      -1.7579398274310575e-06
+    ]
+  },
+  "initial_tcp_pose": {
+    "position": [
+      0.7323957273063783,
+      -0.24349933603619411,
+      0.8697022621413053
+    ],
+    "orientation": [
+      0.8597939267274997,
+      -4.5973639543871056e-07,
+      0.5106411690798199,
+      -1.7579398274310575e-06
+    ]
+  },
+  "orientation_change_deg": 61.413094,
+  "total_translation_m": 0.211573,
+  "start_xy_distance_m": 0.207144,
+  "clearance_z_m": 1.0112287165241867,
+  "clearance_start_position": [
+    0.6067582736072092,
+    -0.24349970137828483,
+    1.0112287165241867
+  ],
+  "clearance_target_position": [
+    0.5164692735494971,
+    -0.05706892316563383,
+    1.0112287165241867
+  ],
+  "torque_baseline_joint_count": 22,
+  "final_end_pose": {
+    "position": [
+      0.6281701542934695,
+      -0.2434988388764639,
+      0.9413627747820537
+    ],
+    "orientation": [
+      0.862241578810133,
+      -2.575746857491839e-06,
+      0.5064972455421827,
+      -4.749410842453906e-06
+    ]
+  },
+  "final_tcp_pose": {
+    "position": [
+      0.7531428035870683,
+      -0.24349804033816597,
+      0.8716941065882271
+    ],
+    "orientation": [
+      0.862241578810133,
+      -2.575746857491839e-06,
+      0.5064972455421827,
+      -4.749410842453906e-06
+    ]
+  },
+  "final_errors": {
+    "end_position_error_m": 0.220958,
+    "tcp_position_error_m": 0.303143,
+    "end_orientation_error_deg": 60.8616,
+    "tcp_orientation_error_deg": 60.8616
+  }
+}

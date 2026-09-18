@@ -1,0 +1,34 @@
+{
+  "program": "37_move_to_pregrasp_execute_safe.py",
+  "enable_real_motion": true,
+  "target_pregrasp_xyz": [
+    0.5928,
+    0.1184,
+    0.8665
+  ],
+  "motion_command_sent": true,
+  "status": "MOVE_COMPLETED",
+  "live_left_start": [
+    0.5890627694722259,
+    0.24349700755064688,
+    0.8161939203727783
+  ],
+  "live_right_start": [
+    0.5190124952001156,
+    -0.06225813408711463,
+    0.8369680506044769
+  ],
+  "live_distance_m": 0.197368,
+  "start_pose_drift_m": 5.4e-05,
+  "trajectory_steps": 198,
+  "workspace_check": "PASS",
+  "distance_check": "PASS",
+  "start_pose_check": "PASS",
+  "torque_baseline_joint_count": 22,
+  "final_right_xyz": [
+    0.5897339960059939,
+    0.10081606145985507,
+    0.8706230568671867
+  ],
+  "final_position_error_m": 0.018319
+}

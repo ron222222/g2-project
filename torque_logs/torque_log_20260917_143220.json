@@ -1,0 +1,60 @@
+{
+  "timestamp": "2026-09-17T14:32:20.030410",
+  "grasp_success": false,
+  "collision_detected": false,
+  "external_force_detected": false,
+  "torque_baseline": {
+    "idx04_body_joint4": 0.0,
+    "idx13_head_joint3": 0.0,
+    "idx63_arm_r_joint3": 0.7884333333333332,
+    "idx65_arm_r_joint5": -1.5313599999999998,
+    "idx23_arm_l_joint3": -0.24183333333333332,
+    "idx64_arm_r_joint4": -10.92173333333333,
+    "idx62_arm_r_joint2": -4.576150000000001,
+    "idx22_arm_l_joint2": 0.0652,
+    "idx03_body_joint3": 0.0,
+    "idx66_arm_r_joint6": -0.4860266666666668,
+    "idx25_arm_l_joint5": 0.39975999999999984,
+    "idx67_arm_r_joint7": 0.8301599999999999,
+    "idx05_body_joint5": 0.0,
+    "idx12_head_joint2": 0.0,
+    "idx61_arm_r_joint1": 30.6912,
+    "idx24_arm_l_joint4": -13.137666666666666,
+    "idx27_arm_l_joint7": -0.12653333333333333,
+    "idx26_arm_l_joint6": -2.1935200000000004,
+    "idx21_arm_l_joint1": -14.2592,
+    "idx01_body_joint1": 0.0,
+    "idx11_head_joint1": 0.0,
+    "idx02_body_joint2": 0.0
+  },
+  "records": [
+    {
+      "timestamp": 1789626738.10431,
+      "step_name": "initial",
+      "joint_torques": {
+        "idx01_body_joint1": 0.0,
+        "idx02_body_joint2": 0.0,
+        "idx03_body_joint3": 0.0,
+        "idx04_body_joint4": 0.0,
+        "idx05_body_joint5": 0.0,
+        "idx11_head_joint1": 0.0,
+        "idx12_head_joint2": 0.0,
+        "idx13_head_joint3": 0.0,
+        "idx21_arm_l_joint1": -14.272499999999999,
+        "idx22_arm_l_joint2": 0.069,
+        "idx23_arm_l_joint3": -0.254,
+        "idx24_arm_l_joint4": -13.155,
+        "idx25_arm_l_joint5": 0.39759999999999995,
+        "idx26_arm_l_joint6": -2.1744,
+        "idx27_arm_l_joint7": -0.128,
+        "idx61_arm_r_joint1": 30.7125,
+        "idx62_arm_r_joint2": -4.5825000000000005,
+        "idx63_arm_r_joint3": 0.792,
+        "idx64_arm_r_joint4": -10.937,
+        "idx65_arm_r_joint5": -1.5288,
+        "idx66_arm_r_joint6": -0.4496,
+        "idx67_arm_r_joint7": 0.8223999999999999
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "source_file": "product_xyz_v3.json",
+  "product_base_xyz": [
+    0.5928,
+    0.1184,
+    0.7165
+  ],
+  "pregrasp_xyz": [
+    0.5928,
+    0.1184,
+    0.8665
+  ],
+  "arm_r_xyz": [
+    0.6053,
+    -0.2435,
+    1.0436
+  ],
+  "delta_xyz": [
+    -0.0125,
+    0.3619,
+    -0.1772
+  ],
+  "distance_m": 0.4031,
+  "offset_z_m": 0.15,
+  "read_only": true
+}

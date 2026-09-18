@@ -1,0 +1,99 @@
+{
+  "program": "40_workspace_boundary_probe.py",
+  "enable_real_motion": true,
+  "probe_axis": "+X",
+  "probe_step_x_m": 0.01,
+  "inner_step_m": 0.001,
+  "max_probe_steps": 12,
+  "torque_delta_limit_nm": 30.0,
+  "motion_command_sent": true,
+  "steps": [
+    {
+      "probe_step": 1,
+      "command_start_xyz": [
+        0.7991447592901822,
+        -0.04308501524990568,
+        0.9526429214196956
+      ],
+      "command_target_xyz": [
+        0.8091447592901823,
+        -0.043084918594689436,
+        0.9526430847891889
+      ],
+      "measured_end_xyz": [
+        0.8010117880663858,
+        -0.04667603920911763,
+        0.9551233743658274
+      ],
+      "inner_steps": 11,
+      "actual_dx_m": 0.001867,
+      "y_drift_from_initial_m": -0.003591,
+      "z_drift_from_initial_m": 0.00248
+    },
+    {
+      "probe_step": 2,
+      "command_start_xyz": [
+        0.8010117880663858,
+        -0.04667603920911763,
+        0.9551233743658274
+      ],
+      "command_target_xyz": [
+        0.8110117880663859,
+        -0.043084918594689436,
+        0.9526430847891889
+      ],
+      "measured_end_xyz": [
+        0.8011140127978821,
+        -0.04750408607596749,
+        0.9555637316434678
+      ],
+      "inner_steps": 11,
+      "actual_dx_m": 0.000102,
+      "y_drift_from_initial_m": -0.004419,
+      "z_drift_from_initial_m": 0.002921
+    }
+  ],
+  "status": "BOUNDARY_DETECTED",
+  "initial_left_pose": {
+    "position": [
+      0.5896229700533662,
+      0.24349706854074923,
+      0.8156797119835157
+    ],
+    "orientation": [
+      0.70720477553288,
+      -3.6071368888390257e-06,
+      0.7070087732446134,
+      -2.371498490098435e-06
+    ]
+  },
+  "initial_right_pose": {
+    "position": [
+      0.7991447620915264,
+      -0.043084918594689436,
+      0.9526430847891889
+    ],
+    "orientation": [
+      0.7155149558307426,
+      0.01236642117984605,
+      0.698377692531046,
+      -0.012410406308617316
+    ]
+  },
+  "torque_baseline_joint_count": 22,
+  "boundary_x_m": 0.801114,
+  "final_right_pose": {
+    "position": [
+      0.8011140127978821,
+      -0.04750408607596749,
+      0.9555637316434678
+    ],
+    "orientation": [
+      0.71701019580821,
+      0.015070251296126,
+      0.6967305785286678,
+      -0.015354724877109859
+    ]
+  },
+  "completed_probe_steps": 2
+}

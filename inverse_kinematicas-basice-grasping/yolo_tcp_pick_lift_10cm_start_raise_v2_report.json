@@ -1,0 +1,9 @@
+{
+  "program": "46_yolo_tcp_pick_lift_10cm_start_raise_safe_v2.py",
+  "enable_real_motion": true,
+  "motion_command_sent": false,
+  "gripper_command_sent": false,
+  "status": "ERROR",
+  "stages": [],
+  "error": "name 'SAFE_START_END_Z_M' is not defined"
+}

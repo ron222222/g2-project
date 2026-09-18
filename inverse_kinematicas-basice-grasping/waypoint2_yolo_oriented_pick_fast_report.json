@@ -1,0 +1,29 @@
+{
+  "program": "53_waypoint2_yolo_oriented_pick_fast.py",
+  "enable_real_motion": true,
+  "enable_angle_alignment": true,
+  "enable_xy_and_pregrasp": false,
+  "enable_gripper_and_pick": false,
+  "status": "INTERRUPTED",
+  "joint_stages": [],
+  "cartesian_stages": [],
+  "start_pose": "home",
+  "start_error_rad": 7.193689962142629e-07,
+  "remaining_joint_chain": [
+    "waypoint_1",
+    "waypoint_2"
+  ],
+  "head": {
+    "before": [
+      0.0,
+      0.0,
+      0.4183270973845637
+    ],
+    "target": [
+      0.0,
+      0.0,
+      -0.3490658503988659
+    ]
+  },
+  "error": "KeyboardInterrupt"
+}

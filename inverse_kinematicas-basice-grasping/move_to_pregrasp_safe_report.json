@@ -1,0 +1,49 @@
+{
+  "program": "36_move_to_pregrasp_safe.py",
+  "dry_run": true,
+  "target_pregrasp_xyz": [
+    1.0298,
+    0.0648,
+    0.9021
+  ],
+  "planned_start_arm_r_xyz": [
+    0.5894,
+    -0.2435,
+    0.8155
+  ],
+  "motion_command_sent": false,
+  "status": "DRY_RUN_PASS",
+  "live_left_pose": {
+    "position": [
+      0.5893688094707616,
+      0.24349012628327227,
+      0.815603075865516
+    ],
+    "orientation": [
+      0.7081421145107348,
+      -2.5687615834743996e-05,
+      0.7060699292397281,
+      4.4516884474218235e-06
+    ]
+  },
+  "live_right_pose": {
+    "position": [
+      0.589364538410186,
+      -0.2434735244021561,
+      0.8154972214449423
+    ],
+    "orientation": [
+      0.7082030015797313,
+      1.6405557552236706e-05,
+      0.7060088580320316,
+      -2.5780296033088638e-05
+    ]
+  },
+  "live_distance_m": 0.544533,
+  "start_pose_drift_m": 4.4e-05,
+  "trajectory_steps": 545,
+  "step_m": 0.001,
+  "workspace_check": "PASS",
+  "distance_check": "PASS",
+  "start_pose_check": "PASS"
+}

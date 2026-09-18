@@ -1,0 +1,143 @@
+{
+  "program": "43_tcp_pregrasp_move_closed_loop_v2.py",
+  "enable_real_motion": true,
+  "source_plan": "tcp_pregrasp_plan.json",
+  "target_end_position": [
+    0.5164692735494971,
+    -0.05706892316563383,
+    0.9812287165241866
+  ],
+  "target_end_quaternion": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "target_tcp_position": [
+    0.5164692735494971,
+    -0.05706892316563383,
+    0.8381487165241867
+  ],
+  "target_tcp_quaternion": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "motion_command_sent": true,
+  "stages": [
+    {
+      "name": "raise_to_clearance",
+      "steps": 215,
+      "target_position": [
+        0.5887651089675061,
+        -0.24350031514516016,
+        1.0312287165241867
+      ]
+    },
+    {
+      "name": "rotate_at_clearance",
+      "steps": 182,
+      "target_quaternion": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "stage_validations": [
+    {
+      "stage": "stage1_raise",
+      "measured_position": [
+        0.5901063133966008,
+        -0.24350030022321165,
+        1.0275789439800729
+      ],
+      "measured_orientation": [
+        0.7024560739543154,
+        1.459669391058245e-07,
+        0.7117270995013513,
+        2.484776415848112e-07
+      ],
+      "position_error_m": 0.003888,
+      "orientation_error_deg": 0.762,
+      "position_tolerance_m": 0.02,
+      "orientation_tolerance_deg": 5.0
+    },
+    {
+      "stage": "stage2_rotate",
+      "measured_position": [
+        0.6111155437159004,
+        -0.2434993130759097,
+        0.9578086957498558
+      ],
+      "measured_orientation": [
+        0.8477041201811566,
+        -1.8079245976570147e-06,
+        0.5304693437127209,
+        -2.3701677750930392e-06
+      ],
+      "position_error_m": 0.076747,
+      "orientation_error_deg": 64.0743,
+      "position_tolerance_m": 0.025,
+      "orientation_tolerance_deg": 5.0
+    }
+  ],
+  "status": "STOPPED_STAGE2_ROTATE_POSITION",
+  "initial_left_pose": {
+    "position": [
+      0.5887640339647923,
+      0.24349743139354862,
+      0.8164660820801303
+    ],
+    "orientation": [
+      0.7071747845528648,
+      -1.4085427186727296e-06,
+      0.7070387712659016,
+      -4.174826846226156e-06
+    ]
+  },
+  "initial_end_pose": {
+    "position": [
+      0.5887651089675061,
+      -0.24350031514516016,
+      0.8164679467115118
+    ],
+    "orientation": [
+      0.7071734966167553,
+      9.889817404553061e-08,
+      0.7070400594610589,
+      3.530792758549565e-07
+    ]
+  },
+  "initial_tcp_pose": {
+    "position": [
+      0.7318451064198895,
+      -0.24350036658623617,
+      0.8164409462801082
+    ],
+    "orientation": [
+      0.7071734966167553,
+      9.889817404553061e-08,
+      0.7070400594610589,
+      3.530792758549565e-07
+    ]
+  },
+  "orientation_change_deg": 89.989188,
+  "total_translation_m": 0.259094,
+  "start_xy_distance_m": 0.199958,
+  "clearance_z_m": 1.0312287165241867,
+  "clearance_start_position": [
+    0.5887651089675061,
+    -0.24350031514516016,
+    1.0312287165241867
+  ],
+  "clearance_target_position": [
+    0.5164692735494971,
+    -0.05706892316563383,
+    1.0312287165241867
+  ],
+  "torque_baseline_joint_count": 22,
+  "error": "stage2_rotate 未到位，停止后续阶段"
+}

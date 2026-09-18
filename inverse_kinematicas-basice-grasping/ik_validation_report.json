@@ -1,0 +1,25 @@
+{
+  "read_only": true,
+  "target_pregrasp_xyz": [
+    1.0298,
+    0.0648,
+    0.9021
+  ],
+  "current_arm_xyz": [
+    0.5894,
+    -0.2435,
+    0.8155
+  ],
+  "delta_xyz": [
+    0.4405,
+    0.3083,
+    0.0866
+  ],
+  "distance_m": 0.5446,
+  "workspace_check": "PASS",
+  "reachability_check": "PASS",
+  "ik_checked": false,
+  "ik_result": "UNKNOWN",
+  "ik_message": "SDK IK\u63a5\u53e3\u672a\u63a5\u5165\uff0c\u4ec5\u5b8c\u6210Dry Validation",
+  "motion_command_sent": false
+}

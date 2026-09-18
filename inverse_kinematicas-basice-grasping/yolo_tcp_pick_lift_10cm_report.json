@@ -1,0 +1,9 @@
+{
+  "program": "45_yolo_tcp_pick_lift_10cm_safe.py",
+  "enable_real_motion": true,
+  "motion_command_sent": false,
+  "gripper_command_sent": false,
+  "status": "ERROR",
+  "stages": [],
+  "error": "有效YOLO三维样本不足: 0"
+}

@@ -1,0 +1,93 @@
+{
+  "program": "42_tcp_pregrasp_pose_planner.py",
+  "read_only": true,
+  "source_file": "product_xyz_v3.json",
+  "product_detection": {
+    "confidence": 0.8147864937782288,
+    "minimum_confidence": 0.5,
+    "confidence_check": "PASS",
+    "base_xyz": [
+      0.5164692735494971,
+      -0.05706892316563383,
+      0.6881487165241866
+    ]
+  },
+  "urdf_tcp": {
+    "parent_frame": "arm_r_end_link",
+    "child_frame": "gripper_r_center_link",
+    "offset_xyz_m": [
+      0.0,
+      0.0,
+      0.14308
+    ],
+    "offset_rpy_rad": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "tcp_pregrasp_target": {
+    "frame": "gripper_r_center_link",
+    "position": [
+      0.5164692735494971,
+      -0.05706892316563383,
+      0.8381487165241867
+    ],
+    "quaternion_xyzw": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "height_above_product_m": 0.15,
+    "orientation_description": "TCP local +Z points toward base_link -Z; TCP local +X points toward base_link +X"
+  },
+  "arm_r_end_link_target": {
+    "position": [
+      0.5164692735494971,
+      -0.05706892316563383,
+      0.9812287165241866
+    ],
+    "quaternion_xyzw": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "tcp_offset_in_base_at_target": [
+    0.0,
+    0.0,
+    -0.14308
+  ],
+  "validation": {
+    "tcp_workspace_check": "PASS",
+    "end_workspace_check": "PASS",
+    "tcp_reconstruction_error_m": 0.0,
+    "motion_command_sent": false
+  },
+  "source_product_data": {
+    "confidence": 0.8147864937782288,
+    "center_pixel": [
+      351,
+      333
+    ],
+    "depth_pixel": [
+      351,
+      333
+    ],
+    "raw_depth": 714.0,
+    "sample_count": 43,
+    "camera_xyz": [
+      0.07421777494677058,
+      0.3014383474761143,
+      0.714
+    ],
+    "base_xyz": [
+      0.5164692735494971,
+      -0.05706892316563383,
+      0.6881487165241866
+    ],
+    "table_check": "PASS"
+  }
+}
