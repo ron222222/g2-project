@@ -1,0 +1,177 @@
+{
+  "program": "74_g2_pick_waist_right80_segmented_release.py",
+  "enable_real_motion": true,
+  "enable_angle_alignment": true,
+  "enable_xy_and_pregrasp": true,
+  "enable_gripper_and_pick": true,
+  "qt_font": {
+    "created": true,
+    "linked": 22,
+    "error": null
+  },
+  "safe_height_control": {
+    "nominal_grasp_above_product_m": 0.025,
+    "minimum_tcp_above_table_m": 0.01,
+    "maximum_product_z_range_m": 0.012
+  },
+  "vertical_tool_control": {
+    "tool_axis": "local +Z",
+    "target_base_direction": "-Z",
+    "tilt_tolerance_deg": 4.0
+  },
+  "edge_filter": {
+    "min_aspect_ratio": 1.4,
+    "min_contour_area_ratio": 0.025,
+    "max_contour_area_ratio": 0.8,
+    "max_contour_center_distance_ratio": 0.4,
+    "contour_border_margin_px": 1
+  },
+  "post_pick_action": {
+    "enabled": true,
+    "waist_turn_deg": -80.0,
+    "direction": "right",
+    "segmented": true,
+    "max_step_deg": 10.0,
+    "waist_yaw_joint": "idx05_body_joint5",
+    "waist_joint_limits_rad": [
+      [
+        -1.082104,
+        0.000174
+      ],
+      [
+        -0.000174,
+        2.6529
+      ],
+      [
+        -1.919862,
+        1.57097
+      ],
+      [
+        -0.436332,
+        0.436332
+      ],
+      [
+        -3.045599,
+        3.045599
+      ]
+    ],
+    "waist_speed_rad_s": 0.2,
+    "keep_arm_joint_targets": true,
+    "release_after_verified_turn": true
+  },
+  "joint_stages": [
+    {
+      "stage": "waypoint_1",
+      "joint_error": 2.9950794344646425e-06,
+      "tcp_error": 4.025511027843094e-06,
+      "actual": [
+        -1.9130482132286857,
+        0.20393910054765396,
+        1.8316957791984863,
+        -1.8465177487191824,
+        0.29203722507943447,
+        -0.287420661961393,
+        0.9164364348843452
+      ],
+      "tcp": {
+        "position": [
+          0.5863863352561219,
+          -0.3428887214509051,
+          0.9360789324310066
+        ],
+        "orientation": [
+          0.46820369375700355,
+          0.8360224455504747,
+          0.27970108880036293,
+          0.06015872847719733
+        ]
+      }
+    },
+    {
+      "stage": "waypoint_2",
+      "joint_error": 3.717938987679581e-06,
+      "tcp_error": 7.160603562330745e-06,
+      "actual": [
+        -2.3499991951932504,
+        0.9999997287119389,
+        2.3912331280748833,
+        -1.7904813106954707,
+        -1.5084646952706502,
+        -0.9568086520610123,
+        -0.11304144110427397
+      ],
+      "tcp": {
+        "position": [
+          0.6569960013589687,
+          -0.16555611119362001,
+          0.9841896324148485
+        ],
+        "orientation": [
+          -0.5216504694127556,
+          0.8225267854632952,
+          -0.11505144555199351,
+          0.19517592021882926
+        ]
+      }
+    }
+  ],
+  "cartesian_stages": [],
+  "status": "ERROR",
+  "head": {
+    "before": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "after": [
+      0.0,
+      0.0,
+      0.3490213019196142
+    ],
+    "error_deg": 0.002552439844848209
+  },
+  "vision": {
+    "position_samples": 8,
+    "angle_samples": 2,
+    "rejects": {
+      "no_image": 0,
+      "no_detection": 0,
+      "no_depth": 0,
+      "no_angle": 6,
+      "no_table": 0
+    }
+  },
+  "detection": {
+    "base_xyz": [
+      0.6816860928121837,
+      -0.13044198690837566,
+      0.7234208077058515
+    ],
+    "angle_valid": false,
+    "position_samples": 8,
+    "angle_samples": 2,
+    "product_z_range_m": 0.0010138688701436527,
+    "table_z_m": 0.7211339355291884,
+    "table_samples": 63
+  },
+  "product": [
+    0.6816860928121837,
+    -0.13044198690837566,
+    0.7234208077058515
+  ],
+  "pregrasp": [
+    0.6816860928121837,
+    -0.13044198690837566,
+    0.8434208077058515
+  ],
+  "grasp": [
+    0.6816860928121837,
+    -0.13044198690837566,
+    0.7484208077058515
+  ],
+  "table_floor_tcp_z": 0.7311339355291884,
+  "nominal_grasp_z": 0.7484208077058515,
+  "safe_grasp_z": 0.7484208077058515,
+  "grasp_z_source": "product_z_plus_45mm",
+  "error": "产品角度样本不足"
+}

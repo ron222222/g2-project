@@ -1,0 +1,38 @@
+{
+  "program": "54_head_joint3_down20_verify.py",
+  "enable_real_motion": true,
+  "target_joint3_deg": -20.0,
+  "status": "HEAD_TARGET_NOT_REACHED",
+  "before_rad": [
+    0.0,
+    0.0,
+    0.3494047364726707
+  ],
+  "before_deg": [
+    0.0,
+    0.0,
+    20.019416741764772
+  ],
+  "target_rad": [
+    0.0,
+    0.0,
+    -0.3490658503988659
+  ],
+  "target_deg": [
+    0.0,
+    0.0,
+    -20.0
+  ],
+  "after_rad": [
+    0.0,
+    0.0,
+    -0.018117282631916257
+  ],
+  "after_deg": [
+    0.0,
+    0.0,
+    -1.0380438310544697
+  ],
+  "joint3_error_deg": 18.96195616894553,
+  "error": "idx13_head_joint3未达到-20度"
+}

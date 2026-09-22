@@ -1,0 +1,406 @@
+{
+  "program": "71_g2_pick_waist_turn80_release.py",
+  "enable_real_motion": true,
+  "enable_angle_alignment": true,
+  "enable_xy_and_pregrasp": true,
+  "enable_gripper_and_pick": true,
+  "qt_font": {
+    "created": true,
+    "linked": 22,
+    "error": null
+  },
+  "safe_height_control": {
+    "nominal_grasp_above_product_m": 0.02,
+    "minimum_tcp_above_table_m": 0.01,
+    "maximum_product_z_range_m": 0.012
+  },
+  "vertical_tool_control": {
+    "tool_axis": "local +Z",
+    "target_base_direction": "-Z",
+    "tilt_tolerance_deg": 4.0
+  },
+  "post_pick_action": {
+    "enabled": true,
+    "waist_turn_deg": 80.0,
+    "waist_yaw_joint": "idx01_body_joint1",
+    "waist_speed_rad_s": 0.12,
+    "keep_arm_joint_targets": true,
+    "release_after_verified_turn": true
+  },
+  "joint_stages": [
+    {
+      "stage": "waypoint_1",
+      "joint_error": 2.638409731803293e-06,
+      "tcp_error": 3.9290276477587704e-06,
+      "actual": [
+        -1.9130481133601447,
+        0.20393910054765396,
+        1.8316963784097318,
+        -1.8465179884036804,
+        0.29203674571043825,
+        -0.287420661961393,
+        0.916437992833583
+      ],
+      "tcp": {
+        "position": [
+          0.5863863493184512,
+          -0.34288905654256535,
+          0.9360788956130408
+        ],
+        "orientation": [
+          0.468203615919477,
+          0.8360227039086201,
+          0.27970036504367896,
+          0.06015910890031091
+        ]
+      }
+    },
+    {
+      "stage": "waypoint_2",
+      "joint_error": 2.3996742480880684e-06,
+      "tcp_error": 7.020010133884184e-06,
+      "actual": [
+        -2.349999394930332,
+        0.9999997287119389,
+        2.3912343264973734,
+        -1.7904810710109729,
+        -1.5084630174791636,
+        -0.9568099703257519,
+        -0.11304156094652303
+      ],
+      "tcp": {
+        "position": [
+          0.6569957377376192,
+          -0.16555598183115153,
+          0.984189538233395
+        ],
+        "orientation": [
+          -0.5216503826605742,
+          0.8225269662208582,
+          -0.11505096136850824,
+          0.19517567573283773
+        ]
+      }
+    }
+  ],
+  "cartesian_stages": [
+    {
+      "stage": "align_xy",
+      "target_tcp": [
+        0.6921039581300722,
+        -0.12535329624812336,
+        0.9193318067680745
+      ],
+      "attempts": [
+        {
+          "attempt": 0,
+          "tcp_error": 0.016781082663978167,
+          "orientation_error": 2.721367181589259,
+          "actual_tcp": {
+            "position": [
+              0.6785256702743212,
+              -0.13475069993648991,
+              0.9163445608459067
+            ],
+            "orientation": [
+              0.8225563849948418,
+              0.5677145357133391,
+              0.033036245879485976,
+              0.003131437720236154
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "stage": "descend_pregrasp",
+      "target_tcp": [
+        0.6785493755114279,
+        -0.13475010343650767,
+        0.8445864706716203
+      ],
+      "attempts": [
+        {
+          "attempt": 0,
+          "tcp_error": 0.01165442932066081,
+          "orientation_error": 1.014863788728963,
+          "actual_tcp": {
+            "position": [
+              0.6691336973043462,
+              -0.14161279156427464,
+              0.8448589378292228
+            ],
+            "orientation": [
+              0.8219068702064128,
+              0.5693370780382333,
+              0.017684579717135038,
+              0.0034123186565736215
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "stage": "descend_grasp",
+      "target_tcp": [
+        0.6691343282211872,
+        -0.14161077831263208,
+        0.7446353231271527
+      ],
+      "attempts": [
+        {
+          "attempt": 0,
+          "tcp_error": 0.010180207653970336,
+          "orientation_error": 1.104411977308186,
+          "actual_tcp": {
+            "position": [
+              0.6608416529124423,
+              -0.1465964547606585,
+              0.747799370291353
+            ],
+            "orientation": [
+              0.822611887668961,
+              0.5682821331248227,
+              0.018813214729859144,
+              0.0033410160637663503
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "stage": "lift_10cm",
+      "target_tcp": [
+        0.6608502811120368,
+        -0.14659648210848786,
+        0.847751189646604
+      ],
+      "attempts": [
+        {
+          "attempt": 0,
+          "tcp_error": 0.005345117070864891,
+          "orientation_error": 1.1823274791690246,
+          "actual_tcp": {
+            "position": [
+              0.6598303930810333,
+              -0.14760756461311858,
+              0.8426026153707198
+            ],
+            "orientation": [
+              0.8231816662280729,
+              0.5674258571347008,
+              0.01946175221473924,
+              0.004591431329750392
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "status": "PICK_AND_LIFT_COMPLETED",
+  "head": {
+    "before": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "after": [
+      0.0,
+      0.0,
+      0.34892544328135017
+    ],
+    "error_deg": 0.00804473524724969
+  },
+  "vision": {
+    "position_samples": 8,
+    "angle_samples": 8,
+    "rejects": {
+      "no_image": 0,
+      "no_detection": 0,
+      "no_depth": 0,
+      "no_angle": 0,
+      "no_table": 0
+    }
+  },
+  "detection": {
+    "base_xyz": [
+      0.6921044341856438,
+      -0.125352862266299,
+      0.7246354967617883
+    ],
+    "angle_valid": true,
+    "position_samples": 8,
+    "angle_samples": 8,
+    "product_z_range_m": 0.0017797578449079143,
+    "table_z_m": 0.7232290436278146,
+    "table_samples": 60,
+    "yaw_rad": -0.3682876968842272,
+    "yaw_deg": -21.101330678059576
+  },
+  "product": [
+    0.6921044341856438,
+    -0.125352862266299,
+    0.7246354967617883
+  ],
+  "pregrasp": [
+    0.6921044341856438,
+    -0.125352862266299,
+    0.8446354967617883
+  ],
+  "grasp": [
+    0.6921044341856438,
+    -0.125352862266299,
+    0.7446354967617883
+  ],
+  "table_floor_tcp_z": 0.7332290436278146,
+  "nominal_grasp_z": 0.7446354967617883,
+  "safe_grasp_z": 0.7446354967617883,
+  "grasp_z_source": "product_z_plus_45mm",
+  "vertical_orientation_stages": [
+    {
+      "stage": 1,
+      "drift": 0.00339640752414301,
+      "orientation_error": 1.1955058262265115,
+      "vertical_error_deg": 26.297427586312327
+    },
+    {
+      "stage": 2,
+      "drift": 0.004258324251978513,
+      "orientation_error": 1.4107849497785268,
+      "vertical_error_deg": 26.082845864986894
+    },
+    {
+      "stage": 3,
+      "drift": 0.004438847541037415,
+      "orientation_error": 1.491059794383475,
+      "vertical_error_deg": 25.799112880769645
+    },
+    {
+      "stage": 4,
+      "drift": 0.0043813346278059806,
+      "orientation_error": 1.4910450818081635,
+      "vertical_error_deg": 25.408459074274763
+    },
+    {
+      "stage": 5,
+      "drift": 0.004233366376795989,
+      "orientation_error": 1.4603419724053524,
+      "vertical_error_deg": 24.886532802654923
+    },
+    {
+      "stage": 6,
+      "drift": 0.004076261880384577,
+      "orientation_error": 1.4228434431947614,
+      "vertical_error_deg": 24.241567940176616
+    },
+    {
+      "stage": 7,
+      "drift": 0.003945586919872078,
+      "orientation_error": 1.385853046024853,
+      "vertical_error_deg": 23.485331871974527
+    },
+    {
+      "stage": 8,
+      "drift": 0.0038512707209913256,
+      "orientation_error": 1.3497061273580664,
+      "vertical_error_deg": 22.62601163722784
+    },
+    {
+      "stage": 9,
+      "drift": 0.003781707459063348,
+      "orientation_error": 1.315263167003781,
+      "vertical_error_deg": 21.670770118964793
+    },
+    {
+      "stage": 10,
+      "drift": 0.0037308843106057476,
+      "orientation_error": 1.2826494654032994,
+      "vertical_error_deg": 20.624690744012927
+    },
+    {
+      "stage": 11,
+      "drift": 0.003693702593487272,
+      "orientation_error": 1.2523467699994069,
+      "vertical_error_deg": 19.493272175565078
+    },
+    {
+      "stage": 12,
+      "drift": 0.003661597985279091,
+      "orientation_error": 1.2262029962591652,
+      "vertical_error_deg": 18.282998106143367
+    },
+    {
+      "stage": 13,
+      "drift": 0.003638848241137697,
+      "orientation_error": 1.2035310403725532,
+      "vertical_error_deg": 16.999215857090235
+    },
+    {
+      "stage": 14,
+      "drift": 0.0036227783207145236,
+      "orientation_error": 1.1853876089060447,
+      "vertical_error_deg": 15.64820043102717
+    },
+    {
+      "stage": 15,
+      "drift": 0.0036145055855331207,
+      "orientation_error": 1.1718342999429252,
+      "vertical_error_deg": 14.235955552519577
+    },
+    {
+      "stage": 16,
+      "drift": 0.0036145681844284815,
+      "orientation_error": 1.1626259823550196,
+      "vertical_error_deg": 12.769337841214266
+    },
+    {
+      "stage": 17,
+      "drift": 0.003619060626299389,
+      "orientation_error": 1.1578031925797025,
+      "vertical_error_deg": 11.255060998887531
+    },
+    {
+      "stage": 18,
+      "drift": 0.003630456893940516,
+      "orientation_error": 1.1563628081939679,
+      "vertical_error_deg": 9.700182368463592
+    },
+    {
+      "stage": 19,
+      "drift": 0.0036436969508957862,
+      "orientation_error": 1.1575662963840057,
+      "vertical_error_deg": 8.112459020299964
+    },
+    {
+      "stage": 20,
+      "drift": 0.00365783668254019,
+      "orientation_error": 1.1598802515222464,
+      "vertical_error_deg": 6.502120973124163
+    },
+    {
+      "stage": 21,
+      "drift": 0.0036659703517351043,
+      "orientation_error": 1.161579112789472,
+      "vertical_error_deg": 4.882140128201309
+    },
+    {
+      "stage": 22,
+      "drift": 0.0036615576733424905,
+      "orientation_error": 1.1597870279378535,
+      "vertical_error_deg": 3.2786157824288167
+    },
+    {
+      "stage": 23,
+      "drift": 0.0036362100273162833,
+      "orientation_error": 1.150993532855437,
+      "vertical_error_deg": 1.7877522665856613
+    },
+    {
+      "stage": 24,
+      "drift": 0.0035756124013937994,
+      "orientation_error": 1.1313927437428775,
+      "vertical_error_deg": 1.1142625106343083
+    }
+  ],
+  "error": "Failed to move waist"
+}

@@ -1,0 +1,310 @@
+{
+  "program": "60_g2_yolo_live_axis_y_grasp_down3cm.py",
+  "enable_real_motion": true,
+  "enable_angle_alignment": true,
+  "enable_xy_and_pregrasp": true,
+  "enable_gripper_and_pick": true,
+  "calibration_changes": {
+    "gripper_long_axis_local": "y",
+    "grasp_above_product_m": -0.005,
+    "grasp_z_correction_from_previous_m": -0.03,
+    "qt_font_dir": "/home/isaac-workstation/.local/lib/python3.10/site-packages/cv2/qt/fonts"
+  },
+  "joint_stages": [
+    {
+      "stage": "waypoint_1",
+      "mode": "single_move_arm_joint",
+      "target": [
+        -1.91304851,
+        0.20393955,
+        1.83169374,
+        -1.84651811,
+        0.29203423,
+        -0.28742294,
+        0.91643847
+      ],
+      "actual": [
+        -1.9130484129657674,
+        0.2039389008105722,
+        1.8316968577787278,
+        -1.8465179884036804,
+        0.292038303659676,
+        -0.28742018259239677,
+        0.9164360753575981
+      ],
+      "max_joint_error_rad": 4.07365967597384e-06,
+      "actual_tcp": {
+        "position": [
+          0.5863863510064568,
+          -0.34288833980048206,
+          0.9360791984286904
+        ],
+        "orientation": [
+          0.46820346417508607,
+          0.8360224620634299,
+          0.27970142502844314,
+          0.060158722533877426
+        ]
+      },
+      "recorded_tcp": [
+        0.58639,
+        -0.34289,
+        0.93608
+      ],
+      "tcp_error_m": 4.088267711658114e-06
+    },
+    {
+      "stage": "waypoint_2",
+      "mode": "single_move_arm_joint",
+      "target": [
+        -2.34999915,
+        1.00000018,
+        2.39123385,
+        -1.79048167,
+        -1.50846278,
+        -0.95681237,
+        -0.11304288
+      ],
+      "actual": [
+        -2.3499992950617914,
+        0.9999995289748571,
+        2.3912343264973734,
+        -1.7904809511687236,
+        -1.5084660135353898,
+        -0.9568108092214954,
+        -0.11304204031551923
+      ],
+      "max_joint_error_rad": 3.233535389890463e-06,
+      "actual_tcp": {
+        "position": [
+          0.6571307211579701,
+          -0.16555648011996454,
+          0.9840611787022577
+        ],
+        "orientation": [
+          -0.5216615008536288,
+          0.8225454484645671,
+          -0.1150023985868813,
+          0.19509667361753755
+        ]
+      },
+      "recorded_tcp": [
+        0.65699,
+        -0.16556,
+        0.98419
+      ],
+      "tcp_error_m": 0.00019081341831204501
+    }
+  ],
+  "cartesian_stages": [],
+  "status": "ERROR",
+  "recognized_start_pose": "home",
+  "start_pose_index": 0,
+  "start_pose_max_joint_error_rad": 4.796844981071314e-07,
+  "initial_right_joints": [
+    -1.570796376729167,
+    -1.5707959772550035,
+    1.5707963267948966,
+    -1.5707963267948966,
+    -2.3968449810713145e-07,
+    -2.3968449810713145e-07,
+    1.1984224905356573e-07
+  ],
+  "initial_tcp": {
+    "position": [
+      0.7318451499562679,
+      -0.2435001159374083,
+      0.8164409655088831
+    ],
+    "orientation": [
+      0.7071734860251274,
+      -3.884342645998104e-08,
+      0.7070400700547783,
+      -3.883606774629116e-08
+    ]
+  },
+  "head_after_waypoint_1": {
+    "before_rad": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "before_deg": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "target_rad": [
+      0.0,
+      0.0,
+      0.3490658503988659
+    ],
+    "target_deg": [
+      0.0,
+      0.0,
+      20.0
+    ],
+    "after_rad": [
+      0.0,
+      0.0,
+      0.34892544328135017
+    ],
+    "after_deg": [
+      0.0,
+      0.0,
+      19.99195526475275
+    ],
+    "idx13_error_deg": 0.00804473524724969
+  },
+  "vision_diagnostics": {
+    "position_sample_count": 8,
+    "angle_sample_count": 8,
+    "reject_counts": {
+      "no_image": 0,
+      "no_detection": 0,
+      "no_center_depth": 0,
+      "no_angle_contour": 0,
+      "invalid_axis": 0
+    },
+    "angle_debug_image": "g2_product_angle_axis_y_debug.jpg",
+    "live_latest_image": "g2_yolo_axis_y_live_latest.jpg",
+    "show_yolo_window": true
+  },
+  "detection": {
+    "confidence": 0.8545990884304047,
+    "base_xyz": [
+      0.6205006767945622,
+      -0.027921460080515353,
+      0.750422127226027
+    ],
+    "depth_m": 0.7264999999999999,
+    "position_sample_count": 8,
+    "angle_valid": true,
+    "angle_sample_count": 8,
+    "reject_counts": {
+      "no_image": 0,
+      "no_detection": 0,
+      "no_center_depth": 0,
+      "no_angle_contour": 0,
+      "invalid_axis": 0
+    },
+    "debug_image": "g2_product_angle_axis_y_debug.jpg",
+    "product_yaw_rad": -1.244481150958715,
+    "product_yaw_deg": -71.30351763351746,
+    "aspect_ratio": 3.602858573534891,
+    "angle_methods": [
+      "canny"
+    ]
+  },
+  "product_base_xyz": [
+    0.6205006767945622,
+    -0.027921460080515353,
+    0.750422127226027
+  ],
+  "dynamic_targets": {
+    "pregrasp_tcp": [
+      0.6205006767945622,
+      -0.027921460080515353,
+      0.870422127226027
+    ],
+    "grasp_tcp": [
+      0.6205006767945622,
+      -0.027921460080515353,
+      0.745422127226027
+    ],
+    "lift_tcp": [
+      0.6205006767945622,
+      -0.027921460080515353,
+      0.8454221272260269
+    ]
+  },
+  "wp2_to_pregrasp_delta": [
+    -0.03663004436340789,
+    0.1376350200394492,
+    -0.11363905147623077
+  ],
+  "product_yaw_deg": -71.30351763351746,
+  "gripper_axis_yaw_deg": 152.17359645255635,
+  "yaw_correction_deg": -43.47711408607383,
+  "angle_alignment_stages": [
+    {
+      "stage_index": 1,
+      "stage_count": 3,
+      "target_yaw_from_start_deg": -14.492371362024608,
+      "target_orientation": [
+        -0.41373619702327197,
+        0.8817554433459004,
+        -0.13875039672759162,
+        0.17910339139874237
+      ],
+      "actual_end": {
+        "position": [
+          0.6045050905187266,
+          -0.17909917049692733,
+          1.1173055866178592
+        ],
+        "orientation": [
+          -0.4552997605367369,
+          0.8635062144528475,
+          -0.11721993106977538,
+          0.18253392401551033
+        ]
+      },
+      "actual_tcp": {
+        "position": [
+          0.6648818127248804,
+          -0.18428223978897842,
+          0.9876920317389241
+        ],
+        "orientation": [
+          -0.4552997605367369,
+          0.8635062144528475,
+          -0.11721993106977538,
+          0.18253392401551033
+        ]
+      },
+      "tcp_drift_m": 0.02061850701807423,
+      "orientation_error_deg": 5.771172390613101
+    },
+    {
+      "stage_index": 2,
+      "stage_count": 3,
+      "target_yaw_from_start_deg": -28.984742724049216,
+      "target_orientation": [
+        -0.2992134339010326,
+        0.9268989284547465,
+        -0.16023308100623976,
+        0.16017196119746732
+      ],
+      "actual_end": {
+        "position": [
+          0.6185363665915274,
+          -0.19351769045517964,
+          1.1168971524181122
+        ],
+        "orientation": [
+          -0.3556026386984164,
+          0.9090624331662902,
+          -0.12662380481419055,
+          0.1764048412342625
+        ]
+      },
+      "actual_tcp": {
+        "position": [
+          0.6773109902815425,
+          -0.2085064413665299,
+          0.9873102419826264
+        ],
+        "orientation": [
+          -0.3556026386984164,
+          0.9090624331662902,
+          -0.12662380481419055,
+          0.1764048412342625
+        ]
+      },
+      "tcp_drift_m": 0.027229435547269306,
+      "orientation_error_deg": 8.015650960204775
+    }
+  ],
+  "error": "角度对齐第2段TCP漂移过大"
+}
