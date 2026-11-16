@@ -1,0 +1,49 @@
+/usr/bin/python3.10 /home/isaac-workstation/g2-project/inverse_kinematicas-basice-grasping/52_waypoint2_yolo_pick_lift_safe.py 
+Init glog with processor name:python3.10, pid:1536008
+Initialising DDS
+==============================================================================
+52_waypoint2_yolo_pick_lift_safe.py
+ENABLE_REAL_MOTION=True
+ENABLE_VISION_ALIGNMENT=True
+ENABLE_GRIPPER_OPEN=True
+ENABLE_DESCEND_GRIP_LIFT=True
+起始姿态=home, 剩余关节路径=['waypoint_1', 'waypoint_2']
+到达WAYPOINT_2后才执行YOLO；不使用WAYPOINT_3或旧PREGRASP。
+==============================================================================
+确认急停可用、路径无障碍后输入 PICK：PICK
+建立力矩基线，请保持机器人静止...
+准备执行waypoint_1，共6个短目标，输入 NEXT：NEXT
+[waypoint_1] 1/6, 最大关节误差=0.00001rad
+[waypoint_1] 2/6, 最大关节误差=0.00001rad
+[waypoint_1] 3/6, 最大关节误差=0.00001rad
+[waypoint_1] 4/6, 最大关节误差=0.00001rad
+[waypoint_1] 5/6, 最大关节误差=0.00001rad
+[waypoint_1] 6/6, 最大关节误差=0.00002rad
+[waypoint_1验证] TCP误差=0.00000m
+准备执行waypoint_2，共7个短目标，输入 NEXT：NEXT
+[waypoint_2] 1/7, 最大关节误差=0.00002rad
+[waypoint_2] 2/7, 最大关节误差=0.00003rad
+[waypoint_2] 3/7, 最大关节误差=0.00002rad
+[waypoint_2] 4/7, 最大关节误差=0.00002rad
+[waypoint_2] 5/7, 最大关节误差=0.00002rad
+[waypoint_2] 6/7, 最大关节误差=0.00003rad
+[waypoint_2] 7/7, 最大关节误差=0.00002rad
+[waypoint_2验证] TCP误差=0.00001m
+WAYPOINT_2验证通过，开始YOLO定位产品...
+产品Base XYZ=[0.70772, -0.04486, 0.72016]
+动态PreGrasp=[0.70772, -0.04486, 0.84016]
+WP2->PreGrasp delta=[0.05072, 0.1207, -0.14403]
+准备执行align_xy_at_wp2_height，TCP delta=[0.05072195160517046, 0.12069567285909114, 0.0]，输入 NEXT：NEXT
+[align_xy_at_wp2_height验证] TCP误差=0.0172m, 姿态误差=2.71deg
+准备执行descend_to_pregrasp，TCP delta=[0.0, 0.0, -0.14212834521657225]，输入 NEXT：NEXT
+[descend_to_pregrasp验证] TCP误差=0.0118m, 姿态误差=0.93deg
+打开右夹爪...
+准备执行descend_to_grasp，TCP delta=[0.0, 0.0, -0.09554073609394309]，输入 NEXT：NEXT
+[descend_to_grasp验证] TCP误差=0.0087m, 姿态误差=0.83deg
+关闭右夹爪...
+准备执行lift_10cm，TCP delta=[0.0, 0.0, 0.1]，输入 NEXT：NEXT
+[lift_10cm验证] TCP误差=0.0034m, 姿态误差=0.68deg
+抓取并抬升10cm完成。
+
+进程已结束，退出代码为 0
+
