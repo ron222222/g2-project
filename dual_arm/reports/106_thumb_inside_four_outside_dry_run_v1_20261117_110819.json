@@ -1,0 +1,496 @@
+{
+  "version": "106_v1_thumb_inside_four_outside_dry_run",
+  "timestamp": "2026-11-17T11:08:19.249692+08:00",
+  "safety": {
+    "read_only": true,
+    "o10_commanded": false,
+    "motion_executed": false
+  },
+  "strategy": "thumb_inside_four_fingers_outside",
+  "tray_rim_config": {
+    "outer_width_m": null,
+    "inner_width_m": null,
+    "rim_thickness_m": null,
+    "rim_height_m": null,
+    "rim_corner_radius_m": null,
+    "material": null,
+    "empty_mass_kg": null,
+    "loaded_mass_kg": null
+  },
+  "tray_rim_config_complete": false,
+  "left_end_state": {
+    "side": "left",
+    "controlled": true,
+    "type": 1,
+    "joints": [
+      {
+        "index": 0,
+        "raw_name": "idx31_hand_l_thumb_roll_joint",
+        "name": "idx31_hand_l_thumb_roll_joint",
+        "id": 0,
+        "enable": true,
+        "position": 0.0044506835937501155,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 1,
+        "raw_name": "idx32_hand_l_thumb_abad_joint",
+        "name": "idx32_hand_l_thumb_abad_joint",
+        "id": 1,
+        "enable": true,
+        "position": 0.8090283203124999,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 2,
+        "raw_name": "idx33_hand_l_thumb_mcp_joint",
+        "name": "idx33_hand_l_thumb_mcp_joint",
+        "id": 2,
+        "enable": true,
+        "position": -0.8367171351994991,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 3,
+        "raw_name": "idx36_hand_l_index_abad_joint",
+        "name": "idx36_hand_l_index_abad_joint",
+        "id": 3,
+        "enable": true,
+        "position": 0.0763671875,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 4,
+        "raw_name": "idx37_hand_l_index_pip_joint",
+        "name": "idx37_hand_l_index_pip_joint",
+        "id": 4,
+        "enable": true,
+        "position": 1.294574902277834,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 5,
+        "raw_name": "idx39_hand_l_middle_pip_joint",
+        "name": "idx39_hand_l_middle_pip_joint",
+        "id": 5,
+        "enable": true,
+        "position": 1.403479403226779,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 6,
+        "raw_name": "idx41_hand_l_ring_abad_joint",
+        "name": "idx41_hand_l_ring_abad_joint",
+        "id": 6,
+        "enable": true,
+        "position": -0.084501953125,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 7,
+        "raw_name": "idx42_hand_l_ring_pip_joint",
+        "name": "idx42_hand_l_ring_pip_joint",
+        "id": 7,
+        "enable": true,
+        "position": 1.3949996021467996,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 8,
+        "raw_name": "idx44_hand_l_pinky_abad_joint",
+        "name": "idx44_hand_l_pinky_abad_joint",
+        "id": 8,
+        "enable": true,
+        "position": -0.08720703125,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 9,
+        "raw_name": "idx45_hand_l_pinky_pip_joint",
+        "name": "idx45_hand_l_pinky_pip_joint",
+        "id": 9,
+        "enable": true,
+        "position": 1.4263943399346004,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      }
+    ],
+    "positions": [
+      0.0044506835937501155,
+      0.8090283203124999,
+      -0.8367171351994991,
+      0.0763671875,
+      1.294574902277834,
+      1.403479403226779,
+      -0.084501953125,
+      1.3949996021467996,
+      -0.08720703125,
+      1.4263943399346004
+    ]
+  },
+  "right_end_state": {
+    "side": "right",
+    "controlled": true,
+    "type": 1,
+    "joints": [
+      {
+        "index": 0,
+        "raw_name": "idx71_hand_r_thumb_roll_joint",
+        "name": "idx71_hand_r_thumb_roll_joint",
+        "id": 0,
+        "enable": true,
+        "position": 0.0034106445312500067,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 1,
+        "raw_name": "idx72_hand_r_thumb_abad_joint",
+        "name": "idx72_hand_r_thumb_abad_joint",
+        "id": 1,
+        "enable": true,
+        "position": -0.8086157226562499,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 2,
+        "raw_name": "idx73_hand_r_thumb_mcp_joint",
+        "name": "idx73_hand_r_thumb_mcp_joint",
+        "id": 2,
+        "enable": true,
+        "position": 0.8368248177524341,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 3,
+        "raw_name": "idx76_hand_r_index_abad_joint",
+        "name": "idx76_hand_r_index_abad_joint",
+        "id": 3,
+        "enable": true,
+        "position": -0.076328125,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 4,
+        "raw_name": "idx77_hand_r_index_pip_joint ",
+        "name": "idx77_hand_r_index_pip_joint",
+        "id": 4,
+        "enable": true,
+        "position": 1.294574902277834,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 5,
+        "raw_name": "idx79_hand_r_middle_pip_joint",
+        "name": "idx79_hand_r_middle_pip_joint",
+        "id": 5,
+        "enable": true,
+        "position": 1.403479403226779,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 6,
+        "raw_name": "idx81_hand_r_ring_abad_joint",
+        "name": "idx81_hand_r_ring_abad_joint",
+        "id": 6,
+        "enable": true,
+        "position": 0.08072509765625001,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 7,
+        "raw_name": "idx82_hand_r_ring_pip_joint",
+        "name": "idx82_hand_r_ring_pip_joint",
+        "id": 7,
+        "enable": true,
+        "position": 1.3951649776650341,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 8,
+        "raw_name": "idx84_hand_r_pinky_abad_joint",
+        "name": "idx84_hand_r_pinky_abad_joint",
+        "id": 8,
+        "enable": true,
+        "position": 0.09244873046875,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 9,
+        "raw_name": "idx85_hand_r_pinky_pip_joint",
+        "name": "idx85_hand_r_pinky_pip_joint",
+        "id": 9,
+        "enable": true,
+        "position": 1.4266928802553063,
+        "velocity": 0.0,
+        "effort": 0.0,
+        "current": 0.0,
+        "status": 0,
+        "err_code": 0
+      }
+    ],
+    "positions": [
+      0.0034106445312500067,
+      -0.8086157226562499,
+      0.8368248177524341,
+      -0.076328125,
+      1.294574902277834,
+      1.403479403226779,
+      0.08072509765625001,
+      1.3951649776650341,
+      0.09244873046875,
+      1.4266928802553063
+    ]
+  },
+  "mirror_sign": [
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0,
+    1.0,
+    1.0,
+    -1.0,
+    1.0,
+    -1.0,
+    1.0
+  ],
+  "right_positions_in_left_convention": [
+    -0.0034106445312500067,
+    0.8086157226562499,
+    -0.8368248177524341,
+    0.076328125,
+    1.294574902277834,
+    1.403479403226779,
+    -0.08072509765625001,
+    1.3951649776650341,
+    -0.09244873046875,
+    1.4266928802553063
+  ],
+  "mirror_delta_rad": [
+    0.007861328125000122,
+    0.0004125976562500133,
+    0.00010768255293502893,
+    3.9062500000006106e-05,
+    0.0,
+    0.0,
+    -0.003776855468749993,
+    -0.0001653755182344785,
+    0.005241699218750007,
+    -0.00029854032070586456
+  ],
+  "max_mirror_error_rad": 0.007861328125000122,
+  "left_current_geometry": {
+    "base_frame": "hand_l_base_link",
+    "tip_positions_m": {
+      "thumb": [
+        0.0025358259266720085,
+        -0.04358969858669487,
+        0.11923562914690988
+      ],
+      "index": [
+        0.0845215070138059,
+        0.019675617242018495,
+        0.061031826403099565
+      ],
+      "middle": [
+        0.05768672465910814,
+        0.007950099999999849,
+        0.07408165358287144
+      ],
+      "ring": [
+        0.06035496067928871,
+        -0.003041136151177626,
+        0.07178076850311088
+      ],
+      "pinky": [
+        0.054019304909744076,
+        -0.022147372613514515,
+        0.07079116664771423
+      ]
+    },
+    "four_finger_outside_center_m": [
+      0.0641456243154867,
+      0.0006093021193315507,
+      0.06942135378419903
+    ],
+    "thumb_inside_point_m": [
+      0.0025358259266720085,
+      -0.04358969858669487,
+      0.11923562914690988
+    ],
+    "virtual_grasp_center_m": [
+      0.033340725121079356,
+      -0.02149019823368166,
+      0.09432849146555446
+    ],
+    "thumb_to_four_finger_center_aperture_m": 0.09072365155147637
+  },
+  "right_current_geometry": {
+    "base_frame": "hand_r_base_link",
+    "tip_positions_m": {
+      "thumb": [
+        0.0027898704436599697,
+        0.04388993594234514,
+        0.11909231718791347
+      ],
+      "index": [
+        0.08452118877421903,
+        -0.019679375215482242,
+        0.06103112672476996
+      ],
+      "middle": [
+        0.057686724659108,
+        -0.00795009999999996,
+        0.07408165358287089
+      ],
+      "ring": [
+        0.060314134018485954,
+        0.0033999855753398256,
+        0.07178339889933893
+      ],
+      "pinky": [
+        0.05396843569038359,
+        0.021666404475971013,
+        0.07092693697204311
+      ]
+    },
+    "four_finger_outside_center_m": [
+      0.06412262078554914,
+      -0.0006407712910428409,
+      0.06945577904475572
+    ],
+    "thumb_inside_point_m": [
+      0.0027898704436599697,
+      0.04388993594234514,
+      0.11909231718791347
+    ],
+    "virtual_grasp_center_m": [
+      0.03345624561460456,
+      0.021624582325651148,
+      0.0942740481163346
+    ],
+    "thumb_to_four_finger_center_aperture_m": 0.09060064056088882
+  },
+  "candidate_profiles": {
+    "HOLD_CURRENT": {
+      "status": "READY_DRY_RUN",
+      "left_positions": [
+        0.0044506835937501155,
+        0.8090283203124999,
+        -0.8367171351994991,
+        0.0763671875,
+        1.294574902277834,
+        1.403479403226779,
+        -0.084501953125,
+        1.3949996021467996,
+        -0.08720703125,
+        1.4263943399346004
+      ],
+      "right_positions": [
+        0.0034106445312500067,
+        -0.8086157226562499,
+        0.8368248177524341,
+        -0.076328125,
+        1.294574902277834,
+        1.403479403226779,
+        0.08072509765625001,
+        1.3951649776650341,
+        0.09244873046875,
+        1.4266928802553063
+      ],
+      "command_allowed": false
+    },
+    "OPEN": {
+      "status": "BLOCKED_NEEDS_MEASURED_RIM_AND_APPROVED_TARGETS",
+      "left_positions": null,
+      "right_positions": null,
+      "command_allowed": false
+    },
+    "PREGRASP": {
+      "status": "BLOCKED_NEEDS_MEASURED_RIM_AND_APPROVED_TARGETS",
+      "left_positions": null,
+      "right_positions": null,
+      "command_allowed": false
+    },
+    "GRASP": {
+      "status": "BLOCKED_NEEDS_MEASURED_RIM_AND_APPROVED_TARGETS",
+      "left_positions": null,
+      "right_positions": null,
+      "command_allowed": false
+    }
+  }
+}

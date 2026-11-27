@@ -1,0 +1,855 @@
+Log file created at: 2026/11/26 11:07:55
+Running on machine: isaac-workstation
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1126 11:07:55.851577 3762943 dylog_impl.cpp:641] [DYLOG] set dylog default level to INFO
+W1126 11:07:55.851591 3762943 dylog_impl.cpp:681] [DYLOG] can't find available soc record file with path : /proc/device-tree/model, use s1
+I1126 11:07:55.851593 3762943 dylog_impl.cpp:690] [DYLOG] soc num : s1
+I1126 11:07:55.851598 3762943 dylog_impl.cpp:695] [DYLOG] can't read scene_mode, use sud
+W1126 11:07:55.851601 3762943 dylog_impl.cpp:757] [DYLOG] can't find available json config file with path : /home/agi/app/conf/scene_server/dylog_sud_default.json, use default.
+I1126 11:07:55.851632 3762943 dylog_impl.cpp:293] [DYLOG] register dsd_name : dylog/python3.10/cosine_internal
+I1126 11:07:55.853196 3762943 cosine_bus_manager.cpp:142] [cosine_internal][CosineBusManager] cosine bus config path not set, use default config.
+I1126 11:07:55.853204 3762943 cosine_bus_manager.cpp:175] [cosine_internal][CosineBusManager] initial cosine_bus_config:
+I1126 11:07:55.853665 3762943 cosine_bus_global_sync.cpp:30] [cosine_internal][BusGlobalSync] set default middleware name:aorta
+I1126 11:07:55.853677 3762943 scheduler_classic.cpp:28] [cosine_internal]Proc number set to be: 1
+I1126 11:07:55.853904 3762943 dynamic_object.cpp:521] [cosine_internal][DynamicObject] open libdynamic_aorta.so success.
+I1126 11:07:55.853969 3762943 dynamic_object.cpp:581] [cosine_internal][DynamicObject] Successfully enumerated 66 symbols in libdynamic_aorta.so
+I1126 11:07:55.853971 3762943 resource_loader.cpp:13] [cosine_internal][ResourceLoader] Attempting to load function: aorta_get_object
+I1126 11:07:55.853971 3762943 resource_loader.cpp:17] [cosine_internal][ResourceLoader] Trying address() method for C++ symbol: aorta_get_object
+I1126 11:07:55.853972 3762943 resource_loader.cpp:20] [cosine_internal][ResourceLoader] Successfully loaded C++ symbol: aorta_get_object
+I1126 11:07:55.853973 3762943 resource_loader.cpp:13] [cosine_internal][ResourceLoader] Attempting to load function: aorta_call_object_func
+I1126 11:07:55.853974 3762943 resource_loader.cpp:17] [cosine_internal][ResourceLoader] Trying address() method for C++ symbol: aorta_call_object_func
+I1126 11:07:55.853976 3762943 resource_loader.cpp:20] [cosine_internal][ResourceLoader] Successfully loaded C++ symbol: aorta_call_object_func
+I1126 11:07:55.853976 3762943 resource_loader.cpp:13] [cosine_internal][ResourceLoader] Attempting to load function: aorta_clean_up
+I1126 11:07:55.853977 3762943 resource_loader.cpp:17] [cosine_internal][ResourceLoader] Trying address() method for C++ symbol: aorta_clean_up
+I1126 11:07:55.853982 3762943 resource_loader.cpp:25] [cosine_internal][ResourceLoader] C++ symbol failed, trying c_address() method for C symbol: aorta_clean_up
+I1126 11:07:55.853983 3762943 resource_loader.cpp:28] [cosine_internal][ResourceLoader] Successfully loaded C symbol: aorta_clean_up
+I1126 11:07:55.853986 3762943 aorta_component.cpp:85] [cosine_internal][AortaComponent] use env var [LOCATOR_IP]:10.42.1.11
+I1126 11:07:55.853986 3762943 aorta_component.cpp:100] [cosine_internal][AortaComponent] use env var [AORTA_DISCOVERY_URI]:http://10.42.1.101:2379
+I1126 11:07:55.853987 3762943 aorta_component.cpp:106] [cosine_internal][AortaComponent] use env var [AORTA_DISPATCHER_THREAD_NUM]:6
+I1126 11:07:55.853988 3762943 aorta_component.cpp:496] [cosine_internal][AortaComponent] locator_ip: 10.42.1.11; Check network before domain init 
+I1126 11:07:55.854002 3762943 aorta_component.cpp:515] [cosine_internal][AortaComponent] Network check start. locator_ip: 10.42.1.11, timeout: 60 seconds , check_start_time: 1795662475
+I1126 11:07:55.854007 3762943 aorta_component.cpp:526] [cosine_internal][AortaComponent] locator_ip: 10.42.1.11; network is ready.
+I1126 11:07:55.854019 3762943 dylog_impl.cpp:293] [DYLOG] register dsd_name : dylog/python3.10/aorta
+I1126 11:07:55.854044 3762943 os.cc:88] [aorta]Got host_id from system files: 607f2788553644599e19b319b3e3f373
+I1126 11:07:55.854100 3762943 message_monitor_config.cc:398] [aorta]run in  mode
+I1126 11:07:55.854420 3762943 domain_impl.cc:58] [aorta]aorta version:b80ec961
+I1126 11:07:55.854424 3762943 json_comm.cc:35] [aorta]file path:  not exist.
+I1126 11:07:55.854427 3762943 message_monitor_config.cc:398] [aorta]run in  mode
+W1126 11:07:55.854434 3762943 transport_config.cc:91] [aorta]Failed to open the file /home/agi/app/conf/aorta/function/aorta_transport_conf.json
+I1126 11:07:55.854436 3762943 discovery_factory.cc:14] [aorta]type:1, host:10.42.1.101, port:2379, ttl:15, minor_cycle:100, major_cycle:3
+I1126 11:07:55.854586 3762943 config.cc:53] [aorta]AORTA_IP_MASK not set.
+I1126 11:07:55.854588 3762943 discovery.cc:245] [aorta]get ip masks empty.
+I1126 11:07:55.854589 3762943 config.cc:200] [aorta]AORTA_EXTRA_LOCAL_IPS not set.
+I1126 11:07:55.854591 3762943 discovery.cc:266] [aorta]local_publisher_ips_ empty.
+I1126 11:07:55.854595 3762943 config.cc:124] [aorta]ip match, ip:127.0.0.1
+I1126 11:07:55.854596 3762943 config.cc:124] [aorta]ip match, ip:172.20.10.4
+I1126 11:07:55.854598 3762943 discovery.cc:275] [aorta]default emplace ip:10.42.1.11
+I1126 11:07:55.854599 3762943 centralized_discovery.cc:55] [aorta]lease_ttl_:15
+I1126 11:07:55.854950 3762943 aorta_component.cpp:561] [cosine_internal][AortaComponent] aorta create domain success. uri:http://10.42.1.101:2379
+I1126 11:07:55.854978 3762943 aorta_component.cpp:447] [cosine_internal][AortaComponent] aorta domain created node: python3.10_S1 , domain_uri:http://10.42.1.101:2379
+I1126 11:07:55.854979 3762943 aorta_component.cpp:126] [cosine_internal][AortaComponent] aorta component init success. node:python3.10_S1, uri:http://10.42.1.101:2379, locator_kind(1:shm,2:tcp,3:udp):2, locator_ip:10.42.1.11, locator_port:0, aorta_dispatcher_thread_num:6
+I1126 11:07:55.855019 3762970 processor.cpp:40] [cosine_internal]processor_tid: 3762970
+I1126 11:07:55.855063 3762974 executor_impl.cc:91] [aorta]aorta-dispatch1 start spinning
+I1126 11:07:55.855062 3762973 executor_impl.cc:91] [aorta]aorta-dispatch0 start spinning
+I1126 11:07:55.855070 3762976 executor_impl.cc:91] [aorta]aorta-dispatch3 start spinning
+I1126 11:07:55.855077 3762977 executor_impl.cc:91] [aorta]aorta-dispatch4 start spinning
+I1126 11:07:55.855084 3762975 executor_impl.cc:91] [aorta]aorta-dispatch2 start spinning
+I1126 11:07:55.855141 3762978 executor_impl.cc:91] [aorta]aorta-dispatch5 start spinning
+I1126 11:07:55.858379 3762943 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/gdk/config_request , middleware:aorta
+I1126 11:07:55.858394 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.858395 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.858397 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.858397 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.858398 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.858399 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.858400 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.858400 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.858402 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.858402 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.858403 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.858403 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.858404 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.858405 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.858405 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.858407 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.858450 3762943 tcp_publisher.cc:179] [aorta]topic /gdk/config_request, pub_queue_size_ 5, latch_queue_size_ 0
+I1126 11:07:55.858587 3762979 tcp_socket_server.cc:200] [aorta]The ip info is0.0.0.0:41629
+I1126 11:07:55.858626 3762979 shm_socket_server.cc:101] [aorta][/gdk/config_request] bind at pipe sock name d2379|python3.10|p3762943|n0|/gdk/config_request|p0
+I1126 11:07:55.858644 3762943 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:41629, sockname:d2379|python3.10|p3762943|n0|/gdk/config_request|p0, topic:/gdk/config_request, uid:df811243-efcc-428b-9682-06ae3e6266be-4991715019463590898 topic_uid:-1
+I1126 11:07:55.858650 3762943 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/gdk/config_request, type:genie_msgs.msg.pb.CommonRequest, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.858673 3762943 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/gdk/config_request, uri:
+I1126 11:07:55.858676 3762943 dylog_impl.cpp:293] [DYLOG] register dsd_name : dylog/python3.10/GDK
+I1126 11:07:55.858680 3762943 publisher.cpp:27] [GDK]create publisher: /gdk/config_request type: genie_msgs.msg.pb.CommonRequest qos: 1 1 5 2
+I1126 11:07:55.858682 3762943 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/gdk/camera_conf_request , middleware:aorta
+I1126 11:07:55.858688 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.858690 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.858690 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.858690 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.858691 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.858692 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.858693 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.858693 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.858695 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.858695 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.858695 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.858696 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.858697 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.858697 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.858698 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.858700 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.858701 3762943 tcp_publisher.cc:179] [aorta]topic /gdk/camera_conf_request, pub_queue_size_ 5, latch_queue_size_ 0
+I1126 11:07:55.858716 3762979 tcp_socket_server.cc:200] [aorta]The ip info is0.0.0.0:45923
+I1126 11:07:55.858731 3762979 shm_socket_server.cc:101] [aorta][/gdk/camera_conf_request] bind at pipe sock name d2379|python3.10|p3762943|n0|/gdk/camera_conf_request|p1
+I1126 11:07:55.858740 3762943 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:45923, sockname:d2379|python3.10|p3762943|n0|/gdk/camera_conf_request|p1, topic:/gdk/camera_conf_request, uid:c3f7d853-8437-4adf-a805-e29eba2a2ecf-9117180461459404870 topic_uid:-1
+I1126 11:07:55.858742 3762943 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/gdk/camera_conf_request, type:genie_msgs.msg.pb.CommonRequest, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.858762 3762943 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/gdk/camera_conf_request, uri:
+I1126 11:07:55.858763 3762943 publisher.cpp:27] [GDK]create publisher: /gdk/camera_conf_request type: genie_msgs.msg.pb.CommonRequest qos: 1 1 5 2
+I1126 11:07:55.858769 3762943 cosine_bus_manager.cpp:478] [cosine_internal][CosineBusManager] create subscriber. topic name:/gdk/config_response , middleware:aorta , need async callback:0, frame_skip_rate:1
+I1126 11:07:55.858772 3762943 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/gdk/config_responsehttp://10.42.1.101:2379
+I1126 11:07:55.858790 3762943 dynamic_object.cpp:521] [cosine_internal][DynamicObject] open  success.
+I1126 11:07:55.858819 3762943 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___gdk__config_response, type genie_msgs.msg.pb.CommonResponse, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 1, enable_event_sync_subscriber 1], buffer id = 1
+I1126 11:07:55.858824 3762943 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___gdk__config_response, type:genie_msgs.msg.pb.CommonResponse, size:5
+I1126 11:07:55.858834 3762943 node_impl.cc:344] [aorta]CreateSubscriber topic:/gdk/config_response, uid:102d4800-f3a7-4b25-b289-b5b084135ad9-9533047780102618842 topic_uid:-1
+I1126 11:07:55.858876 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.858877 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.858877 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.858878 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.858879 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.858879 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.858880 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.858881 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.858882 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.858882 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.858883 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.858884 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.858884 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.858886 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.858887 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.858888 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.858893 3762943 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/gdk/config_response, type:genie_msgs.msg.pb.CommonResponse, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.858896 3762943 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/gdk/config_response, uri:
+I1126 11:07:55.858898 3762943 cosine_bus_manager.cpp:478] [cosine_internal][CosineBusManager] create subscriber. topic name:/gdk/camera_conf_response , middleware:aorta , need async callback:0, frame_skip_rate:1
+I1126 11:07:55.858901 3762943 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/gdk/camera_conf_responsehttp://10.42.1.101:2379
+I1126 11:07:55.858907 3762943 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___gdk__camera_conf_response, type genie_msgs.msg.pb.CommonResponse, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 1, enable_event_sync_subscriber 1], buffer id = 2
+I1126 11:07:55.858909 3762943 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___gdk__camera_conf_response, type:genie_msgs.msg.pb.CommonResponse, size:5
+I1126 11:07:55.858917 3762943 node_impl.cc:344] [aorta]CreateSubscriber topic:/gdk/camera_conf_response, uid:89124563-8405-4e95-8024-cd21457b5a68-3551884323222435368 topic_uid:-1
+I1126 11:07:55.858922 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.858923 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.858924 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.858924 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.858925 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.858927 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.858927 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.858927 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.858927 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.858928 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.858929 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.858929 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.858930 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.858932 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.858932 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.858933 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.858935 3762943 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/gdk/camera_conf_response, type:genie_msgs.msg.pb.CommonResponse, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.858937 3762943 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/gdk/camera_conf_response, uri:
+I1126 11:07:55.858953 3762943 cosine_bus_manager.cpp:478] [cosine_internal][CosineBusManager] create subscriber. topic name:/hal/joint_state , middleware:aorta , need async callback:0, frame_skip_rate:1
+I1126 11:07:55.858955 3762943 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/hal/joint_statehttp://10.42.1.101:2379
+I1126 11:07:55.858980 3762943 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___hal__joint_state, type genie_msgs.msg.pb.JointState, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 1, enable_event_sync_subscriber 1], buffer id = 3
+I1126 11:07:55.858983 3762943 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___hal__joint_state, type:genie_msgs.msg.pb.JointState, size:5
+I1126 11:07:55.858989 3762943 node_impl.cc:344] [aorta]CreateSubscriber topic:/hal/joint_state, uid:2d1f2e8e-38bb-42d0-acf6-9d6d4b62e1c4-17784787521228097140 topic_uid:-1
+I1126 11:07:55.858994 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.858995 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.858996 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.858996 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.858997 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.858999 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.858999 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.858999 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.858999 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859001 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859002 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.859002 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.859004 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.859004 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.859004 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.859005 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.859007 3762943 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/hal/joint_state, type:genie_msgs.msg.pb.JointState, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.859009 3762943 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/hal/joint_state, uri:
+I1126 11:07:55.859012 3762943 cosine_bus_manager.cpp:478] [cosine_internal][CosineBusManager] create subscriber. topic name:/hal/whole_body_status , middleware:aorta , need async callback:0, frame_skip_rate:1
+I1126 11:07:55.859014 3762943 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/hal/whole_body_statushttp://10.42.1.101:2379
+I1126 11:07:55.859038 3762943 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___hal__whole_body_status, type genie_msgs.msg.pb.WholeBodyStatus, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 1, enable_event_sync_subscriber 1], buffer id = 4
+I1126 11:07:55.859040 3762943 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___hal__whole_body_status, type:genie_msgs.msg.pb.WholeBodyStatus, size:5
+I1126 11:07:55.859046 3762943 node_impl.cc:344] [aorta]CreateSubscriber topic:/hal/whole_body_status, uid:0586ade0-584e-4dca-bbae-7a0eccd160de-4082625946824470290 topic_uid:-1
+I1126 11:07:55.859050 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.859051 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.859051 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859052 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.859053 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859053 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.859054 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.859055 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859055 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859056 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859056 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.859057 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.859058 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.859058 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.859061 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.859061 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.859063 3762943 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/hal/whole_body_status, type:genie_msgs.msg.pb.WholeBodyStatus, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.859064 3762943 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/hal/whole_body_status, uri:
+I1126 11:07:55.859066 3762943 cosine_bus_manager.cpp:478] [cosine_internal][CosineBusManager] create subscriber. topic name:/hal/left_ee_data , middleware:aorta , need async callback:0, frame_skip_rate:1
+I1126 11:07:55.859067 3762943 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/hal/left_ee_datahttp://10.42.1.101:2379
+I1126 11:07:55.859090 3762943 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___hal__left_ee_data, type genie_msgs.msg.pb.EndState, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 1, enable_event_sync_subscriber 1], buffer id = 5
+I1126 11:07:55.859092 3762943 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___hal__left_ee_data, type:genie_msgs.msg.pb.EndState, size:5
+I1126 11:07:55.859097 3762943 node_impl.cc:344] [aorta]CreateSubscriber topic:/hal/left_ee_data, uid:624338cc-935c-4d67-9e42-093c81071a42-6411614143165937964 topic_uid:-1
+I1126 11:07:55.859102 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.859102 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.859103 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859104 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.859105 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859107 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.859107 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.859107 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859108 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859108 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859109 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.859109 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.859110 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.859112 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.859112 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.859112 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.859114 3762943 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/hal/left_ee_data, type:genie_msgs.msg.pb.EndState, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.859117 3762943 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/hal/left_ee_data, uri:
+I1126 11:07:55.859117 3762943 cosine_bus_manager.cpp:478] [cosine_internal][CosineBusManager] create subscriber. topic name:/hal/right_ee_data , middleware:aorta , need async callback:0, frame_skip_rate:1
+I1126 11:07:55.859118 3762943 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/hal/right_ee_datahttp://10.42.1.101:2379
+I1126 11:07:55.859123 3762943 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___hal__right_ee_data, type genie_msgs.msg.pb.EndState, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 1, enable_event_sync_subscriber 1], buffer id = 6
+I1126 11:07:55.859124 3762943 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___hal__right_ee_data, type:genie_msgs.msg.pb.EndState, size:5
+I1126 11:07:55.859130 3762943 node_impl.cc:344] [aorta]CreateSubscriber topic:/hal/right_ee_data, uid:5586b02c-b7ef-4791-bf77-7e0afa2284d4-5071795120000351093 topic_uid:-1
+I1126 11:07:55.859134 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.859134 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.859135 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859136 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.859136 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859138 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.859138 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.859139 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859139 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859140 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859141 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.859141 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.859143 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.859143 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.859143 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.859144 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.859145 3762943 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/hal/right_ee_data, type:genie_msgs.msg.pb.EndState, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.859148 3762943 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/hal/right_ee_data, uri:
+I1126 11:07:55.859149 3762943 cosine_bus_manager.cpp:478] [cosine_internal][CosineBusManager] create subscriber. topic name:/hal/chassis_power_state , middleware:aorta , need async callback:0, frame_skip_rate:1
+I1126 11:07:55.859150 3762943 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/hal/chassis_power_statehttp://10.42.1.101:2379
+I1126 11:07:55.859216 3762943 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___hal__chassis_power_state, type genie_msgs.msg.pb.ChassisPowerState, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 1, enable_event_sync_subscriber 1], buffer id = 7
+I1126 11:07:55.859218 3762943 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___hal__chassis_power_state, type:genie_msgs.msg.pb.ChassisPowerState, size:5
+I1126 11:07:55.859225 3762943 node_impl.cc:344] [aorta]CreateSubscriber topic:/hal/chassis_power_state, uid:14e80862-fb02-424f-89b4-49af749b6060-13624413023349153968 topic_uid:-1
+I1126 11:07:55.859229 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.859230 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.859230 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859231 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.859232 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859232 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.859233 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.859234 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859234 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859236 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859236 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.859236 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.859237 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.859237 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.859238 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.859239 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.859241 3762943 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/hal/chassis_power_state, type:genie_msgs.msg.pb.ChassisPowerState, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.859242 3762943 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/hal/chassis_power_state, uri:
+I1126 11:07:55.859244 3762943 cosine_bus_manager.cpp:478] [cosine_internal][CosineBusManager] create subscriber. topic name:/hal/chest_power_state , middleware:aorta , need async callback:0, frame_skip_rate:1
+I1126 11:07:55.859246 3762943 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/hal/chest_power_statehttp://10.42.1.101:2379
+I1126 11:07:55.859283 3762943 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___hal__chest_power_state, type genie_msgs.msg.pb.ChestPowerState, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 1, enable_event_sync_subscriber 1], buffer id = 8
+I1126 11:07:55.859285 3762943 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___hal__chest_power_state, type:genie_msgs.msg.pb.ChestPowerState, size:5
+I1126 11:07:55.859294 3762943 node_impl.cc:344] [aorta]CreateSubscriber topic:/hal/chest_power_state, uid:305e39cb-83c6-4018-bee5-715b1e238618-8918795574175434775 topic_uid:-1
+I1126 11:07:55.859299 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.859299 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.859300 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859301 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.859301 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859302 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.859302 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.859303 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859304 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859304 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859305 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.859306 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.859306 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.859308 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.859308 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.859309 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.859311 3762943 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/hal/chest_power_state, type:genie_msgs.msg.pb.ChestPowerState, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.859313 3762943 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/hal/chest_power_state, uri:
+I1126 11:07:55.859324 3762943 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/hal/joint_cmd , middleware:aorta
+I1126 11:07:55.859328 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.859329 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.859330 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859330 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.859331 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859332 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.859332 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.859333 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859334 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859336 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859336 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.859337 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.859337 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.859338 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.859339 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.859339 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.859342 3762943 tcp_publisher.cc:179] [aorta]topic /hal/joint_cmd, pub_queue_size_ 5, latch_queue_size_ 0
+I1126 11:07:55.859354 3762979 tcp_socket_server.cc:200] [aorta]The ip info is0.0.0.0:40993
+I1126 11:07:55.859368 3762979 shm_socket_server.cc:101] [aorta][/hal/joint_cmd] bind at pipe sock name d2379|python3.10|p3762943|n0|/hal/joint_cmd|p2
+I1126 11:07:55.859376 3762943 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:40993, sockname:d2379|python3.10|p3762943|n0|/hal/joint_cmd|p2, topic:/hal/joint_cmd, uid:f3d1da47-76c2-48e6-95aa-0670f9b25548-8113233340941315482 topic_uid:-1
+I1126 11:07:55.859380 3762943 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/hal/joint_cmd, type:genie_msgs.msg.pb.JointCommand, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.859398 3762943 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/hal/joint_cmd, uri:
+I1126 11:07:55.859400 3762943 publisher.cpp:27] [GDK]create publisher: /hal/joint_cmd type: genie_msgs.msg.pb.JointCommand qos: 1 1 5 2
+I1126 11:07:55.859411 3762943 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/wbc/left_ee_command , middleware:aorta
+I1126 11:07:55.859414 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.859416 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.859417 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859417 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.859418 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859418 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.859419 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.859421 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859421 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859421 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859422 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.859422 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.859423 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.859423 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.859424 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.859426 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.859428 3762943 tcp_publisher.cc:179] [aorta]topic /wbc/left_ee_command, pub_queue_size_ 5, latch_queue_size_ 0
+I1126 11:07:55.859438 3762979 tcp_socket_server.cc:200] [aorta]The ip info is0.0.0.0:37533
+I1126 11:07:55.859452 3762979 shm_socket_server.cc:101] [aorta][/wbc/left_ee_command] bind at pipe sock name d2379|python3.10|p3762943|n0|/wbc/left_ee_command|p3
+I1126 11:07:55.859458 3762943 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:37533, sockname:d2379|python3.10|p3762943|n0|/wbc/left_ee_command|p3, topic:/wbc/left_ee_command, uid:b0ccb118-0046-429e-99f1-fb02fc3aa71c-15677759012602946526 topic_uid:-1
+I1126 11:07:55.859462 3762943 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/wbc/left_ee_command, type:sensor_msgs.msg.pb.JointState, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.859480 3762943 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/wbc/left_ee_command, uri:
+I1126 11:07:55.859481 3762943 publisher.cpp:27] [GDK]create publisher: /wbc/left_ee_command type: sensor_msgs.msg.pb.JointState qos: 1 1 5 2
+I1126 11:07:55.859483 3762943 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/wbc/right_ee_command , middleware:aorta
+I1126 11:07:55.859488 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.859488 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.859488 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859489 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.859489 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859490 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.859491 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.859491 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859493 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859493 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859493 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.859494 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.859494 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.859495 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.859496 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.859496 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.859499 3762943 tcp_publisher.cc:179] [aorta]topic /wbc/right_ee_command, pub_queue_size_ 5, latch_queue_size_ 0
+I1126 11:07:55.859509 3762979 tcp_socket_server.cc:200] [aorta]The ip info is0.0.0.0:46851
+I1126 11:07:55.859521 3762979 shm_socket_server.cc:101] [aorta][/wbc/right_ee_command] bind at pipe sock name d2379|python3.10|p3762943|n0|/wbc/right_ee_command|p4
+I1126 11:07:55.859529 3762943 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:46851, sockname:d2379|python3.10|p3762943|n0|/wbc/right_ee_command|p4, topic:/wbc/right_ee_command, uid:147f64a9-a9d0-4f3c-8808-8122cb37c41b-12160131399292109555 topic_uid:-1
+I1126 11:07:55.859530 3762943 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/wbc/right_ee_command, type:sensor_msgs.msg.pb.JointState, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.859549 3762943 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/wbc/right_ee_command, uri:
+I1126 11:07:55.859550 3762943 publisher.cpp:27] [GDK]create publisher: /wbc/right_ee_command type: sensor_msgs.msg.pb.JointState qos: 1 1 5 2
+I1126 11:07:55.859555 3762943 cosine_bus_manager.cpp:478] [cosine_internal][CosineBusManager] create subscriber. topic name:/wbc/motion_control_status , middleware:aorta , need async callback:0, frame_skip_rate:1
+I1126 11:07:55.859555 3762943 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/wbc/motion_control_statushttp://10.42.1.101:2379
+I1126 11:07:55.859592 3762943 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___wbc__motion_control_status, type genie_msgs.msg.pb.MotionControlStatus, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 1, enable_event_sync_subscriber 1], buffer id = 9
+I1126 11:07:55.859594 3762943 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___wbc__motion_control_status, type:genie_msgs.msg.pb.MotionControlStatus, size:5
+I1126 11:07:55.859601 3762943 node_impl.cc:344] [aorta]CreateSubscriber topic:/wbc/motion_control_status, uid:2c190ddd-72dd-41ca-aa80-a356d3066719-3835708119707617413 topic_uid:-1
+I1126 11:07:55.859606 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.859606 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.859606 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859607 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.859607 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859609 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.859609 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.859611 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859611 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859611 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859612 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.859613 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.859613 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.859614 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.859614 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.859615 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.859617 3762943 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/wbc/motion_control_status, type:genie_msgs.msg.pb.MotionControlStatus, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.859618 3762943 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/wbc/motion_control_status, uri:
+I1126 11:07:55.859625 3762943 cosine_bus_manager.cpp:478] [cosine_internal][CosineBusManager] create subscriber. topic name:/MotionControlService/JointPosition/response , middleware:aorta , need async callback:0, frame_skip_rate:1
+I1126 11:07:55.859627 3762943 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/MotionControlService/JointPosition/responsehttp://10.42.1.101:2379
+I1126 11:07:55.859632 3762943 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___MotionControlService__JointPosition__response, type genie_msgs.msg.pb.CommonResponse, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 1, enable_event_sync_subscriber 1], buffer id = 10
+I1126 11:07:55.859634 3762943 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___MotionControlService__JointPosition__response, type:genie_msgs.msg.pb.CommonResponse, size:5
+I1126 11:07:55.859639 3762943 node_impl.cc:344] [aorta]CreateSubscriber topic:/MotionControlService/JointPosition/response, uid:3b87b954-fec2-4bbd-bc91-d80c0be1e275-11220515294652701264 topic_uid:-1
+I1126 11:07:55.859644 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.859644 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.859645 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859647 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.859647 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859648 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.859648 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.859649 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859650 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859650 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859651 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.859651 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.859652 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.859653 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.859653 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.859654 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.859656 3762943 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/MotionControlService/JointPosition/response, type:genie_msgs.msg.pb.CommonResponse, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.859658 3762943 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/MotionControlService/JointPosition/response, uri:
+I1126 11:07:55.859660 3762943 cosine_bus_manager.cpp:478] [cosine_internal][CosineBusManager] create subscriber. topic name:/MotionControlService/ControlMode/response , middleware:aorta , need async callback:0, frame_skip_rate:1
+I1126 11:07:55.859661 3762943 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/MotionControlService/ControlMode/responsehttp://10.42.1.101:2379
+I1126 11:07:55.859666 3762943 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___MotionControlService__ControlMode__response, type genie_msgs.msg.pb.CommonResponse, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 1, enable_event_sync_subscriber 1], buffer id = 11
+I1126 11:07:55.859668 3762943 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___MotionControlService__ControlMode__response, type:genie_msgs.msg.pb.CommonResponse, size:5
+I1126 11:07:55.859673 3762943 node_impl.cc:344] [aorta]CreateSubscriber topic:/MotionControlService/ControlMode/response, uid:a38e834e-987f-4fd5-b5bd-eb1e6ecfeb51-13500083580579056044 topic_uid:-1
+I1126 11:07:55.859676 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.859678 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.859678 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859679 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.859680 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859680 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.859681 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.859683 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859683 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859683 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859683 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.859684 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.859685 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.859685 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.859686 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.859686 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.859689 3762943 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/MotionControlService/ControlMode/response, type:genie_msgs.msg.pb.CommonResponse, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.859690 3762943 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/MotionControlService/ControlMode/response, uri:
+I1126 11:07:55.859694 3762943 cosine_bus_manager.cpp:478] [cosine_internal][CosineBusManager] create subscriber. topic name:/MotionControlService/SetLoad/response , middleware:aorta , need async callback:0, frame_skip_rate:1
+I1126 11:07:55.859694 3762943 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/MotionControlService/SetLoad/responsehttp://10.42.1.101:2379
+I1126 11:07:55.859699 3762943 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___MotionControlService__SetLoad__response, type genie_msgs.msg.pb.CommonResponse, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 1, enable_event_sync_subscriber 1], buffer id = 12
+I1126 11:07:55.859700 3762943 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___MotionControlService__SetLoad__response, type:genie_msgs.msg.pb.CommonResponse, size:5
+I1126 11:07:55.859705 3762943 node_impl.cc:344] [aorta]CreateSubscriber topic:/MotionControlService/SetLoad/response, uid:0cb11376-8bbe-46c1-80c2-64693a297e9c-11741066552301177038 topic_uid:-1
+I1126 11:07:55.859710 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.859710 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.859711 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859712 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.859712 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859714 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.859714 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.859714 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859715 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859715 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859716 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.859717 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.859717 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.859718 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.859719 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.859719 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.859722 3762943 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/MotionControlService/SetLoad/response, type:genie_msgs.msg.pb.CommonResponse, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.859723 3762943 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/MotionControlService/SetLoad/response, uri:
+I1126 11:07:55.859724 3762943 cosine_bus_manager.cpp:478] [cosine_internal][CosineBusManager] create subscriber. topic name:/MotionControlService/SetComplianceParams/response , middleware:aorta , need async callback:0, frame_skip_rate:1
+I1126 11:07:55.859726 3762943 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/MotionControlService/SetComplianceParams/responsehttp://10.42.1.101:2379
+I1126 11:07:55.859730 3762943 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___MotionControlService__SetComplianceParams__response, type genie_msgs.msg.pb.CommonResponse, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 1, enable_event_sync_subscriber 1], buffer id = 13
+I1126 11:07:55.859732 3762943 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___MotionControlService__SetComplianceParams__response, type:genie_msgs.msg.pb.CommonResponse, size:5
+I1126 11:07:55.859737 3762943 node_impl.cc:344] [aorta]CreateSubscriber topic:/MotionControlService/SetComplianceParams/response, uid:aea5923b-aabf-4f41-9e20-0a684fbb4f4a-16772690313444795879 topic_uid:-1
+I1126 11:07:55.859742 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.859743 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.859745 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859745 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.859745 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859746 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.859746 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.859747 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859747 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859748 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859750 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.859750 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.859750 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.859751 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.859751 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.859752 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.859754 3762943 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/MotionControlService/SetComplianceParams/response, type:genie_msgs.msg.pb.CommonResponse, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.859755 3762943 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/MotionControlService/SetComplianceParams/response, uri:
+I1126 11:07:55.859757 3762943 cosine_bus_manager.cpp:478] [cosine_internal][CosineBusManager] create subscriber. topic name:/MotionControlService/MotionPlan/response , middleware:aorta , need async callback:0, frame_skip_rate:1
+I1126 11:07:55.859758 3762943 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/MotionControlService/MotionPlan/responsehttp://10.42.1.101:2379
+I1126 11:07:55.859763 3762943 buffered_data_export.cpp:115] [cosine_internal]successfully create buffer [bus_buffer___MotionControlService__MotionPlan__response, type genie_msgs.msg.pb.CommonResponse, block num 5, valid_time 0, transfer_type 0, data_size 0, mem_type 0, lib_name , ext_data_size 0, is_protobuf 1, enable_event_sync_subscriber 1], buffer id = 14
+I1126 11:07:55.859766 3762943 cosine_bus_message_buffer.cpp:45] [cosine_internal][CosineBusMessageBuffer] create buffer success. name:bus_buffer___MotionControlService__MotionPlan__response, type:genie_msgs.msg.pb.CommonResponse, size:5
+I1126 11:07:55.859771 3762943 node_impl.cc:344] [aorta]CreateSubscriber topic:/MotionControlService/MotionPlan/response, uid:3d67cebd-6d7d-4939-95e2-bfb99f3b453f-7265943930381113476 topic_uid:-1
+I1126 11:07:55.859774 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.859776 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.859776 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859776 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.859777 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859778 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.859778 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.859779 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859781 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859781 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859781 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.859781 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.859783 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.859783 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.859784 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.859786 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.859786 3762943 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/MotionControlService/MotionPlan/response, type:genie_msgs.msg.pb.CommonResponse, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.859788 3762943 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/MotionControlService/MotionPlan/response, uri:
+I1126 11:07:55.859800 3762943 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/wbc/set_control_mode , middleware:aorta
+I1126 11:07:55.859804 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.859805 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.859807 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859807 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.859807 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859808 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.859808 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.859809 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859809 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859810 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859812 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.859812 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.859812 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.859813 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.859813 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.859814 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.859817 3762943 tcp_publisher.cc:179] [aorta]topic /wbc/set_control_mode, pub_queue_size_ 5, latch_queue_size_ 0
+I1126 11:07:55.859827 3762979 tcp_socket_server.cc:200] [aorta]The ip info is0.0.0.0:46699
+I1126 11:07:55.859848 3762979 shm_socket_server.cc:101] [aorta][/wbc/set_control_mode] bind at pipe sock name d2379|python3.10|p3762943|n0|/wbc/set_control_mode|p5
+I1126 11:07:55.859870 3762943 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:46699, sockname:d2379|python3.10|p3762943|n0|/wbc/set_control_mode|p5, topic:/wbc/set_control_mode, uid:db412a00-ab0b-4af8-b2c0-e415a184a7e1-14916454457450496029 topic_uid:-1
+I1126 11:07:55.859882 3762943 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/wbc/set_control_mode, type:genie_msgs.msg.pb.SetControlMode, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.859903 3762943 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/wbc/set_control_mode, uri:
+I1126 11:07:55.859905 3762943 publisher.cpp:27] [GDK]create publisher: /wbc/set_control_mode type: genie_msgs.msg.pb.SetControlMode qos: 1 1 5 2
+I1126 11:07:55.859942 3762943 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/wbc/end_effector_pose_control , middleware:aorta
+I1126 11:07:55.859953 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.859954 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.859956 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859956 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.859956 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859957 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.859958 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.859958 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.859959 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859961 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.859961 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.859961 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.859962 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.859963 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.859963 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.859964 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.859969 3762943 tcp_publisher.cc:179] [aorta]topic /wbc/end_effector_pose_control, pub_queue_size_ 5, latch_queue_size_ 0
+I1126 11:07:55.859979 3762979 tcp_socket_server.cc:200] [aorta]The ip info is0.0.0.0:34435
+I1126 11:07:55.859993 3762979 shm_socket_server.cc:101] [aorta][/wbc/end_effector_pose_control] bind at pipe sock name d2379|python3.10|p3762943|n0|/wbc/end_effector_pose_control|p6
+I1126 11:07:55.860010 3762943 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:34435, sockname:d2379|python3.10|p3762943|n0|/wbc/end_effector_pose_control|p6, topic:/wbc/end_effector_pose_control, uid:b4c017ae-a8eb-487c-990a-632783d52f16-8961509146944305143 topic_uid:-1
+I1126 11:07:55.860020 3762943 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/wbc/end_effector_pose_control, type:genie_msgs.msg.pb.EndEffectorPoseControl, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.860041 3762943 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/wbc/end_effector_pose_control, uri:
+I1126 11:07:55.860044 3762943 publisher.cpp:27] [GDK]create publisher: /wbc/end_effector_pose_control type: genie_msgs.msg.pb.EndEffectorPoseControl qos: 1 1 5 2
+I1126 11:07:55.860067 3762943 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/MotionControlService/JointPosition/request , middleware:aorta
+I1126 11:07:55.860077 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.860077 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.860078 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860080 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.860080 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860081 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.860082 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.860083 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860083 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860085 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860085 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.860085 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.860086 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.860087 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.860088 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.860088 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.860092 3762943 tcp_publisher.cc:179] [aorta]topic /MotionControlService/JointPosition/request, pub_queue_size_ 5, latch_queue_size_ 0
+I1126 11:07:55.860098 3762979 tcp_socket_server.cc:200] [aorta]The ip info is0.0.0.0:33863
+I1126 11:07:55.860108 3762979 shm_socket_server.cc:101] [aorta][/MotionControlService/JointPosition/request] bind at pipe sock name d2379|python3.10|p3762943|n0|..onControlService/JointPosition/request|p7
+I1126 11:07:55.860116 3762943 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:33863, sockname:d2379|python3.10|p3762943|n0|..onControlService/JointPosition/request|p7, topic:/MotionControlService/JointPosition/request, uid:7b39f483-8c0b-46f3-8624-c41175061824-13247891859042633557 topic_uid:-1
+I1126 11:07:55.860121 3762943 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/MotionControlService/JointPosition/request, type:genie_msgs.msg.pb.JointPositionRequst, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.860140 3762943 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/MotionControlService/JointPosition/request, uri:
+I1126 11:07:55.860141 3762943 publisher.cpp:27] [GDK]create publisher: /MotionControlService/JointPosition/request type: genie_msgs.msg.pb.JointPositionRequst qos: 1 1 5 2
+I1126 11:07:55.860165 3762943 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/MotionControlService/ControlMode/request , middleware:aorta
+I1126 11:07:55.860172 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.860172 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.860172 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860173 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.860174 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860174 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.860175 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.860176 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860176 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860177 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860178 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.860178 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.860179 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.860180 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.860181 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.860181 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.860184 3762943 tcp_publisher.cc:179] [aorta]topic /MotionControlService/ControlMode/request, pub_queue_size_ 5, latch_queue_size_ 0
+I1126 11:07:55.860190 3762979 tcp_socket_server.cc:200] [aorta]The ip info is0.0.0.0:42077
+I1126 11:07:55.860198 3762979 shm_socket_server.cc:101] [aorta][/MotionControlService/ControlMode/request] bind at pipe sock name d2379|python3.10|p3762943|n0|..tionControlService/ControlMode/request|p8
+I1126 11:07:55.860204 3762943 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:42077, sockname:d2379|python3.10|p3762943|n0|..tionControlService/ControlMode/request|p8, topic:/MotionControlService/ControlMode/request, uid:68c77659-7ed8-4f67-b5b8-dac6b38e903c-7079047142913889307 topic_uid:-1
+I1126 11:07:55.860208 3762943 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/MotionControlService/ControlMode/request, type:genie_msgs.msg.pb.ControlModeRequest, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.860225 3762943 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/MotionControlService/ControlMode/request, uri:
+I1126 11:07:55.860227 3762943 publisher.cpp:27] [GDK]create publisher: /MotionControlService/ControlMode/request type: genie_msgs.msg.pb.ControlModeRequest qos: 1 1 5 2
+I1126 11:07:55.860230 3762943 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/MotionControlService/SetLoad/request , middleware:aorta
+I1126 11:07:55.860235 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.860236 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.860236 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860237 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.860237 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860239 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.860239 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.860239 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860240 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860241 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860242 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.860244 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.860244 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.860244 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.860245 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.860245 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.860247 3762943 tcp_publisher.cc:179] [aorta]topic /MotionControlService/SetLoad/request, pub_queue_size_ 5, latch_queue_size_ 0
+I1126 11:07:55.860252 3762979 tcp_socket_server.cc:200] [aorta]The ip info is0.0.0.0:43591
+I1126 11:07:55.860260 3762979 shm_socket_server.cc:101] [aorta][/MotionControlService/SetLoad/request] bind at pipe sock name d2379|python3.10|p3762943|n0|/MotionControlService/SetLoad/request|p9
+I1126 11:07:55.860265 3762943 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:43591, sockname:d2379|python3.10|p3762943|n0|/MotionControlService/SetLoad/request|p9, topic:/MotionControlService/SetLoad/request, uid:9af71072-601b-44af-ac14-5766746a063d-13250693701014519938 topic_uid:-1
+I1126 11:07:55.860268 3762943 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/MotionControlService/SetLoad/request, type:genie_msgs.msg.pb.SetLoadRequest, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.860286 3762943 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/MotionControlService/SetLoad/request, uri:
+I1126 11:07:55.860288 3762943 publisher.cpp:27] [GDK]create publisher: /MotionControlService/SetLoad/request type: genie_msgs.msg.pb.SetLoadRequest qos: 1 1 5 2
+I1126 11:07:55.860299 3762943 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/gdk/model_predict , middleware:aorta
+I1126 11:07:55.860303 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.860304 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.860306 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860307 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.860308 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860308 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.860309 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.860311 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860311 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860311 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860312 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.860312 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.860313 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.860314 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.860314 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.860315 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.860318 3762943 tcp_publisher.cc:179] [aorta]topic /gdk/model_predict, pub_queue_size_ 5, latch_queue_size_ 0
+I1126 11:07:55.860323 3762979 tcp_socket_server.cc:200] [aorta]The ip info is0.0.0.0:37001
+I1126 11:07:55.860330 3762979 shm_socket_server.cc:101] [aorta][/gdk/model_predict] bind at pipe sock name d2379|python3.10|p3762943|n0|/gdk/model_predict|p10
+I1126 11:07:55.860335 3762943 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:37001, sockname:d2379|python3.10|p3762943|n0|/gdk/model_predict|p10, topic:/gdk/model_predict, uid:d2de62bf-4970-4d26-8f61-37c45723b020-732077211275631522 topic_uid:-1
+I1126 11:07:55.860338 3762943 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/gdk/model_predict, type:genie_msgs.msg.pb.TrajectoryTrackingControl, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.860357 3762943 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/gdk/model_predict, uri:
+I1126 11:07:55.860358 3762943 publisher.cpp:27] [GDK]create publisher: /gdk/model_predict type: genie_msgs.msg.pb.TrajectoryTrackingControl qos: 1 1 5 2
+I1126 11:07:55.860368 3762943 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/wbc/force_position_cmd , middleware:aorta
+I1126 11:07:55.860373 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.860373 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.860373 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860374 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.860374 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860375 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.860376 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.860376 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860378 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860378 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860378 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.860379 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.860380 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.860381 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.860381 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.860383 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.860384 3762943 tcp_publisher.cc:179] [aorta]topic /wbc/force_position_cmd, pub_queue_size_ 5, latch_queue_size_ 0
+I1126 11:07:55.860389 3762979 tcp_socket_server.cc:200] [aorta]The ip info is0.0.0.0:38705
+I1126 11:07:55.860395 3762979 shm_socket_server.cc:101] [aorta][/wbc/force_position_cmd] bind at pipe sock name d2379|python3.10|p3762943|n0|/wbc/force_position_cmd|p11
+I1126 11:07:55.860401 3762943 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:38705, sockname:d2379|python3.10|p3762943|n0|/wbc/force_position_cmd|p11, topic:/wbc/force_position_cmd, uid:6ab51e09-4086-47d9-ac57-764b6f14619b-7688843706006148097 topic_uid:-1
+I1126 11:07:55.860404 3762943 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/wbc/force_position_cmd, type:genie_msgs.msg.pb.ForcePositionCmd, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.860422 3762943 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/wbc/force_position_cmd, uri:
+I1126 11:07:55.860424 3762943 publisher.cpp:27] [GDK]create publisher: /wbc/force_position_cmd type: genie_msgs.msg.pb.ForcePositionCmd qos: 1 1 5 2
+I1126 11:07:55.860433 3762943 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/MotionControlService/SetComplianceParams/request , middleware:aorta
+I1126 11:07:55.860437 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.860437 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.860438 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860440 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.860440 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860440 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.860441 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.860441 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860442 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860442 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860443 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.860445 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.860445 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.860445 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.860446 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.860447 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.860450 3762943 tcp_publisher.cc:179] [aorta]topic /MotionControlService/SetComplianceParams/request, pub_queue_size_ 5, latch_queue_size_ 0
+I1126 11:07:55.860455 3762979 tcp_socket_server.cc:200] [aorta]The ip info is0.0.0.0:43819
+I1126 11:07:55.860461 3762979 shm_socket_server.cc:101] [aorta][/MotionControlService/SetComplianceParams/request] bind at pipe sock name d2379|python3.10|p3762943|n0|..rolService/SetComplianceParams/request|p12
+I1126 11:07:55.860466 3762943 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:43819, sockname:d2379|python3.10|p3762943|n0|..rolService/SetComplianceParams/request|p12, topic:/MotionControlService/SetComplianceParams/request, uid:1fef0f42-2129-44d7-886d-60e33583ada6-14162462508962048716 topic_uid:-1
+I1126 11:07:55.860469 3762943 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/MotionControlService/SetComplianceParams/request, type:genie_msgs.msg.pb.SetComplianceParamsRequest, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.860487 3762943 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/MotionControlService/SetComplianceParams/request, uri:
+I1126 11:07:55.860489 3762943 publisher.cpp:27] [GDK]create publisher: /MotionControlService/SetComplianceParams/request type: genie_msgs.msg.pb.SetComplianceParamsRequest qos: 1 1 5 2
+I1126 11:07:55.860514 3762943 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/MotionControlService/MotionPlan/request , middleware:aorta
+I1126 11:07:55.860518 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.860518 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.860519 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860520 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.860520 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860522 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.860522 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.860522 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860523 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860523 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860524 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.860525 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.860525 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.860526 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.860527 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.860527 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.860529 3762943 tcp_publisher.cc:179] [aorta]topic /MotionControlService/MotionPlan/request, pub_queue_size_ 5, latch_queue_size_ 0
+I1126 11:07:55.860534 3762979 tcp_socket_server.cc:200] [aorta]The ip info is0.0.0.0:42393
+I1126 11:07:55.860540 3762979 shm_socket_server.cc:101] [aorta][/MotionControlService/MotionPlan/request] bind at pipe sock name d2379|python3.10|p3762943|n0|/MotionControlService/MotionPlan/request|p13
+I1126 11:07:55.860545 3762943 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:42393, sockname:d2379|python3.10|p3762943|n0|/MotionControlService/MotionPlan/request|p13, topic:/MotionControlService/MotionPlan/request, uid:03f512c2-b0c6-4628-8dea-488201c30edc-8174779158326670585 topic_uid:-1
+I1126 11:07:55.860549 3762943 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/MotionControlService/MotionPlan/request, type:genie_msgs.msg.pb.MotionPlanRequest, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.860567 3762943 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/MotionControlService/MotionPlan/request, uri:
+I1126 11:07:55.860569 3762943 publisher.cpp:27] [GDK]create publisher: /MotionControlService/MotionPlan/request type: genie_msgs.msg.pb.MotionPlanRequest qos: 1 1 5 2
+I1126 11:07:55.860577 3762943 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/wbc/retarget , middleware:aorta
+I1126 11:07:55.860581 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.860582 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.860584 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860584 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.860584 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860584 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.860585 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.860586 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860586 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860587 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860589 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.860589 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.860589 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.860589 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.860591 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.860592 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.860594 3762943 tcp_publisher.cc:179] [aorta]topic /wbc/retarget, pub_queue_size_ 5, latch_queue_size_ 0
+I1126 11:07:55.860605 3762979 tcp_socket_server.cc:200] [aorta]The ip info is0.0.0.0:37889
+I1126 11:07:55.860612 3762979 shm_socket_server.cc:101] [aorta][/wbc/retarget] bind at pipe sock name d2379|python3.10|p3762943|n0|/wbc/retarget|p14
+I1126 11:07:55.860616 3762943 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:37889, sockname:d2379|python3.10|p3762943|n0|/wbc/retarget|p14, topic:/wbc/retarget, uid:b67b5063-a063-409a-b7fa-bf440495253b-10549331913175888813 topic_uid:-1
+I1126 11:07:55.860620 3762943 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/wbc/retarget, type:genie_msgs.msg.pb.ReactiveControl, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.860638 3762943 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/wbc/retarget, uri:
+I1126 11:07:55.860639 3762943 publisher.cpp:27] [GDK]create publisher: /wbc/retarget type: genie_msgs.msg.pb.ReactiveControl qos: 1 1 5 2
+I1126 11:07:55.860648 3762943 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/wbc/joint_control , middleware:aorta
+I1126 11:07:55.860652 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.860653 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.860654 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860654 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.860656 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860656 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.860657 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.860658 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860658 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860659 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860661 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.860661 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.860661 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.860661 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.860662 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.860663 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.860666 3762943 tcp_publisher.cc:179] [aorta]topic /wbc/joint_control, pub_queue_size_ 5, latch_queue_size_ 0
+I1126 11:07:55.860669 3762979 tcp_socket_server.cc:200] [aorta]The ip info is0.0.0.0:45473
+I1126 11:07:55.860677 3762979 shm_socket_server.cc:101] [aorta][/wbc/joint_control] bind at pipe sock name d2379|python3.10|p3762943|n0|/wbc/joint_control|p15
+I1126 11:07:55.860682 3762943 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:45473, sockname:d2379|python3.10|p3762943|n0|/wbc/joint_control|p15, topic:/wbc/joint_control, uid:301174dd-ac48-45fd-9c8d-02332761a6ee-16369001308200182001 topic_uid:-1
+I1126 11:07:55.860685 3762943 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/wbc/joint_control, type:genie_msgs.msg.pb.JointPositionServo, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.860703 3762943 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/wbc/joint_control, uri:
+I1126 11:07:55.860704 3762943 publisher.cpp:27] [GDK]create publisher: /wbc/joint_control type: genie_msgs.msg.pb.JointPositionServo qos: 1 1 5 2
+I1126 11:07:55.860706 3762943 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/wbc/joint_control_low_delay , middleware:aorta
+I1126 11:07:55.860710 3762943 message_monitor_config.cc:67] [aorta]The monitor json file is not set. Use default tracepoint tracepoint_enabled flag: false
+I1126 11:07:55.860711 3762943 message_monitor_config.cc:85] [aorta]The monitor json file is not set. Use default latency threshold 30 ms
+I1126 11:07:55.860711 3762943 message_monitor_config.cc:127] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860713 3762943 message_monitor_config.cc:105] [aorta]The monitor json file is not set. Use default frequency interval:1 s
+I1126 11:07:55.860713 3762943 message_monitor_config.cc:145] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860715 3762943 message_monitor_config.cc:283] [aorta]The monitor json file is not set. Use default throughput interval 1s
+I1126 11:07:55.860716 3762943 message_monitor_config.cc:304] [aorta]The monitor json file is not set. Use default throughput size threshold 1048576s
+I1126 11:07:55.860716 3762943 message_monitor_config.cc:265] [aorta]The monitor json file is not set. Use default frequency enabled flag: false
+I1126 11:07:55.860718 3762943 message_monitor_config.cc:163] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860718 3762943 message_monitor_config.cc:190] [aorta]The monitor json file is not set. Use default throughput enabled flag: false
+I1126 11:07:55.860718 3762943 message_monitor_config.cc:226] [aorta]The monitor json file is not set. Use default max size thresdhold :51200 B
+I1126 11:07:55.860719 3762943 message_monitor_config.cc:206] [aorta]The monitor json file is not set. Use default max throughput thresdhold :102400 B
+I1126 11:07:55.860720 3762943 message_monitor_config.cc:345] [aorta]The monitor json file is not set. Use default message statistic enabled flag: false
+I1126 11:07:55.860720 3762943 message_monitor_config.cc:323] [aorta]The monitor json file is not set. Use default message statistic interval 1
+I1126 11:07:55.860721 3762943 message_monitor_config.cc:674] [aorta]The monitor json file is not set. Use default pub_interval_threshold :0 ms
+I1126 11:07:55.860721 3762943 message_monitor_config.cc:694] [aorta]The monitor json file is not set. Use default false.
+I1126 11:07:55.860723 3762943 tcp_publisher.cc:179] [aorta]topic /wbc/joint_control_low_delay, pub_queue_size_ 5, latch_queue_size_ 0
+I1126 11:07:55.860729 3762979 tcp_socket_server.cc:200] [aorta]The ip info is0.0.0.0:42223
+I1126 11:07:55.860736 3762979 shm_socket_server.cc:101] [aorta][/wbc/joint_control_low_delay] bind at pipe sock name d2379|python3.10|p3762943|n0|/wbc/joint_control_low_delay|p16
+I1126 11:07:55.860741 3762943 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:42223, sockname:d2379|python3.10|p3762943|n0|/wbc/joint_control_low_delay|p16, topic:/wbc/joint_control_low_delay, uid:40088026-ee23-485c-b550-05bc41dec829-2228304056297025988 topic_uid:-1
+I1126 11:07:55.860743 3762943 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/wbc/joint_control_low_delay, type:genie_msgs.msg.pb.JointPositionServo, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379
+I1126 11:07:55.860762 3762943 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/wbc/joint_control_low_delay, uri:
+I1126 11:07:55.860764 3762943 publisher.cpp:27] [GDK]create publisher: /wbc/joint_control_low_delay type: genie_msgs.msg.pb.JointPositionServo qos: 1 1 5 2
+I1126 11:07:55.860765 3762943 robot.cpp:28] [GDK]RobotBody constructor
+E1126 11:07:55.860772 3762943 hal_impl.cpp:243] [GDK]No end state message found
+I1126 11:07:55.860971 3762943 robot.cpp:31] [GDK]Robot destructor
+I1126 11:07:55.860976 3762943 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/MotionControlService/ControlMode/responsehttp://10.42.1.101:2379 release.
+I1126 11:07:55.860978 3762943 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /MotionControlService/ControlMode/response
+I1126 11:07:55.860980 3762943 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I1126 11:07:55.860980 3762943 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I1126 11:07:55.860981 3762943 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/MotionControlService/JointPosition/responsehttp://10.42.1.101:2379 release.
+I1126 11:07:55.860982 3762943 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /MotionControlService/JointPosition/response
+I1126 11:07:55.860983 3762943 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I1126 11:07:55.860984 3762943 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I1126 11:07:55.860985 3762943 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/MotionControlService/MotionPlan/responsehttp://10.42.1.101:2379 release.
+I1126 11:07:55.860986 3762943 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /MotionControlService/MotionPlan/response
+I1126 11:07:55.860987 3762943 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I1126 11:07:55.860987 3762943 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I1126 11:07:55.860988 3762943 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/MotionControlService/SetComplianceParams/responsehttp://10.42.1.101:2379 release.
+I1126 11:07:55.860989 3762943 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /MotionControlService/SetComplianceParams/response
+I1126 11:07:55.860991 3762943 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I1126 11:07:55.860991 3762943 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I1126 11:07:55.860992 3762943 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/MotionControlService/SetLoad/responsehttp://10.42.1.101:2379 release.
+I1126 11:07:55.860992 3762943 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /MotionControlService/SetLoad/response
+I1126 11:07:55.860993 3762943 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I1126 11:07:55.860994 3762943 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I1126 11:07:55.860996 3762943 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/wbc/motion_control_statushttp://10.42.1.101:2379 release.
+I1126 11:07:55.860996 3762943 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /wbc/motion_control_status
+I1126 11:07:55.860996 3762943 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I1126 11:07:55.860997 3762943 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I1126 11:07:55.861002 3762943 publisher_impl.cc:32] [aorta]Publisher destory, UnRegisterPublisher uid:db412a00-ab0b-4af8-b2c0-e415a184a7e1-14916454457450496029
+I1126 11:07:55.861044 3762943 publisher_impl.cc:32] [aorta]Publisher destory, UnRegisterPublisher uid:b67b5063-a063-409a-b7fa-bf440495253b-10549331913175888813
+I1126 11:07:55.861063 3762943 publisher_impl.cc:32] [aorta]Publisher destory, UnRegisterPublisher uid:40088026-ee23-485c-b550-05bc41dec829-2228304056297025988
+I1126 11:07:55.861080 3762943 publisher_impl.cc:32] [aorta]Publisher destory, UnRegisterPublisher uid:301174dd-ac48-45fd-9c8d-02332761a6ee-16369001308200182001
+I1126 11:07:55.861095 3762943 publisher_impl.cc:32] [aorta]Publisher destory, UnRegisterPublisher uid:6ab51e09-4086-47d9-ac57-764b6f14619b-7688843706006148097
+I1126 11:07:55.861111 3762943 publisher_impl.cc:32] [aorta]Publisher destory, UnRegisterPublisher uid:b4c017ae-a8eb-487c-990a-632783d52f16-8961509146944305143
+I1126 11:07:55.861126 3762943 publisher_impl.cc:32] [aorta]Publisher destory, UnRegisterPublisher uid:d2de62bf-4970-4d26-8f61-37c45723b020-732077211275631522
+I1126 11:07:55.861143 3762943 publisher_impl.cc:32] [aorta]Publisher destory, UnRegisterPublisher uid:9af71072-601b-44af-ac14-5766746a063d-13250693701014519938
+I1126 11:07:55.861159 3762943 publisher_impl.cc:32] [aorta]Publisher destory, UnRegisterPublisher uid:1fef0f42-2129-44d7-886d-60e33583ada6-14162462508962048716
+I1126 11:07:55.861177 3762943 publisher_impl.cc:32] [aorta]Publisher destory, UnRegisterPublisher uid:03f512c2-b0c6-4628-8dea-488201c30edc-8174779158326670585
+I1126 11:07:55.861192 3762943 publisher_impl.cc:32] [aorta]Publisher destory, UnRegisterPublisher uid:7b39f483-8c0b-46f3-8624-c41175061824-13247891859042633557
+I1126 11:07:55.861209 3762943 publisher_impl.cc:32] [aorta]Publisher destory, UnRegisterPublisher uid:68c77659-7ed8-4f67-b5b8-dac6b38e903c-7079047142913889307
+I1126 11:07:55.861228 3762943 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/hal/chest_power_statehttp://10.42.1.101:2379 release.
+I1126 11:07:55.861229 3762943 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /hal/chest_power_state
+I1126 11:07:55.861230 3762943 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I1126 11:07:55.861231 3762943 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I1126 11:07:55.861232 3762943 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/hal/chassis_power_statehttp://10.42.1.101:2379 release.
+I1126 11:07:55.861233 3762943 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /hal/chassis_power_state
+I1126 11:07:55.861233 3762943 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I1126 11:07:55.861234 3762943 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I1126 11:07:55.861235 3762943 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/hal/right_ee_datahttp://10.42.1.101:2379 release.
+I1126 11:07:55.861236 3762943 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /hal/right_ee_data
+I1126 11:07:55.861238 3762943 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I1126 11:07:55.861238 3762943 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I1126 11:07:55.861239 3762943 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/hal/left_ee_datahttp://10.42.1.101:2379 release.
+I1126 11:07:55.861239 3762943 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /hal/left_ee_data
+I1126 11:07:55.861240 3762943 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I1126 11:07:55.861241 3762943 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I1126 11:07:55.861243 3762943 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/hal/whole_body_statushttp://10.42.1.101:2379 release.
+I1126 11:07:55.861243 3762943 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /hal/whole_body_status
+I1126 11:07:55.861243 3762943 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I1126 11:07:55.861244 3762943 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I1126 11:07:55.861245 3762943 aorta_component.cpp:410] [cosine_internal][AortaComponent] aorta subscriber:/hal/joint_statehttp://10.42.1.101:2379 release.
+I1126 11:07:55.861246 3762943 subscriber_strategy.cpp:86] [cosine_internal][Subscriber] Bus subscriber destruct: /hal/joint_state
+I1126 11:07:55.861248 3762943 subscriber_strategy.cpp:90] [cosine_internal][Subscriber] Bus subscriber destruct ...
+I1126 11:07:55.861248 3762943 subscriber_strategy.cpp:96] [cosine_internal][Subscriber] Bus subscriber destruct finish.
+I1126 11:07:55.861249 3762943 publisher_impl.cc:32] [aorta]Publisher destory, UnRegisterPublisher uid:147f64a9-a9d0-4f3c-8808-8122cb37c41b-12160131399292109555
+I1126 11:07:55.861269 3762943 publisher_impl.cc:32] [aorta]Publisher destory, UnRegisterPublisher uid:b0ccb118-0046-429e-99f1-fb02fc3aa71c-15677759012602946526
+I1126 11:07:55.861286 3762943 publisher_impl.cc:32] [aorta]Publisher destory, UnRegisterPublisher uid:f3d1da47-76c2-48e6-95aa-0670f9b25548-8113233340941315482

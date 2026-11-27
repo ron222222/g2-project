@@ -1,0 +1,132 @@
+============================================================================================================
+109_v4 O10 Write-Path Contract Verification
+============================================================================================================
+script       : /home/isaac-workstation/g2-project/dual_arm/109_g2_o10_write_path_contract_verification_v4.py
+timestamp    : 2026-11-26T11:25:08+08:00
+python       : 3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]
+platform     : Linux-6.8.0-138-generic-x86_64-with-glibc2.35
+safety mode  : DOC PARSE / READ-ONLY STATE / DETACHED CONSTRUCT ONLY
+============================================================================================================
+[SOURCE SAFETY AUDIT]
+============================================================================================================
+status : PASS
+No direct or literal-getattr motion/control/write API call found in the AST.
+============================================================================================================
+[SDK DOCUMENT PROVENANCE]
+============================================================================================================
+status       : PASS
+path         : /home/isaac-workstation/g2-project/dual_arm/GDK_SDK_4.1.5.md
+size         : 819,927 bytes
+sha256       : 6a946418eb9a6b337a2b5f3f627a89fe34fb191e74839f1ff6ed5abb2c612c25
+line count   : 23,360
+============================================================================================================
+[DOCUMENT CONTRACT CHECKS]
+============================================================================================================
+
+joint_control_request
+  [PASS      ] JCR_SECTION               Python API section exists
+               evidence: Heading: 9. joint_control_request()
+  [PASS      ] JCR_BLOCKING              Path-planning control is blocking
+               evidence: Document says the call returns after reaching the target.
+  [PASS      ] JCR_LIFETIME              life_time unit is seconds
+               evidence: life_time | float | 生命周期 | 秒
+  [PASS      ] JCR_UNITS                 Position/velocity units are rad and rad/s
+               evidence: joint_positions: rad; joint_velocities: rad/s
+  [PASS      ] JCR_RETURN                Python success value is int 0; failures raise
+               evidence: Return: int; 0 success; failure raises.
+  [UNRESOLVED] JCR_O10_EXPLICIT          Section explicitly documents O10 use
+               evidence: No O10-specific statement/example in this section.
+
+joint_servo_control
+  [PASS      ] SERVO_SECTION             Python API section exists
+               evidence: Heading: 13. joint_servo_control()
+  [PASS      ] SERVO_STREAM              Non-blocking streaming at 100 Hz
+               evidence: Document requires 100 Hz control and labels the API non-blocking.
+  [PASS      ] SERVO_EE                  End-effector control is supported
+               evidence: Document explicitly says the interface can simultaneously control an end effector.
+  [PASS      ] SERVO_PERIOD              control_period is in seconds
+               evidence: control_period | float | 控制周期 | 秒
+  [PASS      ] SERVO_LENGTH              Name and position lengths must match
+               evidence: joint_names and joint_positions lengths must match.
+  [PASS      ] SERVO_VELOCITY_OPTIONAL   Velocity list is reserved and may be empty
+               evidence: joint_velocities is currently unused and may be empty.
+  [PASS      ] SERVO_LIMIT               Positions must remain within joint limits
+               evidence: Out-of-range position produces invalid input/an exception.
+  [PASS      ] SERVO_LOW_LATENCY         Low-latency bypass risk is documented
+               evidence: Low latency bypasses motion-control protections; default is normal mode.
+  [PASS      ] SERVO_RETURN              Python success value is int 0; failures raise
+               evidence: Return: int; 0 success; failure raises.
+  [UNRESOLVED] SERVO_WATCHDOG            Watchdog/drop-frame semantics are documented
+               evidence: No watchdog/drop-frame contract located in this section.
+
+move_ee_pos
+  [PASS      ] MOVE_SECTION              Python API section exists
+               evidence: Heading: 17. move_ee_pos()
+  [PASS      ] MOVE_NONBLOCKING          End-effector position control is non-blocking
+               evidence: Document labels the API non-blocking.
+  [PASS      ] MOVE_EXCLUSIVE            Cannot be used concurrently with servo
+               evidence: Use the servo interface when concurrent servo/end-effector control is needed.
+  [PASS      ] MOVE_GROUPS               Exact group vocabulary is documented
+               evidence: Allowed strings: "left_tool", "right_tool", "dual_tool".
+  [PASS      ] MOVE_SHAPE                nums equals len(states); only position is required
+               evidence: nums == len(states); each JointState only needs position.
+  [PASS      ] MOVE_O10                  Explicit O10_T2 10-joint contract/example exists
+               evidence: Example 4 builds 10 JointState objects for left_tool O10_T2.
+  [PASS      ] MOVE_O10_NAMES            All 20 documented left/right O10 names are present
+               evidence: Ordered O10 limit tables contain ten names per side.
+  [PASS      ] MOVE_O10_LIMITS           All documented O10 limits match v4 constants
+               evidence: Twenty exact min/max rows verified against the embedded 4.1.5 table.
+  [UNRESOLVED] MOVE_TARGET_TYPE          target_type is part of the documented input contract
+               evidence: The documented MoveEEPos input lists group, states, and nums; not target_type.
+  [UNRESOLVED] MOVE_TIMESTAMP            timestamp is part of the documented input contract
+               evidence: The documented MoveEEPos input lists group, states, and nums; not timestamp.
+============================================================================================================
+[LIVE READ-ONLY CROSS-CHECK]
+============================================================================================================
+import agibot_gdk     : PASS
+GDK initialized       : PASS
+Robot created         : PASS
+GDK released          : PASS
+module file           : /home/isaac-workstation/.cache/agibot/app/gdk/lib/agibot_gdk/__init__.py
+------------------------------------------------------------------------------------------------------------
+[DETACHED CURRENT-STATE OBJECTS - NEVER TRANSMITTED]
+------------------------------------------------------------------------------------------------------------
+<none built>
+runtime errors:
+  - RuntimeError: Failed to get end state
+============================================================================================================
+[WRITE-PATH CONTRACT MATRIX]
+============================================================================================================
+move_ee_pos
+  document status    : DOCUMENTED-O10
+  O10 evidence       : Explicit O10_T2 10-state example, ordered O10 limit tables, exact group strings
+  first micro-motion : FIRST CANDIDATE
+  boundary           : Non-blocking; complete ordered 10-position vector; no concurrent servo; runtime review still required
+joint_control_request
+  document status    : GENERIC-CONTRACT
+  O10 evidence       : NOT EXPLICIT IN THE PYTHON API SECTION
+  first micro-motion : NOT SELECTED
+  boundary           : Blocking path-planning API; generic joint-name schema but no O10-specific statement/example
+joint_servo_control
+  document status    : STREAMING-END-EFFECTOR
+  O10 evidence       : End-effector joint names may be included; 100 Hz stream is required
+  first micro-motion : DEFER
+  boundary           : Normal mode only; low-latency bypasses protections; watchdog/drop-frame semantics remain undocumented
+============================================================================================================
+109_v4 NON-MOTION WRITE-PATH CONTRACT VERIFICATION SUMMARY
+============================================================================================================
+source safety audit              : PASS
+SDK document located             : PASS
+required document checks         : PASS
+live read-only cross-check       : FAIL
+motion/control API invoked       : NO
+O10 commanded                    : NO
+Arm commanded                    : NO
+Motion executed                  : NO
+
+Final contract verdict:
+  DOCUMENT CONTRACT SELECTS: move_ee_pos + JointStates as the first O10 candidate.
+  Reason: SDK 4.1.5 explicitly documents O10_T2, exact 10-state shape,
+          ordered limits, and left_tool/right_tool group strings.
+
+This script is evidence collection only. It does not authorize or perform 110 motion.

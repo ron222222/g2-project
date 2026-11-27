@@ -1,0 +1,438 @@
+{
+  "version": "106_v2_tray_geometry_contact_dry_run",
+  "timestamp": "2026-11-17T11:38:36.339223+08:00",
+  "safety": {
+    "read_only": true,
+    "o10_commanded": false,
+    "motion_executed": false
+  },
+  "tray": {
+    "top_outer_length_m": 0.44,
+    "top_outer_width_m": 0.32,
+    "bottom_contact_length_m": 0.377,
+    "bottom_contact_width_m": 0.263,
+    "overall_height_m": 0.1,
+    "rim_width_m": 0.012,
+    "rim_material_thickness_m": 0.001,
+    "rim_downward_flange_height_m": 0.008,
+    "wall_thickness_m": 0.001,
+    "rim_corner_radius_m": 0.05,
+    "empty_mass_kg": 0.05,
+    "maximum_total_mass_kg": 1.0
+  },
+  "derived_tray_geometry": {
+    "length_direction_inset_per_side_m": 0.0315,
+    "width_direction_inset_per_side_m": 0.028499999999999998,
+    "length_wall_angle_from_vertical_deg": 17.484427323220704,
+    "width_wall_angle_from_vertical_deg": 15.907551930525841,
+    "long_side_straight_section_m": 0.33999999999999997,
+    "short_side_straight_section_m": 0.22
+  },
+  "contact_definition": {
+    "tray_rim_top_z_m": 0.0,
+    "flange_bottom_z_m": -0.008,
+    "four_finger_below_flange_clearance_m": 0.004,
+    "four_finger_contact_center_z_m": -0.012,
+    "four_finger_contact_center_z_range_m": [
+      -0.015,
+      -0.01
+    ],
+    "thumb_inside_contact_center_z_m": -0.004,
+    "thumb_inside_contact_center_z_range_m": [
+      -0.006,
+      -0.002
+    ],
+    "recommended_primary_support_fingers": [
+      "index",
+      "middle"
+    ],
+    "recommended_secondary_stabilizers": [
+      "ring",
+      "pinky"
+    ]
+  },
+  "stages": {
+    "OPEN": {
+      "purpose": "clear the 12 mm rim and pose uncertainty",
+      "contact_required": false,
+      "joint_targets": null,
+      "status": "GEOMETRY_DEFINED_JOINT_TARGETS_PENDING"
+    },
+    "PREGRASP": {
+      "thumb_target_z_range_m": [
+        -0.006,
+        -0.002
+      ],
+      "four_finger_target_z_range_m": [
+        -0.015,
+        -0.01
+      ],
+      "contact_required": false,
+      "joint_targets": null,
+      "status": "GEOMETRY_DEFINED_JOINT_TARGETS_PENDING"
+    },
+    "CONTACT": {
+      "thumb_target_z_m": -0.004,
+      "four_finger_target_z_m": -0.012,
+      "four_finger_below_flange": true,
+      "contact_required": true,
+      "joint_targets": null,
+      "status": "GEOMETRY_DEFINED_JOINT_TARGETS_PENDING"
+    },
+    "GRASP": {
+      "support_mode": "mechanical hook under downward flange plus light normal preload",
+      "primary_support": [
+        "index",
+        "middle"
+      ],
+      "secondary_stabilization": [
+        "ring",
+        "pinky"
+      ],
+      "joint_targets": null,
+      "status": "BLOCKED_UNTIL_CONTACT_POSE_OR_OFFLINE_KINEMATIC_SEARCH"
+    }
+  },
+  "left_end_state": {
+    "side": "left",
+    "controlled": true,
+    "type": 1,
+    "joints": [
+      {
+        "index": 0,
+        "name": "idx31_hand_l_thumb_roll_joint",
+        "raw_name": "idx31_hand_l_thumb_roll_joint",
+        "position": 0.0044506835937501155,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 1,
+        "name": "idx32_hand_l_thumb_abad_joint",
+        "raw_name": "idx32_hand_l_thumb_abad_joint",
+        "position": 0.8073779296874999,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 2,
+        "name": "idx33_hand_l_thumb_mcp_joint",
+        "raw_name": "idx33_hand_l_thumb_mcp_joint",
+        "position": -0.8367171351994991,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 3,
+        "name": "idx36_hand_l_index_abad_joint",
+        "raw_name": "idx36_hand_l_index_abad_joint",
+        "position": 0.0763671875,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 4,
+        "name": "idx37_hand_l_index_pip_joint",
+        "raw_name": "idx37_hand_l_index_pip_joint",
+        "position": 1.294574902277834,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 5,
+        "name": "idx39_hand_l_middle_pip_joint",
+        "raw_name": "idx39_hand_l_middle_pip_joint",
+        "position": 1.403479403226779,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 6,
+        "name": "idx41_hand_l_ring_abad_joint",
+        "raw_name": "idx41_hand_l_ring_abad_joint",
+        "position": -0.09882080078125001,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 7,
+        "name": "idx42_hand_l_ring_pip_joint",
+        "raw_name": "idx42_hand_l_ring_pip_joint",
+        "position": 1.3951649776650341,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 8,
+        "name": "idx44_hand_l_pinky_abad_joint",
+        "raw_name": "idx44_hand_l_pinky_abad_joint",
+        "position": -0.08720703125,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 9,
+        "name": "idx45_hand_l_pinky_pip_joint",
+        "raw_name": "idx45_hand_l_pinky_pip_joint",
+        "position": 1.4266928802553063,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      }
+    ],
+    "positions": [
+      0.0044506835937501155,
+      0.8073779296874999,
+      -0.8367171351994991,
+      0.0763671875,
+      1.294574902277834,
+      1.403479403226779,
+      -0.09882080078125001,
+      1.3951649776650341,
+      -0.08720703125,
+      1.4266928802553063
+    ]
+  },
+  "right_end_state": {
+    "side": "right",
+    "controlled": true,
+    "type": 1,
+    "joints": [
+      {
+        "index": 0,
+        "name": "idx71_hand_r_thumb_roll_joint",
+        "raw_name": "idx71_hand_r_thumb_roll_joint",
+        "position": 0.002287597656250008,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 1,
+        "name": "idx72_hand_r_thumb_abad_joint",
+        "raw_name": "idx72_hand_r_thumb_abad_joint",
+        "position": -0.80696533203125,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 2,
+        "name": "idx73_hand_r_thumb_mcp_joint",
+        "raw_name": "idx73_hand_r_thumb_mcp_joint",
+        "position": 0.8367171351994991,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 3,
+        "name": "idx76_hand_r_index_abad_joint",
+        "raw_name": "idx76_hand_r_index_abad_joint",
+        "position": -0.076328125,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 4,
+        "name": "idx77_hand_r_index_pip_joint",
+        "raw_name": "idx77_hand_r_index_pip_joint ",
+        "position": 1.294574902277834,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 5,
+        "name": "idx79_hand_r_middle_pip_joint",
+        "raw_name": "idx79_hand_r_middle_pip_joint",
+        "position": 1.403479403226779,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 6,
+        "name": "idx81_hand_r_ring_abad_joint",
+        "raw_name": "idx81_hand_r_ring_abad_joint",
+        "position": 0.0812646484375,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 7,
+        "name": "idx82_hand_r_ring_pip_joint",
+        "raw_name": "idx82_hand_r_ring_pip_joint",
+        "position": 1.3951649776650341,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 8,
+        "name": "idx84_hand_r_pinky_abad_joint",
+        "raw_name": "idx84_hand_r_pinky_abad_joint",
+        "position": 0.09244873046875,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      },
+      {
+        "index": 9,
+        "name": "idx85_hand_r_pinky_pip_joint",
+        "raw_name": "idx85_hand_r_pinky_pip_joint",
+        "position": 1.4266928802553063,
+        "enable": true,
+        "status": 0,
+        "err_code": 0
+      }
+    ],
+    "positions": [
+      0.002287597656250008,
+      -0.80696533203125,
+      0.8367171351994991,
+      -0.076328125,
+      1.294574902277834,
+      1.403479403226779,
+      0.0812646484375,
+      1.3951649776650341,
+      0.09244873046875,
+      1.4266928802553063
+    ]
+  },
+  "mirror_sign": [
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0,
+    1.0,
+    1.0,
+    -1.0,
+    1.0,
+    -1.0,
+    1.0
+  ],
+  "mirror_delta_rad": [
+    0.0067382812500001235,
+    0.0004125976562499023,
+    0.0,
+    3.9062500000006106e-05,
+    0.0,
+    0.0,
+    -0.017556152343750006,
+    0.0,
+    0.005241699218750007,
+    0.0
+  ],
+  "left_current_geometry": {
+    "tip_positions_m": {
+      "thumb": [
+        0.002486140345472121,
+        -0.04359382016621427,
+        0.11923606063267234
+      ],
+      "index": [
+        0.08452150701380604,
+        0.019675617242018828,
+        0.061031826403099676
+      ],
+      "middle": [
+        0.05768672465910823,
+        0.007950099999999738,
+        0.07408165358287155
+      ],
+      "ring": [
+        0.060323982804310214,
+        -0.0016803123284852006,
+        0.07182829845152683
+      ],
+      "pinky": [
+        0.053951296472384364,
+        -0.022147372613514515,
+        0.07081339367435469
+      ]
+    },
+    "four_finger_center_m": [
+      0.06412087773740222,
+      0.0009495080750047125,
+      0.06943879302796319
+    ],
+    "primary_index_middle_center_m": [
+      0.07110411583645714,
+      0.013812858621009283,
+      0.06755673999298561
+    ],
+    "thumb_center_m": [
+      0.002486140345472121,
+      -0.04359382016621427,
+      0.11923606063267234
+    ],
+    "virtual_grasp_center_m": [
+      0.03330350904143717,
+      -0.02132215604560478,
+      0.09433742683031776
+    ],
+    "thumb_to_four_center_distance_m": 0.09089948737518919
+  },
+  "right_current_geometry": {
+    "tip_positions_m": {
+      "thumb": [
+        0.002701807225705899,
+        0.0438250717661382,
+        0.11913507790346056
+      ],
+      "index": [
+        0.08452118877421866,
+        -0.019679375215482464,
+        0.06103112672476996
+      ],
+      "middle": [
+        0.057686724659108096,
+        -0.00795009999999996,
+        0.07408165358287089
+      ],
+      "ring": [
+        0.06031452410352038,
+        0.003348724221862276,
+        0.07178517725493372
+      ],
+      "pinky": [
+        0.05396843569038354,
+        0.021666404475970902,
+        0.07092693697204289
+      ]
+    },
+    "four_finger_center_m": [
+      0.06412271830680766,
+      -0.0006535866294123116,
+      0.06945622363365436
+    ],
+    "primary_index_middle_center_m": [
+      0.07110395671666338,
+      -0.013814737607741212,
+      0.06755639015382042
+    ],
+    "thumb_center_m": [
+      0.002701807225705899,
+      0.0438250717661382,
+      0.11913507790346056
+    ],
+    "virtual_grasp_center_m": [
+      0.03341226276625678,
+      0.021585742568362945,
+      0.09429565076855746
+    ],
+    "thumb_to_four_center_distance_m": 0.0906579722487842
+  }
+}

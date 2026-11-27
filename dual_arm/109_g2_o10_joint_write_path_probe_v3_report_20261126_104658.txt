@@ -1,0 +1,828 @@
+
+============================================================================================================
+109_v3 O10 Joint Write-Path Probe
+============================================================================================================
+script        : /home/isaac-workstation/g2-project/dual_arm/109_g2_o10_joint_write_path_probe_v3.py
+timestamp     : 2026-11-26T10:46:58
+python        : 3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]
+platform      : Linux-6.8.0-138-generic-x86_64-with-glibc2.35
+safety mode   : READ/INTROSPECT/DETACHED-CONSTRUCT ONLY
+
+============================================================================================================
+[SOURCE SAFETY AUDIT]
+============================================================================================================
+status : PASS
+No direct motion/control/write API call found in the AST.
+
+============================================================================================================
+[IMPORT AND MODULE PROVENANCE]
+============================================================================================================
+import agibot_gdk : PASS
+module file       : /home/isaac-workstation/.cache/agibot/app/gdk/lib/agibot_gdk/__init__.py
+module version    : <not exposed>
+
+============================================================================================================
+[CANDIDATE TYPE PRESENCE]
+============================================================================================================
+JointControlReq             : YES
+JointServoControlReq        : YES
+JointState                  : YES
+JointStates                 : YES
+
+------------------------------------------------------------------------------------------------------------
+[DETACHED DATA-CONTAINER PROBE: JointControlReq]
+------------------------------------------------------------------------------------------------------------
+type present    : YES
+
+agibot_gdk.JointControlReq
+  Python type     : pybind11_builtins.pybind11_type
+  callable        : True
+  signature       : <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x70c98f664af0>>
+  __doc__         :
+    <none>
+  __text_signature__: None
+  __module__     : 'agibot_gdk.agibot_gdk'
+  __qualname__   : 'JointControlReq'
+constructor     : PASS (detached local object only)
+default snapshot:
+{
+  "detail": "",
+  "joint_names": {
+    "type": "builtins.list",
+    "length": 0,
+    "value": []
+  },
+  "joint_positions": {
+    "type": "builtins.list",
+    "length": 0,
+    "value": []
+  },
+  "joint_velocities": {
+    "type": "builtins.list",
+    "length": 0,
+    "value": []
+  },
+  "life_time": 0.0
+}
+
+field descriptors and safe round-trip assignment tests:
+  field 'detail':
+    descriptor type: builtins.property
+    descriptor repr: <property object at 0x70c98f6391c0>
+    descriptor doc : <none>
+    assignment    : PASS - accepted; read-back type=builtins.str value='probe-only'
+  field 'joint_names':
+    descriptor type: builtins.property
+    descriptor repr: <property object at 0x70c98f6393a0>
+    descriptor doc : <none>
+    assignment    : PASS - accepted; read-back type=list length=1 value=['probe_joint_a']
+  field 'joint_positions':
+    descriptor type: builtins.property
+    descriptor repr: <property object at 0x70c98f639490>
+    descriptor doc : <none>
+    assignment    : PASS - accepted; read-back type=list length=1 value=[0.0]
+  field 'joint_velocities':
+    descriptor type: builtins.property
+    descriptor repr: <property object at 0x70c98f639580>
+    descriptor doc : <none>
+    assignment    : PASS - accepted; read-back type=list length=1 value=[0.0]
+  field 'life_time':
+    descriptor type: builtins.property
+    descriptor repr: <property object at 0x70c98f6392b0>
+    descriptor doc : <none>
+    assignment    : PASS - accepted; read-back type=builtins.float value=0.0
+
+------------------------------------------------------------------------------------------------------------
+[DETACHED DATA-CONTAINER PROBE: JointServoControlReq]
+------------------------------------------------------------------------------------------------------------
+type present    : YES
+
+agibot_gdk.JointServoControlReq
+  Python type     : pybind11_builtins.pybind11_type
+  callable        : True
+  signature       : <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x70c98f671d80>>
+  __doc__         :
+    <none>
+  __text_signature__: None
+  __module__     : 'agibot_gdk.agibot_gdk'
+  __qualname__   : 'JointServoControlReq'
+constructor     : PASS (detached local object only)
+default snapshot:
+{
+  "control_period": 0.0,
+  "joint_names": {
+    "type": "builtins.list",
+    "length": 0,
+    "value": []
+  },
+  "joint_positions": {
+    "type": "builtins.list",
+    "length": 0,
+    "value": []
+  },
+  "joint_velocities": {
+    "type": "builtins.list",
+    "length": 0,
+    "value": []
+  }
+}
+
+field descriptors and safe round-trip assignment tests:
+  field 'control_period':
+    descriptor type: builtins.property
+    descriptor repr: <property object at 0x70c98f66d990>
+    descriptor doc : <none>
+    assignment    : PASS - accepted; read-back type=builtins.float value=0.0
+  field 'joint_names':
+    descriptor type: builtins.property
+    descriptor repr: <property object at 0x70c98f66da80>
+    descriptor doc : <none>
+    assignment    : PASS - accepted; read-back type=list length=1 value=['probe_joint_a']
+  field 'joint_positions':
+    descriptor type: builtins.property
+    descriptor repr: <property object at 0x70c98f66db70>
+    descriptor doc : <none>
+    assignment    : PASS - accepted; read-back type=list length=1 value=[0.0]
+  field 'joint_velocities':
+    descriptor type: builtins.property
+    descriptor repr: <property object at 0x70c98f66dc60>
+    descriptor doc : <none>
+    assignment    : PASS - accepted; read-back type=list length=1 value=[0.0]
+
+------------------------------------------------------------------------------------------------------------
+[DETACHED DATA-CONTAINER PROBE: JointState]
+------------------------------------------------------------------------------------------------------------
+type present    : YES
+
+agibot_gdk.JointState
+  Python type     : pybind11_builtins.pybind11_type
+  callable        : True
+  signature       : <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x70c98f671060>>
+  __doc__         :
+    <none>
+  __text_signature__: None
+  __module__     : 'agibot_gdk.agibot_gdk'
+  __qualname__   : 'JointState'
+constructor     : PASS (detached local object only)
+default snapshot:
+{
+  "effort": 0.0,
+  "error_code": 0,
+  "mode": 0,
+  "motor_current": 0.0,
+  "motor_position": 0.0,
+  "motor_velocity": 0.0,
+  "name": "",
+  "position": 0.0,
+  "velocity": 0.0
+}
+
+field descriptors and safe round-trip assignment tests:
+  field 'name':
+    descriptor type: builtins.property
+    descriptor repr: <property object at 0x70c98f66c900>
+    descriptor doc : <none>
+    assignment    : PASS - accepted; read-back type=builtins.str value='probe_joint_a'
+  field 'position':
+    descriptor type: builtins.property
+    descriptor repr: <property object at 0x70c98f66cae0>
+    descriptor doc : <none>
+    assignment    : PASS - accepted; read-back type=builtins.float value=0.0
+  field 'velocity':
+    descriptor type: builtins.property
+    descriptor repr: <property object at 0x70c98f66cbd0>
+    descriptor doc : <none>
+    assignment    : PASS - accepted; read-back type=builtins.float value=0.0
+  field 'effort':
+    descriptor type: builtins.property
+    descriptor repr: <property object at 0x70c98f66ccc0>
+    descriptor doc : <none>
+    assignment    : PASS - accepted; read-back type=builtins.float value=0.0
+  field 'mode':
+    descriptor type: builtins.property
+    descriptor repr: <property object at 0x70c98f66c9f0>
+    descriptor doc : <none>
+    assignment    : PASS - accepted; read-back type=builtins.int value=0
+
+------------------------------------------------------------------------------------------------------------
+[DETACHED DATA-CONTAINER PROBE: JointStates]
+------------------------------------------------------------------------------------------------------------
+type present    : YES
+
+agibot_gdk.JointStates
+  Python type     : pybind11_builtins.pybind11_type
+  callable        : True
+  signature       : <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x70c98f671870>>
+  __doc__         :
+    <none>
+  __text_signature__: None
+  __module__     : 'agibot_gdk.agibot_gdk'
+  __qualname__   : 'JointStates'
+constructor     : PASS (detached local object only)
+default snapshot:
+{
+  "group": "",
+  "nums": 0,
+  "states": {
+    "type": "builtins.list",
+    "length": 0,
+    "value": []
+  },
+  "target_type": "",
+  "timestamp": 0
+}
+
+field descriptors and safe round-trip assignment tests:
+  field 'group':
+    descriptor type: builtins.property
+    descriptor repr: <property object at 0x70c98f66d3f0>
+    descriptor doc : <none>
+    assignment    : PASS - accepted; read-back type=builtins.str value='probe-only'
+  field 'nums':
+    descriptor type: builtins.property
+    descriptor repr: <property object at 0x70c98f66d300>
+    descriptor doc : <none>
+    assignment    : PASS - accepted; read-back type=builtins.int value=1
+  field 'states':
+    descriptor type: builtins.property
+    descriptor repr: <property object at 0x70c98f66d5d0>
+    descriptor doc : <none>
+    assignment    : PASS - accepted; read-back type=list length=1 value=[<JointState name='probe_joint_a', mode=0, position=0, velocity=0, effort=0>]
+  field 'target_type':
+    descriptor type: builtins.property
+    descriptor repr: <property object at 0x70c98f66d4e0>
+    descriptor doc : <none>
+    assignment    : PASS - accepted; read-back type=builtins.str value='probe-only'
+  field 'timestamp':
+    descriptor type: builtins.property
+    descriptor repr: <property object at 0x70c98f66d6c0>
+    descriptor doc : <none>
+    assignment    : PASS - accepted; read-back type=builtins.int value=0
+
+============================================================================================================
+[LOCAL PACKAGE TEXT/STUB SEARCH - READ ONLY]
+============================================================================================================
+module file : /home/isaac-workstation/.cache/agibot/app/gdk/lib/agibot_gdk/__init__.py
+searched text/stub files: 2; matching lines: 0
+No additional textual contract evidence found beside pybind metadata.
+
+============================================================================================================
+[GDK INITIALIZATION]
+============================================================================================================
+gdk_init result : <GDKRes.kSuccess: 0>
+gdk_init status : PASS
+Robot() status : PASS
+
+============================================================================================================
+[CANDIDATE WRITE-PATH METHOD CONTRACTS - METADATA ONLY]
+============================================================================================================
+
+joint_control_request
+  Robot class   : PRESENT (builtins.instancemethod)
+    doc: joint_control_request(self: agibot_gdk.agibot_gdk.Robot, arg0: agibot_gdk.agibot_gdk.JointControlReq) -> int
+    inspect.signature: <unavailable: ValueError: no signature found for builtin <instancemethod joint_control_request at 0x70c98f607d60>>
+  Robot instance: PRESENT (builtins.method)
+    doc: joint_control_request(self: agibot_gdk.agibot_gdk.Robot, arg0: agibot_gdk.agibot_gdk.JointControlReq) -> int
+    inspect.signature: <unavailable: ValueError: no signature found for builtin <built-in method joint_control_request of PyCapsule object at 0x70c98f607d20>>
+
+move_ee_pos
+  Robot class   : PRESENT (builtins.instancemethod)
+    doc: move_ee_pos(self: agibot_gdk.agibot_gdk.Robot, arg0: agibot_gdk.agibot_gdk.JointStates) -> int
+    inspect.signature: <unavailable: ValueError: no signature found for builtin <instancemethod move_ee_pos at 0x70c98f607a30>>
+  Robot instance: PRESENT (builtins.method)
+    doc: move_ee_pos(self: agibot_gdk.agibot_gdk.Robot, arg0: agibot_gdk.agibot_gdk.JointStates) -> int
+    inspect.signature: <unavailable: ValueError: no signature found for builtin <built-in method move_ee_pos of PyCapsule object at 0x70c98f607990>>
+
+joint_servo_control
+  Robot class   : PRESENT (builtins.instancemethod)
+    doc: joint_servo_control(self: agibot_gdk.agibot_gdk.Robot, joint_servo_control_req: agibot_gdk.agibot_gdk.JointServoControlReq, enable_low_latency: bool = False) -> int
+    inspect.signature: <unavailable: ValueError: no signature found for builtin <instancemethod joint_servo_control at 0x70c98f62c160>>
+  Robot instance: PRESENT (builtins.method)
+    doc: joint_servo_control(self: agibot_gdk.agibot_gdk.Robot, joint_servo_control_req: agibot_gdk.agibot_gdk.JointServoControlReq, enable_low_latency: bool = False) -> int
+    inspect.signature: <unavailable: ValueError: no signature found for builtin <built-in method joint_servo_control of PyCapsule object at 0x70c98f62c120>>
+
+IMPORTANT: presence and pybind docstrings were inspected; none of these methods was called.
+
+============================================================================================================
+[READ-ONLY get_end_state() WITH RETRY]
+============================================================================================================
+attempt 1/10: no state (RuntimeError: Failed to get end state)
+attempt 2/10: PASS (20 joint names)
+
+============================================================================================================
+[CURRENT O10 STATE - READ ONLY]
+============================================================================================================
+
+left_end_state:
+  controlled : True
+  type       : 1
+  names      : 10
+  states     : 10
+  [00] idx31_hand_l_thumb_roll_joint: position=-0.41865722656250004, velocity=0.0, state_type=builtins.dict
+  [01] idx32_hand_l_thumb_abad_joint: position=0.3403173828125, velocity=0.0, state_type=builtins.dict
+  [02] idx33_hand_l_thumb_mcp_joint: position=-0.6590505453402951, velocity=0.0, state_type=builtins.dict
+  [03] idx36_hand_l_index_abad_joint: position=-0.0, velocity=0.0, state_type=builtins.dict
+  [04] idx37_hand_l_index_pip_joint: position=1.4762954914964332, velocity=0.0, state_type=builtins.dict
+  [05] idx39_hand_l_middle_pip_joint: position=1.4768317618717264, velocity=0.0, state_type=builtins.dict
+  [06] idx41_hand_l_ring_abad_joint: position=0.0, velocity=0.0, state_type=builtins.dict
+  [07] idx42_hand_l_ring_pip_joint: position=1.4768317618717264, velocity=0.0, state_type=builtins.dict
+  [08] idx44_hand_l_pinky_abad_joint: position=-0.009462890624999998, velocity=0.0, state_type=builtins.dict
+  [09] idx45_hand_l_pinky_pip_joint: position=1.4762954914964332, velocity=0.0, state_type=builtins.dict
+
+right_end_state:
+  controlled : True
+  type       : 1
+  names      : 10
+  states     : 10
+  [00] idx71_hand_r_thumb_roll_joint: position=0.002287597656250008, velocity=0.0, state_type=builtins.dict
+  [01] idx72_hand_r_thumb_abad_joint: position=-0.8057275390624999, velocity=0.0, state_type=builtins.dict
+  [02] idx73_hand_r_thumb_mcp_joint: position=0.8368248177524341, velocity=0.0, state_type=builtins.dict
+  [03] idx76_hand_r_index_abad_joint: position=-0.07417968750000001, velocity=0.0, state_type=builtins.dict
+  [04] idx77_hand_r_index_pip_joint : position=1.294574902277834, velocity=0.0, state_type=builtins.dict
+  [05] idx79_hand_r_middle_pip_joint: position=1.4033185835491162, velocity=0.0, state_type=builtins.dict
+  [06] idx81_hand_r_ring_abad_joint: position=0.0812646484375, velocity=0.0, state_type=builtins.dict
+  [07] idx82_hand_r_ring_pip_joint: position=1.3951649776650341, velocity=0.0, state_type=builtins.dict
+  [08] idx84_hand_r_pinky_abad_joint: position=0.09328369140625001, velocity=0.0, state_type=builtins.dict
+  [09] idx85_hand_r_pinky_pip_joint: position=1.4263943399346004, velocity=0.0, state_type=builtins.dict
+
+============================================================================================================
+[READ-ONLY get_joint_states()]
+============================================================================================================
+call status : PASS
+raw type    : builtins.dict
+bounded structural summary:
+{
+  "timestamp": 1795661219552227584,
+  "nums": 22,
+  "states": [
+    {
+      "name": "idx01_body_joint1",
+      "mode": 0,
+      "position": -0.6975371648683558,
+      "velocity": 0.0,
+      "effort": 0.0,
+      "motor_position": -0.6975371648683558,
+      "motor_velocity": 0.0,
+      "motor_current": -0.8159999847412109,
+      "error_code": 0
+    },
+    {
+      "name": "idx02_body_joint2",
+      "mode": 0,
+      "position": 1.570247785501413,
+      "velocity": 0.0,
+      "effort": 0.0,
+      "motor_position": 1.570247785501413,
+      "motor_velocity": 0.0,
+      "motor_current": -8.831000328063965,
+      "error_code": 0
+    },
+    {
+      "name": "idx03_body_joint3",
+      "mode": 0,
+      "position": -0.8715633056411178,
+      "velocity": 0.0,
+      "effort": 0.0,
+      "motor_position": -0.8715633056411178,
+      "motor_velocity": 0.0,
+      "motor_current": -1.2640000581741333,
+      "error_code": 0
+    },
+    {
+      "name": "idx04_body_joint4",
+      "mode": 0,
+      "position": 0.0,
+      "velocity": 0.0,
+      "effort": 0.0,
+      "motor_position": 0.0,
+      "motor_velocity": 0.0,
+      "motor_current": -0.5389999747276306,
+      "error_code": 0
+    },
+    {
+      "name": "idx05_body_joint5",
+      "mode": 0,
+      "position": 0.0,
+      "velocity": 0.0,
+      "effort": 0.0,
+      "motor_position": 0.0,
+      "motor_velocity": 0.0,
+      "motor_current": -0.07100000232458115,
+      "error_code": 0
+    },
+    {
+      "name": "idx11_head_joint1",
+      "mode": 0,
+      "position": 0.001495394756920072,
+      "velocity": 0.0,
+      "effort": 0.0,
+      "motor_position": 0.001495394756920072,
+      "motor_velocity": 0.0,
+      "motor_current": 0.16200000047683716,
+      "error_code": 0
+    },
+    {
+      "name": "idx12_head_joint2",
+      "mode": 0,
+      "position": 0.0,
+      "velocity": 0.0,
+      "effort": 0.0,
+      "motor_position": 0.0,
+      "motor_velocity": 0.0,
+      "motor_current": -0.003000000026077032,
+      "error_code": 0
+    },
+    {
+      "name": "idx13_head_joint3",
+      "mode": 0,
+      "position": 0.433856196783349,
+      "velocity": 0.0,
+      "effort": 0.0,
+      "motor_position": 0.433856196783349,
+      "motor_velocity": 0.0,
+      "motor_current": -0.012000000104308128,
+      "error_code": 0
+    },
+    {
+      "name": "idx21_arm_l_joint1",
+      "mode": 1,
+      "position": 1.571490463088269,
+      "velocity": 0.0007294897568431422,
+      "effort": -13.630500000000001,
+      "motor_position": 1.571490463088269,
+      "motor_velocity": 0.0007294897568431422,
+      "motor_current": -9.087,
+      "error_code": 0
+    },
+    {
+      "name": "idx22_arm_l_joint2",
+      "mode": 1,
+      "position": -1.5708039667382738,
+      "velocity": -0.0005085805444210695,
+      "effort": 0.0465,
+      "motor_position": -1.5708039667382738,
+      "motor_velocity": -0.0005085805444210695,
+      "motor_current": 0.031,
+      "error_code": 0
+    },
+    {
+      "name": "idx23_arm_l_joint3",
+      "mode": 1,
+      "position": -1.5709258762661233,
+      "velocity": -0.00028043086278534374,
+      "effort": 0.083,
+      "motor_position": -1.5709258762661233,
+      "motor_velocity": -0.00028043086278534374,
+      "motor_current": 0.083,
+      "error_code": 0
+    },
+    {
+      "name": "idx24_arm_l_joint4",
+      "mode": 1,
+      "position": -1.5724919747767554,
+      "velocity": 0.00012008193355167285,
+      "effort": -11.935,
+      "motor_position": -1.5724919747767554,
+      "motor_velocity": 0.00012008193355167285,
+      "motor_current": -11.935,
+      "error_code": 0
+    },
+    {
+      "name": "idx25_arm_l_joint5",
+      "mode": 1,
+      "position": -0.0015764049440506033,
+      "velocity": 0.0001188835110611372,
+      "effort": 0.0432,
+      "motor_position": -0.0015764049440506033,
+      "motor_velocity": 0.0001188835110611372,
+      "motor_current": 0.054,
+      "error_code": 0
+    },
+    {
+      "name": "idx26_arm_l_joint6",
+      "mode": 1,
+      "position": -0.010066149709254252,
+      "velocity": -0.00012163988278936921,
+      "effort": -0.6464000000000001,
+      "motor_position": -0.010066149709254252,
+      "motor_velocity": -0.00012163988278936921,
+      "motor_current": -0.808,
+      "error_code": 0
+    },
+    {
+      "name": "idx27_arm_l_joint7",
+      "mode": 1,
+      "position": -0.0006395980831988802,
+      "velocity": -0.000573445161721312,
+      "effort": -0.058399999999999994,
+      "motor_position": -0.0006395980831988802,
+      "motor_velocity": -0.000573445161721312,
+      "motor_current": -0.073,
+      "error_code": 0
+    },
+    {
+      "name": "idx61_arm_r_joint1",
+      "mode": 1,
+      "position": -1.570424416348667,
+      "velocity": 0.0006702177778320662,
+      "effort": 13.143,
+      "motor_position": -1.570424416348667,
+      "motor_velocity": 0.0006702177778320662,
+      "motor_current": 8.762,
+      "error_code": 0
+    },
+    {
+      "name": "idx62_arm_r_joint2",
+      "mode": 1,
+      "position": -1.5680716633283933,
+      "velocity": -0.0005949668322805148,
+      "effort": -0.26849999999999996,
+      "motor_position": -1.5680716633283933,
+      "motor_velocity": -0.0005949668322805148,
+      "motor_current": -0.179,
+      "error_code": 0
+    },
+    {
+      "name": "idx63_arm_r_joint3",
+      "mode": 1,
+      "position": 1.571283006168303,
+      "velocity": -9.539443024663831e-05,
+      "effort": -0.166,
+      "motor_position": 1.571283006168303,
+      "motor_velocity": -9.539443024663831e-05,
+      "motor_current": -0.166,
+      "error_code": 0
+    },
+    {
+      "name": "idx64_arm_r_joint4",
+      "mode": 1,
+      "position": -1.5728094368944985,
+      "velocity": 0.0007941945844779799,
+      "effort": -11.876000000000001,
+      "motor_position": -1.5728094368944985,
+      "motor_velocity": 0.0007941945844779799,
+      "motor_current": -11.876,
+      "error_code": 0
+    },
+    {
+      "name": "idx65_arm_r_joint5",
+      "mode": 1,
+      "position": 0.0012046542874864425,
+      "velocity": 0.00022470421697543571,
+      "effort": -0.124,
+      "motor_position": 0.0012046542874864425,
+      "motor_velocity": 0.00022470421697543571,
+      "motor_current": -0.155,
+      "error_code": 0
+    },
+    {
+      "name": "idx66_arm_r_joint6",
+      "mode": 1,
+      "position": -0.0069205303560962595,
+      "velocity": -0.00015783224200354606,
+      "effort": -1.2695999999999998,
+      "motor_position": -0.0069205303560962595,
+      "motor_velocity": -0.00015783224200354606,
+      "motor_current": -1.587,
+      "error_code": 0
+    },
+    {
+      "name": "idx67_arm_r_joint7",
+      "mode": 1,
+      "position": -0.0009220662642181346,
+      "velocity": 0.00041165812549899826,
+      "effort": 0.1336,
+      "motor_position": -0.0009220662642181346,
+      "motor_velocity": 0.00041165812549899826,
+      "motor_current": 0.167,
+      "error_code": 0
+    }
+  ]
+}
+
+============================================================================================================
+[DETACHED CURRENT-STATE CANDIDATES - NEVER TRANSMITTED]
+============================================================================================================
+left_end_state JointControlReq : PASS; vector lengths names/positions/velocities=10/10/10
+left_end_state JointServoControlReq : PASS; vector lengths names/positions/velocities=10/10/10
+left_end_state JointStates : PASS; nums=10, states=10, group='', target_type=''
+right_end_state JointControlReq : PASS; vector lengths names/positions/velocities=10/10/10
+right_end_state JointServoControlReq : PASS; vector lengths names/positions/velocities=10/10/10
+right_end_state JointStates : PASS; nums=10, states=10, group='', target_type=''
+
+Candidate snapshots (bounded; all objects remain detached):
+
+left.JointControlReq
+{
+  "detail": "109_v3_detached_probe_never_transmitted",
+  "joint_names": {
+    "type": "builtins.list",
+    "length": 10,
+    "value": [
+      "'idx31_hand_l_thumb_roll_joint'",
+      "'idx32_hand_l_thumb_abad_joint'",
+      "'idx33_hand_l_thumb_mcp_joint'"
+    ]
+  },
+  "joint_positions": {
+    "type": "builtins.list",
+    "length": 10,
+    "value": [
+      "-0.41865722656250004",
+      "0.3403173828125",
+      "-0.6590505453402951"
+    ]
+  },
+  "joint_velocities": {
+    "type": "builtins.list",
+    "length": 10,
+    "value": [
+      "0.0",
+      "0.0",
+      "0.0"
+    ]
+  },
+  "life_time": 0.0
+}
+
+left.JointServoControlReq
+{
+  "control_period": 0.0,
+  "joint_names": {
+    "type": "builtins.list",
+    "length": 10,
+    "value": [
+      "'idx31_hand_l_thumb_roll_joint'",
+      "'idx32_hand_l_thumb_abad_joint'",
+      "'idx33_hand_l_thumb_mcp_joint'"
+    ]
+  },
+  "joint_positions": {
+    "type": "builtins.list",
+    "length": 10,
+    "value": [
+      "-0.41865722656250004",
+      "0.3403173828125",
+      "-0.6590505453402951"
+    ]
+  },
+  "joint_velocities": {
+    "type": "builtins.list",
+    "length": 10,
+    "value": [
+      "0.0",
+      "0.0",
+      "0.0"
+    ]
+  }
+}
+
+left.JointStates
+{
+  "group": "",
+  "nums": 10,
+  "states": {
+    "type": "builtins.list",
+    "length": 10,
+    "value": [
+      "<JointState name='idx31_hand_l_thumb_roll_joint', mode=0, position=-0.418657, velocity=0, effort=0>",
+      "<JointState name='idx32_hand_l_thumb_abad_joint', mode=0, position=0.340317, velocity=0, effort=0>",
+      "<JointState name='idx33_hand_l_thumb_mcp_joint', mode=0, position=-0.659051, velocity=0, effort=0>"
+    ]
+  },
+  "target_type": "",
+  "timestamp": 0
+}
+
+right.JointControlReq
+{
+  "detail": "109_v3_detached_probe_never_transmitted",
+  "joint_names": {
+    "type": "builtins.list",
+    "length": 10,
+    "value": [
+      "'idx71_hand_r_thumb_roll_joint'",
+      "'idx72_hand_r_thumb_abad_joint'",
+      "'idx73_hand_r_thumb_mcp_joint'"
+    ]
+  },
+  "joint_positions": {
+    "type": "builtins.list",
+    "length": 10,
+    "value": [
+      "0.002287597656250008",
+      "-0.8057275390624999",
+      "0.8368248177524341"
+    ]
+  },
+  "joint_velocities": {
+    "type": "builtins.list",
+    "length": 10,
+    "value": [
+      "0.0",
+      "0.0",
+      "0.0"
+    ]
+  },
+  "life_time": 0.0
+}
+
+right.JointServoControlReq
+{
+  "control_period": 0.0,
+  "joint_names": {
+    "type": "builtins.list",
+    "length": 10,
+    "value": [
+      "'idx71_hand_r_thumb_roll_joint'",
+      "'idx72_hand_r_thumb_abad_joint'",
+      "'idx73_hand_r_thumb_mcp_joint'"
+    ]
+  },
+  "joint_positions": {
+    "type": "builtins.list",
+    "length": 10,
+    "value": [
+      "0.002287597656250008",
+      "-0.8057275390624999",
+      "0.8368248177524341"
+    ]
+  },
+  "joint_velocities": {
+    "type": "builtins.list",
+    "length": 10,
+    "value": [
+      "0.0",
+      "0.0",
+      "0.0"
+    ]
+  }
+}
+
+right.JointStates
+{
+  "group": "",
+  "nums": 10,
+  "states": {
+    "type": "builtins.list",
+    "length": 10,
+    "value": [
+      "<JointState name='idx71_hand_r_thumb_roll_joint', mode=0, position=0.0022876, velocity=0, effort=0>",
+      "<JointState name='idx72_hand_r_thumb_abad_joint', mode=0, position=-0.805728, velocity=0, effort=0>",
+      "<JointState name='idx73_hand_r_thumb_mcp_joint', mode=0, position=0.836825, velocity=0, effort=0>"
+    ]
+  },
+  "target_type": "",
+  "timestamp": 0
+}
+
+============================================================================================================
+[WRITE-PATH CONTRACT MATRIX]
+============================================================================================================
+
+joint_control_request
+  method present          : YES
+  request type present    : YES (JointControlReq)
+  Python-side fields      : joint_names:list; joint_positions:list; joint_velocities:list; life_time:float; detail:str
+  server semantics        : UNRESOLVED - life_time unit; detail grammar; whether velocities may be empty; server length validation; return-code semantics
+
+move_ee_pos
+  method present          : YES
+  request type present    : YES (JointStates)
+  Python-side fields      : nums:int; states:list[JointState]; group:str; target_type:str; timestamp:int
+  server semantics        : UNRESOLVED - group vocabulary; target_type vocabulary; timestamp unit/clock; accepted O10 group; return-code semantics
+
+joint_servo_control
+  method present          : YES
+  request type present    : YES (JointServoControlReq)
+  Python-side fields      : joint_names:list; joint_positions:list; joint_velocities:list; control_period:float; enable_low_latency:bool
+  server semantics        : UNRESOLVED - control_period unit/range; stream cadence/watchdog; velocity optionality; server length validation; return-code semantics
+
+[GDK] gdk_release result : <GDKRes.kSuccess: 0>
+
+============================================================================================================
+109_v3 NON-MOTION JOINT WRITE-PATH PROBE SUMMARY
+============================================================================================================
+source safety audit          : PASS
+GDK initialized              : PASS
+Robot created                : PASS
+get_end_state read           : PASS
+get_joint_states read        : PASS
+GDK released                 : PASS
+motion/control API invoked   : NO
+O10 commanded                : NO
+Arm commanded                : NO
+Motion executed              : NO
+
+Detached candidate objects built (never transmitted):
+  JointControlReq         : 2
+  JointServoControlReq    : 2
+  JointStates             : 2
+
+Final boundary:
+  CONFIRMED: binding presence, pybind docstrings, writable detached fields,
+             exact live O10 joint-name vectors, current-state-shaped local payloads.
+  UNRESOLVED: server-side semantic validation and units that require vendor
+              documentation or a separately reviewed motion-enabled test.
+
+Report path: /home/isaac-workstation/g2-project/dual_arm/109_g2_o10_joint_write_path_probe_v3_report_20261126_104658.txt

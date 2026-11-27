@@ -1,0 +1,137 @@
+============================================================================================================
+109_v4.1 Hold Payload Validation
+============================================================================================================
+script    : /home/isaac-workstation/g2-project/dual_arm/109_g2_o10_hold_payload_validation_v4_1.py
+timestamp : 2026-11-26T11:33:57
+python    : 3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]
+mode      : LIVE READ-ONLY
+SDK truth : GDK_SDK_4.1.5.md
+SDK SHA256: e952f9d0c383c468b7384c46274b12d3059827c2c95ecb0506082a48c49df90d
+============================================================================================================
+[SOURCE SAFETY AUDIT]
+============================================================================================================
+status : PASS
+source SHA256 : e445eee49655181bba68124028c4a033cc8a1af50464af7c68ad0b4b37eb17cb
+No direct or literal-getattr motion/control/write API call found in the AST.
+Robot call allowlist: get_end_state() only.
+============================================================================================================
+[LIVE READ-ONLY GDK SESSION]
+============================================================================================================
+module file : /home/isaac-workstation/.cache/agibot/app/gdk/lib/agibot_gdk/__init__.py
+GDK initialized : PASS (<GDKRes.kSuccess: 0>)
+Robot created : PASS (agibot_gdk.agibot_gdk.Robot)
+============================================================================================================
+[READ-ONLY get_end_state() WITH RETRY]
+============================================================================================================
+attempt 1/10: no state (RuntimeError: Failed to get end state)
+attempt 2/10: PASS (10 left names, 10 left states)
+============================================================================================================
+[LEFT O10 CURRENT STATE + EMBEDDED SDK LIMITS]
+============================================================================================================
+controlled : True
+type       : 1
+names      : 10
+end_states : 10
+index | joint name                              | current(rad)       | min(rad)           | max(rad)
+------------------------------------------------------------------------------------------------------------
+    0 | idx31_hand_l_thumb_roll_joint           |    -0.418657226563 |    -1.121374044406 |     0.029670597284
+    1 | idx32_hand_l_thumb_abad_joint           |     0.340317382813 |    -0.045378560552 |     1.642354826127
+    2 | idx33_hand_l_thumb_mcp_joint            |    -0.659050545340 |    -0.841597765312 |     0.000000000000
+    3 | idx36_hand_l_index_abad_joint           |    -0.000000000000 |     0.000000000000 |     0.164060949687
+    4 | idx37_hand_l_index_pip_joint            |     1.476295491496 |     0.000000000000 |     1.483529864195
+    5 | idx39_hand_l_middle_pip_joint           |     1.476831761872 |     0.000000000000 |     1.483529864195
+    6 | idx41_hand_l_ring_abad_joint            |     0.000000000000 |    -0.169296937443 |     0.000000000000
+    7 | idx42_hand_l_ring_pip_joint             |     1.476831761872 |     0.000000000000 |     1.483529864195
+    8 | idx44_hand_l_pinky_abad_joint           |    -0.009462890625 |    -0.185004900711 |     0.000000000000
+    9 | idx45_hand_l_pinky_pip_joint            |     1.476295491496 |     0.000000000000 |     1.483529864195
+============================================================================================================
+[DETACHED LEFT HOLD PAYLOAD - NEVER TRANSMITTED]
+============================================================================================================
+object type : agibot_gdk.agibot_gdk.JointStates
+group       : 'left_tool'
+nums        : 10
+states      : 10
+  [00] idx31_hand_l_thumb_roll_joint: position=-0.41865722656250004
+  [01] idx32_hand_l_thumb_abad_joint: position=0.3403173828125
+  [02] idx33_hand_l_thumb_mcp_joint: position=-0.6590505453402951
+  [03] idx36_hand_l_index_abad_joint: position=-0.0
+  [04] idx37_hand_l_index_pip_joint: position=1.4762954914964332
+  [05] idx39_hand_l_middle_pip_joint: position=1.4768317618717264
+  [06] idx41_hand_l_ring_abad_joint: position=0.0
+  [07] idx42_hand_l_ring_pip_joint: position=1.4768317618717264
+  [08] idx44_hand_l_pinky_abad_joint: position=-0.009462890624999998
+  [09] idx45_hand_l_pinky_pip_joint: position=1.4762954914964332
+transmission : NEVER
+write/control API invocation : NONE
+GDK released : PASS (<GDKRes.kSuccess: 0>)
+============================================================================================================
+[VALIDATION CHECKS]
+============================================================================================================
+PASS | get_end_state read | PASS on attempt 2
+PASS | left_end_state controlled | controlled=True
+PASS | left joint-name count | actual=10, expected=10
+PASS | left end-state count | actual=10, expected=10
+PASS | joint names are strings | types=['builtins.str', 'builtins.str', 'builtins.str', 'builtins.str', 'builtins.str', 'builtins.str', 'builtins.str', 'builtins.str', 'builtins.str', 'builtins.str']
+PASS | joint names have no edge whitespace | all exact
+PASS | no right-hand joint mixed into left source | left-only
+PASS | joint names are unique | unique=10
+PASS | joint order matches SDK O10_T2 table | exact SDK order
+PASS | all source positions are finite numbers | 10 finite positions
+PASS | idx31_hand_l_thumb_roll_joint err_code | err_code=0
+PASS | idx32_hand_l_thumb_abad_joint err_code | err_code=0
+PASS | idx33_hand_l_thumb_mcp_joint err_code | err_code=0
+PASS | idx36_hand_l_index_abad_joint err_code | err_code=0
+PASS | idx37_hand_l_index_pip_joint err_code | err_code=0
+PASS | idx39_hand_l_middle_pip_joint err_code | err_code=0
+PASS | idx41_hand_l_ring_abad_joint err_code | err_code=0
+PASS | idx42_hand_l_ring_pip_joint err_code | err_code=0
+PASS | idx44_hand_l_pinky_abad_joint err_code | err_code=0
+PASS | idx45_hand_l_pinky_pip_joint err_code | err_code=0
+PASS | name-position alignment for limit checks | pairs=10
+PASS | limit[0] idx31_hand_l_thumb_roll_joint | position=-0.4186572265625, range=[-1.12137404440636, 0.0296705972839036], nearest_margin=0.448327823846404
+PASS | limit[1] idx32_hand_l_thumb_abad_joint | position=0.3403173828125, range=[-0.0453785605518526, 1.64235482612666], nearest_margin=0.385695943364353
+PASS | limit[2] idx33_hand_l_thumb_mcp_joint | position=-0.659050545340295, range=[-0.841597765311666, 0], nearest_margin=0.182547219971371
+PASS | limit[3] idx36_hand_l_index_abad_joint | position=-0, range=[0, 0.164060949687467], nearest_margin=-0
+PASS | limit[4] idx37_hand_l_index_pip_joint | position=1.47629549149643, range=[0, 1.48352986419518], nearest_margin=0.00723437269874694
+PASS | limit[5] idx39_hand_l_middle_pip_joint | position=1.47683176187173, range=[0, 1.48352986419518], nearest_margin=0.0066981023234538
+PASS | limit[6] idx41_hand_l_ring_abad_joint | position=0, range=[-0.16929693744345, 0], nearest_margin=0
+PASS | limit[7] idx42_hand_l_ring_pip_joint | position=1.47683176187173, range=[0, 1.48352986419518], nearest_margin=0.0066981023234538
+PASS | limit[8] idx44_hand_l_pinky_abad_joint | position=-0.009462890625, range=[-0.185004900711399, 0], nearest_margin=0.009462890625
+PASS | limit[9] idx45_hand_l_pinky_pip_joint | position=1.47629549149643, range=[0, 1.48352986419518], nearest_margin=0.00723437269874694
+PASS | detached JointStates construction | constructed locally; never passed to Robot
+PASS | payload group | actual='left_tool', expected='left_tool'
+PASS | payload nums | actual=10, expected=10
+PASS | payload state count | actual=10, expected=10
+PASS | payload nums equals len(states) | nums=10, len(states)=10
+PASS | payload positions are finite | 10 finite positions
+PASS | payload is an exact current-position hold | all 10 positions exactly equal the read-only source snapshot
+PASS | payload limit[0] idx31_hand_l_thumb_roll_joint | position=-0.4186572265625, range=[-1.12137404440636, 0.0296705972839036]
+PASS | payload limit[1] idx32_hand_l_thumb_abad_joint | position=0.3403173828125, range=[-0.0453785605518526, 1.64235482612666]
+PASS | payload limit[2] idx33_hand_l_thumb_mcp_joint | position=-0.659050545340295, range=[-0.841597765311666, 0]
+PASS | payload limit[3] idx36_hand_l_index_abad_joint | position=-0, range=[0, 0.164060949687467]
+PASS | payload limit[4] idx37_hand_l_index_pip_joint | position=1.47629549149643, range=[0, 1.48352986419518]
+PASS | payload limit[5] idx39_hand_l_middle_pip_joint | position=1.47683176187173, range=[0, 1.48352986419518]
+PASS | payload limit[6] idx41_hand_l_ring_abad_joint | position=0, range=[-0.16929693744345, 0]
+PASS | payload limit[7] idx42_hand_l_ring_pip_joint | position=1.47683176187173, range=[0, 1.48352986419518]
+PASS | payload limit[8] idx44_hand_l_pinky_abad_joint | position=-0.009462890625, range=[-0.185004900711399, 0]
+PASS | payload limit[9] idx45_hand_l_pinky_pip_joint | position=1.47629549149643, range=[0, 1.48352986419518]
+============================================================================================================
+109_v4.1 HOLD PAYLOAD VALIDATION SUMMARY
+============================================================================================================
+source safety audit : PASS
+GDK initialized : PASS
+Robot created : PASS
+get_end_state read : PASS (attempts=2)
+GDK released : PASS
+detached hold payload built : PASS
+all payload/contract checks : PASS
+motion/control API invoked : NO
+O10 commanded : NO
+Arm commanded : NO
+Motion executed : NO
+
+Final verdict: PASS - LEFT O10 hold payload is structurally ready for later review.
+Boundary: payload remained detached and was NEVER transmitted.
+
+This script does not authorize or perform 110 motion.
+Report path: /home/isaac-workstation/g2-project/dual_arm/109_g2_o10_hold_payload_validation_v4_1_report_20261126_113357.txt

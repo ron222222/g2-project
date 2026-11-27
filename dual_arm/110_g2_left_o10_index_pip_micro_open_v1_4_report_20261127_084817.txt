@@ -1,0 +1,118 @@
+================================================================================================================
+110 G2 LEFT O10 INDEX-PIP MICRO-OPEN v1.4
+================================================================================================================
+script      : /home/isaac-workstation/g2-project/dual_arm/110_g2_left_o10_index_pip_micro_open_v1_4.py
+timestamp   : 2026-11-27T08:48:17
+python      : 3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]
+mode        : DRY-RUN
+target      : idx37_hand_l_index_pip_joint
+fixed delta : -0.020000 rad (-1.146 deg, opening)
+max commands: 1
+auto-return : NO
+SDK truth   : GDK_SDK_4.1.5.md
+SDK SHA256  : e952f9d0c383c468b7384c46274b12d3059827c2c95ecb0506082a48c49df90d
+================================================================================================================
+[SOURCE CONTROL-PATH AUDIT]
+================================================================================================================
+status : PASS
+source SHA256 : 6ef475b36a92d27de5a7aefea892e78802a6121e78afc95bcfa7073a82a73960
+Exactly one explicit robot.move_ee_pos(payload) call exists.
+No other direct or literal-getattr motion/control call exists.
+Read-only Robot calls: get_end_state(), get_motion_control_status().
+Concurrent joint_servo_control flow in this process: NONE.
+MotionStatus gate: 3 stable samples; mode=1 SERVO; robot frames and LEFT O10 physically still; control_mode=1 when exposed, otherwise NOT_EXPOSED_BY_BINDING (non-blocking).
+================================================================================================================
+[LIVE GDK SESSION]
+================================================================================================================
+module file : /home/isaac-workstation/.cache/agibot/app/gdk/lib/agibot_gdk/__init__.py
+GDK initialized : PASS (<GDKRes.kSuccess: 0>)
+Robot created : PASS (agibot_gdk.agibot_gdk.Robot)
+================================================================================================================
+[BASELINE READ-ONLY STATE]
+================================================================================================================
+baseline attempt 1/10: no state (RuntimeError: Failed to get end state)
+baseline attempt 2/10: PASS (10 names, 10 states)
+================================================================================================================
+[BASELINE + CANDIDATE TARGET]
+================================================================================================================
+controlled : True
+type       : 1
+fixed delta: -0.020000 rad (-1.146 deg)
+idx | joint name                              | current(rad)   | target(rad)    | delta(rad)
+----------------------------------------------------------------------------------------------------------------
+  0 | idx31_hand_l_thumb_roll_joint           |   -0.103642578 |   -0.103642578 |   +0.000000
+  1 | idx32_hand_l_thumb_abad_joint           |    1.139519043 |    1.139519043 |   +0.000000
+  2 | idx33_hand_l_thumb_mcp_joint            |   -0.829915747 |   -0.829915747 |   +0.000000
+  3 | idx36_hand_l_index_abad_joint           |    0.080000000 |    0.080000000 |   +0.000000
+  4 | idx37_hand_l_index_pip_joint            |    1.295253318 |    1.275253318 |   -0.020000
+  5 | idx39_hand_l_middle_pip_joint           |    1.403479403 |    1.403479403 |   +0.000000
+  6 | idx41_hand_l_ring_abad_joint            |   -0.086618652 |   -0.086618652 |   +0.000000
+  7 | idx42_hand_l_ring_pip_joint             |    1.396484672 |    1.396484672 |   +0.000000
+  8 | idx44_hand_l_pinky_abad_joint           |   -0.092819824 |   -0.092819824 |   +0.000000
+  9 | idx45_hand_l_pinky_pip_joint            |    1.426692880 |    1.426692880 |   +0.000000
+================================================================================================================
+[PRE-EXECUTION GATES]
+================================================================================================================
+PASS | baseline controlled | controlled=True
+PASS | baseline name count | actual=10
+PASS | baseline state count | actual=10
+PASS | baseline exact SDK joint order | exact
+PASS | baseline no edge whitespace | clean
+PASS | baseline no right-hand mix | left-only
+PASS | baseline unique names | unique=10
+PASS | baseline finite positions/velocities | 10 finite positions + 10 finite velocities
+PASS | baseline all joints enabled and error-free | enable=True and err_code=0 for all 10
+PASS | baseline hand is still | max_abs_velocity=0.000000 rad/s; limit=0.050000
+PASS | baseline current positions within SDK limits | all within limits
+PASS | baseline motion status sample 01 readable | type=agibot_gdk.agibot_gdk.MotionControlStatus, mode=1(SERVO), control_mode=NOT_EXPOSED_BY_BINDING, control_mode_label=NOT_EXPOSED_BY_BINDING, frames=4, max_linear=0.000606 m/s, max_angular=0.001169 rad/s, twist_types=['twists[0]:type=agibot_gdk.agibot_gdk.Twist; twists[0].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[0].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z', 'twists[1]:type=agibot_gdk.agibot_gdk.Twist; twists[1].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[1].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z', 'twists[2]:type=agibot_gdk.agibot_gdk.Twist; twists[2].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[2].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z', 'twists[3]:type=agibot_gdk.agibot_gdk.Twist; twists[3].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[3].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z']
+PASS | baseline motion status sample 02 readable | type=agibot_gdk.agibot_gdk.MotionControlStatus, mode=1(SERVO), control_mode=NOT_EXPOSED_BY_BINDING, control_mode_label=NOT_EXPOSED_BY_BINDING, frames=4, max_linear=0.000554 m/s, max_angular=0.001011 rad/s, twist_types=['twists[0]:type=agibot_gdk.agibot_gdk.Twist; twists[0].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[0].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z', 'twists[1]:type=agibot_gdk.agibot_gdk.Twist; twists[1].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[1].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z', 'twists[2]:type=agibot_gdk.agibot_gdk.Twist; twists[2].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[2].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z', 'twists[3]:type=agibot_gdk.agibot_gdk.Twist; twists[3].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[3].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z']
+PASS | baseline motion status sample 03 readable | type=agibot_gdk.agibot_gdk.MotionControlStatus, mode=1(SERVO), control_mode=NOT_EXPOSED_BY_BINDING, control_mode_label=NOT_EXPOSED_BY_BINDING, frames=4, max_linear=0.000214 m/s, max_angular=0.000732 rad/s, twist_types=['twists[0]:type=agibot_gdk.agibot_gdk.Twist; twists[0].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[0].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z', 'twists[1]:type=agibot_gdk.agibot_gdk.Twist; twists[1].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[1].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z', 'twists[2]:type=agibot_gdk.agibot_gdk.Twist; twists[2].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[2].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z', 'twists[3]:type=agibot_gdk.agibot_gdk.Twist; twists[3].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[3].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z']
+PASS | baseline documented motion-mode values | modes=[1, 1, 1], labels=['SERVO', 'SERVO', 'SERVO']
+PASS | baseline control_mode binding exposure consistent | control_modes=['NOT_EXPOSED_BY_BINDING', 'NOT_EXPOSED_BY_BINDING', 'NOT_EXPOSED_BY_BINDING']
+PASS | baseline exposed control_mode contract | NOT_EXPOSED_BY_BINDING
+PASS | baseline motion status stable across samples | modes=[1, 1, 1], control_modes=['NOT_EXPOSED_BY_BINDING', 'NOT_EXPOSED_BY_BINDING', 'NOT_EXPOSED_BY_BINDING']
+PASS | baseline normal idle-SERVO status | modes=[1, 1, 1]; GDK 4.1.5: 0=STOP, 1=SERVO, 2=PLANNING; v1.4 requires stable mode=1 while physical-stillness and source-concurrency gates pass
+PASS | baseline joint-position control mode | NOT_EXPOSED_BY_BINDING; not independently blocking
+PASS | baseline motion-status frame set stable | frame_names=[['arm_l_end_link', 'arm_r_end_link', 'left_tool0_body', 'right_tool0_body'], ['arm_l_end_link', 'arm_r_end_link', 'left_tool0_body', 'right_tool0_body'], ['arm_l_end_link', 'arm_r_end_link', 'left_tool0_body', 'right_tool0_body']]
+PASS | baseline nested twist/vector runtime types recorded | samples=[['twists[0]:type=agibot_gdk.agibot_gdk.Twist; twists[0].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[0].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z', 'twists[1]:type=agibot_gdk.agibot_gdk.Twist; twists[1].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[1].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z', 'twists[2]:type=agibot_gdk.agibot_gdk.Twist; twists[2].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[2].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z', 'twists[3]:type=agibot_gdk.agibot_gdk.Twist; twists[3].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[3].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z'], ['twists[0]:type=agibot_gdk.agibot_gdk.Twist; twists[0].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[0].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z', 'twists[1]:type=agibot_gdk.agibot_gdk.Twist; twists[1].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[1].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z', 'twists[2]:type=agibot_gdk.agibot_gdk.Twist; twists[2].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[2].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z', 'twists[3]:type=agibot_gdk.agibot_gdk.Twist; twists[3].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[3].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z'], ['twists[0]:type=agibot_gdk.agibot_gdk.Twist; twists[0].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[0].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z', 'twists[1]:type=agibot_gdk.agibot_gdk.Twist; twists[1].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[1].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z', 'twists[2]:type=agibot_gdk.agibot_gdk.Twist; twists[2].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[2].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z', 'twists[3]:type=agibot_gdk.agibot_gdk.Twist; twists[3].linear:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z; twists[3].angular:type=agibot_gdk.agibot_gdk.Vector3,access=attributes:x/y/z']]
+PASS | baseline robot frames physically still | max_linear=0.000606 m/s (limit=0.020000); max_angular=0.001169 rad/s (limit=0.050000)
+PASS | baseline motion status error-free | error_codes=[0, 0, 0], error_messages=['', '', '']
+PASS | baseline no reported collision pairs | collision_pairs_1=[[], [], []], collision_pairs_2=[[], [], []]
+PASS | baseline current vector count | actual=10
+PASS | baseline target vector count | actual=10
+PASS | baseline target values finite | all finite
+PASS | baseline exactly one changed joint | changed_indices=[4]
+PASS | baseline fixed opening delta | actual=-0.02, required=-0.02 rad
+PASS | baseline other nine joints unchanged | exact equality
+PASS | baseline all target positions within SDK limits | all within limits
+PASS | baseline changed joint limit margin | target=1.275253317703, margin=0.208276546492, required>=0.010000000000
+PASS | baseline payload group | actual='left_tool'
+PASS | baseline payload nums | actual=10
+PASS | baseline payload state count | actual=10
+PASS | baseline nums equals states | nums=10, len=10
+PASS | baseline payload exactly equals target | exact 10-value equality
+gate verdict : PASS
+================================================================================================================
+[DRY-RUN BOUNDARY]
+================================================================================================================
+All checks passed, but --execute was not supplied.
+payload transmitted : NO
+motion executed : NO
+GDK released : PASS (<GDKRes.kSuccess: 0>)
+================================================================================================================
+110 SUMMARY
+================================================================================================================
+mode : DRY-RUN
+source control-path audit : PASS
+GDK initialized : PASS
+Robot created : PASS
+baseline validation : PASS
+payload built : PASS
+command requested : NO
+command transmitted : NO
+API accepted : NO
+target observed : NO
+automatic return command : NO
+GDK released : PASS
+Final verdict: DRY-RUN PASS - ready for separate operator-reviewed execution.
+Report path: /home/isaac-workstation/g2-project/dual_arm/110_g2_left_o10_index_pip_micro_open_v1_4_report_20261127_084817.txt

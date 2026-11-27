@@ -1,0 +1,37 @@
+============================================================================================================
+109_v4.1 Hold Payload Validation
+============================================================================================================
+script    : /home/isaac-workstation/g2-project/dual_arm/109_g2_o10_hold_payload_validation_v4_1.py
+timestamp : 2026-11-26T11:30:02
+python    : 3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]
+mode      : LIVE READ-ONLY
+SDK truth : GDK_SDK_4.1.5.md
+SDK SHA256: e952f9d0c383c468b7384c46274b12d3059827c2c95ecb0506082a48c49df90d
+============================================================================================================
+[SOURCE SAFETY AUDIT]
+============================================================================================================
+status : PASS
+source SHA256 : e445eee49655181bba68124028c4a033cc8a1af50464af7c68ad0b4b37eb17cb
+No direct or literal-getattr motion/control/write API call found in the AST.
+Robot call allowlist: get_end_state() only.
+runtime error : RuntimeError: Unable to import agibot_gdk after the available bootstrap path: ImportError: libgdk_core.so.SOVERSION: cannot open shared object file: No such file or directory
+============================================================================================================
+109_v4.1 HOLD PAYLOAD VALIDATION SUMMARY
+============================================================================================================
+source safety audit : PASS
+GDK initialized : FAIL
+Robot created : FAIL
+get_end_state read : FAIL (attempts=0)
+GDK released : FAIL
+detached hold payload built : FAIL
+all payload/contract checks : FAIL
+motion/control API invoked : NO
+O10 commanded : NO
+Arm commanded : NO
+Motion executed : NO
+
+Final verdict: BLOCKED - do not proceed to 110 micro-motion.
+ - RuntimeError: Unable to import agibot_gdk after the available bootstrap path: ImportError: libgdk_core.so.SOVERSION: cannot open shared object file: No such file or directory
+
+This script does not authorize or perform 110 motion.
+Report path: /home/isaac-workstation/g2-project/dual_arm/109_g2_o10_hold_payload_validation_v4_1_report_20261126_113002.txt

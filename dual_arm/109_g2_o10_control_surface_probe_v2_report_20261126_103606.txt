@@ -1,0 +1,921 @@
+============================================================================================================
+G2 O10 Runtime Python-Binding Control Surface Probe
+Version             : 109_v2_control_surface_probe
+Python              : 3.10.12
+Python executable   : /usr/bin/python3.10
+Platform            : Linux-6.8.0-138-generic-x86_64-with-glibc2.35
+Timestamp           : 2026-11-26T10:36:06.083883+08:00
+READ_ONLY_PROBE     : True
+ENABLE_REAL_MOTION  : False
+Motion API calls    : NONE
+Robot API called    : get_end_state() only
+End-state retry     : 10 x 1.000s
+Report              : /home/isaac-workstation/g2-project/dual_arm/109_g2_o10_control_surface_probe_v2_report_20261126_103606.txt
+============================================================================================================
+[IMPORT] agibot_gdk: PASS (<module 'agibot_gdk' from '/home/isaac-workstation/.cache/agibot/app/gdk/lib/agibot_gdk/__init__.py'>)
+
+============================================================================================================
+[SOURCE SAFETY AUDIT]
+============================================================================================================
+source path                     : /home/isaac-workstation/g2-project/dual_arm/109_g2_o10_control_surface_probe_v2.py
+AST parse                       : PASS
+forbidden direct motion calls   : 0
+READ-ONLY SAFETY AUDIT          : PASS
+
+============================================================================================================
+[AGIBOT_GDK MODULE CONTROL SURFACE]
+============================================================================================================
+module public symbols : 251
+keyword matches       : 36
+selected unique       : 38
+keywords              : hand, tool, end, effector, joint, move, control, servo, request
+  CTRL_JOINT_IMPEDANCE                           kind=ControlMode              callable=False
+  CTRL_JOINT_POSITION                            kind=ControlMode              callable=False
+  CallRequest                                    kind=class                    callable=True 
+  ControlMode                                    kind=class                    callable=True 
+  DualEndState                                   kind=class                    callable=True 
+  EndEffectorControlGroup                        kind=class                    callable=True 
+  EndEffectorPose                                kind=class                    callable=True 
+  EndState                                       kind=class                    callable=True 
+  INPUT_END_BTN                                  kind=InputSource              callable=False
+  INTERP_JOINT_SPACE                             kind=MotionPlanType           callable=False
+  JOINT                                          kind=PlanningTargetType       callable=False
+  JointControlReq                                kind=class                    callable=True 
+  JointServoControlReq                           kind=class                    callable=True 
+  JointState                                     kind=class                    callable=True 
+  JointStates                                    kind=class                    callable=True 
+  LEFT_TOOL                                      kind=PlanningGroup            callable=False
+  MotionControlMode                              kind=class                    callable=True 
+  MotionControlStatus                            kind=class                    callable=True 
+  PLAN_JOINT_SPACE                               kind=MotionPlanType           callable=False
+  PlanningGroup                                  kind=class                    callable=True 
+  RIGHT_TOOL                                     kind=PlanningGroup            callable=False
+  Robot                                          kind=class                    callable=True 
+  kHandLeftColor                                 kind=CameraType               callable=False
+  kHandLeftDepth                                 kind=CameraType               callable=False
+  kHandLeftLowerColor                            kind=CameraType               callable=False
+  kHandLeftLowerDepth                            kind=CameraType               callable=False
+  kHandLeftUpperColor                            kind=CameraType               callable=False
+  kHandLeftUpperDepth                            kind=CameraType               callable=False
+  kHandRightColor                                kind=CameraType               callable=False
+  kHandRightDepth                                kind=CameraType               callable=False
+  kHandRightLowerColor                           kind=CameraType               callable=False
+  kHandRightLowerDepth                           kind=CameraType               callable=False
+  kHandRightUpperColor                           kind=CameraType               callable=False
+  kHandRightUpperDepth                           kind=CameraType               callable=False
+  kLeftHandDepthToLeftHandColor                  kind=SensorExtrinsicType      callable=False
+  kLeftHandRGBDToArmLEndLink                     kind=SensorExtrinsicType      callable=False
+  kRightHandDepthToRightHandColor                kind=SensorExtrinsicType      callable=False
+  kRightHandRGBDToArmREndLink                    kind=SensorExtrinsicType      callable=False
+
+[FOCUSED MODULE SYMBOL DETAILS]
+  Robot                                PRESENT=YES kind=class
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot
+kind      : class
+py type   : pybind11_builtins.pybind11_type
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b075cc40>>
+__doc__   :
+  <none>
+  JointControlReq                      PRESENT=YES kind=class
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.JointControlReq
+kind      : class
+py type   : pybind11_builtins.pybind11_type
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b071dd50>>
+__doc__   :
+  <none>
+  JointServoControlReq                 PRESENT=YES kind=class
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.JointServoControlReq
+kind      : class
+py type   : pybind11_builtins.pybind11_type
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b0706fe0>>
+__doc__   :
+  <none>
+  JointState                           PRESENT=YES kind=class
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.JointState
+kind      : class
+py type   : pybind11_builtins.pybind11_type
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b07062c0>>
+__doc__   :
+  <none>
+  JointStates                          PRESENT=YES kind=class
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.JointStates
+kind      : class
+py type   : pybind11_builtins.pybind11_type
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b0706ad0>>
+__doc__   :
+  <none>
+  EndState                             PRESENT=YES kind=class
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.EndState
+kind      : class
+py type   : pybind11_builtins.pybind11_type
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b0707d00>>
+__doc__   :
+  <none>
+  DualEndState                         PRESENT=YES kind=class
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.DualEndState
+kind      : class
+py type   : pybind11_builtins.pybind11_type
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b071c190>>
+__doc__   :
+  <none>
+  EndEffectorPose                      PRESENT=YES kind=class
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.EndEffectorPose
+kind      : class
+py type   : pybind11_builtins.pybind11_type
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b071d900>>
+__doc__   :
+  <none>
+  EndEffectorControlGroup              PRESENT=YES kind=class
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.EndEffectorControlGroup
+kind      : class
+py type   : pybind11_builtins.pybind11_type
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b0704580>>
+__doc__   :
+  Members:
+  
+  kUnknown
+  
+  kLeftArm
+  
+  kRightArm
+  
+  kBothArms
+  
+  kLeftArmWaistLift
+  
+  kRightArmWaistLift
+  
+  kBothArmsWaistLift
+  
+  kLeftArmWaistPitch
+  
+  kRightArmWaistPitch
+  
+  kBothArmsWaistPitch
+  
+  kLeftArmWaist
+  
+  kRightArmWaist
+  
+  kBothArmsWaist
+  PlanningGroup                        PRESENT=YES kind=class
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.PlanningGroup
+kind      : class
+py type   : pybind11_builtins.pybind11_type
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b072f2b0>>
+__doc__   :
+  Members:
+  
+  HEAD_YAW
+  
+  HEAD_PITCH
+  
+  LEFT_ARM
+  
+  RIGHT_ARM
+  
+  LEFT_TOOL
+  
+  RIGHT_TOOL
+  
+  WAIST_LIFT
+  
+  WAIST_PITCH
+  
+  CHASSIS
+  
+  HEAD_ROLL
+  
+  WAIST
+  LEFT_TOOL                            PRESENT=YES kind=PlanningGroup
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.LEFT_TOOL
+kind      : PlanningGroup
+py type   : agibot_gdk.agibot_gdk.PlanningGroup
+callable  : False
+value     : <PlanningGroup.LEFT_TOOL: 4>
+__doc__   :
+  Members:
+  
+  HEAD_YAW
+  
+  HEAD_PITCH
+  
+  LEFT_ARM
+  
+  RIGHT_ARM
+  
+  LEFT_TOOL
+  
+  RIGHT_TOOL
+  
+  WAIST_LIFT
+  
+  WAIST_PITCH
+  
+  CHASSIS
+  
+  HEAD_ROLL
+  
+  WAIST
+  RIGHT_TOOL                           PRESENT=YES kind=PlanningGroup
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.RIGHT_TOOL
+kind      : PlanningGroup
+py type   : agibot_gdk.agibot_gdk.PlanningGroup
+callable  : False
+value     : <PlanningGroup.RIGHT_TOOL: 5>
+__doc__   :
+  Members:
+  
+  HEAD_YAW
+  
+  HEAD_PITCH
+  
+  LEFT_ARM
+  
+  RIGHT_ARM
+  
+  LEFT_TOOL
+  
+  RIGHT_TOOL
+  
+  WAIST_LIFT
+  
+  WAIST_PITCH
+  
+  CHASSIS
+  
+  HEAD_ROLL
+  
+  WAIST
+
+[MATCHED MODULE CALLABLE/CLASS DETAILS]
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.CallRequest
+kind      : class
+py type   : pybind11_builtins.pybind11_type
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b074bd60>>
+__doc__   :
+  Members:
+  
+  kCallConnectStart
+  
+  kCallConnectFinish
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.ControlMode
+kind      : class
+py type   : pybind11_builtins.pybind11_type
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b071efe0>>
+__doc__   :
+  Members:
+  
+  CTRL_AUTO_POS
+  
+  CTRL_JOINT_POSITION
+  
+  CTRL_CARTESIAN_IMPEDANCE
+  
+  CTRL_JOINT_IMPEDANCE
+  
+  CTRL_GRAVITY_COMP_TEACH
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.MotionControlMode
+kind      : class
+py type   : pybind11_builtins.pybind11_type
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b071f760>>
+__doc__   :
+  <none>
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.MotionControlStatus
+kind      : class
+py type   : pybind11_builtins.pybind11_type
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b071d0f0>>
+__doc__   :
+  <none>
+
+[agibot_gdk.EndEffectorControlGroup MEMBERS]
+  kBothArms = <EndEffectorControlGroup.kBothArms: 12>
+  kBothArmsWaist = <EndEffectorControlGroup.kBothArmsWaist: 60>
+  kBothArmsWaistLift = <EndEffectorControlGroup.kBothArmsWaistLift: 28>
+  kBothArmsWaistPitch = <EndEffectorControlGroup.kBothArmsWaistPitch: 44>
+  kLeftArm = <EndEffectorControlGroup.kLeftArm: 4>
+  kLeftArmWaist = <EndEffectorControlGroup.kLeftArmWaist: 52>
+  kLeftArmWaistLift = <EndEffectorControlGroup.kLeftArmWaistLift: 20>
+  kLeftArmWaistPitch = <EndEffectorControlGroup.kLeftArmWaistPitch: 36>
+  kRightArm = <EndEffectorControlGroup.kRightArm: 8>
+  kRightArmWaist = <EndEffectorControlGroup.kRightArmWaist: 56>
+  kRightArmWaistLift = <EndEffectorControlGroup.kRightArmWaistLift: 24>
+  kRightArmWaistPitch = <EndEffectorControlGroup.kRightArmWaistPitch: 40>
+  kUnknown = <EndEffectorControlGroup.kUnknown: 0>
+
+[agibot_gdk.PlanningGroup MEMBERS]
+  CHASSIS = <PlanningGroup.CHASSIS: 8>
+  HEAD_PITCH = <PlanningGroup.HEAD_PITCH: 1>
+  HEAD_ROLL = <PlanningGroup.HEAD_ROLL: 9>
+  HEAD_YAW = <PlanningGroup.HEAD_YAW: 0>
+  LEFT_ARM = <PlanningGroup.LEFT_ARM: 2>
+  LEFT_TOOL = <PlanningGroup.LEFT_TOOL: 4>
+  RIGHT_ARM = <PlanningGroup.RIGHT_ARM: 3>
+  RIGHT_TOOL = <PlanningGroup.RIGHT_TOOL: 5>
+  WAIST = <PlanningGroup.WAIST: 10>
+  WAIST_LIFT = <PlanningGroup.WAIST_LIFT: 6>
+  WAIST_PITCH = <PlanningGroup.WAIST_PITCH: 7>
+
+[SAFE DATA CONTAINER: JointControlReq]
+  constructor: PASS (introspection only; no fields changed)
+  detail [str] = ''
+  joint_names [list] = []
+  joint_positions [list] = []
+  joint_velocities [list] = []
+  life_time [float] = 0.0
+  type signature: <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b071dd50>>
+  type __doc__:
+    <none>
+
+[SAFE DATA CONTAINER: JointServoControlReq]
+  constructor: PASS (introspection only; no fields changed)
+  control_period [float] = 0.0
+  joint_names [list] = []
+  joint_positions [list] = []
+  joint_velocities [list] = []
+  type signature: <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b0706fe0>>
+  type __doc__:
+    <none>
+
+[SAFE DATA CONTAINER: JointState]
+  constructor: PASS (introspection only; no fields changed)
+  effort [float] = 0.0
+  error_code [int] = 0
+  mode [int] = 0
+  motor_current [float] = 0.0
+  motor_position [float] = 0.0
+  motor_velocity [float] = 0.0
+  name [str] = ''
+  position [float] = 0.0
+  velocity [float] = 0.0
+  type signature: <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b07062c0>>
+  type __doc__:
+    <none>
+
+[SAFE DATA CONTAINER: JointStates]
+  constructor: PASS (introspection only; no fields changed)
+  group [str] = ''
+  nums [int] = 0
+  states [list] = []
+  target_type [str] = ''
+  timestamp [int] = 0
+  type signature: <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b0706ad0>>
+  type __doc__:
+    <none>
+
+[SAFE DATA CONTAINER: EndState]
+  constructor: PASS (introspection only; no fields changed)
+  controlled [bool] = False
+  end_states [list] = []
+  names [list] = []
+  type [int] = 0
+  type signature: <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b0707d00>>
+  type __doc__:
+    <none>
+
+[SAFE DATA CONTAINER: DualEndState]
+  constructor: PASS (introspection only; no fields changed)
+  left_end_state [EndState] = <EndState controlled=0, type=0, names.size=0, end_states.size=0>
+  right_end_state [EndState] = <EndState controlled=0, type=0, names.size=0, end_states.size=0>
+  type signature: <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b071c190>>
+  type __doc__:
+    <none>
+
+[SAFE DATA CONTAINER: EndEffectorPose]
+  constructor: PASS (introspection only; no fields changed)
+  group [int] = 0
+  left_end_effector_pose [Pose] = <Pose position=(0,0,0), orientation=(0,0,0,0)>
+  life_time [float] = 0.0
+  right_end_effector_pose [Pose] = <Pose position=(0,0,0), orientation=(0,0,0,0)>
+  type signature: <unavailable: ValueError: no signature found for builtin <instancemethod __init__ at 0x7562b071d900>>
+  type __doc__:
+    <none>
+
+============================================================================================================
+[ROBOT CLASS CONTROL SURFACE]
+============================================================================================================
+Robot public members : 25
+keyword matches      : 18
+selected names       : 21
+  end_effector_pose_control                      PRESENT=YES kind=callable               signature=<unavailable: ValueError: no signature found for builtin <instancemethod end_effector_pose_control at 0x7562b075cfa0>>
+  force_position_control                         PRESENT=YES kind=callable               signature=<unavailable: ValueError: no signature found for builtin <instancemethod force_position_control at 0x7562b075d1e0>>
+  get_end_state                                  PRESENT=YES kind=callable               signature=<unavailable: ValueError: no signature found for builtin <instancemethod get_end_state at 0x7562b075cd60>>
+  get_joint_states                               PRESENT=YES kind=callable               signature=<unavailable: ValueError: no signature found for builtin <instancemethod get_joint_states at 0x7562b075cca0>>
+  get_motion_control_status                      PRESENT=YES kind=callable               signature=<unavailable: ValueError: no signature found for builtin <instancemethod get_motion_control_status at 0x7562b075cf40>>
+  joint_control_request                          PRESENT=YES kind=callable               signature=<unavailable: ValueError: no signature found for builtin <instancemethod joint_control_request at 0x7562b075d000>>
+  joint_servo_control                            PRESENT=YES kind=callable               signature=<unavailable: ValueError: no signature found for builtin <instancemethod joint_servo_control at 0x7562b075d3c0>>
+  motion_plan_request                            PRESENT=YES kind=callable               signature=<unavailable: ValueError: no signature found for builtin <instancemethod motion_plan_request at 0x7562b075d240>>
+  move_arm_joint                                 PRESENT=YES kind=callable               signature=<unavailable: ValueError: no signature found for builtin <instancemethod move_arm_joint at 0x7562b075cee0>>
+  move_arm_joint_servo                           PRESENT=YES kind=callable               signature=<unavailable: ValueError: no signature found for builtin <instancemethod move_arm_joint_servo at 0x7562b075d4e0>>
+  move_ee_pos                                    PRESENT=YES kind=callable               signature=<unavailable: ValueError: no signature found for builtin <instancemethod move_ee_pos at 0x7562b075cdc0>>
+  move_end_effector_joint                        PRESENT=NO
+  move_head_joint                                PRESENT=YES kind=callable               signature=<unavailable: ValueError: no signature found for builtin <instancemethod move_head_joint at 0x7562b075ce20>>
+  move_head_joint_servo                          PRESENT=YES kind=callable               signature=<unavailable: ValueError: no signature found for builtin <instancemethod move_head_joint_servo at 0x7562b075d420>>
+  move_waist_joint                               PRESENT=YES kind=callable               signature=<unavailable: ValueError: no signature found for builtin <instancemethod move_waist_joint at 0x7562b075ce80>>
+  move_waist_joint_servo                         PRESENT=YES kind=callable               signature=<unavailable: ValueError: no signature found for builtin <instancemethod move_waist_joint_servo at 0x7562b075d480>>
+  servo_control_arm_pos                          PRESENT=YES kind=callable               signature=<unavailable: ValueError: no signature found for builtin <instancemethod servo_control_arm_pos at 0x7562b075d540>>
+  set_control_mode                               PRESENT=YES kind=callable               signature=<unavailable: ValueError: no signature found for builtin <instancemethod set_control_mode at 0x7562b075d0c0>>
+  set_reference_frame_pose                       PRESENT=NO
+  set_reference_frame_poses                      PRESENT=YES kind=callable               signature=<unavailable: ValueError: no signature found for builtin <instancemethod set_reference_frame_poses at 0x7562b075d360>>
+  trajectory_tracking_control                    PRESENT=YES kind=callable               signature=<unavailable: ValueError: no signature found for builtin <instancemethod trajectory_tracking_control at 0x7562b075d060>>
+
+[ROBOT CLASS MATCHED MEMBER DETAILS]
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot.end_effector_pose_control
+kind      : callable
+py type   : builtins.instancemethod
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod end_effector_pose_control at 0x7562b075cfa0>>
+value     : <instancemethod end_effector_pose_control at 0x7562b075cfa0>
+__doc__   :
+  end_effector_pose_control(self: agibot_gdk.agibot_gdk.Robot, arg0: agibot_gdk.agibot_gdk.EndEffectorPose) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot.force_position_control
+kind      : callable
+py type   : builtins.instancemethod
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod force_position_control at 0x7562b075d1e0>>
+value     : <instancemethod force_position_control at 0x7562b075d1e0>
+__doc__   :
+  force_position_control(self: agibot_gdk.agibot_gdk.Robot, targets: dict[str, agibot_gdk.agibot_gdk.Pose]) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot.get_end_state
+kind      : callable
+py type   : builtins.instancemethod
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod get_end_state at 0x7562b075cd60>>
+value     : <instancemethod get_end_state at 0x7562b075cd60>
+__doc__   :
+  get_end_state(self: agibot_gdk.agibot_gdk.Robot) -> dict
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot.get_joint_states
+kind      : callable
+py type   : builtins.instancemethod
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod get_joint_states at 0x7562b075cca0>>
+value     : <instancemethod get_joint_states at 0x7562b075cca0>
+__doc__   :
+  get_joint_states(self: agibot_gdk.agibot_gdk.Robot) -> dict
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot.get_motion_control_status
+kind      : callable
+py type   : builtins.instancemethod
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod get_motion_control_status at 0x7562b075cf40>>
+value     : <instancemethod get_motion_control_status at 0x7562b075cf40>
+__doc__   :
+  get_motion_control_status(self: agibot_gdk.agibot_gdk.Robot) -> agibot_gdk.agibot_gdk.MotionControlStatus
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot.joint_control_request
+kind      : callable
+py type   : builtins.instancemethod
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod joint_control_request at 0x7562b075d000>>
+value     : <instancemethod joint_control_request at 0x7562b075d000>
+__doc__   :
+  joint_control_request(self: agibot_gdk.agibot_gdk.Robot, arg0: agibot_gdk.agibot_gdk.JointControlReq) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot.joint_servo_control
+kind      : callable
+py type   : builtins.instancemethod
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod joint_servo_control at 0x7562b075d3c0>>
+value     : <instancemethod joint_servo_control at 0x7562b075d3c0>
+__doc__   :
+  joint_servo_control(self: agibot_gdk.agibot_gdk.Robot, joint_servo_control_req: agibot_gdk.agibot_gdk.JointServoControlReq, enable_low_latency: bool = False) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot.motion_plan_request
+kind      : callable
+py type   : builtins.instancemethod
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod motion_plan_request at 0x7562b075d240>>
+value     : <instancemethod motion_plan_request at 0x7562b075d240>
+__doc__   :
+  motion_plan_request(self: agibot_gdk.agibot_gdk.Robot, robot_actions: list, robot_link: str = 'base_link', move_type: str = 'INTERP_JOINT_SPACE', trajectory_reference_time: float = 0.5, timeout: float = 10.0, enable_env_collision: bool = True, enable_self_collision: bool = True, enable_com_check: bool = False, log_level: int = 2) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot.move_arm_joint
+kind      : callable
+py type   : builtins.instancemethod
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod move_arm_joint at 0x7562b075cee0>>
+value     : <instancemethod move_arm_joint at 0x7562b075cee0>
+__doc__   :
+  move_arm_joint(self: agibot_gdk.agibot_gdk.Robot, arg0: list, arg1: list, arg2: int) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot.move_arm_joint_servo
+kind      : callable
+py type   : builtins.instancemethod
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod move_arm_joint_servo at 0x7562b075d4e0>>
+value     : <instancemethod move_arm_joint_servo at 0x7562b075d4e0>
+__doc__   :
+  move_arm_joint_servo(self: agibot_gdk.agibot_gdk.Robot, positions: list, control_period: float, control_group: int, enable_low_latency: bool = False) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot.move_ee_pos
+kind      : callable
+py type   : builtins.instancemethod
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod move_ee_pos at 0x7562b075cdc0>>
+value     : <instancemethod move_ee_pos at 0x7562b075cdc0>
+__doc__   :
+  move_ee_pos(self: agibot_gdk.agibot_gdk.Robot, arg0: agibot_gdk.agibot_gdk.JointStates) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot.move_head_joint
+kind      : callable
+py type   : builtins.instancemethod
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod move_head_joint at 0x7562b075ce20>>
+value     : <instancemethod move_head_joint at 0x7562b075ce20>
+__doc__   :
+  move_head_joint(self: agibot_gdk.agibot_gdk.Robot, arg0: list, arg1: list) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot.move_head_joint_servo
+kind      : callable
+py type   : builtins.instancemethod
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod move_head_joint_servo at 0x7562b075d420>>
+value     : <instancemethod move_head_joint_servo at 0x7562b075d420>
+__doc__   :
+  move_head_joint_servo(self: agibot_gdk.agibot_gdk.Robot, positions: list, control_period: float, enable_low_latency: bool = False) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot.move_waist_joint
+kind      : callable
+py type   : builtins.instancemethod
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod move_waist_joint at 0x7562b075ce80>>
+value     : <instancemethod move_waist_joint at 0x7562b075ce80>
+__doc__   :
+  move_waist_joint(self: agibot_gdk.agibot_gdk.Robot, arg0: list, arg1: list) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot.move_waist_joint_servo
+kind      : callable
+py type   : builtins.instancemethod
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod move_waist_joint_servo at 0x7562b075d480>>
+value     : <instancemethod move_waist_joint_servo at 0x7562b075d480>
+__doc__   :
+  move_waist_joint_servo(self: agibot_gdk.agibot_gdk.Robot, positions: list, control_period: float, enable_low_latency: bool = False) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot.servo_control_arm_pos
+kind      : callable
+py type   : builtins.instancemethod
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod servo_control_arm_pos at 0x7562b075d540>>
+value     : <instancemethod servo_control_arm_pos at 0x7562b075d540>
+__doc__   :
+  servo_control_arm_pos(self: agibot_gdk.agibot_gdk.Robot, positions: list, control_group: int) -> None
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot.set_control_mode
+kind      : callable
+py type   : builtins.instancemethod
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod set_control_mode at 0x7562b075d0c0>>
+value     : <instancemethod set_control_mode at 0x7562b075d0c0>
+__doc__   :
+  set_control_mode(self: agibot_gdk.agibot_gdk.Robot, arg0: agibot_gdk.agibot_gdk.MotionControlMode) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot.set_reference_frame_poses
+kind      : callable
+py type   : builtins.instancemethod
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod set_reference_frame_poses at 0x7562b075d360>>
+value     : <instancemethod set_reference_frame_poses at 0x7562b075d360>
+__doc__   :
+  set_reference_frame_poses(self: agibot_gdk.agibot_gdk.Robot, arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : agibot_gdk.Robot.trajectory_tracking_control
+kind      : callable
+py type   : builtins.instancemethod
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <instancemethod trajectory_tracking_control at 0x7562b075d060>>
+value     : <instancemethod trajectory_tracking_control at 0x7562b075d060>
+__doc__   :
+  trajectory_tracking_control(self: agibot_gdk.agibot_gdk.Robot, infer_timestamp: int, robot_states: dict, robot_actions: list, robot_link: str = 'base_link', trajectory_reference_time: float = 1.0) -> int
+
+============================================================================================================
+[GDK INITIALIZATION]
+============================================================================================================
+gdk_init result : <GDKRes.kSuccess: 0>
+gdk_init status : PASS
+Robot() status  : PASS
+
+============================================================================================================
+[ROBOT INSTANCE CONTROL SURFACE]
+============================================================================================================
+Robot instance public members : 25
+keyword matches               : 18
+selected names                : 21
+  end_effector_pose_control                      PRESENT=YES kind=bound-method           signature=<unavailable: ValueError: no signature found for builtin <built-in method end_effector_pose_control of PyCapsule object at 0x7562b075cf60>>
+  force_position_control                         PRESENT=YES kind=bound-method           signature=<unavailable: ValueError: no signature found for builtin <built-in method force_position_control of PyCapsule object at 0x7562b075d1a0>>
+  get_end_state                                  PRESENT=YES kind=bound-method           signature=<unavailable: ValueError: no signature found for builtin <built-in method get_end_state of PyCapsule object at 0x7562b075cd20>>
+  get_joint_states                               PRESENT=YES kind=bound-method           signature=<unavailable: ValueError: no signature found for builtin <built-in method get_joint_states of PyCapsule object at 0x7562b075cc60>>
+  get_motion_control_status                      PRESENT=YES kind=bound-method           signature=<unavailable: ValueError: no signature found for builtin <built-in method get_motion_control_status of PyCapsule object at 0x7562b075cf00>>
+  joint_control_request                          PRESENT=YES kind=bound-method           signature=<unavailable: ValueError: no signature found for builtin <built-in method joint_control_request of PyCapsule object at 0x7562b075cfc0>>
+  joint_servo_control                            PRESENT=YES kind=bound-method           signature=<unavailable: ValueError: no signature found for builtin <built-in method joint_servo_control of PyCapsule object at 0x7562b075d380>>
+  motion_plan_request                            PRESENT=YES kind=bound-method           signature=<unavailable: ValueError: no signature found for builtin <built-in method motion_plan_request of PyCapsule object at 0x7562b075d200>>
+  move_arm_joint                                 PRESENT=YES kind=bound-method           signature=<unavailable: ValueError: no signature found for builtin <built-in method move_arm_joint of PyCapsule object at 0x7562b075cea0>>
+  move_arm_joint_servo                           PRESENT=YES kind=bound-method           signature=<unavailable: ValueError: no signature found for builtin <built-in method move_arm_joint_servo of PyCapsule object at 0x7562b075d4a0>>
+  move_ee_pos                                    PRESENT=YES kind=bound-method           signature=<unavailable: ValueError: no signature found for builtin <built-in method move_ee_pos of PyCapsule object at 0x7562b075cd80>>
+  move_end_effector_joint                        PRESENT=NO
+  move_head_joint                                PRESENT=YES kind=bound-method           signature=<unavailable: ValueError: no signature found for builtin <built-in method move_head_joint of PyCapsule object at 0x7562b075cde0>>
+  move_head_joint_servo                          PRESENT=YES kind=bound-method           signature=<unavailable: ValueError: no signature found for builtin <built-in method move_head_joint_servo of PyCapsule object at 0x7562b075d3e0>>
+  move_waist_joint                               PRESENT=YES kind=bound-method           signature=<unavailable: ValueError: no signature found for builtin <built-in method move_waist_joint of PyCapsule object at 0x7562b075ce40>>
+  move_waist_joint_servo                         PRESENT=YES kind=bound-method           signature=<unavailable: ValueError: no signature found for builtin <built-in method move_waist_joint_servo of PyCapsule object at 0x7562b075d440>>
+  servo_control_arm_pos                          PRESENT=YES kind=bound-method           signature=<unavailable: ValueError: no signature found for builtin <built-in method servo_control_arm_pos of PyCapsule object at 0x7562b075d500>>
+  set_control_mode                               PRESENT=YES kind=bound-method           signature=<unavailable: ValueError: no signature found for builtin <built-in method set_control_mode of PyCapsule object at 0x7562b075d080>>
+  set_reference_frame_pose                       PRESENT=NO
+  set_reference_frame_poses                      PRESENT=YES kind=bound-method           signature=<unavailable: ValueError: no signature found for builtin <built-in method set_reference_frame_poses of PyCapsule object at 0x7562b075d320>>
+  trajectory_tracking_control                    PRESENT=YES kind=bound-method           signature=<unavailable: ValueError: no signature found for builtin <built-in method trajectory_tracking_control of PyCapsule object at 0x7562b075d020>>
+
+[ROBOT INSTANCE MATCHED MEMBER DETAILS]
+------------------------------------------------------------------------------------------------------------
+symbol    : robot.end_effector_pose_control
+kind      : bound-method
+py type   : builtins.method
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <built-in method end_effector_pose_control of PyCapsule object at 0x7562b075cf60>>
+value     : <bound method PyCapsule.end_effector_pose_control of <agibot_gdk.agibot_gdk.Robot object at 0x7562b0700370>>
+__doc__   :
+  end_effector_pose_control(self: agibot_gdk.agibot_gdk.Robot, arg0: agibot_gdk.agibot_gdk.EndEffectorPose) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : robot.force_position_control
+kind      : bound-method
+py type   : builtins.method
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <built-in method force_position_control of PyCapsule object at 0x7562b075d1a0>>
+value     : <bound method PyCapsule.force_position_control of <agibot_gdk.agibot_gdk.Robot object at 0x7562b0700370>>
+__doc__   :
+  force_position_control(self: agibot_gdk.agibot_gdk.Robot, targets: dict[str, agibot_gdk.agibot_gdk.Pose]) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : robot.get_end_state
+kind      : bound-method
+py type   : builtins.method
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <built-in method get_end_state of PyCapsule object at 0x7562b075cd20>>
+value     : <bound method PyCapsule.get_end_state of <agibot_gdk.agibot_gdk.Robot object at 0x7562b0700370>>
+__doc__   :
+  get_end_state(self: agibot_gdk.agibot_gdk.Robot) -> dict
+------------------------------------------------------------------------------------------------------------
+symbol    : robot.get_joint_states
+kind      : bound-method
+py type   : builtins.method
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <built-in method get_joint_states of PyCapsule object at 0x7562b075cc60>>
+value     : <bound method PyCapsule.get_joint_states of <agibot_gdk.agibot_gdk.Robot object at 0x7562b0700370>>
+__doc__   :
+  get_joint_states(self: agibot_gdk.agibot_gdk.Robot) -> dict
+------------------------------------------------------------------------------------------------------------
+symbol    : robot.get_motion_control_status
+kind      : bound-method
+py type   : builtins.method
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <built-in method get_motion_control_status of PyCapsule object at 0x7562b075cf00>>
+value     : <bound method PyCapsule.get_motion_control_status of <agibot_gdk.agibot_gdk.Robot object at 0x7562b0700370>>
+__doc__   :
+  get_motion_control_status(self: agibot_gdk.agibot_gdk.Robot) -> agibot_gdk.agibot_gdk.MotionControlStatus
+------------------------------------------------------------------------------------------------------------
+symbol    : robot.joint_control_request
+kind      : bound-method
+py type   : builtins.method
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <built-in method joint_control_request of PyCapsule object at 0x7562b075cfc0>>
+value     : <bound method PyCapsule.joint_control_request of <agibot_gdk.agibot_gdk.Robot object at 0x7562b0700370>>
+__doc__   :
+  joint_control_request(self: agibot_gdk.agibot_gdk.Robot, arg0: agibot_gdk.agibot_gdk.JointControlReq) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : robot.joint_servo_control
+kind      : bound-method
+py type   : builtins.method
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <built-in method joint_servo_control of PyCapsule object at 0x7562b075d380>>
+value     : <bound method PyCapsule.joint_servo_control of <agibot_gdk.agibot_gdk.Robot object at 0x7562b0700370>>
+__doc__   :
+  joint_servo_control(self: agibot_gdk.agibot_gdk.Robot, joint_servo_control_req: agibot_gdk.agibot_gdk.JointServoControlReq, enable_low_latency: bool = False) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : robot.motion_plan_request
+kind      : bound-method
+py type   : builtins.method
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <built-in method motion_plan_request of PyCapsule object at 0x7562b075d200>>
+value     : <bound method PyCapsule.motion_plan_request of <agibot_gdk.agibot_gdk.Robot object at 0x7562b0700370>>
+__doc__   :
+  motion_plan_request(self: agibot_gdk.agibot_gdk.Robot, robot_actions: list, robot_link: str = 'base_link', move_type: str = 'INTERP_JOINT_SPACE', trajectory_reference_time: float = 0.5, timeout: float = 10.0, enable_env_collision: bool = True, enable_self_collision: bool = True, enable_com_check: bool = False, log_level: int = 2) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : robot.move_arm_joint
+kind      : bound-method
+py type   : builtins.method
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <built-in method move_arm_joint of PyCapsule object at 0x7562b075cea0>>
+value     : <bound method PyCapsule.move_arm_joint of <agibot_gdk.agibot_gdk.Robot object at 0x7562b0700370>>
+__doc__   :
+  move_arm_joint(self: agibot_gdk.agibot_gdk.Robot, arg0: list, arg1: list, arg2: int) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : robot.move_arm_joint_servo
+kind      : bound-method
+py type   : builtins.method
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <built-in method move_arm_joint_servo of PyCapsule object at 0x7562b075d4a0>>
+value     : <bound method PyCapsule.move_arm_joint_servo of <agibot_gdk.agibot_gdk.Robot object at 0x7562b0700370>>
+__doc__   :
+  move_arm_joint_servo(self: agibot_gdk.agibot_gdk.Robot, positions: list, control_period: float, control_group: int, enable_low_latency: bool = False) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : robot.move_ee_pos
+kind      : bound-method
+py type   : builtins.method
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <built-in method move_ee_pos of PyCapsule object at 0x7562b075cd80>>
+value     : <bound method PyCapsule.move_ee_pos of <agibot_gdk.agibot_gdk.Robot object at 0x7562b0700370>>
+__doc__   :
+  move_ee_pos(self: agibot_gdk.agibot_gdk.Robot, arg0: agibot_gdk.agibot_gdk.JointStates) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : robot.move_head_joint
+kind      : bound-method
+py type   : builtins.method
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <built-in method move_head_joint of PyCapsule object at 0x7562b075cde0>>
+value     : <bound method PyCapsule.move_head_joint of <agibot_gdk.agibot_gdk.Robot object at 0x7562b0700370>>
+__doc__   :
+  move_head_joint(self: agibot_gdk.agibot_gdk.Robot, arg0: list, arg1: list) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : robot.move_head_joint_servo
+kind      : bound-method
+py type   : builtins.method
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <built-in method move_head_joint_servo of PyCapsule object at 0x7562b075d3e0>>
+value     : <bound method PyCapsule.move_head_joint_servo of <agibot_gdk.agibot_gdk.Robot object at 0x7562b0700370>>
+__doc__   :
+  move_head_joint_servo(self: agibot_gdk.agibot_gdk.Robot, positions: list, control_period: float, enable_low_latency: bool = False) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : robot.move_waist_joint
+kind      : bound-method
+py type   : builtins.method
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <built-in method move_waist_joint of PyCapsule object at 0x7562b075ce40>>
+value     : <bound method PyCapsule.move_waist_joint of <agibot_gdk.agibot_gdk.Robot object at 0x7562b0700370>>
+__doc__   :
+  move_waist_joint(self: agibot_gdk.agibot_gdk.Robot, arg0: list, arg1: list) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : robot.move_waist_joint_servo
+kind      : bound-method
+py type   : builtins.method
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <built-in method move_waist_joint_servo of PyCapsule object at 0x7562b075d440>>
+value     : <bound method PyCapsule.move_waist_joint_servo of <agibot_gdk.agibot_gdk.Robot object at 0x7562b0700370>>
+__doc__   :
+  move_waist_joint_servo(self: agibot_gdk.agibot_gdk.Robot, positions: list, control_period: float, enable_low_latency: bool = False) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : robot.servo_control_arm_pos
+kind      : bound-method
+py type   : builtins.method
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <built-in method servo_control_arm_pos of PyCapsule object at 0x7562b075d500>>
+value     : <bound method PyCapsule.servo_control_arm_pos of <agibot_gdk.agibot_gdk.Robot object at 0x7562b0700370>>
+__doc__   :
+  servo_control_arm_pos(self: agibot_gdk.agibot_gdk.Robot, positions: list, control_group: int) -> None
+------------------------------------------------------------------------------------------------------------
+symbol    : robot.set_control_mode
+kind      : bound-method
+py type   : builtins.method
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <built-in method set_control_mode of PyCapsule object at 0x7562b075d080>>
+value     : <bound method PyCapsule.set_control_mode of <agibot_gdk.agibot_gdk.Robot object at 0x7562b0700370>>
+__doc__   :
+  set_control_mode(self: agibot_gdk.agibot_gdk.Robot, arg0: agibot_gdk.agibot_gdk.MotionControlMode) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : robot.set_reference_frame_poses
+kind      : bound-method
+py type   : builtins.method
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <built-in method set_reference_frame_poses of PyCapsule object at 0x7562b075d320>>
+value     : <bound method PyCapsule.set_reference_frame_poses of <agibot_gdk.agibot_gdk.Robot object at 0x7562b0700370>>
+__doc__   :
+  set_reference_frame_poses(self: agibot_gdk.agibot_gdk.Robot, arg0: float, arg1: float, arg2: float, arg3: float, arg4: float, arg5: float, arg6: float, arg7: float) -> int
+------------------------------------------------------------------------------------------------------------
+symbol    : robot.trajectory_tracking_control
+kind      : bound-method
+py type   : builtins.method
+callable  : True
+signature : <unavailable: ValueError: no signature found for builtin <built-in method trajectory_tracking_control of PyCapsule object at 0x7562b075d020>>
+value     : <bound method PyCapsule.trajectory_tracking_control of <agibot_gdk.agibot_gdk.Robot object at 0x7562b0700370>>
+__doc__   :
+  trajectory_tracking_control(self: agibot_gdk.agibot_gdk.Robot, infer_timestamp: int, robot_states: dict, robot_actions: list, robot_link: str = 'base_link', trajectory_reference_time: float = 1.0) -> int
+
+============================================================================================================
+[READ-ONLY get_end_state() WITH RETRY]
+============================================================================================================
+attempt 1/10: no state (RuntimeError: Failed to get end state)
+attempt 2/10: PASS
+
+[CURRENT O10 STATE - READ ONLY]
+raw type : builtins.dict
+top keys : ['left_end_state', 'right_end_state']
+
+  left_end_state:
+    controlled : True
+    enable     : None
+    status     : None
+    type       : 1
+    names      : 10
+    end_states : 10
+    [00] idx31_hand_l_thumb_roll_joint: position=-0.41865722656250004, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+    [01] idx32_hand_l_thumb_abad_joint: position=0.3403173828125, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+    [02] idx33_hand_l_thumb_mcp_joint: position=-0.6590505453402951, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+    [03] idx36_hand_l_index_abad_joint: position=-0.0, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+    [04] idx37_hand_l_index_pip_joint: position=1.4762954914964332, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+    [05] idx39_hand_l_middle_pip_joint: position=1.4768317618717264, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+    [06] idx41_hand_l_ring_abad_joint: position=0.0, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+    [07] idx42_hand_l_ring_pip_joint: position=1.4768317618717264, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+    [08] idx44_hand_l_pinky_abad_joint: position=-0.009462890624999998, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+    [09] idx45_hand_l_pinky_pip_joint: position=1.4762954914964332, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+
+  right_end_state:
+    controlled : True
+    enable     : None
+    status     : None
+    type       : 1
+    names      : 10
+    end_states : 10
+    [00] idx71_hand_r_thumb_roll_joint: position=0.002287597656250008, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+    [01] idx72_hand_r_thumb_abad_joint: position=-0.8057275390624999, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+    [02] idx73_hand_r_thumb_mcp_joint: position=0.8368248177524341, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+    [03] idx76_hand_r_index_abad_joint: position=-0.0734375, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+    [04] idx77_hand_r_index_pip_joint : position=1.294574902277834, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+    [05] idx79_hand_r_middle_pip_joint: position=1.4033185835491162, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+    [06] idx81_hand_r_ring_abad_joint: position=0.0812646484375, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+    [07] idx82_hand_r_ring_pip_joint: position=1.3951649776650341, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+    [08] idx84_hand_r_pinky_abad_joint: position=0.0928662109375, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+    [09] idx85_hand_r_pinky_pip_joint: position=1.4263943399346004, velocity=0.0, current=0.0, temperature=0.0, status=0, err_code=0
+
+[GDK] gdk_release result : <GDKRes.kSuccess: 0>
+
+============================================================================================================
+109_v2 READ-ONLY CONTROL SURFACE PROBE SUMMARY
+============================================================================================================
+source safety audit                 : PASS
+GDK initialized                     : PASS
+Robot created                       : PASS
+get_end_state read                  : PASS
+GDK released                        : PASS
+motion/control API call             : NO
+O10 commanded                       : NO
+Arm commanded                       : NO
+Motion executed                     : NO
+
+Focused Robot member presence (class / instance):
+  joint_control_request                 : YES / YES
+  joint_servo_control                   : YES / YES
+  move_arm_joint                        : YES / YES
+  move_arm_joint_servo                  : YES / YES
+  move_ee_pos                           : YES / YES
+  move_end_effector_joint               : NO  / NO 
+  end_effector_pose_control             : YES / YES
+  set_reference_frame_poses             : YES / YES
+  set_reference_frame_pose              : NO  / NO 
+  get_end_state                         : YES / YES
+
+Focused request/data types:
+  Robot                                 : YES
+  JointControlReq                       : YES
+  JointServoControlReq                  : YES
+  JointState                            : YES
+  JointStates                           : YES
+  EndState                              : YES
+  DualEndState                          : YES
+  EndEffectorPose                       : YES
+  EndEffectorControlGroup               : YES
+  PlanningGroup                         : YES
+  LEFT_TOOL                             : YES
+  RIGHT_TOOL                            : YES
+
+Process exit code: 0
+Report written   : /home/isaac-workstation/g2-project/dual_arm/109_g2_o10_control_surface_probe_v2_report_20261126_103606.txt

@@ -1,0 +1,291 @@
+{
+  "version": "105_v2_end_state_api_probe",
+  "timestamp": "2026-11-26T09:42:53.812103+08:00",
+  "gdk_module": "/home/isaac-workstation/.cache/agibot/app/gdk/lib/agibot_gdk/__init__.py",
+  "api_metadata": {
+    "type": "method",
+    "repr": "<bound method PyCapsule.get_end_state of <agibot_gdk.agibot_gdk.Robot object at 0x7a88183e8ef0>>",
+    "doc": "get_end_state(self: agibot_gdk.agibot_gdk.Robot) -> dict\n",
+    "signature_error": "ValueError: no signature found for builtin <built-in method get_end_state of PyCapsule object at 0x7a881840ad00>"
+  },
+  "call_status": "PASS",
+  "call_error": null,
+  "result": {
+    "left_end_state": {
+      "controlled": true,
+      "type": 1,
+      "names": [
+        "idx31_hand_l_thumb_roll_joint",
+        "idx32_hand_l_thumb_abad_joint",
+        "idx33_hand_l_thumb_mcp_joint",
+        "idx36_hand_l_index_abad_joint",
+        "idx37_hand_l_index_pip_joint",
+        "idx39_hand_l_middle_pip_joint",
+        "idx41_hand_l_ring_abad_joint",
+        "idx42_hand_l_ring_pip_joint",
+        "idx44_hand_l_pinky_abad_joint",
+        "idx45_hand_l_pinky_pip_joint"
+      ],
+      "end_states": [
+        {
+          "id": 0,
+          "enable": true,
+          "position": 0.001081542968750071,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        },
+        {
+          "id": 1,
+          "enable": true,
+          "position": 0.7904614257812499,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        },
+        {
+          "id": 2,
+          "enable": true,
+          "position": -0.8367171351994991,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        },
+        {
+          "id": 3,
+          "enable": true,
+          "position": 0.0763671875,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        },
+        {
+          "id": 4,
+          "enable": true,
+          "position": 1.294574902277834,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        },
+        {
+          "id": 5,
+          "enable": true,
+          "position": 1.403479403226779,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        },
+        {
+          "id": 6,
+          "enable": true,
+          "position": -0.08342285156250001,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        },
+        {
+          "id": 7,
+          "enable": true,
+          "position": 1.396484672321866,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        },
+        {
+          "id": 8,
+          "enable": true,
+          "position": -0.08201171875,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        },
+        {
+          "id": 9,
+          "enable": true,
+          "position": 1.4266928802553063,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        }
+      ]
+    },
+    "right_end_state": {
+      "controlled": true,
+      "type": 1,
+      "names": [
+        "idx71_hand_r_thumb_roll_joint",
+        "idx72_hand_r_thumb_abad_joint",
+        "idx73_hand_r_thumb_mcp_joint",
+        "idx76_hand_r_index_abad_joint",
+        "idx77_hand_r_index_pip_joint ",
+        "idx79_hand_r_middle_pip_joint",
+        "idx81_hand_r_ring_abad_joint",
+        "idx82_hand_r_ring_pip_joint",
+        "idx84_hand_r_pinky_abad_joint",
+        "idx85_hand_r_pinky_pip_joint"
+      ],
+      "end_states": [
+        {
+          "id": 0,
+          "enable": true,
+          "position": 0.008183593750000002,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        },
+        {
+          "id": 1,
+          "enable": true,
+          "position": -0.813154296875,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        },
+        {
+          "id": 2,
+          "enable": true,
+          "position": 0.8361786072400419,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        },
+        {
+          "id": 3,
+          "enable": true,
+          "position": -0.0748828125,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        },
+        {
+          "id": 4,
+          "enable": true,
+          "position": 1.294574902277834,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        },
+        {
+          "id": 5,
+          "enable": true,
+          "position": 1.403479403226779,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        },
+        {
+          "id": 6,
+          "enable": true,
+          "position": 0.0812646484375,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        },
+        {
+          "id": 7,
+          "enable": true,
+          "position": 1.3946685740746882,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        },
+        {
+          "id": 8,
+          "enable": true,
+          "position": 0.0928662109375,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        },
+        {
+          "id": 9,
+          "enable": true,
+          "position": 1.4259460195850915,
+          "velocity": 0.0,
+          "effort": 0.0,
+          "current": 0.0,
+          "voltage": 0.0,
+          "temperature": 0.0,
+          "status": 0,
+          "err_code": 0
+        }
+      ]
+    }
+  }
+}

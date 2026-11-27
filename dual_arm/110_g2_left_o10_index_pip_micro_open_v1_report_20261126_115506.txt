@@ -1,0 +1,40 @@
+================================================================================================================
+110 G2 LEFT O10 INDEX-PIP MICRO-OPEN v1
+================================================================================================================
+script      : /home/isaac-workstation/g2-project/dual_arm/110_g2_left_o10_index_pip_micro_open_v1.py
+timestamp   : 2026-11-26T11:55:06
+python      : 3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]
+mode        : DRY-RUN
+target      : idx37_hand_l_index_pip_joint
+fixed delta : -0.020000 rad (-1.146 deg, opening)
+max commands: 1
+auto-return : NO
+SDK truth   : GDK_SDK_4.1.5.md
+SDK SHA256  : e952f9d0c383c468b7384c46274b12d3059827c2c95ecb0506082a48c49df90d
+================================================================================================================
+[SOURCE CONTROL-PATH AUDIT]
+================================================================================================================
+status : PASS
+source SHA256 : a895498e74af92d60a602d4eea37a02bf430833be542e2db42034e77b6789d2b
+Exactly one explicit robot.move_ee_pos(payload) call exists.
+No other direct or literal-getattr motion/control call exists.
+Read-only Robot calls: get_end_state(), get_motion_control_status().
+runtime error : RuntimeError: Unable to import agibot_gdk: ImportError: libgdk_core.so.SOVERSION: cannot open shared object file: No such file or directory
+================================================================================================================
+110 SUMMARY
+================================================================================================================
+mode : DRY-RUN
+source control-path audit : PASS
+GDK initialized : FAIL
+Robot created : FAIL
+baseline validation : FAIL
+payload built : FAIL
+command requested : NO
+command transmitted : NO
+API accepted : NO
+target observed : NO
+automatic return command : NO
+GDK released : FAIL
+Final verdict: BLOCKED/FAILED - no successful 110 completion.
+ - RuntimeError: Unable to import agibot_gdk: ImportError: libgdk_core.so.SOVERSION: cannot open shared object file: No such file or directory
+Report path: /home/isaac-workstation/g2-project/dual_arm/110_g2_left_o10_index_pip_micro_open_v1_report_20261126_115506.txt

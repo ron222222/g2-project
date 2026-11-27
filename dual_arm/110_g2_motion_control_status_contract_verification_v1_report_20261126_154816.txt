@@ -1,0 +1,53 @@
+
+================================================================================================================
+110 G2 MotionControlStatus CONTRACT VERIFICATION v1 (READ-ONLY)
+================================================================================================================
+script       : /home/isaac-workstation/g2-project/dual_arm/110_g2_motion_control_status_contract_verification_v1.py
+timestamp    : 2026-11-26T15:48:16
+python       : 3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]
+safety mode  : READ-ONLY; get_motion_control_status() only
+motion APIs  : NONE
+
+================================================================================================================
+[SOURCE READ-ONLY AUDIT]
+================================================================================================================
+PASS | source parses as Python | AST nodes=4797
+PASS | no forbidden control/mutation call | none
+PASS | Robot method allow-list | calls=['get_motion_control_status']; allowed=['get_motion_control_status']
+PASS | no dynamic Robot method dispatch | none
+overall : PASS
+source SHA256: 533c4640ebda426acebe6611a5fa71f1868e14a2bf9c2f5b723f27dce1153da9
+
+================================================================================================================
+[SDK DOCUMENT]
+================================================================================================================
+path         : /home/isaac-workstation/g2-project/dual_arm/GDK_SDK_4.1.5.md
+SHA256       : 6a946418eb9a6b337a2b5f3f627a89fe34fb191e74839f1ff6ed5abb2c612c25
+
+================================================================================================================
+[DOCUMENT CONTRACT CHECKS]
+================================================================================================================
+FAIL | SDK document SHA256 | actual=6a946418eb9a6b337a2b5f3f627a89fe34fb191e74839f1ff6ed5abb2c612c25
+PASS | GetMotionControlStatus section located | offset=175599
+PASS | official motion-mode mapping | 0=STOP, 1=SERVO, 2=PLANNING
+PASS | official control-mode mapping | 1=JOINT_POSITION, 2=CARTESIAN_IMPEDANCE, 3=JOINT_IMPEDANCE
+PASS | error_code zero semantics | 0 means normal
+PASS | collision-list semantics | document says collision lists are empty when no collision is reported
+PASS | all documented MotionControlStatus fields | all 11 fields found
+overall : FAIL
+
+================================================================================================================
+MOTIONCONTROLSTATUS CONTRACT VERIFICATION SUMMARY
+================================================================================================================
+source read-only audit : PASS
+document contract      : FAIL
+runtime binding        : FAIL
+valid samples          : 0/10
+GDK released           : FAIL
+control payload built  : NO
+control method called  : NO
+motion commanded       : NO
+Final verdict: BLOCKED/FAILED - inspect the failed evidence above.
+ - Source/document gate failed; runtime inspection not started.
+Boundary: this probe does not authorize or execute 110 motion.
+Report path: /home/isaac-workstation/g2-project/dual_arm/110_g2_motion_control_status_contract_verification_v1_report_20261126_154816.txt

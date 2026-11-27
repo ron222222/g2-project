@@ -1,0 +1,52 @@
+============================================================================================================
+109_v4 O10 Write-Path Contract Verification
+============================================================================================================
+script       : /home/isaac-workstation/g2-project/dual_arm/109_g2_o10_write_path_contract_verification_v4.py
+timestamp    : 2026-11-26T11:07:55+08:00
+python       : 3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]
+platform     : Linux-6.8.0-138-generic-x86_64-with-glibc2.35
+safety mode  : DOC PARSE / READ-ONLY STATE / DETACHED CONSTRUCT ONLY
+============================================================================================================
+[SOURCE SAFETY AUDIT]
+============================================================================================================
+status : PASS
+No direct or literal-getattr motion/control/write API call found in the AST.
+============================================================================================================
+[SDK DOCUMENT PROVENANCE]
+============================================================================================================
+status       : FAIL
+required file: GDK_SDK_4.1.5.md
+searched explicit path, script directory, cwd, project directory, and Downloads
+============================================================================================================
+[LIVE READ-ONLY CROSS-CHECK]
+============================================================================================================
+import agibot_gdk     : PASS
+GDK initialized       : PASS
+Robot created         : PASS
+GDK released          : PASS
+module file           : /home/isaac-workstation/.cache/agibot/app/gdk/lib/agibot_gdk/__init__.py
+------------------------------------------------------------------------------------------------------------
+[DETACHED CURRENT-STATE OBJECTS - NEVER TRANSMITTED]
+------------------------------------------------------------------------------------------------------------
+<none built>
+runtime errors:
+  - RuntimeError: Failed to get end state
+============================================================================================================
+[WRITE-PATH CONTRACT MATRIX]
+============================================================================================================
+============================================================================================================
+109_v4 NON-MOTION WRITE-PATH CONTRACT VERIFICATION SUMMARY
+============================================================================================================
+source safety audit              : PASS
+SDK document located             : FAIL
+required document checks         : FAIL
+live read-only cross-check       : FAIL
+motion/control API invoked       : NO
+O10 commanded                    : NO
+Arm commanded                    : NO
+Motion executed                  : NO
+
+Final contract verdict:
+  BLOCKED: required MoveEEPos/O10 document checks did not pass.
+
+This script is evidence collection only. It does not authorize or perform 110 motion.

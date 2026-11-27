@@ -1,0 +1,56 @@
+{
+  "version": "103_v3.1_return_structure",
+  "timestamp": "2026-11-16T16:49:11.741354+08:00",
+  "results": {
+    "arm_l_end_link -> left_tool0_body": {
+      "type": "tuple",
+      "repr": "(<Transform translation=(0,0,0), rotation=(0,0,0,1)>, None)",
+      "length": 2,
+      "items": [
+        {
+          "type": "Transform",
+          "repr": "<Transform translation=(0,0,0), rotation=(0,0,0,1)>",
+          "selected_attributes": {
+            "translation": {
+              "type": "Vector3",
+              "repr": "<Vector3 x=0, y=0, z=0>"
+            },
+            "rotation": {
+              "type": "Quaternion",
+              "repr": "<Quaternion x=0, y=0, z=0, w=1>"
+            }
+          }
+        },
+        {
+          "type": "NoneType",
+          "repr": "None"
+        }
+      ]
+    },
+    "arm_r_end_link -> right_tool0_body": {
+      "type": "tuple",
+      "repr": "(<Transform translation=(0,0,0), rotation=(0,0,0,1)>, None)",
+      "length": 2,
+      "items": [
+        {
+          "type": "Transform",
+          "repr": "<Transform translation=(0,0,0), rotation=(0,0,0,1)>",
+          "selected_attributes": {
+            "translation": {
+              "type": "Vector3",
+              "repr": "<Vector3 x=0, y=0, z=0>"
+            },
+            "rotation": {
+              "type": "Quaternion",
+              "repr": "<Quaternion x=0, y=0, z=0, w=1>"
+            }
+          }
+        },
+        {
+          "type": "NoneType",
+          "repr": "None"
+        }
+      ]
+    }
+  }
+}

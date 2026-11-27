@@ -1,0 +1,102 @@
+================================================================================================================
+110 G2 LEFT O10 INDEX-PIP MICRO-OPEN v1.1
+================================================================================================================
+script      : /home/isaac-workstation/g2-project/dual_arm/110_g2_left_o10_index_pip_micro_open_v1_1.py
+timestamp   : 2026-11-26T15:50:33
+python      : 3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]
+mode        : DRY-RUN
+target      : idx37_hand_l_index_pip_joint
+fixed delta : -0.020000 rad (-1.146 deg, opening)
+max commands: 1
+auto-return : NO
+SDK truth   : GDK_SDK_4.1.5.md
+SDK SHA256  : e952f9d0c383c468b7384c46274b12d3059827c2c95ecb0506082a48c49df90d
+================================================================================================================
+[SOURCE CONTROL-PATH AUDIT]
+================================================================================================================
+status : PASS
+source SHA256 : 0e27432a812783a74a736118113dbb8107d3b41c0225fc9a3db5d7c07606fe9c
+Exactly one explicit robot.move_ee_pos(payload) call exists.
+No other direct or literal-getattr motion/control call exists.
+Read-only Robot calls: get_end_state(), get_motion_control_status().
+================================================================================================================
+[LIVE GDK SESSION]
+================================================================================================================
+module file : /home/isaac-workstation/.cache/agibot/app/gdk/lib/agibot_gdk/__init__.py
+GDK initialized : PASS (<GDKRes.kSuccess: 0>)
+Robot created : PASS (agibot_gdk.agibot_gdk.Robot)
+================================================================================================================
+[BASELINE READ-ONLY STATE]
+================================================================================================================
+baseline attempt 1/10: no state (RuntimeError: Failed to get end state)
+baseline attempt 2/10: PASS (10 names, 10 states)
+================================================================================================================
+[BASELINE + CANDIDATE TARGET]
+================================================================================================================
+controlled : True
+type       : 1
+fixed delta: -0.020000 rad (-1.146 deg)
+idx | joint name                              | current(rad)   | target(rad)    | delta(rad)
+----------------------------------------------------------------------------------------------------------------
+  0 | idx31_hand_l_thumb_roll_joint           |   -0.501481934 |   -0.501481934 |   +0.000000
+  1 | idx32_hand_l_thumb_abad_joint           |    1.010375977 |    1.010375977 |   +0.000000
+  2 | idx33_hand_l_thumb_mcp_joint            |   -0.750339077 |   -0.750339077 |   +0.000000
+  3 | idx36_hand_l_index_abad_joint           |   -0.000000000 |   -0.000000000 |   +0.000000
+  4 | idx37_hand_l_index_pip_joint            |    1.476295491 |    1.456295491 |   -0.020000
+  5 | idx39_hand_l_middle_pip_joint           |    1.476429582 |    1.476429582 |   +0.000000
+  6 | idx41_hand_l_ring_abad_joint            |    0.000000000 |    0.000000000 |   +0.000000
+  7 | idx42_hand_l_ring_pip_joint             |    1.476697717 |    1.476697717 |   +0.000000
+  8 | idx44_hand_l_pinky_abad_joint           |   -0.006865234 |   -0.006865234 |   +0.000000
+  9 | idx45_hand_l_pinky_pip_joint            |    1.476295491 |    1.476295491 |   +0.000000
+================================================================================================================
+[PRE-EXECUTION GATES]
+================================================================================================================
+PASS | baseline controlled | controlled=True
+PASS | baseline name count | actual=10
+PASS | baseline state count | actual=10
+PASS | baseline exact SDK joint order | exact
+PASS | baseline no edge whitespace | clean
+PASS | baseline no right-hand mix | left-only
+PASS | baseline unique names | unique=10
+PASS | baseline finite positions/velocities | 10 finite positions + 10 finite velocities
+PASS | baseline all joints enabled and error-free | enable=True and err_code=0 for all 10
+PASS | baseline hand is still | max_abs_velocity=0.000000 rad/s; limit=0.050000
+PASS | baseline current positions within SDK limits | all within limits
+PASS | baseline motion status readable | type=agibot_gdk.agibot_gdk.MotionControlStatus
+FAIL | baseline no active servo/planning | mode=1 => SERVO per GDK 4.1.5; required mode=0 STOP; control_mode=None
+PASS | baseline motion status error-free | error_code=0, error_msg=''
+PASS | baseline no reported collision pairs | collision_pairs_1=[], collision_pairs_2=[]
+PASS | baseline current vector count | actual=10
+PASS | baseline target vector count | actual=10
+PASS | baseline target values finite | all finite
+PASS | baseline exactly one changed joint | changed_indices=[4]
+PASS | baseline fixed opening delta | actual=-0.02, required=-0.02 rad
+PASS | baseline other nine joints unchanged | exact equality
+PASS | baseline all target positions within SDK limits | all within limits
+PASS | baseline changed joint limit margin | target=1.456295491496, margin=0.027234372699, required>=0.010000000000
+PASS | baseline payload group | actual='left_tool'
+PASS | baseline payload nums | actual=10
+PASS | baseline payload state count | actual=10
+PASS | baseline nums equals states | nums=10, len=10
+PASS | baseline payload exactly equals target | exact 10-value equality
+gate verdict : FAIL
+runtime error : RuntimeError: pre-execution gates failed
+GDK released : PASS (<GDKRes.kSuccess: 0>)
+================================================================================================================
+110 SUMMARY
+================================================================================================================
+mode : DRY-RUN
+source control-path audit : PASS
+GDK initialized : PASS
+Robot created : PASS
+baseline validation : FAIL
+payload built : PASS
+command requested : NO
+command transmitted : NO
+API accepted : NO
+target observed : NO
+automatic return command : NO
+GDK released : PASS
+Final verdict: BLOCKED/FAILED - no successful 110 completion.
+ - RuntimeError: pre-execution gates failed
+Report path: /home/isaac-workstation/g2-project/dual_arm/110_g2_left_o10_index_pip_micro_open_v1_report_20261126_155034.txt
