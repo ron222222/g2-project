@@ -1,0 +1,93 @@
+================================================================================================================
+111 G2 GDK AORTA SERVICE PROBE v2
+================================================================================================================
+timestamp           : 2026-11-27T14:40:39.920599+08:00
+script              : /home/isaac-workstation/g2-project/dual_arm/111_g2_gdk_aorta_service_probe_v2.py
+python              : 3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]
+READ_ONLY_PROBE     : True
+ENABLE_REAL_MOTION  : False
+control payloads    : NONE
+config requests     : NONE
+ROS service calls   : NONE
+================================================================================================================
+[SOURCE READ-ONLY SAFETY AUDIT]
+================================================================================================================
+PASS | BLOCKING | source parses as Python | AST nodes=7499
+PASS | BLOCKING | no forbidden control/mutation call | none
+PASS | BLOCKING | Robot method allow-list | calls=['get_end_state', 'get_motion_control_status']; allowed=['get_end_state', 'get_motion_control_status']
+PASS | BLOCKING | no dangerous subprocess literal | none
+================================================================================================================
+[HOST / NETWORK / PROCESS INVENTORY]
+================================================================================================================
+hostname            : isaac-workstation
+platform            : Linux-6.8.0-138-generic-x86_64-with-glibc2.35
+official env marker : 1
+ip_address          : available=True rc=0 timeout=False
+ip_route            : available=True rc=0 timeout=False
+tcp_udp_sockets     : available=True rc=0 timeout=False
+processes           : available=True rc=0 timeout=False
+candidate AORTA/config processes: 5
+passive discovery :2379 socket: False
+================================================================================================================
+[LOCAL CONFIGURATION INVENTORY]
+================================================================================================================
+MISSING | /home/agi/app/conf/aorta/function/aorta_transport_conf.json | size=None sha256=None
+MISSING | /home/agi/app/conf/scene_server/dylog_sud_default.json | size=None sha256=None
+FOUND   | /home/isaac-workstation/.cache/agibot/app/env.sh | size=1877 sha256=f1a504e489ae5f1286d08d00c2ab3a2603194cc256c8d1e0a71420eb3c91b333
+candidate config files: 27; truncated=False
+================================================================================================================
+[ROS2 READ-ONLY GRAPH INVENTORY]
+================================================================================================================
+topic_list              : available=False rc=None timeout=False
+node_list               : available=False rc=None timeout=False
+service_list            : available=False rc=None timeout=False
+config_request_info     : available=False rc=None timeout=False
+config_response_info    : available=False rc=None timeout=False
+================================================================================================================
+[LIVE GDK READ-ONLY SESSION]
+================================================================================================================
+GDK initialized : PASS (<GDKRes.kSuccess: 0>)
+Robot created   : PASS (agibot_gdk.agibot_gdk.Robot)
+GDK released    : PASS (<GDKRes.kSuccess: 0>)
+get_end_state              : PASS
+get_motion_control_status  : PASS
+================================================================================================================
+[AORTA / GDK CONFIG TOPOLOGY FROM NATIVE LOG]
+================================================================================================================
+native log                    : /home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261127-144040.3926481.0
+matching evidence lines       : 116
+AORTA node                    : python3.10_S1
+AORTA discovery URI           : http://10.42.1.101:2379
+AORTA locator IP              : 10.42.1.11
+AORTA network ready           : True
+AORTA lease granted           : True
+AORTA lease TTL seconds       : 15
+local request publisher       : True
+local response subscriber     : True
+remote request subscriber     : False
+remote response publisher     : False
+config topology verdict       : CONFIG_SERVICE_NOT_DISCOVERED
+AORTA service verdict         : GDK_CONFIG_SERVICE_NOT_DISCOVERED
+================================================================================================================
+[RECENT AORTA SERVICE HISTORY]
+================================================================================================================
+recent logs analyzed           : 20
+config timeouts               : 2
+config parser failures        : 2
+request peer seen logs        : 0
+response peer seen logs       : 0
+service verdict counts        : {'GDK_CONFIG_SERVICE_NOT_DISCOVERED': 19, 'LOCAL_GDK_CONFIG_ENDPOINTS_INCOMPLETE': 1}
+================================================================================================================
+111_v2 AORTA SERVICE SUMMARY
+================================================================================================================
+source read-only audit         : PASS
+GDK session lifecycle         : PASS
+GDK read paths                : PASS
+config topology               : CONFIG_SERVICE_NOT_DISCOVERED
+AORTA service                 : GDK_CONFIG_SERVICE_NOT_DISCOVERED
+control/motion method called  : NO
+configuration request sent    : NO
+motion executed               : NO
+Final verdict: GDK CONFIG SERVICE PEERS NOT DISCOVERED - inspect robot-side config service, AORTA discovery/domain/interface/QoS, and workstation/robot version compatibility.
+Text report : /home/isaac-workstation/g2-project/dual_arm/reports/111_g2_gdk_aorta_service_probe_v2_20261127_144045.txt
+JSON report : /home/isaac-workstation/g2-project/dual_arm/reports/111_g2_gdk_aorta_service_probe_v2_20261127_144045.json

@@ -1,0 +1,1595 @@
+{
+  "program": "111 G2 GDK AORTA SERVICE PROBE v2",
+  "version": "111_v2_aorta_service",
+  "timestamp": "2026-11-27T14:40:39.929498+08:00",
+  "safety": {
+    "read_only_probe": true,
+    "enable_real_motion": false,
+    "control_payload_built": false,
+    "config_request_sent": false,
+    "ros_service_called": false,
+    "source_audit": [
+      {
+        "name": "source parses as Python",
+        "passed": true,
+        "detail": "AST nodes=7499",
+        "blocking": true
+      },
+      {
+        "name": "no forbidden control/mutation call",
+        "passed": true,
+        "detail": "none",
+        "blocking": true
+      },
+      {
+        "name": "Robot method allow-list",
+        "passed": true,
+        "detail": "calls=['get_end_state', 'get_motion_control_status']; allowed=['get_end_state', 'get_motion_control_status']",
+        "blocking": true
+      },
+      {
+        "name": "no dangerous subprocess literal",
+        "passed": true,
+        "detail": "none",
+        "blocking": true
+      }
+    ],
+    "source": {
+      "path": "/home/isaac-workstation/g2-project/dual_arm/111_g2_gdk_aorta_service_probe_v2.py",
+      "sha256": "1116d3b2772458b6b3d60c63145f5dec4b9f084319ae31df6c033aab190c6cf6",
+      "all_call_names": [
+        "ArgumentParser",
+        "AssertionError",
+        "Check",
+        "Path",
+        "Reporter",
+        "Robot",
+        "RuntimeError",
+        "SystemExit",
+        "add",
+        "add_argument",
+        "all",
+        "analyze_aorta_log",
+        "analyze_log_history",
+        "any",
+        "append",
+        "asdict",
+        "astimezone",
+        "bool",
+        "bounded_matching_lines",
+        "callable",
+        "collect_config_inventory",
+        "collect_host_inventory",
+        "collect_ros2_inventory",
+        "cwd",
+        "decode",
+        "dir",
+        "discover_native_logs",
+        "dumps",
+        "emit",
+        "emit_check_table",
+        "ensure_official_environment",
+        "enumerate",
+        "error",
+        "execv",
+        "exists",
+        "expanduser",
+        "extend",
+        "file_record",
+        "findall",
+        "flush",
+        "format_exc",
+        "fromtimestamp",
+        "frozenset",
+        "gdk_init",
+        "gdk_package_inventory",
+        "gdk_release",
+        "get",
+        "getattr",
+        "gethostname",
+        "glob",
+        "group",
+        "hexdigest",
+        "home",
+        "import_module",
+        "int",
+        "is_dir",
+        "is_file",
+        "isinstance",
+        "isoformat",
+        "items",
+        "join",
+        "len",
+        "list",
+        "lower",
+        "main",
+        "max",
+        "method",
+        "mkdir",
+        "monotonic",
+        "now",
+        "open",
+        "parse",
+        "parse_args",
+        "parse_config_topology",
+        "parse_endpoint",
+        "passive_process_network_summary",
+        "platform",
+        "print",
+        "range",
+        "read",
+        "read_bytes",
+        "read_with_retry",
+        "relative_to",
+        "repr",
+        "resolve",
+        "result_is_success",
+        "rglob",
+        "round",
+        "rstrip",
+        "run",
+        "run_command",
+        "run_gdk_readonly_session",
+        "safe_environment",
+        "search",
+        "section",
+        "select_current_native_log",
+        "self_test",
+        "serial",
+        "set",
+        "sha256",
+        "sha256_file",
+        "short_exception",
+        "sleep",
+        "sort",
+        "sorted",
+        "source_safety_audit",
+        "splitlines",
+        "startswith",
+        "stat",
+        "str",
+        "strftime",
+        "sum",
+        "type",
+        "unlink",
+        "update",
+        "version",
+        "walk",
+        "which",
+        "with_name",
+        "write",
+        "write_text"
+      ],
+      "robot_methods": [
+        "get_end_state",
+        "get_motion_control_status"
+      ]
+    }
+  },
+  "host": {
+    "hostname": "isaac-workstation",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "python_executable": "/usr/bin/python3.10",
+    "python_version": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+    "cwd": "/home/isaac-workstation/g2-project/dual_arm",
+    "script": "/home/isaac-workstation/g2-project/dual_arm/111_g2_gdk_aorta_service_probe_v2.py",
+    "environment": {
+      "AGIBOT_GDK_ENV_RESTARTED_FOR_111_V2": "1",
+      "AORTA_DISCOVERY_URI": "http://10.42.1.101:2379",
+      "AORTA_DISPATCHER_THREAD_NUM": "6",
+      "HOME": "/home/isaac-workstation",
+      "LD_LIBRARY_PATH": ":/home/isaac-workstation/.cache/agibot/app/lib:/home/isaac-workstation/.cache/agibot/app/lib/engines-3:/home/isaac-workstation/.cache/agibot/app/lib/ossl-modules:/home/isaac-workstation/.cache/agibot/app/lib/pulse-14.2/modules:/home/isaac-workstation/.cache/agibot/app/lib/pulseaudio:/home/isaac-workstation/.cache/agibot/app/lib/python3.10/lib-dynload",
+      "PATH": "/home/isaac-workstation/.local/bin:/home/isaac-workstation/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/isaac-workstation/.cache/agibot/app/bin",
+      "PYTHONPATH": "/home/isaac-workstation/.cache/agibot/app/gdk/lib:/home/isaac-workstation/g2-project/dual_arm",
+      "USER": "isaac-workstation"
+    },
+    "commands": {
+      "ip_address": {
+        "argv": [
+          "ip",
+          "-json",
+          "address",
+          "show"
+        ],
+        "available": true,
+        "returncode": 0,
+        "stdout": "[{\"ifindex\":1,\"ifname\":\"lo\",\"flags\":[\"LOOPBACK\",\"UP\",\"LOWER_UP\"],\"mtu\":65536,\"qdisc\":\"noqueue\",\"operstate\":\"UNKNOWN\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"loopback\",\"address\":\"00:00:00:00:00:00\",\"broadcast\":\"00:00:00:00:00:00\",\"addr_info\":[{\"family\":\"inet\",\"local\":\"127.0.0.1\",\"prefixlen\":8,\"scope\":\"host\",\"label\":\"lo\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295},{\"family\":\"inet6\",\"local\":\"::1\",\"prefixlen\":128,\"scope\":\"host\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]},{\"ifindex\":2,\"ifname\":\"eno2\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"mq\",\"operstate\":\"UP\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"30:c5:99:b7:3b:6a\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"altnames\":[\"enp7s0\"],\"addr_info\":[{\"family\":\"inet\",\"local\":\"10.42.1.11\",\"prefixlen\":24,\"broadcast\":\"10.42.1.255\",\"scope\":\"global\",\"noprefixroute\":true,\"label\":\"eno2\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295},{\"family\":\"inet6\",\"local\":\"fe80::9b8f:e81a:9dc2:a973\",\"prefixlen\":64,\"scope\":\"link\",\"noprefixroute\":true,\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]},{\"ifindex\":3,\"ifname\":\"wlo1\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"noqueue\",\"operstate\":\"UP\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"d4:ab:61:52:1c:28\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"altnames\":[\"wlp6s0f0\"],\"addr_info\":[{\"family\":\"inet\",\"local\":\"172.20.10.2\",\"prefixlen\":28,\"broadcast\":\"172.20.10.15\",\"scope\":\"global\",\"dynamic\":true,\"noprefixroute\":true,\"label\":\"wlo1\",\"valid_life_time\":2147,\"preferred_life_time\":2147},{\"family\":\"inet6\",\"local\":\"2409:8962:f65:177b:b444:2953:32de:f6a2\",\"prefixlen\":64,\"scope\":\"global\",\"temporary\":true,\"dynamic\":true,\"valid_life_time\":581687,\"preferred_life_time\":62815},{\"family\":\"inet6\",\"local\":\"2409:8962:f65:177b:5a75:2f89:5b30:a225\",\"prefixlen\":64,\"scope\":\"global\",\"mngtmpaddr\":true,\"noprefixroute\":true,\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295},{\"family\":\"inet6\",\"local\":\"fe80::660d:4102:4a73:8223\",\"prefixlen\":64,\"scope\":\"link\",\"noprefixroute\":true,\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]}]\n",
+        "stderr": "",
+        "duration_seconds": 0.001452,
+        "timed_out": false
+      },
+      "ip_route": {
+        "argv": [
+          "ip",
+          "route",
+          "show"
+        ],
+        "available": true,
+        "returncode": 0,
+        "stdout": "default via 172.20.10.1 dev wlo1 proto dhcp metric 600 \n10.42.0.0/24 via 10.42.1.101 dev eno2 \n10.42.1.0/24 dev eno2 proto kernel scope link src 10.42.1.11 metric 100 \n169.254.0.0/16 dev wlo1 scope link metric 1000 \n172.20.10.0/28 dev wlo1 proto kernel scope link src 172.20.10.2 metric 600 \n",
+        "stderr": "",
+        "duration_seconds": 0.001325,
+        "timed_out": false
+      },
+      "tcp_udp_sockets": {
+        "argv": [
+          "ss",
+          "-tunap"
+        ],
+        "available": true,
+        "returncode": 0,
+        "stdout": "Netid State     Recv-Q Send-Q                            Local Address:Port                    Peer Address:Port Process                                      \nudp   UNCONN    0      0                                       0.0.0.0:37574                        0.0.0.0:*                                                 \nudp   ESTAB     0      0                                   172.20.10.2:57720                  111.62.49.134:443   users:((\"feishu\",pid=1826853,fd=117))       \nudp   UNCONN    0      0                                 127.0.0.53%lo:53                           0.0.0.0:*                                                 \nudp   ESTAB     0      0                              172.20.10.2%wlo1:68                       172.20.10.1:67                                                \nudp   UNCONN    0      0                                   224.0.0.251:5353                         0.0.0.0:*     users:((\"WeChatAppEx\",pid=3915985,fd=153))  \nudp   UNCONN    0      0                                   224.0.0.251:5353                         0.0.0.0:*     users:((\"WeChatAppEx\",pid=3915985,fd=150))  \nudp   UNCONN    0      0                                       0.0.0.0:5353                         0.0.0.0:*                                                 \nudp   UNCONN    0      0                                          [::]:45825                           [::]:*                                                 \nudp   UNCONN    0      0              [fe80::660d:4102:4a73:8223]%wlo1:546                             [::]:*                                                 \nudp   UNCONN    0      0                                          [::]:5353                            [::]:*                                                 \ntcp   LISTEN    0      10                                    127.0.0.1:37600                        0.0.0.0:*     users:((\"ToDesk\",pid=1546742,fd=20))        \ntcp   LISTEN    0      10                                    127.0.0.1:35600                        0.0.0.0:*                                                 \ntcp   LISTEN    0      128                                     0.0.0.0:22                           0.0.0.0:*                                                 \ntcp   LISTEN    0      128                                   127.0.0.1:631                          0.0.0.0:*                                                 \ntcp   LISTEN    0      511                                   127.0.0.1:2658                         0.0.0.0:*     users:((\"joplin\",pid=6940,fd=60))           \ntcp   LISTEN    0      511                                   127.0.0.1:2659                         0.0.0.0:*     users:((\"joplin\",pid=1359628,fd=52))        \ntcp   LISTEN    0      4096                              127.0.0.53%lo:53                           0.0.0.0:*                                                 \ntcp   ESTAB     0      0                                   172.20.10.2:56662                114.117.220.136:443                                               \ntcp   ESTAB     0      0                                   172.20.10.2:34834                 36.150.102.178:7826  users:((\"firefox\",pid=4963,fd=167))         \ntcp   TIME-WAIT 0      0                                   172.20.10.2:44924                 20.190.144.169:443                                               \ntcp   ESTAB     0      0                                   172.20.10.2:59776                  112.53.55.225:80    users:((\"wechat\",pid=3737657,fd=421))       \ntcp   ESTAB     0      0                                   172.20.10.2:55938                   112.45.32.39:443   users:((\"firefox\",pid=4963,fd=152))         \ntcp   ESTAB     0      0                                   172.20.10.2:59536                 116.205.40.114:443   users:((\"firefox\",pid=4963,fd=157))         \ntcp   TIME-WAIT 0      0                                   172.20.10.2:57248                  34.107.243.93:443                                               \ntcp   ESTAB     0      0                                   172.20.10.2:57128                117.177.133.107:443   users:((\"feishu\",pid=1826853,fd=115))       \ntcp   TIME-WAIT 0      0                                   172.20.10.2:44916                 20.190.144.169:443                                               \ntcp   ESTAB     0      0                                     127.0.0.1:35600                      127.0.0.1:40988                                             \ntcp   ESTAB     0      0                                   172.20.10.2:57252                  34.107.243.93:443   users:((\"firefox\",pid=4963,fd=169))         \ntcp   TIME-WAIT 0      0                                   172.20.10.2:49108                117.177.133.106:443                                               \ntcp   ESTAB     0      0                                     127.0.0.1:40988                      127.0.0.1:35600 users:((\"ToDesk\",pid=1546742,fd=48))        \ntcp   ESTAB     0      0                                   172.20.10.2:59972                  13.107.137.11:443   users:((\"joplin\",pid=1359774,fd=36))        \ntcp   TIME-WAIT 0      0                                   172.20.10.2:43836                 20.205.243.166:22                                                \ntcp   ESTAB     0      0                                   172.20.10.2:48048                  101.36.166.16:443   users:((\"feishu\",pid=1826853,fd=172))       \ntcp   ESTAB     0      0                                   172.20.10.2:52386                 120.233.22.121:8080  users:((\"wechat\",pid=3759633,fd=273))       \ntcp   TIME-WAIT 0      0                                    10.42.1.11:37282                    10.42.1.101:22                                                \ntcp   LISTEN    0      4096                         [::ffff:127.0.0.1]:33357                              *:*     users:((\"full-line-infer\",pid=2986108,fd=5))\ntcp   LISTEN    0      4096                         [::ffff:127.0.0.1]:63342                              *:*     users:((\"java\",pid=2975901,fd=76))          \ntcp   LISTEN    0      128                                        [::]:22                              [::]:*                                                 \ntcp   LISTEN    0      128                                       [::1]:631                             [::]:*                                                 \ntcp   TIME-WAIT 0      0      [2409:8962:f65:177b:b444:2953:32de:f6a2]:46796         [2409:8c62:e10:3e::1c]:443                                               \ntcp   ESTAB     0      0      [2409:8962:f65:177b:b444:2953:32de:f6a2]:50094        [2409:8c04:1004:a::199]:443   users:((\"firefox\",pid=4963,fd=156))         \ntcp   ESTAB     0      0      [2409:8962:f65:177b:b444:2953:32de:f6a2]:35082 [2409:8c62:e10:230::75b1:3723]:443   users:((\"firefox\",pid=4963,fd=48))          \ntcp   ESTAB     0      0      [2409:8962:f65:177b:b444:2953:32de:f6a2]:55622        [2409:8c04:1004:a::16d]:443   users:((\"feishu\",pid=1826853,fd=27))        \ntcp   ESTAB     0      0      [2409:8962:f65:177b:b444:2953:32de:f6a2]:53942         [2409:8c62:e10:3e::1c]:443   users:((\"feishu\",pid=1826795,fd=46))        \ntcp   ESTAB     0      0      [2409:8962:f65:177b:b444:2953:32de:f6a2]:34014       [2409:8c54:871:1001::1a]:443   users:((\"firefox\",pid=4963,fd=147))         \ntcp   ESTAB     0      0      [2409:8962:f65:177b:b444:2953:32de:f6a2]:56418      [2409:8c44:b00:ff0d::134]:443   users:((\"firefox\",pid=4963,fd=181))         \n",
+        "stderr": "",
+        "duration_seconds": 0.034166,
+        "timed_out": false
+      },
+      "processes": {
+        "argv": [
+          "ps",
+          "-eo",
+          "pid,ppid,user,lstart,cmd",
+          "--sort=pid"
+        ],
+        "available": true,
+        "returncode": 0,
+        "stdout": "    PID    PPID USER                      STARTED CMD\n      1       0 root     Mon Nov  2 08:20:09 2026 /lib/systemd/systemd --system --deserialize 34 splash\n      2       0 root     Mon Nov  2 08:20:09 2026 [kthreadd]\n      3       2 root     Mon Nov  2 08:20:09 2026 [pool_workqueue_release]\n      4       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-rcu_g]\n      5       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-rcu_p]\n      6       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-slub_]\n      7       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-netns]\n      9       2 root     Mon Nov  2 08:20:09 2026 [kworker/0:0H-events_highpri]\n     12       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-mm_pe]\n     13       2 root     Mon Nov  2 08:20:09 2026 [rcu_tasks_kthread]\n     14       2 root     Mon Nov  2 08:20:09 2026 [rcu_tasks_rude_kthread]\n     15       2 root     Mon Nov  2 08:20:09 2026 [rcu_tasks_trace_kthread]\n     16       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/0]\n     17       2 root     Mon Nov  2 08:20:09 2026 [rcu_preempt]\n     18       2 root     Mon Nov  2 08:20:09 2026 [migration/0]\n     19       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/0]\n     20       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/0]\n     21       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/2]\n     22       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/2]\n     23       2 root     Mon Nov  2 08:20:09 2026 [migration/2]\n     24       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/2]\n     26       2 root     Mon Nov  2 08:20:09 2026 [kworker/2:0H-events_highpri]\n     27       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/4]\n     28       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/4]\n     29       2 root     Mon Nov  2 08:20:09 2026 [migration/4]\n     30       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/4]\n     32       2 root     Mon Nov  2 08:20:09 2026 [kworker/4:0H-events_highpri]\n     33       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/6]\n     34       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/6]\n     35       2 root     Mon Nov  2 08:20:09 2026 [migration/6]\n     36       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/6]\n     38       2 root     Mon Nov  2 08:20:09 2026 [kworker/6:0H-events_highpri]\n     39       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/8]\n     40       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/8]\n     41       2 root     Mon Nov  2 08:20:09 2026 [migration/8]\n     42       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/8]\n     44       2 root     Mon Nov  2 08:20:09 2026 [kworker/8:0H-events_highpri]\n     45       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/10]\n     46       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/10]\n     47       2 root     Mon Nov  2 08:20:09 2026 [migration/10]\n     48       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/10]\n     50       2 root     Mon Nov  2 08:20:09 2026 [kworker/10:0H-events_highpri]\n     51       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/12]\n     52       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/12]\n     53       2 root     Mon Nov  2 08:20:09 2026 [migration/12]\n     54       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/12]\n     56       2 root     Mon Nov  2 08:20:09 2026 [kworker/12:0H-events_highpri]\n     57       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/14]\n     58       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/14]\n     59       2 root     Mon Nov  2 08:20:09 2026 [migration/14]\n     60       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/14]\n     62       2 root     Mon Nov  2 08:20:09 2026 [kworker/14:0H-events_highpri]\n     63       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/16]\n     64       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/16]\n     65       2 root     Mon Nov  2 08:20:09 2026 [migration/16]\n     66       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/16]\n     68       2 root     Mon Nov  2 08:20:09 2026 [kworker/16:0H-events_highpri]\n     69       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/17]\n     70       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/17]\n     71       2 root     Mon Nov  2 08:20:09 2026 [migration/17]\n     72       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/17]\n     74       2 root     Mon Nov  2 08:20:09 2026 [kworker/17:0H-events_highpri]\n     75       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/18]\n     76       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/18]\n     77       2 root     Mon Nov  2 08:20:09 2026 [migration/18]\n     78       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/18]\n     80       2 root     Mon Nov  2 08:20:09 2026 [kworker/18:0H-events_highpri]\n     81       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/19]\n     82       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/19]\n     83       2 root     Mon Nov  2 08:20:09 2026 [migration/19]\n     84       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/19]\n     86       2 root     Mon Nov  2 08:20:09 2026 [kworker/19:0H-events_highpri]\n     87       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/20]\n     88       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/20]\n     89       2 root     Mon Nov  2 08:20:09 2026 [migration/20]\n     90       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/20]\n     92       2 root     Mon Nov  2 08:20:09 2026 [kworker/20:0H-events_highpri]\n     93       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/21]\n     94       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/21]\n     95       2 root     Mon Nov  2 08:20:09 2026 [migration/21]\n     96       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/21]\n     98       2 root     Mon Nov  2 08:20:09 2026 [kworker/21:0H-events_highpri]\n     99       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/22]\n    100       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/22]\n    101       2 root     Mon Nov  2 08:20:09 2026 [migration/22]\n    102       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/22]\n    104       2 root     Mon Nov  2 08:20:09 2026 [kworker/22:0H-events_highpri]\n    105       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/23]\n    106       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/23]\n    107       2 root     Mon Nov  2 08:20:09 2026 [migration/23]\n    108       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/23]\n    110       2 root     Mon Nov  2 08:20:09 2026 [kworker/23:0H-events_highpri]\n    111       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/24]\n    112       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/24]\n    113       2 root     Mon Nov  2 08:20:09 2026 [migration/24]\n    114       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/24]\n    116       2 root     Mon Nov  2 08:20:09 2026 [kworker/24:0H-events_highpri]\n    117       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/25]\n    118       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/25]\n    119       2 root     Mon Nov  2 08:20:09 2026 [migration/25]\n    120       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/25]\n    122       2 root     Mon Nov  2 08:20:09 2026 [kworker/25:0H-events_highpri]\n    123       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/26]\n    124       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/26]\n    125       2 root     Mon Nov  2 08:20:09 2026 [migration/26]\n    126       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/26]\n    128       2 root     Mon Nov  2 08:20:09 2026 [kworker/26:0H-events_highpri]\n    129       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/27]\n    130       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/27]\n    131       2 root     Mon Nov  2 08:20:09 2026 [migration/27]\n    132       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/27]\n    134       2 root     Mon Nov  2 08:20:09 2026 [kworker/27:0H-events_highpri]\n    135       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/28]\n    136       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/28]\n    137       2 root     Mon Nov  2 08:20:09 2026 [migration/28]\n    138       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/28]\n    140       2 root     Mon Nov  2 08:20:09 2026 [kworker/28:0H-events_highpri]\n    141       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/29]\n    142       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/29]\n    143       2 root     Mon Nov  2 08:20:09 2026 [migration/29]\n    144       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/29]\n    146       2 root     Mon Nov  2 08:20:09 2026 [kworker/29:0H-events_highpri]\n    147       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/30]\n    148       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/30]\n    149       2 root     Mon Nov  2 08:20:09 2026 [migration/30]\n    150       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/30]\n    152       2 root     Mon Nov  2 08:20:09 2026 [kworker/30:0H-events_highpri]\n    153       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/31]\n    154       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/31]\n    155       2 root     Mon Nov  2 08:20:09 2026 [migration/31]\n    156       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/31]\n    158       2 root     Mon Nov  2 08:20:09 2026 [kworker/31:0H-events_highpri]\n    159       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/1]\n    160       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/1]\n    161       2 root     Mon Nov  2 08:20:09 2026 [migration/1]\n    162       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/1]\n    164       2 root     Mon Nov  2 08:20:09 2026 [kworker/1:0H-events_highpri]\n    165       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/3]\n    166       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/3]\n    167       2 root     Mon Nov  2 08:20:09 2026 [migration/3]\n    168       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/3]\n    170       2 root     Mon Nov  2 08:20:09 2026 [kworker/3:0H-events_highpri]\n    171       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/5]\n    172       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/5]\n    173       2 root     Mon Nov  2 08:20:09 2026 [migration/5]\n    174       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/5]\n    176       2 root     Mon Nov  2 08:20:09 2026 [kworker/5:0H-events_highpri]\n    177       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/7]\n    178       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/7]\n    179       2 root     Mon Nov  2 08:20:09 2026 [migration/7]\n    180       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/7]\n    182       2 root     Mon Nov  2 08:20:09 2026 [kworker/7:0H-events_highpri]\n    183       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/9]\n    184       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/9]\n    185       2 root     Mon Nov  2 08:20:09 2026 [migration/9]\n    186       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/9]\n    188       2 root     Mon Nov  2 08:20:09 2026 [kworker/9:0H-events_highpri]\n    189       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/11]\n    190       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/11]\n    191       2 root     Mon Nov  2 08:20:09 2026 [migration/11]\n    192       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/11]\n    194       2 root     Mon Nov  2 08:20:09 2026 [kworker/11:0H-events_highpri]\n    195       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/13]\n    196       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/13]\n    197       2 root     Mon Nov  2 08:20:09 2026 [migration/13]\n    198       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/13]\n    200       2 root     Mon Nov  2 08:20:09 2026 [kworker/13:0H-events_highpri]\n    201       2 root     Mon Nov  2 08:20:09 2026 [cpuhp/15]\n    202       2 root     Mon Nov  2 08:20:09 2026 [idle_inject/15]\n    203       2 root     Mon Nov  2 08:20:09 2026 [migration/15]\n    204       2 root     Mon Nov  2 08:20:09 2026 [ksoftirqd/15]\n    206       2 root     Mon Nov  2 08:20:09 2026 [kworker/15:0H-events_highpri]\n    207       2 root     Mon Nov  2 08:20:09 2026 [kdevtmpfs]\n    208       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-inet_]\n    209       2 root     Mon Nov  2 08:20:09 2026 [kauditd]\n    213       2 root     Mon Nov  2 08:20:09 2026 [khungtaskd]\n    215       2 root     Mon Nov  2 08:20:09 2026 [oom_reaper]\n    217       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-write]\n    218       2 root     Mon Nov  2 08:20:09 2026 [kcompactd0]\n    219       2 root     Mon Nov  2 08:20:09 2026 [ksmd]\n    220       2 root     Mon Nov  2 08:20:09 2026 [khugepaged]\n    221       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-kinte]\n    222       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-kbloc]\n    223       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-blkcg]\n    224       2 root     Mon Nov  2 08:20:09 2026 [irq/9-acpi]\n    226       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-tpm_d]\n    227       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-ata_s]\n    228       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-md]\n    229       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-md_bi]\n    230       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-edac-]\n    231       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-devfr]\n    232       2 root     Mon Nov  2 08:20:09 2026 [watchdogd]\n    233       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-quota]\n    234       2 root     Mon Nov  2 08:20:09 2026 [kworker/1:1H-kblockd]\n    235       2 root     Mon Nov  2 08:20:09 2026 [kswapd0]\n    236       2 root     Mon Nov  2 08:20:09 2026 [ecryptfs-kthread]\n    237       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-kthro]\n    238       2 root     Mon Nov  2 08:20:09 2026 [irq/121-aerdrv]\n    239       2 root     Mon Nov  2 08:20:09 2026 [irq/122-aerdrv]\n    240       2 root     Mon Nov  2 08:20:09 2026 [irq/123-aerdrv]\n    241       2 root     Mon Nov  2 08:20:09 2026 [irq/125-aerdrv]\n    242       2 root     Mon Nov  2 08:20:09 2026 [irq/126-aerdrv]\n    243       2 root     Mon Nov  2 08:20:09 2026 [irq/127-aerdrv]\n    244       2 root     Mon Nov  2 08:20:09 2026 [irq/128-pciehp]\n    245       2 root     Mon Nov  2 08:20:09 2026 [irq/129-aerdrv]\n    247       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-acpi_]\n    249       2 root     Mon Nov  2 08:20:09 2026 [hwrng]\n    250       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-hfi-u]\n    252       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-mld]\n    253       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-ipv6_]\n    261       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-kstrp]\n    293       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-charg]\n    312       2 root     Mon Nov  2 08:20:09 2026 [kworker/28:1H-kblockd]\n    316       2 root     Mon Nov  2 08:20:09 2026 [kworker/19:1H-kblockd]\n    326       2 root     Mon Nov  2 08:20:09 2026 [kworker/16:1H-kblockd]\n    337       2 root     Mon Nov  2 08:20:09 2026 [kworker/25:1H-kblockd]\n    338       2 root     Mon Nov  2 08:20:09 2026 [kworker/6:1H-kblockd]\n    339       2 root     Mon Nov  2 08:20:09 2026 [kworker/0:1H-kblockd]\n    340       2 root     Mon Nov  2 08:20:09 2026 [kworker/8:1H-kblockd]\n    341       2 root     Mon Nov  2 08:20:09 2026 [kworker/14:1H-kblockd]\n    342       2 root     Mon Nov  2 08:20:09 2026 [kworker/12:1H-kblockd]\n    343       2 root     Mon Nov  2 08:20:09 2026 [kworker/4:1H-kblockd]\n    344       2 root     Mon Nov  2 08:20:09 2026 [kworker/17:1H-kblockd]\n    345       2 root     Mon Nov  2 08:20:09 2026 [kworker/22:1H-kblockd]\n    346       2 root     Mon Nov  2 08:20:09 2026 [kworker/21:1H-kblockd]\n    347       2 root     Mon Nov  2 08:20:09 2026 [kworker/23:1H-kblockd]\n    348       2 root     Mon Nov  2 08:20:09 2026 [kworker/20:1H-kblockd]\n    350       2 root     Mon Nov  2 08:20:09 2026 [kworker/2:1H-kblockd]\n    351       2 root     Mon Nov  2 08:20:09 2026 [kworker/24:1H-kblockd]\n    352       2 root     Mon Nov  2 08:20:09 2026 [kworker/27:1H-kblockd]\n    353       2 root     Mon Nov  2 08:20:09 2026 [kworker/26:1H-kblockd]\n    356       2 root     Mon Nov  2 08:20:09 2026 [kworker/18:1H-kblockd]\n    367       2 root     Mon Nov  2 08:20:09 2026 [kworker/29:1H-kblockd]\n    368       2 root     Mon Nov  2 08:20:09 2026 [kworker/10:1H-kblockd]\n    370       2 root     Mon Nov  2 08:20:09 2026 [kworker/30:1H-kblockd]\n    371       2 root     Mon Nov  2 08:20:09 2026 [kworker/5:1H-kblockd]\n    383       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-nvme-]\n    385       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-nvme-]\n    386       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-nvme-]\n    387       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-nvme-]\n    421       2 root     Mon Nov  2 08:20:09 2026 [scsi_eh_0]\n    422       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-scsi_]\n    423       2 root     Mon Nov  2 08:20:09 2026 [scsi_eh_1]\n    424       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-scsi_]\n    425       2 root     Mon Nov  2 08:20:09 2026 [scsi_eh_2]\n    426       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-scsi_]\n    427       2 root     Mon Nov  2 08:20:09 2026 [scsi_eh_3]\n    428       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-scsi_]\n    429       2 root     Mon Nov  2 08:20:09 2026 [scsi_eh_4]\n    430       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-scsi_]\n    431       2 root     Mon Nov  2 08:20:09 2026 [scsi_eh_5]\n    432       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-scsi_]\n    433       2 root     Mon Nov  2 08:20:09 2026 [scsi_eh_6]\n    434       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-scsi_]\n    435       2 root     Mon Nov  2 08:20:09 2026 [scsi_eh_7]\n    436       2 root     Mon Nov  2 08:20:09 2026 [kworker/R-scsi_]\n    450       2 root     Mon Nov  2 08:20:10 2026 [kworker/31:1H-kblockd]\n    451       2 root     Mon Nov  2 08:20:10 2026 [kworker/13:1H-kblockd]\n    452       2 root     Mon Nov  2 08:20:10 2026 [kworker/3:1H-kblockd]\n    453       2 root     Mon Nov  2 08:20:10 2026 [kworker/7:1H-kblockd]\n    454       2 root     Mon Nov  2 08:20:10 2026 [kworker/9:1H-kblockd]\n    455       2 root     Mon Nov  2 08:20:10 2026 [kworker/15:1H-kblockd]\n    456       2 root     Mon Nov  2 08:20:10 2026 [kworker/11:1H-kblockd]\n    528       2 root     Mon Nov  2 08:20:14 2026 [jbd2/nvme0n1p2-8]\n    529       2 root     Mon Nov  2 08:20:14 2026 [kworker/R-ext4-]\n    569       1 root     Mon Nov  2 08:20:15 2026 /lib/systemd/systemd-journald\n    625       1 root     Mon Nov  2 08:20:15 2026 /lib/systemd/systemd-udevd\n    720       2 root     Mon Nov  2 08:20:15 2026 [kworker/R-led_w]\n    721       2 root     Mon Nov  2 08:20:15 2026 [kworker/R-led_w]\n    778       2 root     Mon Nov  2 08:20:15 2026 [kworker/R-cfg80]\n    792       2 root     Mon Nov  2 08:20:15 2026 [kworker/R-crypt]\n    794       2 root     Mon Nov  2 08:20:15 2026 [irq/213-iwlwifi:default_queue]\n    795       2 root     Mon Nov  2 08:20:15 2026 [nv_queue]\n    797       2 root     Mon Nov  2 08:20:15 2026 [nv_queue]\n    798       2 root     Mon Nov  2 08:20:15 2026 [irq/214-iwlwifi:queue_1]\n    799       2 root     Mon Nov  2 08:20:15 2026 [irq/215-iwlwifi:queue_2]\n    800       2 root     Mon Nov  2 08:20:15 2026 [irq/216-iwlwifi:queue_3]\n    801       2 root     Mon Nov  2 08:20:15 2026 [irq/217-iwlwifi:queue_4]\n    802       2 root     Mon Nov  2 08:20:15 2026 [irq/218-iwlwifi:queue_5]\n    803       2 root     Mon Nov  2 08:20:15 2026 [irq/219-iwlwifi:queue_6]\n    804       2 root     Mon Nov  2 08:20:15 2026 [nv_open_q]\n    805       2 root     Mon Nov  2 08:20:15 2026 [irq/220-iwlwifi:queue_7]\n    806       2 root     Mon Nov  2 08:20:15 2026 [irq/221-iwlwifi:queue_8]\n    807       2 root     Mon Nov  2 08:20:15 2026 [irq/222-iwlwifi:queue_9]\n    808       2 root     Mon Nov  2 08:20:15 2026 [irq/223-iwlwifi:queue_10]\n    809       2 root     Mon Nov  2 08:20:15 2026 [irq/224-iwlwifi:queue_11]\n    810       2 root     Mon Nov  2 08:20:15 2026 [irq/225-iwlwifi:queue_12]\n    811       2 root     Mon Nov  2 08:20:15 2026 [irq/226-iwlwifi:queue_13]\n    812       2 root     Mon Nov  2 08:20:15 2026 [irq/227-iwlwifi:queue_14]\n    813       2 root     Mon Nov  2 08:20:15 2026 [irq/228-iwlwifi:exception]\n    857       1 systemd+ Mon Nov  2 08:20:15 2026 /lib/systemd/systemd-resolved\n    858       1 systemd+ Mon Nov  2 08:20:15 2026 /lib/systemd/systemd-timesyncd\n    862       2 root     Mon Nov  2 08:20:15 2026 [nvidia-modeset/kthread_q]\n    863       2 root     Mon Nov  2 08:20:15 2026 [nvidia-modeset/deferred_close_kthread_q]\n    876       2 root     Mon Nov  2 08:20:15 2026 [irq/230-nvidia]\n    880       2 root     Mon Nov  2 08:20:15 2026 [nv_queue]\n    910       1 root     Mon Nov  2 08:20:15 2026 /usr/libexec/accounts-daemon\n    912       1 root     Mon Nov  2 08:20:15 2026 /usr/sbin/acpid\n    915       1 avahi    Mon Nov  2 08:20:15 2026 avahi-daemon: running [isaac-workstation.local]\n    916       1 root     Mon Nov  2 08:20:15 2026 /usr/lib/bluetooth/bluetoothd\n    917       1 root     Mon Nov  2 08:20:15 2026 /usr/sbin/cron -f -P\n    919       1 message+ Mon Nov  2 08:20:15 2026 @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only\n    922       1 root     Mon Nov  2 08:20:15 2026 /usr/sbin/NetworkManager --no-daemon\n    928       1 root     Mon Nov  2 08:20:15 2026 /usr/sbin/irqbalance --foreground\n    930       1 root     Mon Nov  2 08:20:15 2026 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers\n    933       1 root     Mon Nov  2 08:20:15 2026 /usr/libexec/polkitd --no-debug\n    934       1 root     Mon Nov  2 08:20:15 2026 /usr/libexec/power-profiles-daemon\n    938       1 syslog   Mon Nov  2 08:20:15 2026 /usr/sbin/rsyslogd -n -iNONE\n    943       1 root     Mon Nov  2 08:20:15 2026 /usr/lib/snapd/snapd\n    946       1 root     Mon Nov  2 08:20:15 2026 /usr/libexec/switcheroo-control\n    950       1 root     Mon Nov  2 08:20:15 2026 /lib/systemd/systemd-logind\n    952       1 root     Mon Nov  2 08:20:15 2026 /usr/sbin/thermald --systemd --dbus-enable --adaptive\n    955       1 root     Mon Nov  2 08:20:15 2026 /usr/libexec/udisks2/udisksd\n    956       1 root     Mon Nov  2 08:20:15 2026 /sbin/wpa_supplicant -u -s -O /run/wpa_supplicant\n    962     915 avahi    Mon Nov  2 08:20:15 2026 avahi-daemon: chroot helper\n   1111       1 root     Mon Nov  2 08:20:16 2026 /usr/sbin/ModemManager\n   1122       1 root     Mon Nov  2 08:20:16 2026 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal\n   1130       1 root     Mon Nov  2 08:20:16 2026 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups\n   1248       2 root     Mon Nov  2 08:20:17 2026 [UVM global queue]\n   1249       2 root     Mon Nov  2 08:20:17 2026 [UVM deferred release queue]\n   1251       2 root     Mon Nov  2 08:20:17 2026 [UVM Tools Event Queue]\n   1339       1 nvidia-+ Mon Nov  2 08:20:17 2026 /usr/bin/nvidia-persistenced --user nvidia-persistenced --no-persistence-mode --verbose\n   1352       1 root     Mon Nov  2 08:20:17 2026 /usr/sbin/gdm3\n   1396       1 rtkit    Mon Nov  2 08:20:17 2026 /usr/libexec/rtkit-daemon\n   1509       1 root     Mon Nov  2 08:20:18 2026 /usr/libexec/upowerd\n   1512       1 root     Mon Nov  2 08:20:18 2026 /usr/libexec/packagekitd\n   1629       1 colord   Mon Nov  2 08:20:18 2026 /usr/libexec/colord\n   1763       1 kernoops Mon Nov  2 08:20:22 2026 /usr/sbin/kerneloops --test\n   1765       1 kernoops Mon Nov  2 08:20:22 2026 /usr/sbin/kerneloops\n   1798    1352 root     Mon Nov  2 08:21:33 2026 gdm-session-worker [pam/gdm-password]\n   1815       1 isaac-w+ Mon Nov  2 08:21:35 2026 /lib/systemd/systemd --user\n   1816    1815 isaac-w+ Mon Nov  2 08:21:35 2026 (sd-pam)\n   1823    1815 isaac-w+ Mon Nov  2 08:21:35 2026 /usr/bin/pipewire\n   1824    1815 isaac-w+ Mon Nov  2 08:21:35 2026 /usr/bin/pipewire-media-session\n   1825    1815 isaac-w+ Mon Nov  2 08:21:35 2026 /usr/bin/pulseaudio --daemonize=no --log-target=journal\n   1835       1 isaac-w+ Mon Nov  2 08:21:35 2026 /usr/bin/gnome-keyring-daemon --daemonize --login\n   1853    1815 isaac-w+ Mon Nov  2 08:21:35 2026 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only\n   1854    1815 isaac-w+ Mon Nov  2 08:21:35 2026 /usr/libexec/xdg-document-portal\n   1858    1815 isaac-w+ Mon Nov  2 08:21:35 2026 /usr/libexec/xdg-permission-store\n   1864    1854 root     Mon Nov  2 08:21:35 2026 fusermount3 -o rw,nosuid,nodev,fsname=portal,auto_unmount,subtype=portal -- /run/user/1000/doc\n   1882    1815 isaac-w+ Mon Nov  2 08:21:35 2026 /usr/libexec/gvfsd\n   1891       2 root     Mon Nov  2 08:21:36 2026 [krfcommd]\n   1922    1798 isaac-w+ Mon Nov  2 08:21:36 2026 /usr/libexec/gdm-x-session --run-script env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu\n   1924    1922 isaac-w+ Mon Nov  2 08:21:36 2026 /usr/lib/xorg/Xorg vt2 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -nolisten tcp -background none -noreset -keeptty -novtswitch -verbose 3\n   1925       2 root     Mon Nov  2 08:21:36 2026 [nvidia-drm/timeline-9]\n   1936    1922 isaac-w+ Mon Nov  2 08:21:37 2026 /usr/libexec/gnome-session-binary --session=ubuntu\n   1993    1815 isaac-w+ Mon Nov  2 08:21:37 2026 /usr/libexec/at-spi-bus-launcher\n   1999    1993 isaac-w+ Mon Nov  2 08:21:37 2026 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 11 --address=unix:path=/run/user/1000/at-spi/bus_1\n   2006    1815 isaac-w+ Mon Nov  2 08:21:37 2026 /usr/libexec/gnome-session-ctl --monitor\n   2019    1815 isaac-w+ Mon Nov  2 08:21:37 2026 /usr/libexec/gnome-session-binary --systemd-service --session=ubuntu\n   2042    1815 isaac-w+ Mon Nov  2 08:21:37 2026 /usr/bin/gnome-shell\n   2063    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gnome-shell-calendar-server\n   2071    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/evolution-source-registry\n   2075       1 geoclue  Mon Nov  2 08:21:38 2026 /usr/libexec/geoclue\n   2076    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/dconf-service\n   2081    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/goa-daemon\n   2082    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gvfs-udisks2-volume-monitor\n   2087    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/evolution-calendar-factory\n   2092    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gvfs-mtp-volume-monitor\n   2099    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/goa-identity-service\n   2106    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gvfs-afc-volume-monitor\n   2116    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gvfs-gphoto2-volume-monitor\n   2125    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/evolution-addressbook-factory\n   2127    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gvfs-goa-volume-monitor\n   2141    1882 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gvfsd-trash --spawner :1.7 /org/gtk/gvfs/exec_spaw/0\n   2153    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/xdg-desktop-portal\n   2156    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/bin/gjs /usr/share/gnome-shell/org.gnome.Shell.Notifications\n   2158    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/at-spi2-registryd --use-gnome-session\n   2175    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/xdg-desktop-portal-gtk\n   2186    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/bin/gjs /usr/share/gnome-shell/org.gnome.ScreenSaver\n   2187    1815 isaac-w+ Mon Nov  2 08:21:38 2026 sh -c /usr/bin/ibus-daemon --panel disable $([ \"$XDG_SESSION_TYPE\" = \"x11\" ] && echo \"--xim\")\n   2188    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gsd-a11y-settings\n   2190    2187 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/bin/ibus-daemon --panel disable --xim\n   2191    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gsd-color\n   2194    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gsd-datetime\n   2196    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gsd-housekeeping\n   2199    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gsd-keyboard\n   2201    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gsd-media-keys\n   2203    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gsd-power\n   2208    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gsd-print-notifications\n   2212    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gsd-rfkill\n   2214    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gsd-screensaver-proxy\n   2217    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gsd-sharing\n   2218    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gsd-smartcard\n   2229    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gsd-sound\n   2233    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gsd-wacom\n   2240    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gsd-xsettings\n   2247    2019 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/evolution-data-server/evolution-alarm-notify\n   2254    2019 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gsd-disk-utility-notify\n   2263    2019 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/bin/gnome-software --gapplication-service\n   2288    2190 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/ibus-memconf\n   2292    2190 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/ibus-extension-gtk3\n   2302    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/ibus-x11 --kill-daemon\n   2306    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/ibus-portal\n   2307    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/gsd-printer\n   2399       1 root     Mon Nov  2 08:21:38 2026 /usr/libexec/fwupd/fwupd\n   2412    1815 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/tracker-miner-fs-3\n   2437    2190 isaac-w+ Mon Nov  2 08:21:38 2026 /usr/libexec/ibus-engine-libpinyin --ibus\n   2651    1815 isaac-w+ Mon Nov  2 08:21:39 2026 /usr/libexec/gvfsd-metadata\n   2794    1815 isaac-w+ Mon Nov  2 08:21:40 2026 /snap/snapd-desktop-integration/391/usr/bin/user-session-helper /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration\n   2854    2794 isaac-w+ Mon Nov  2 08:21:41 2026 /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration\n   2937    2019 isaac-w+ Mon Nov  2 08:22:38 2026 update-notifier\n   2998    2019 isaac-w+ Mon Nov  2 08:23:39 2026 /usr/libexec/deja-dup/deja-dup-monitor\n   4785    2190 isaac-w+ Tue Nov  3 08:55:26 2026 /usr/libexec/ibus-engine-simple\n   4963    2042 isaac-w+ Tue Nov  3 08:55:47 2026 /snap/firefox/8633/usr/lib/firefox/firefox\n   5043    1815 isaac-w+ Tue Nov  3 08:55:48 2026 /snap/firefox/8633/usr/lib/firefox/crashhelper 4963 9 /tmp/ 11\n   5118    4963 isaac-w+ Tue Nov  3 08:55:48 2026 /snap/firefox/8633/usr/lib/firefox/firefox -contentproc -ipcHandle 0 -signalPipe 1 -initialChannelId {efcdd53f-e070-40f7-bf1b-232816ce72f1} -parentPid 4963 -greomni /snap/firefox/8633/usr/lib/firefox/omni.ja -appomni /snap/firefox/8633/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/8633/usr/lib/firefox/browser 1 forkserver\n   5121    5118 isaac-w+ Tue Nov  3 08:55:48 2026 /snap/firefox/8633/usr/lib/firefox/firefox -contentproc -parentBuildID 20260714090335 -prefsHandle 0:36872 -prefMapHandle 1:288702 -sandboxReporter 2 -chrootClient 3 -ipcHandle 4 -initialChannelId {b3e0bd41-4cc4-44ba-88ba-722830d87ceb} -parentPid 4963 -crashReporter 5 -crashHelperPid 5043 -crashHelper 6 -appDir /snap/firefox/8633/usr/lib/firefox/browser 2 socket\n   5165    5118 isaac-w+ Tue Nov  3 08:55:48 2026 /snap/firefox/8633/usr/lib/firefox/firefox -contentproc -isForBrowser -prefsHandle 0:37093 -prefMapHandle 1:288702 -jsInitHandle 2:156120 -parentBuildID 20260714090335 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {ddd47e90-872a-448f-a540-3df4f32efe13} -parentPid 4963 -crashReporter 6 -crashHelperPid 5043 -crashHelper 7 -greomni /snap/firefox/8633/usr/lib/firefox/omni.ja -appomni /snap/firefox/8633/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/8633/usr/lib/firefox/browser 3 tab\n   5174    5118 isaac-w+ Tue Nov  3 08:55:48 2026 /snap/firefox/8633/usr/lib/firefox/firefox -contentproc -parentBuildID 20260714090335 -prefsHandle 0:37093 -prefMapHandle 1:288702 -sandboxReporter 2 -chrootClient 3 -ipcHandle 4 -initialChannelId {5a9db025-93a2-415b-8c44-c97518d2ff06} -parentPid 4963 -crashReporter 5 -crashHelperPid 5043 -crashHelper 6 -appDir /snap/firefox/8633/usr/lib/firefox/browser 4 rdd\n   5223    1815 isaac-w+ Tue Nov  3 08:55:48 2026 /usr/bin/snap userd\n   5309    5118 isaac-w+ Tue Nov  3 08:55:49 2026 /snap/firefox/8633/usr/lib/firefox/firefox -contentproc -isForBrowser -prefsHandle 0:37148 -prefMapHandle 1:288702 -jsInitHandle 2:156120 -parentBuildID 20260714090335 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {32d5000e-f54b-4d5a-9435-f55a11c3f591} -parentPid 4963 -crashReporter 6 -crashHelperPid 5043 -crashHelper 7 -greomni /snap/firefox/8633/usr/lib/firefox/omni.ja -appomni /snap/firefox/8633/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/8633/usr/lib/firefox/browser 5 tab\n   5464    5118 isaac-w+ Tue Nov  3 08:55:49 2026 /snap/firefox/8633/usr/lib/firefox/firefox -contentproc -parentBuildID 20260714090335 -sandboxingKind 0 -prefsHandle 0:52366 -prefMapHandle 1:288702 -sandboxReporter 2 -chrootClient 3 -ipcHandle 4 -initialChannelId {f6cd85a1-4e51-4b3e-9686-a0def8ff6df2} -parentPid 4963 -crashReporter 5 -crashHelperPid 5043 -crashHelper 6 -appDir /snap/firefox/8633/usr/lib/firefox/browser 6 utility\n   5534    5118 isaac-w+ Tue Nov  3 08:55:49 2026 /snap/firefox/8633/usr/lib/firefox/firefox -contentproc -isForBrowser -prefsHandle 0:48668 -prefMapHandle 1:288702 -jsInitHandle 2:156120 -parentBuildID 20260714090335 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {e00ba9e3-2233-4298-b8a6-5c38b511be5f} -parentPid 4963 -crashReporter 6 -crashHelperPid 5043 -crashHelper 7 -greomni /snap/firefox/8633/usr/lib/firefox/omni.ja -appomni /snap/firefox/8633/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/8633/usr/lib/firefox/browser 8 tab\n   6940    2042 isaac-w+ Tue Nov  3 08:58:04 2026 /snap/joplin-desktop/162/opt/joplin-desktop/joplin --no-sandbox\n   7016    6940 isaac-w+ Tue Nov  3 08:58:05 2026 /snap/joplin-desktop/162/opt/joplin-desktop/joplin --type=zygote --no-zygote-sandbox --no-sandbox\n   7017    6940 isaac-w+ Tue Nov  3 08:58:05 2026 /snap/joplin-desktop/162/opt/joplin-desktop/joplin --type=zygote --no-sandbox\n   7057    7016 isaac-w+ Tue Nov  3 08:58:05 2026 /snap/joplin-desktop/162/opt/joplin-desktop/joplin --type=gpu-process --no-sandbox --ozone-platform=x11 --enable-crash-reporter=463acc79-51c2-4a30-9ae8-74aba1bab06d,no_channel --user-data-dir=/home/isaac-workstation/snap/joplin-desktop/162/.config/Joplin --gpu-preferences=UAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAAAQAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAAQAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --shared-files --field-trial-handle=3,i,15166247996513662937,9954498899190807948,262144 --enable-features=PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,10240362077086488591,4249863795562067927,4 --trace-process-track-uuid=3190708988185955192\n   7062    6940 isaac-w+ Tue Nov  3 08:58:05 2026 /snap/joplin-desktop/162/opt/joplin-desktop/joplin --type=utility --utility-sub-type=network.mojom.NetworkService --lang=zh-CN --service-sandbox-type=none --no-sandbox --enable-crash-reporter=463acc79-51c2-4a30-9ae8-74aba1bab06d,no_channel --user-data-dir=/home/isaac-workstation/snap/joplin-desktop/162/.config/Joplin --standard-schemes=joplin-content,joplin-plugin --secure-schemes=joplin-content,joplin-plugin --cors-schemes=joplin-content --fetch-schemes=joplin-content --streaming-schemes=joplin-content --code-cache-schemes=joplin-content --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,15166247996513662937,9954498899190807948,262144 --enable-features=PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,10240362077086488591,4249863795562067927,4 --trace-process-track-uuid=3190708989122997041\n   7118       2 root     Tue Nov  3 08:58:05 2026 [nvidia-drm/timeline-13]\n   7181    6940 isaac-w+ Tue Nov  3 08:58:06 2026 /snap/joplin-desktop/162/opt/joplin-desktop/joplin --type=renderer --enable-crash-reporter=463acc79-51c2-4a30-9ae8-74aba1bab06d,no_channel --user-data-dir=/home/isaac-workstation/snap/joplin-desktop/162/.config/Joplin --standard-schemes=joplin-content,joplin-plugin --secure-schemes=joplin-content,joplin-plugin --cors-schemes=joplin-content --fetch-schemes=joplin-content --streaming-schemes=joplin-content --code-cache-schemes=joplin-content --app-path=/snap/joplin-desktop/162/opt/joplin-desktop/resources/app.asar --no-sandbox --no-zygote --no-sandbox --ozone-platform=x11 --lang=zh-CN --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --time-ticks-at-unix-epoch=-1793578827146062 --launch-time-ticks=88677902193 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,15166247996513662937,9954498899190807948,262144 --enable-features=PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,10240362077086488591,4249863795562067927,4 --trace-process-track-uuid=3190708990997080739\n   7182    6940 isaac-w+ Tue Nov  3 08:58:06 2026 /snap/joplin-desktop/162/opt/joplin-desktop/joplin --type=renderer --enable-crash-reporter=463acc79-51c2-4a30-9ae8-74aba1bab06d,no_channel --user-data-dir=/home/isaac-workstation/snap/joplin-desktop/162/.config/Joplin --standard-schemes=joplin-content,joplin-plugin --secure-schemes=joplin-content,joplin-plugin --cors-schemes=joplin-content --fetch-schemes=joplin-content --streaming-schemes=joplin-content --code-cache-schemes=joplin-content --app-path=/snap/joplin-desktop/162/opt/joplin-desktop/resources/app.asar --no-sandbox --no-zygote --no-sandbox --ozone-platform=x11 --lang=zh-CN --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --time-ticks-at-unix-epoch=-1793578827146062 --launch-time-ticks=88677917390 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,15166247996513662937,9954498899190807948,262144 --enable-features=PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,10240362077086488591,4249863795562067927,4 --trace-process-track-uuid=3190708991934122588\n   7225    1815 isaac-w+ Tue Nov  3 08:58:18 2026 deja-dup --backup --auto\n   9075    1815 isaac-w+ Tue Nov  3 11:02:03 2026 /usr/lib/libreoffice/program/oosplash --writer file:///home/isaac-workstation/Desktop/%E6%99%BA%E5%85%83G2%202.6.3%20%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.docx\n   9091    9075 isaac-w+ Tue Nov  3 11:02:03 2026 /usr/lib/libreoffice/program/soffice.bin --writer file:///home/isaac-workstation/Desktop/%E6%99%BA%E5%85%83G2%202.6.3%20%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3.docx\n  18177    1815 isaac-w+ Wed Nov  4 08:23:54 2026 /usr/bin/nautilus --gapplication-service\n  53153    5118 isaac-w+ Thu Nov  5 08:21:40 2026 /snap/firefox/8633/usr/lib/firefox/firefox -contentproc -isForBrowser -prefsHandle 0:48988 -prefMapHandle 1:288702 -jsInitHandle 2:156120 -parentBuildID 20260714090335 -sandboxReporter 3 -chrootClient 4 -ipcHandle 5 -initialChannelId {58dcdaf1-c1a1-4c43-a411-c64c2edc6d13} -parentPid 4963 -crashReporter 6 -crashHelperPid 5043 -crashHelper 7 -greomni /snap/firefox/8633/usr/lib/firefox/omni.ja -appomni /snap/firefox/8633/usr/lib/firefox/browser/omni.ja -appDir /snap/firefox/8633/usr/lib/firefox/browser 12 tab\n  53369    5118 isaac-w+ Th",
+        "stderr": "",
+        "duration_seconds": 0.01181,
+        "timed_out": false
+      }
+    }
+  },
+  "passive_runtime": {
+    "candidate_process_lines": [
+      "   1999    1993 isaac-w+ Mon Nov  2 08:21:37 2026 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 11 --address=unix:path=/run/user/1000/at-spi/bus_1",
+      "   7057    7016 isaac-w+ Tue Nov  3 08:58:05 2026 /snap/joplin-desktop/162/opt/joplin-desktop/joplin --type=gpu-process --no-sandbox --ozone-platform=x11 --enable-crash-reporter=463acc79-51c2-4a30-9ae8-74aba1bab06d,no_channel --user-data-dir=/home/isaac-workstation/snap/joplin-desktop/162/.config/Joplin --gpu-preferences=UAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAAAQAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAAQAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --shared-files --field-trial-handle=3,i,15166247996513662937,9954498899190807948,262144 --enable-features=PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,10240362077086488591,4249863795562067927,4 --trace-process-track-uuid=3190708988185955192",
+      "   7062    6940 isaac-w+ Tue Nov  3 08:58:05 2026 /snap/joplin-desktop/162/opt/joplin-desktop/joplin --type=utility --utility-sub-type=network.mojom.NetworkService --lang=zh-CN --service-sandbox-type=none --no-sandbox --enable-crash-reporter=463acc79-51c2-4a30-9ae8-74aba1bab06d,no_channel --user-data-dir=/home/isaac-workstation/snap/joplin-desktop/162/.config/Joplin --standard-schemes=joplin-content,joplin-plugin --secure-schemes=joplin-content,joplin-plugin --cors-schemes=joplin-content --fetch-schemes=joplin-content --streaming-schemes=joplin-content --code-cache-schemes=joplin-content --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,15166247996513662937,9954498899190807948,262144 --enable-features=PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,10240362077086488591,4249863795562067927,4 --trace-process-track-uuid=3190708989122997041",
+      "   7181    6940 isaac-w+ Tue Nov  3 08:58:06 2026 /snap/joplin-desktop/162/opt/joplin-desktop/joplin --type=renderer --enable-crash-reporter=463acc79-51c2-4a30-9ae8-74aba1bab06d,no_channel --user-data-dir=/home/isaac-workstation/snap/joplin-desktop/162/.config/Joplin --standard-schemes=joplin-content,joplin-plugin --secure-schemes=joplin-content,joplin-plugin --cors-schemes=joplin-content --fetch-schemes=joplin-content --streaming-schemes=joplin-content --code-cache-schemes=joplin-content --app-path=/snap/joplin-desktop/162/opt/joplin-desktop/resources/app.asar --no-sandbox --no-zygote --no-sandbox --ozone-platform=x11 --lang=zh-CN --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --time-ticks-at-unix-epoch=-1793578827146062 --launch-time-ticks=88677902193 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,15166247996513662937,9954498899190807948,262144 --enable-features=PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,10240362077086488591,4249863795562067927,4 --trace-process-track-uuid=3190708990997080739",
+      "   7182    6940 isaac-w+ Tue Nov  3 08:58:06 2026 /snap/joplin-desktop/162/opt/joplin-desktop/joplin --type=renderer --enable-crash-reporter=463acc79-51c2-4a30-9ae8-74aba1bab06d,no_channel --user-data-dir=/home/isaac-workstation/snap/joplin-desktop/162/.config/Joplin --standard-schemes=joplin-content,joplin-plugin --secure-schemes=joplin-content,joplin-plugin --cors-schemes=joplin-content --fetch-schemes=joplin-content --streaming-schemes=joplin-content --code-cache-schemes=joplin-content --app-path=/snap/joplin-desktop/162/opt/joplin-desktop/resources/app.asar --no-sandbox --no-zygote --no-sandbox --ozone-platform=x11 --lang=zh-CN --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --time-ticks-at-unix-epoch=-1793578827146062 --launch-time-ticks=88677917390 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,15166247996513662937,9954498899190807948,262144 --enable-features=PdfUseShowSaveFilePicker --disable-features=DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,10240362077086488591,4249863795562067927,4 --trace-process-track-uuid=3190708991934122588"
+    ],
+    "relevant_socket_lines": [
+      "tcp   TIME-WAIT 0      0                                    10.42.1.11:37282                    10.42.1.101:22                                                "
+    ],
+    "discovery_2379_socket_seen": false
+  },
+  "configuration": {
+    "known_paths": [
+      {
+        "path": "/home/agi/app/conf/aorta/function/aorta_transport_conf.json",
+        "exists": false,
+        "is_file": false
+      },
+      {
+        "path": "/home/agi/app/conf/scene_server/dylog_sud_default.json",
+        "exists": false,
+        "is_file": false
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/env.sh",
+        "exists": true,
+        "is_file": true,
+        "size": 1877,
+        "mtime": "2026-03-24T13:29:58+08:00",
+        "sha256": "f1a504e489ae5f1286d08d00c2ab3a2603194cc256c8d1e0a71420eb3c91b333"
+      }
+    ],
+    "discovered": [
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/conf/aorta/aorta_transport_conf.json",
+        "exists": true,
+        "is_file": true,
+        "size": 4828,
+        "mtime": "2026-01-19T09:48:47+08:00",
+        "sha256": "94308acbecc5cc34b4f15c4e10e0d603f50a787e7183987acc9b20d69e217765"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/conf/aorta/aorta_pcie_conf.json",
+        "exists": true,
+        "is_file": true,
+        "size": 430,
+        "mtime": "2026-01-19T09:48:47+08:00",
+        "sha256": "1cd37bb662fbb7ee883c2390050236d89ebc26e3783a1dc86bfe43fdeae8bac4"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/conf/aorta/aorta_diagnosis_conf.json",
+        "exists": true,
+        "is_file": true,
+        "size": 702,
+        "mtime": "2026-01-19T09:48:47+08:00",
+        "sha256": "37f330876fbfb51e46de0847d9f760083bbaa88dc330a13a78a0ea4bae364444"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/conf/aorta/aorta_monitor_conf.json",
+        "exists": true,
+        "is_file": true,
+        "size": 1502,
+        "mtime": "2026-01-19T09:48:47+08:00",
+        "sha256": "9e4c0d7e88a5c17c112752476ceecb26b5436fd7d8a65ca894b7865355f0727c"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/build_dep/cpp/x86_64/lib/dds/libcosine_configuration.so.2",
+        "exists": true,
+        "is_file": true,
+        "size": 3542808,
+        "mtime": "2026-03-16T22:50:22+08:00",
+        "sha256": "5f9ca57580a88482b40ac1d8844ef3fdc964ee51beb58882b012f7eff0c3af67"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/build_dep/cpp/x86_64/lib/dds/libcosine_configuration.so.2.1.0",
+        "exists": true,
+        "is_file": true,
+        "size": 3542808,
+        "mtime": "2026-03-16T22:50:22+08:00",
+        "sha256": "5f9ca57580a88482b40ac1d8844ef3fdc964ee51beb58882b012f7eff0c3af67"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/build_dep/cpp/x86_64/lib/dds/libdynamic_aorta.so",
+        "exists": true,
+        "is_file": true,
+        "size": 146144,
+        "mtime": "2026-03-16T22:50:22+08:00",
+        "sha256": "26b302e2c5912337acb4b97da052006d53e41800ad4dd2bb1bb673c7428b6a2a"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/build_dep/cpp/x86_64/lib/dds/libaorta.so",
+        "exists": true,
+        "is_file": true,
+        "size": 4012360,
+        "mtime": "2026-03-16T22:50:22+08:00",
+        "sha256": "95527a02916028d1666e74b929d46a1cf87a75eb44ce678275fe4f8db172cfb6"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/build_dep/cpp/aarch64/lib/dds/libcosine_configuration.so.2",
+        "exists": true,
+        "is_file": true,
+        "size": 2761320,
+        "mtime": "2026-03-24T13:29:58+08:00",
+        "sha256": "11271737e2bad88e674d7bb1f0fc245fb586140bb3bd4d8d84d25ae981642fb2"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/build_dep/cpp/aarch64/lib/dds/libcosine_configuration.so.2.1.0",
+        "exists": true,
+        "is_file": true,
+        "size": 2761320,
+        "mtime": "2026-03-24T13:29:58+08:00",
+        "sha256": "11271737e2bad88e674d7bb1f0fc245fb586140bb3bd4d8d84d25ae981642fb2"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/build_dep/cpp/aarch64/lib/dds/libdynamic_aorta.so",
+        "exists": true,
+        "is_file": true,
+        "size": 171600,
+        "mtime": "2026-03-24T13:29:58+08:00",
+        "sha256": "573f0a8c4c55c0c357ade409d824e3bb73b012ae37d913c51906f1ac36b40d44"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/build_dep/cpp/aarch64/lib/dds/libaorta.so",
+        "exists": true,
+        "is_file": true,
+        "size": 3622912,
+        "mtime": "2026-03-24T13:29:58+08:00",
+        "sha256": "fd539d7f98f199934e8617a2bec00fac2f8653866fe7cc55d93cb21380f15801"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/build_dep/python/pybind/examples/python/record_config.json",
+        "exists": true,
+        "is_file": true,
+        "size": 156,
+        "mtime": "2026-03-16T23:21:46+08:00",
+        "sha256": "2337eef59d39b4847045f49f755ea81ee32cfec8a8785bf5bfc25889e9468733"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/lib/rh_msgs_pb/config_robot_pb2.py",
+        "exists": true,
+        "is_file": true,
+        "size": 8550,
+        "mtime": "2026-03-16T14:19:10+08:00",
+        "sha256": "cb099f2558ccddfbd4c76c2814f59583321a06b799e8bbdcebe09dc46bbfe308"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/lib/rh_msgs_v4_pb/general_config_pb2.py",
+        "exists": true,
+        "is_file": true,
+        "size": 5919,
+        "mtime": "2026-03-16T14:19:10+08:00",
+        "sha256": "249b29214189f11e7e8d42221b7ea568c16f521d7034186987ecb2421b152ef3"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/lib/rh_msgs_v4_pb/mc_config_pb2.py",
+        "exists": true,
+        "is_file": true,
+        "size": 2167,
+        "mtime": "2026-03-16T14:19:10+08:00",
+        "sha256": "eef2949600073725093b4bd4e312e116d2b1bcfaf7b173624f600a250f4a9d01"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/lib/rh_msgs_v4_pb/config_robot_pb2.py",
+        "exists": true,
+        "is_file": true,
+        "size": 5163,
+        "mtime": "2026-03-16T14:19:10+08:00",
+        "sha256": "570ff079a1b01151ce723fa5028c488d4918cb10fab15d89bb19adb7716430e8"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/lib/rh_msgs_v4_pb/teleop_config_pb2.py",
+        "exists": true,
+        "is_file": true,
+        "size": 16999,
+        "mtime": "2026-03-16T14:19:10+08:00",
+        "sha256": "069947c05d8c2908c7c00691a44a26d3eeeb283b16e3edd55d4b45ac63e3772c"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/lib/rh_msgs_grpc_pb/config_robot_service_pb2.py",
+        "exists": true,
+        "is_file": true,
+        "size": 1700,
+        "mtime": "2026-03-16T14:19:10+08:00",
+        "sha256": "56182c46994917b933061aea9bb2305f9bd4eb8709c0c356bae267f7c75a42e1"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/lib/rh_msgs_v4_grpc_pb/config_robot_service_pb2.py",
+        "exists": true,
+        "is_file": true,
+        "size": 2653,
+        "mtime": "2026-03-16T14:19:10+08:00",
+        "sha256": "eef60f340c887458b41b63d6200ad54c26e3f987b77f35eb6d9451474d1e7eab"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/config/mc_impl_config.json",
+        "exists": true,
+        "is_file": true,
+        "size": 8496,
+        "mtime": "2026-03-16T22:49:07+08:00",
+        "sha256": "bc52d3154eec05dc2b1ff5e088cf9a9c6b3be69937223b9a0573ffdd902e1d86"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/config/r1_camera_conf.json",
+        "exists": true,
+        "is_file": true,
+        "size": 1125,
+        "mtime": "2026-03-16T22:49:07+08:00",
+        "sha256": "540b56ea8b77d3c63b1a4ed2a0c13ce5c76ff29427141c477b0025e107a2ed11"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/config/thor_camera_conf.json",
+        "exists": true,
+        "is_file": true,
+        "size": 1132,
+        "mtime": "2026-03-16T22:49:07+08:00",
+        "sha256": "3f32e311300ae7d7fc98380ce20d18b923a12513edf5632fcb30d8985bbc29ef"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/config/app_conf.json",
+        "exists": true,
+        "is_file": true,
+        "size": 409,
+        "mtime": "2026-03-16T22:49:07+08:00",
+        "sha256": "069305b007bef9f9eafa22cc6b4c4fca41573d437920fbbe9502bdd75ce9d409"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/config/corobot/app_config.yaml",
+        "exists": true,
+        "is_file": true,
+        "size": 665,
+        "mtime": "2026-03-16T22:49:07+08:00",
+        "sha256": "f62980b24babcb52389f26c4b87539f831666992e324bf788565c1b0c7d64a68"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/examples/python/record_config.json",
+        "exists": true,
+        "is_file": true,
+        "size": 156,
+        "mtime": "2026-03-16T22:49:07+08:00",
+        "sha256": "2337eef59d39b4847045f49f755ea81ee32cfec8a8785bf5bfc25889e9468733"
+      },
+      {
+        "path": "/home/isaac-workstation/.cache/agibot/app/gdk/examples/python/examples/python/record_config.json",
+        "exists": true,
+        "is_file": true,
+        "size": 156,
+        "mtime": "2026-03-16T23:21:46+08:00",
+        "sha256": "2337eef59d39b4847045f49f755ea81ee32cfec8a8785bf5bfc25889e9468733"
+      }
+    ],
+    "truncated": false
+  },
+  "ros2": {
+    "topic_list": {
+      "argv": [
+        "ros2",
+        "topic",
+        "list",
+        "-t"
+      ],
+      "available": false,
+      "returncode": null,
+      "stdout": "",
+      "stderr": "command not found: ros2",
+      "duration_seconds": null,
+      "timed_out": false
+    },
+    "node_list": {
+      "argv": [
+        "ros2",
+        "node",
+        "list"
+      ],
+      "available": false,
+      "returncode": null,
+      "stdout": "",
+      "stderr": "command not found: ros2",
+      "duration_seconds": null,
+      "timed_out": false
+    },
+    "service_list": {
+      "argv": [
+        "ros2",
+        "service",
+        "list",
+        "-t"
+      ],
+      "available": false,
+      "returncode": null,
+      "stdout": "",
+      "stderr": "command not found: ros2",
+      "duration_seconds": null,
+      "timed_out": false
+    },
+    "config_request_info": {
+      "argv": [
+        "ros2",
+        "topic",
+        "info",
+        "-v",
+        "/gdk/config_request"
+      ],
+      "available": false,
+      "returncode": null,
+      "stdout": "",
+      "stderr": "command not found: ros2",
+      "duration_seconds": null,
+      "timed_out": false
+    },
+    "config_response_info": {
+      "argv": [
+        "ros2",
+        "topic",
+        "info",
+        "-v",
+        "/gdk/config_response"
+      ],
+      "available": false,
+      "returncode": null,
+      "stdout": "",
+      "stderr": "command not found: ros2",
+      "duration_seconds": null,
+      "timed_out": false
+    }
+  },
+  "gdk": {
+    "import": "PASS",
+    "initialized": true,
+    "robot_created": true,
+    "get_end_state": {
+      "status": "PASS",
+      "attempt": 1,
+      "attempts": [],
+      "value": {
+        "left_end_state": {
+          "controlled": true,
+          "type": 1,
+          "names": [
+            "idx31_hand_l_thumb_roll_joint",
+            "idx32_hand_l_thumb_abad_joint",
+            "idx33_hand_l_thumb_mcp_joint",
+            "idx36_hand_l_index_abad_joint",
+            "idx37_hand_l_index_pip_joint",
+            "idx39_hand_l_middle_pip_joint",
+            "idx41_hand_l_ring_abad_joint",
+            "idx42_hand_l_ring_pip_joint",
+            "idx44_hand_l_pinky_abad_joint",
+            "idx45_hand_l_pinky_pip_joint"
+          ],
+          "end_states": [
+            {
+              "id": 0,
+              "enable": true,
+              "position": 0.002204589843749938,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            },
+            {
+              "id": 1,
+              "enable": true,
+              "position": 0.8044897460937499,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            },
+            {
+              "id": 2,
+              "enable": true,
+              "position": -0.8358553965401767,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            },
+            {
+              "id": 3,
+              "enable": true,
+              "position": 0.0763671875,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            },
+            {
+              "id": 4,
+              "enable": true,
+              "position": 1.294574902277834,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            },
+            {
+              "id": 5,
+              "enable": true,
+              "position": 1.403479403226779,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            },
+            {
+              "id": 6,
+              "enable": true,
+              "position": -0.08553955078125,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            },
+            {
+              "id": 7,
+              "enable": true,
+              "position": 1.396484672321866,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            },
+            {
+              "id": 8,
+              "enable": true,
+              "position": -0.0932373046875,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            },
+            {
+              "id": 9,
+              "enable": true,
+              "position": 1.4263943399346004,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            }
+          ]
+        },
+        "right_end_state": {
+          "controlled": true,
+          "type": 1,
+          "names": [
+            "idx71_hand_r_thumb_roll_joint",
+            "idx72_hand_r_thumb_abad_joint",
+            "idx73_hand_r_thumb_mcp_joint",
+            "idx76_hand_r_index_abad_joint",
+            "idx77_hand_r_index_pip_joint ",
+            "idx79_hand_r_middle_pip_joint",
+            "idx81_hand_r_ring_abad_joint",
+            "idx82_hand_r_ring_pip_joint",
+            "idx84_hand_r_pinky_abad_joint",
+            "idx85_hand_r_pinky_pip_joint"
+          ],
+          "end_states": [
+            {
+              "id": 0,
+              "enable": true,
+              "position": 0.002287597656250008,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            },
+            {
+              "id": 1,
+              "enable": true,
+              "position": -0.8040771484374999,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            },
+            {
+              "id": 2,
+              "enable": true,
+              "position": 0.8368248177524341,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            },
+            {
+              "id": 3,
+              "enable": true,
+              "position": -0.07417968750000001,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            },
+            {
+              "id": 4,
+              "enable": true,
+              "position": 1.294574902277834,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            },
+            {
+              "id": 5,
+              "enable": true,
+              "position": 1.403479403226779,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            },
+            {
+              "id": 6,
+              "enable": true,
+              "position": 0.08072509765625001,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            },
+            {
+              "id": 7,
+              "enable": true,
+              "position": 1.3951649776650341,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            },
+            {
+              "id": 8,
+              "enable": true,
+              "position": 0.0928662109375,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            },
+            {
+              "id": 9,
+              "enable": true,
+              "position": 1.4266928802553063,
+              "velocity": 0.0,
+              "effort": 0.0,
+              "current": 0.0,
+              "voltage": 0.0,
+              "temperature": 0.0,
+              "status": 0,
+              "err_code": 0
+            }
+          ]
+        }
+      }
+    },
+    "get_motion_control_status": {
+      "status": "PASS",
+      "attempt": 1,
+      "attempts": [],
+      "value": {
+        "type": "agibot_gdk.agibot_gdk.MotionControlStatus",
+        "attributes": {
+          "collision_pairs_1": [],
+          "collision_pairs_2": [],
+          "error_code": 0,
+          "error_msg": "",
+          "frame_names": [
+            "arm_l_end_link",
+            "arm_r_end_link",
+            "left_tool0_body",
+            "right_tool0_body"
+          ],
+          "frame_poses": [
+            {
+              "type": "agibot_gdk.agibot_gdk.Pose",
+              "attributes": {
+                "orientation": {
+                  "type": "agibot_gdk.agibot_gdk.Quaternion",
+                  "attributes": {
+                    "w": 0.0009338336107428004,
+                    "x": 0.7051912633812516,
+                    "y": 0.0005489414054177664,
+                    "z": 0.7090162964762345
+                  }
+                },
+                "position": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": 0.5886000125930938,
+                    "y": 0.24324620519248005,
+                    "z": 0.8172850155256102
+                  }
+                }
+              }
+            },
+            {
+              "type": "agibot_gdk.agibot_gdk.Pose",
+              "attributes": {
+                "orientation": {
+                  "type": "agibot_gdk.agibot_gdk.Quaternion",
+                  "attributes": {
+                    "w": 0.0007901851380225945,
+                    "x": 0.7046146590861146,
+                    "y": -0.00012627734128235003,
+                    "z": 0.7095896996592038
+                  }
+                },
+                "position": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": 0.5887533503040171,
+                    "y": -0.2442479692365746,
+                    "z": 0.8176142595538827
+                  }
+                }
+              }
+            },
+            {
+              "type": "agibot_gdk.agibot_gdk.Pose",
+              "attributes": {
+                "orientation": {
+                  "type": "agibot_gdk.agibot_gdk.Quaternion",
+                  "attributes": {
+                    "w": 0.0009338336107428004,
+                    "x": 0.7051912633812516,
+                    "y": 0.0005489414054177664,
+                    "z": 0.7090162964762345
+                  }
+                },
+                "position": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": 0.5886000125930938,
+                    "y": 0.24324620519248005,
+                    "z": 0.8172850155256102
+                  }
+                }
+              }
+            },
+            {
+              "type": "agibot_gdk.agibot_gdk.Pose",
+              "attributes": {
+                "orientation": {
+                  "type": "agibot_gdk.agibot_gdk.Quaternion",
+                  "attributes": {
+                    "w": 0.0007901851380225945,
+                    "x": 0.7046146590861146,
+                    "y": -0.00012627734128235003,
+                    "z": 0.7095896996592038
+                  }
+                },
+                "position": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": 0.5887533503040171,
+                    "y": -0.2442479692365746,
+                    "z": 0.8176142595538827
+                  }
+                }
+              }
+            }
+          ],
+          "mode": 1,
+          "twists": [
+            {
+              "type": "agibot_gdk.agibot_gdk.Twist",
+              "attributes": {
+                "angular": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": 0.000777744642884329,
+                    "y": 0.0005029818989049093,
+                    "z": 0.0006478282552245745
+                  }
+                },
+                "linear": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": -0.00015635760589448284,
+                    "y": -1.0299136508168651e-05,
+                    "z": -0.00013856259430339478
+                  }
+                }
+              }
+            },
+            {
+              "type": "agibot_gdk.agibot_gdk.Twist",
+              "attributes": {
+                "angular": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": 0.0001127757291644113,
+                    "y": -0.0005903404676840932,
+                    "z": -0.0008115148626711926
+                  }
+                },
+                "linear": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": 3.466239727553171e-05,
+                    "y": -0.0005181619005603796,
+                    "z": -3.4078551764180435e-05
+                  }
+                }
+              }
+            },
+            {
+              "type": "agibot_gdk.agibot_gdk.Twist",
+              "attributes": {
+                "angular": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": 0.000777744642884329,
+                    "y": 0.0005029818989049093,
+                    "z": 0.0006478282552245745
+                  }
+                },
+                "linear": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": -0.00015635760589448284,
+                    "y": -1.0299136508168651e-05,
+                    "z": -0.00013856259430339478
+                  }
+                }
+              }
+            },
+            {
+              "type": "agibot_gdk.agibot_gdk.Twist",
+              "attributes": {
+                "angular": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": 0.0001127757291644113,
+                    "y": -0.0005903404676840932,
+                    "z": -0.0008115148626711926
+                  }
+                },
+                "linear": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": 3.466239727553171e-05,
+                    "y": -0.0005181619005603796,
+                    "z": -3.4078551764180435e-05
+                  }
+                }
+              }
+            }
+          ],
+          "wrenches": [
+            {
+              "type": "agibot_gdk.agibot_gdk.Wrench",
+              "attributes": {
+                "force": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  }
+                },
+                "torque": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  }
+                }
+              }
+            },
+            {
+              "type": "agibot_gdk.agibot_gdk.Wrench",
+              "attributes": {
+                "force": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": -0.35102809571884375,
+                    "y": 0.00010432220816976258,
+                    "z": -0.008799387172125422
+                  }
+                },
+                "torque": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": 2.3982892331069775e-05,
+                    "y": 0.15149228900887637,
+                    "z": 8.13101790748759e-05
+                  }
+                }
+              }
+            },
+            {
+              "type": "agibot_gdk.agibot_gdk.Wrench",
+              "attributes": {
+                "force": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  }
+                },
+                "torque": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  }
+                }
+              }
+            },
+            {
+              "type": "agibot_gdk.agibot_gdk.Wrench",
+              "attributes": {
+                "force": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": -0.3510280957188437,
+                    "y": 0.00010432220816976277,
+                    "z": -0.00879938717212542
+                  }
+                },
+                "torque": {
+                  "type": "agibot_gdk.agibot_gdk.Vector3",
+                  "attributes": {
+                    "x": 2.3982892331069683e-05,
+                    "y": 0.15149228900887637,
+                    "z": 8.131017907487588e-05
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "released": true,
+    "errors": [],
+    "package": {
+      "module_file": "/home/isaac-workstation/.cache/agibot/app/gdk/lib/agibot_gdk/__init__.py",
+      "module_sha256": "ef784ab45711f3e548209ea5179ab19b2aa39059895b2a820a044152c8dc2e73",
+      "distribution_versions": {
+        "agibot-gdk": "2.6.3",
+        "agibot_gdk": "2.6.3"
+      },
+      "native_libraries": [
+        {
+          "path": "/home/isaac-workstation/.cache/agibot/app/gdk/lib/agibot_gdk/agibot_gdk.cpython-310-x86_64-linux-gnu.so",
+          "exists": true,
+          "is_file": true,
+          "size": 1897848,
+          "mtime": "2026-03-16T22:50:04+08:00",
+          "sha256": "c7f10073ba77f725674ded500fcb2b54c33a5541d3fb629cbb44a4668827da51"
+        }
+      ]
+    },
+    "init_result": "<GDKRes.kSuccess: 0>",
+    "robot_type": "agibot_gdk.agibot_gdk.Robot",
+    "release_result": "<GDKRes.kSuccess: 0>"
+  },
+  "native_log": {
+    "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261127-144040.3926481.0",
+    "evidence_lines": [
+      "31:I1127 14:40:40.046594 3926481 aorta_component.cpp:526] [cosine_internal][AortaComponent] locator_ip: 10.42.1.11; network is ready.",
+      "38:W1127 14:40:40.047044 3926481 transport_config.cc:91] [aorta]Failed to open the file /home/agi/app/conf/aorta/function/aorta_transport_conf.json",
+      "58:I1127 14:40:40.053431 3926481 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/gdk/config_request , middleware:aorta",
+      "75:I1127 14:40:40.053503 3926481 tcp_publisher.cc:179] [aorta]topic /gdk/config_request, pub_queue_size_ 5, latch_queue_size_ 0",
+      "77:I1127 14:40:40.053660 3926520 shm_socket_server.cc:101] [aorta][/gdk/config_request] bind at pipe sock name d2379|python3.10|p3926481|n0|/gdk/config_request|p0",
+      "78:I1127 14:40:40.053678 3926481 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:46719, sockname:d2379|python3.10|p3926481|n0|/gdk/config_request|p0, topic:/gdk/config_request, uid:1a555423-444b-4cfa-9dd5-589ab58f694b-4991715019463590898 topic_uid:-1",
+      "79:I1127 14:40:40.053684 3926481 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/gdk/config_request, type:genie_msgs.msg.pb.CommonRequest, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379",
+      "80:I1127 14:40:40.053711 3926481 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/gdk/config_request, uri:",
+      "82:I1127 14:40:40.053717 3926481 publisher.cpp:27] [GDK]create publisher: /gdk/config_request type: genie_msgs.msg.pb.CommonRequest qos: 1 1 5 2",
+      "107:I1127 14:40:40.053819 3926481 cosine_bus_manager.cpp:478] [cosine_internal][CosineBusManager] create subscriber. topic name:/gdk/config_response , middleware:aorta , need async callback:0, frame_skip_rate:1",
+      "108:I1127 14:40:40.053822 3926481 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/gdk/config_responsehttp://10.42.1.101:2379",
+      "112:I1127 14:40:40.053890 3926481 node_impl.cc:344] [aorta]CreateSubscriber topic:/gdk/config_response, uid:d8f085f1-a4c2-4971-a182-e1c526e4be0e-9533047780102618842 topic_uid:-1",
+      "129:I1127 14:40:40.053943 3926481 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/gdk/config_response, type:genie_msgs.msg.pb.CommonResponse, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379",
+      "130:I1127 14:40:40.053946 3926481 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/gdk/config_response, uri:",
+      "794:I1127 14:40:40.065917 3926513 centralized_discovery.cc:681] [aorta]publisher uid:1a555423-444b-4cfa-9dd5-589ab58f694b-4991715019463590898 topic:/gdk/config_request",
+      "796:I1127 14:40:40.068521 3926513 centralized_discovery.cc:733] [aorta]subscriber uid:d8f085f1-a4c2-4971-a182-e1c526e4be0e-9533047780102618842 topic:/gdk/config_response",
+      "801:I1127 14:40:40.073293 3926521 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /hal/joint_state, local 10.42.1.11:45159, peer 10.42.1.101:42565",
+      "820:I1127 14:40:40.073829 3926521 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /hal/whole_body_status, local 10.42.1.11:36475, peer 10.42.1.101:33395",
+      "840:I1127 14:40:40.075115 3926521 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /hal/left_ee_data, local 10.42.1.11:44709, peer 10.42.1.101:39101",
+      "861:I1127 14:40:40.091313 3926521 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /hal/right_ee_data, local 10.42.1.11:46055, peer 10.42.1.101:42659",
+      "881:I1127 14:40:40.092082 3926521 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /hal/chassis_power_state, local 10.42.1.11:44157, peer 10.42.1.101:34337",
+      "900:I1127 14:40:40.093021 3926521 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /hal/chest_power_state, local 10.42.1.11:43193, peer 10.42.1.101:36851",
+      "918:I1127 14:40:40.095511 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/hal/joint_cmd,local 10.42.1.11:38535, peer 10.42.1.101:39683",
+      "921:I1127 14:40:40.096041 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/hal/joint_cmd,local 10.42.1.11:38535, peer 10.42.1.101:35141",
+      "924:I1127 14:40:40.097867 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/hal/joint_cmd,local 10.42.1.11:38535, peer 10.42.1.101:37883",
+      "925:I1127 14:40:40.098116 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/left_ee_command,local 10.42.1.11:34775, peer 10.42.1.101:41079",
+      "932:I1127 14:40:40.100183 3926521 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /wbc/motion_control_status, local 10.42.1.11:37157, peer 10.42.1.101:42441",
+      "949:I1127 14:40:40.100235 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/right_ee_command,local 10.42.1.11:41285, peer 10.42.1.101:42663",
+      "952:I1127 14:40:40.101034 3926521 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /MotionControlService/JointPosition/response, local 10.42.1.11:46791, peer 10.42.1.101:38459",
+      "971:I1127 14:40:40.101927 3926521 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /MotionControlService/ControlMode/response, local 10.42.1.11:45021, peer 10.42.1.101:41823",
+      "988:I1127 14:40:40.102361 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/right_ee_command,local 10.42.1.11:41285, peer 10.42.1.101:42679",
+      "989:I1127 14:40:40.102417 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/left_ee_command,local 10.42.1.11:34775, peer 10.42.1.101:39059",
+      "992:I1127 14:40:40.103031 3926521 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /MotionControlService/SetLoad/response, local 10.42.1.11:44521, peer 10.42.1.101:46247",
+      "1011:I1127 14:40:40.103782 3926521 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /MotionControlService/SetComplianceParams/response, local 10.42.1.11:33617, peer 10.42.1.101:32889",
+      "1030:I1127 14:40:40.105015 3926521 tcp_subscriber.cc:110] [aorta]subscriber connect to publisher success, topic /MotionControlService/MotionPlan/response, local 10.42.1.11:32793, peer 10.42.1.101:38377",
+      "1049:I1127 14:40:40.107486 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/end_effector_pose_control,local 10.42.1.11:38305, peer 10.42.1.101:37991",
+      "1051:I1127 14:40:40.108314 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/MotionControlService/JointPosition/request,local 10.42.1.11:38349, peer 10.42.1.101:33811",
+      "1053:I1127 14:40:40.109300 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/MotionControlService/ControlMode/request,local 10.42.1.11:34955, peer 10.42.1.101:34109",
+      "1057:I1127 14:40:40.111512 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/force_position_cmd,local 10.42.1.11:38097, peer 10.42.1.101:39595",
+      "1059:I1127 14:40:40.113137 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/MotionControlService/SetComplianceParams/request,local 10.42.1.11:41393, peer 10.42.1.101:34153",
+      "1061:I1127 14:40:40.113638 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/MotionControlService/MotionPlan/request,local 10.42.1.11:46219, peer 10.42.1.101:41139",
+      "1063:I1127 14:40:40.114542 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/retarget,local 10.42.1.11:42025, peer 10.42.1.101:38759",
+      "1064:I1127 14:40:40.115108 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/retarget,local 10.42.1.11:42025, peer 10.42.1.101:41655",
+      "1066:I1127 14:40:40.115612 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/retarget,local 10.42.1.11:42025, peer 10.42.1.101:36389",
+      "1067:I1127 14:40:40.115751 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/joint_control,local 10.42.1.11:34515, peer 10.42.1.101:44205",
+      "1069:I1127 14:40:40.116243 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/gdk/model_predict,local 10.42.1.11:41709, peer 10.42.1.101:39261",
+      "1070:I1127 14:40:40.116695 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/joint_control_low_delay,local 10.42.1.11:39837, peer 10.42.1.101:40209",
+      "1072:I1127 14:40:40.117278 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/joint_control,local 10.42.1.11:34515, peer 10.42.1.101:33355",
+      "1106:I1127 14:40:40.149498 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/gdk/model_predict,local 10.42.1.11:41709, peer 10.42.1.101:38017",
+      "1109:I1127 14:40:40.150381 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/joint_control_low_delay,local 10.42.1.11:39837, peer 10.42.1.101:35259",
+      "1112:I1127 14:40:40.152593 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/MotionControlService/ControlMode/request,local 10.42.1.11:34955, peer 10.42.1.101:40341",
+      "1113:I1127 14:40:40.153652 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/force_position_cmd,local 10.42.1.11:38097, peer 10.42.1.101:41185",
+      "1115:I1127 14:40:40.154597 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/hal/joint_cmd,local 10.42.1.11:38535, peer 10.42.1.101:35311",
+      "1118:I1127 14:40:40.155402 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/hal/joint_cmd,local 10.42.1.11:38535, peer 10.42.1.101:40843",
+      "1119:I1127 14:40:40.155639 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/MotionControlService/MotionPlan/request,local 10.42.1.11:46219, peer 10.42.1.101:41169",
+      "1120:I1127 14:40:40.156124 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/hal/joint_cmd,local 10.42.1.11:38535, peer 10.42.1.101:38329",
+      "1121:I1127 14:40:40.157196 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/end_effector_pose_control,local 10.42.1.11:38305, peer 10.42.1.101:37501",
+      "1125:I1127 14:40:40.160660 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/retarget,local 10.42.1.11:42025, peer 10.42.1.101:44009",
+      "1128:I1127 14:40:40.161759 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/retarget,local 10.42.1.11:42025, peer 10.42.1.101:46045",
+      "1129:I1127 14:40:40.164410 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/right_ee_command,local 10.42.1.11:41285, peer 10.42.1.101:46055",
+      "1130:I1127 14:40:40.164522 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/MotionControlService/JointPosition/request,local 10.42.1.11:38349, peer 10.42.1.101:42693",
+      "1131:I1127 14:40:40.165087 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/retarget,local 10.42.1.11:42025, peer 10.42.1.101:41067",
+      "1133:I1127 14:40:40.165568 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/right_ee_command,local 10.42.1.11:41285, peer 10.42.1.101:40935",
+      "1134:I1127 14:40:40.167186 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/MotionControlService/SetComplianceParams/request,local 10.42.1.11:41393, peer 10.42.1.101:33803",
+      "1140:I1127 14:40:40.169777 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/left_ee_command,local 10.42.1.11:34775, peer 10.42.1.101:38003",
+      "1145:I1127 14:40:40.171329 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/joint_control,local 10.42.1.11:34515, peer 10.42.1.101:33963",
+      "1150:I1127 14:40:40.172075 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/left_ee_command,local 10.42.1.11:34775, peer 10.42.1.101:38989",
+      "1152:I1127 14:40:40.173209 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/joint_control,local 10.42.1.11:34515, peer 10.42.1.101:40639",
+      "1241:I1127 14:40:40.243459 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/gdk/model_predict,local 10.42.1.11:41709, peer 10.42.1.101:45581",
+      "1242:I1127 14:40:40.244247 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/joint_control_low_delay,local 10.42.1.11:39837, peer 10.42.1.101:45085",
+      "1246:I1127 14:40:40.246140 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/MotionControlService/ControlMode/request,local 10.42.1.11:34955, peer 10.42.1.101:44397",
+      "1247:I1127 14:40:40.247155 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/force_position_cmd,local 10.42.1.11:38097, peer 10.42.1.101:34073",
+      "1248:I1127 14:40:40.248231 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/hal/joint_cmd,local 10.42.1.11:38535, peer 10.42.1.101:40029",
+      "1249:I1127 14:40:40.248232 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/hal/joint_cmd,local 10.42.1.11:38535, peer 10.42.1.101:42555",
+      "1250:I1127 14:40:40.248693 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/MotionControlService/MotionPlan/request,local 10.42.1.11:46219, peer 10.42.1.101:38913",
+      "1251:I1127 14:40:40.248723 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/hal/joint_cmd,local 10.42.1.11:38535, peer 10.42.1.101:42455",
+      "1253:I1127 14:40:40.249512 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/end_effector_pose_control,local 10.42.1.11:38305, peer 10.42.1.101:45965",
+      "1258:I1127 14:40:40.254225 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/retarget,local 10.42.1.11:42025, peer 10.42.1.101:35359",
+      "1261:I1127 14:40:40.255270 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/retarget,local 10.42.1.11:42025, peer 10.42.1.101:35215",
+      "1263:I1127 14:40:40.255721 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/retarget,local 10.42.1.11:42025, peer 10.42.1.101:35727",
+      "1264:I1127 14:40:40.255785 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/right_ee_command,local 10.42.1.11:41285, peer 10.42.1.101:40583",
+      "1265:I1127 14:40:40.256084 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/right_ee_command,local 10.42.1.11:41285, peer 10.42.1.101:43455",
+      "1266:I1127 14:40:40.257372 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/MotionControlService/JointPosition/request,local 10.42.1.11:38349, peer 10.42.1.101:42195",
+      "1271:I1127 14:40:40.260519 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/MotionControlService/SetComplianceParams/request,local 10.42.1.11:41393, peer 10.42.1.101:38131",
+      "1273:I1127 14:40:40.261787 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/left_ee_command,local 10.42.1.11:34775, peer 10.42.1.101:43265",
+      "1274:I1127 14:40:40.262356 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/left_ee_command,local 10.42.1.11:34775, peer 10.42.1.101:35891",
+      "1281:I1127 14:40:40.265169 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/joint_control,local 10.42.1.11:34515, peer 10.42.1.101:37171",
+      "1283:I1127 14:40:40.266105 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/joint_control,local 10.42.1.11:34515, peer 10.42.1.101:34779",
+      "1384:I1127 14:40:40.353596 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/gdk/model_predict,local 10.42.1.11:41709, peer 10.42.1.101:39177",
+      "1385:I1127 14:40:40.353742 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/joint_control_low_delay,local 10.42.1.11:39837, peer 10.42.1.101:42733",
+      "1389:I1127 14:40:40.355096 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/MotionControlService/ControlMode/request,local 10.42.1.11:34955, peer 10.42.1.101:38059",
+      "1390:I1127 14:40:40.356600 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/force_position_cmd,local 10.42.1.11:38097, peer 10.42.1.101:39465",
+      "1391:I1127 14:40:40.357383 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/hal/joint_cmd,local 10.42.1.11:38535, peer 10.42.1.101:33211",
+      "1392:I1127 14:40:40.357471 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/hal/joint_cmd,local 10.42.1.11:38535, peer 10.42.1.101:35753",
+      "1393:I1127 14:40:40.357761 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/hal/joint_cmd,local 10.42.1.11:38535, peer 10.42.1.101:39749",
+      "1394:I1127 14:40:40.358153 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/MotionControlService/MotionPlan/request,local 10.42.1.11:46219, peer 10.42.1.101:46113",
+      "1395:I1127 14:40:40.359400 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/end_effector_pose_control,local 10.42.1.11:38305, peer 10.42.1.101:33533",
+      "1401:I1127 14:40:40.361534 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/retarget,local 10.42.1.11:42025, peer 10.42.1.101:36409",
+      "1402:I1127 14:40:40.361739 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/retarget,local 10.42.1.11:42025, peer 10.42.1.101:34439",
+      "1403:I1127 14:40:40.362869 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/retarget,local 10.42.1.11:42025, peer 10.42.1.101:45043",
+      "1404:I1127 14:40:40.363355 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/right_ee_command,local 10.42.1.11:41285, peer 10.42.1.101:33329",
+      "1405:I1127 14:40:40.363536 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/right_ee_command,local 10.42.1.11:41285, peer 10.42.1.101:42099",
+      "1409:I1127 14:40:40.366503 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/MotionControlService/JointPosition/request,local 10.42.1.11:38349, peer 10.42.1.101:41997",
+      "1415:I1127 14:40:40.370183 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/MotionControlService/SetComplianceParams/request,local 10.42.1.11:41393, peer 10.42.1.101:41467",
+      "1416:I1127 14:40:40.372490 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/left_ee_command,local 10.42.1.11:34775, peer 10.42.1.101:36671",
+      "1421:I1127 14:40:40.372718 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/left_ee_command,local 10.42.1.11:34775, peer 10.42.1.101:41623",
+      "1422:I1127 14:40:40.373347 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/joint_control,local 10.42.1.11:34515, peer 10.42.1.101:41731",
+      "1423:I1127 14:40:40.373486 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/joint_control,local 10.42.1.11:34515, peer 10.42.1.101:36929",
+      "1514:I1127 14:40:40.447144 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/gdk/model_predict,local 10.42.1.11:41709, peer 10.42.1.101:40559",
+      "1515:I1127 14:40:40.448151 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/joint_control_low_delay,local 10.42.1.11:39837, peer 10.42.1.101:46661",
+      "1521:I1127 14:40:40.450497 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/MotionControlService/ControlMode/request,local 10.42.1.11:34955, peer 10.42.1.101:41083",
+      "1522:I1127 14:40:40.451118 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/wbc/force_position_cmd,local 10.42.1.11:38097, peer 10.42.1.101:36065",
+      "1523:I1127 14:40:40.452138 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/hal/joint_cmd,local 10.42.1.11:38535, peer 10.42.1.101:43967",
+      "1524:I1127 14:40:40.452193 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/hal/joint_cmd,local 10.42.1.11:38535, peer 10.42.1.101:36491",
+      "1525:I1127 14:40:40.452404 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/hal/joint_cmd,local 10.42.1.11:38535, peer 10.42.1.101:35533",
+      "1526:I1127 14:40:40.453045 3926520 tcp_publisher.cc:219] [aorta]Receive valid sub attr. frame_skip_rate is 1, topic:/MotionControlService/MotionPlan/request,local 10.42.1.11:46219, peer 10.42.1.101:44329"
+    ],
+    "topology": {
+      "local_request_publisher_created": true,
+      "local_response_subscriber_created": true,
+      "remote_request_subscriber_seen": false,
+      "remote_response_publisher_seen": false,
+      "config_request_timeout_count": 0,
+      "config_parser_failure_count": 0,
+      "other_remote_subscriber_connections": 12,
+      "verdict": "CONFIG_SERVICE_NOT_DISCOVERED",
+      "interpretation_boundary": "Peer discovery proves topology only. This probe intentionally sends no config request, so it cannot prove request/response semantics."
+    },
+    "aorta_service": {
+      "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261127-144040.3926481.0",
+      "node": "python3.10_S1",
+      "discovery_uri": "http://10.42.1.101:2379",
+      "locator_ip": "10.42.1.11",
+      "lease_ttl_seconds": 15,
+      "lease_granted": true,
+      "network_ready": true,
+      "config_timeout_count": 0,
+      "config_parser_failure_count": 0,
+      "topics": {
+        "/gdk/config_request": {
+          "local_publisher_created": true,
+          "local_subscriber_created": false,
+          "remote_subscriber_matches": [],
+          "remote_publisher_connections": []
+        },
+        "/gdk/config_response": {
+          "local_publisher_created": false,
+          "local_subscriber_created": true,
+          "remote_subscriber_matches": [],
+          "remote_publisher_connections": []
+        },
+        "/gdk/camera_conf_request": {
+          "local_publisher_created": true,
+          "local_subscriber_created": false,
+          "remote_subscriber_matches": [],
+          "remote_publisher_connections": []
+        },
+        "/gdk/camera_conf_response": {
+          "local_publisher_created": false,
+          "local_subscriber_created": true,
+          "remote_subscriber_matches": [],
+          "remote_publisher_connections": []
+        }
+      },
+      "evidence": [
+        "31:I1127 14:40:40.046594 3926481 aorta_component.cpp:526] [cosine_internal][AortaComponent] locator_ip: 10.42.1.11; network is ready.",
+        "47:I1127 14:40:40.047214 3926481 centralized_discovery.cc:55] [aorta]lease_ttl_:15",
+        "50:I1127 14:40:40.047578 3926481 aorta_component.cpp:126] [cosine_internal][AortaComponent] aorta component init success. node:python3.10_S1, uri:http://10.42.1.101:2379, locator_kind(1:shm,2:tcp,3:udp):2, locator_ip:10.42.1.11, locator_port:0, aorta_dispatcher_thread_num:6",
+        "58:I1127 14:40:40.053431 3926481 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/gdk/config_request , middleware:aorta",
+        "75:I1127 14:40:40.053503 3926481 tcp_publisher.cc:179] [aorta]topic /gdk/config_request, pub_queue_size_ 5, latch_queue_size_ 0",
+        "77:I1127 14:40:40.053660 3926520 shm_socket_server.cc:101] [aorta][/gdk/config_request] bind at pipe sock name d2379|python3.10|p3926481|n0|/gdk/config_request|p0",
+        "78:I1127 14:40:40.053678 3926481 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:46719, sockname:d2379|python3.10|p3926481|n0|/gdk/config_request|p0, topic:/gdk/config_request, uid:1a555423-444b-4cfa-9dd5-589ab58f694b-4991715019463590898 topic_uid:-1",
+        "79:I1127 14:40:40.053684 3926481 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/gdk/config_request, type:genie_msgs.msg.pb.CommonRequest, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379",
+        "80:I1127 14:40:40.053711 3926481 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/gdk/config_request, uri:",
+        "82:I1127 14:40:40.053717 3926481 publisher.cpp:27] [GDK]create publisher: /gdk/config_request type: genie_msgs.msg.pb.CommonRequest qos: 1 1 5 2",
+        "83:I1127 14:40:40.053720 3926481 cosine_bus_manager.cpp:366] [cosine_internal][CosineBusManager] create publisher. topic name:/gdk/camera_conf_request , middleware:aorta",
+        "100:I1127 14:40:40.053740 3926481 tcp_publisher.cc:179] [aorta]topic /gdk/camera_conf_request, pub_queue_size_ 5, latch_queue_size_ 0",
+        "102:I1127 14:40:40.053768 3926520 shm_socket_server.cc:101] [aorta][/gdk/camera_conf_request] bind at pipe sock name d2379|python3.10|p3926481|n0|/gdk/camera_conf_request|p1",
+        "103:I1127 14:40:40.053789 3926481 node_impl.cc:198] [aorta]CreatePublisher, host:0.0.0.0, port:35743, sockname:d2379|python3.10|p3926481|n0|/gdk/camera_conf_request|p1, topic:/gdk/camera_conf_request, uid:b066c85d-d2c6-4cf4-a432-344dd911173c-9117180461459404870 topic_uid:-1",
+        "104:I1127 14:40:40.053792 3926481 aorta_component.cpp:394] [cosine_internal][AortaComponent] aorta node create publisher. node: python3.10_S1, topic:/gdk/camera_conf_request, type:genie_msgs.msg.pb.CommonRequest, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379",
+        "105:I1127 14:40:40.053812 3926481 aorta_publisher.cpp:119] [cosine_internal][AortaPublisher] publisher initialize. topic:/gdk/camera_conf_request, uri:",
+        "106:I1127 14:40:40.053813 3926481 publisher.cpp:27] [GDK]create publisher: /gdk/camera_conf_request type: genie_msgs.msg.pb.CommonRequest qos: 1 1 5 2",
+        "107:I1127 14:40:40.053819 3926481 cosine_bus_manager.cpp:478] [cosine_internal][CosineBusManager] create subscriber. topic name:/gdk/config_response , middleware:aorta , need async callback:0, frame_skip_rate:1",
+        "108:I1127 14:40:40.053822 3926481 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/gdk/config_responsehttp://10.42.1.101:2379",
+        "112:I1127 14:40:40.053890 3926481 node_impl.cc:344] [aorta]CreateSubscriber topic:/gdk/config_response, uid:d8f085f1-a4c2-4971-a182-e1c526e4be0e-9533047780102618842 topic_uid:-1",
+        "129:I1127 14:40:40.053943 3926481 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/gdk/config_response, type:genie_msgs.msg.pb.CommonResponse, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379",
+        "130:I1127 14:40:40.053946 3926481 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/gdk/config_response, uri:",
+        "131:I1127 14:40:40.053948 3926481 cosine_bus_manager.cpp:478] [cosine_internal][CosineBusManager] create subscriber. topic name:/gdk/camera_conf_response , middleware:aorta , need async callback:0, frame_skip_rate:1",
+        "132:I1127 14:40:40.053949 3926481 aorta_component.cpp:174] [cosine_internal][AortaComponent] callback_name:/gdk/camera_conf_responsehttp://10.42.1.101:2379",
+        "135:I1127 14:40:40.053965 3926481 node_impl.cc:344] [aorta]CreateSubscriber topic:/gdk/camera_conf_response, uid:dad23be3-3e5d-4534-b282-91e9490ee486-3551884323222435368 topic_uid:-1",
+        "152:I1127 14:40:40.053982 3926481 aorta_component.cpp:326] [cosine_internal][AortaComponent] aorta node create subscriber. node: python3.10_S1, topic:/gdk/camera_conf_response, type:genie_msgs.msg.pb.CommonResponse, qos:(history:1, depth:5, reliability:1, durability:2), uri:http://10.42.1.101:2379",
+        "153:I1127 14:40:40.053983 3926481 aorta_subscriber.hpp:96] [cosine_internal][AortaSubscriber] initial. topic:/gdk/camera_conf_response, uri:",
+        "793:I1127 14:40:40.064325 3926513 centralized_discovery.cc:615] [aorta]grant lease for node python3.10_S1 lease_id = 7587899181419361311",
+        "794:I1127 14:40:40.065917 3926513 centralized_discovery.cc:681] [aorta]publisher uid:1a555423-444b-4cfa-9dd5-589ab58f694b-4991715019463590898 topic:/gdk/config_request",
+        "795:I1127 14:40:40.067595 3926513 centralized_discovery.cc:681] [aorta]publisher uid:b066c85d-d2c6-4cf4-a432-344dd911173c-9117180461459404870 topic:/gdk/camera_conf_request",
+        "796:I1127 14:40:40.068521 3926513 centralized_discovery.cc:733] [aorta]subscriber uid:d8f085f1-a4c2-4971-a182-e1c526e4be0e-9533047780102618842 topic:/gdk/config_response",
+        "797:I1127 14:40:40.070812 3926513 centralized_discovery.cc:733] [aorta]subscriber uid:dad23be3-3e5d-4534-b282-91e9490ee486-3551884323222435368 topic:/gdk/camera_conf_response"
+      ],
+      "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+      "request_peer_seen": false,
+      "response_peer_seen": false,
+      "camera_request_peer_seen": false,
+      "camera_response_peer_seen": false
+    }
+  },
+  "aorta_history": {
+    "limit": 20,
+    "aggregate": {
+      "logs": 20,
+      "config_timeouts": 2,
+      "parser_failures": 2,
+      "request_peer_seen_logs": 0,
+      "response_peer_seen_logs": 0
+    },
+    "verdict_counts": {
+      "GDK_CONFIG_SERVICE_NOT_DISCOVERED": 19,
+      "LOCAL_GDK_CONFIG_ENDPOINTS_INCOMPLETE": 1
+    },
+    "logs": [
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261127-144040.3926481.0",
+        "size": 832221,
+        "mtime_ns": 1795761645068581921,
+        "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+        "config_timeout_count": 0,
+        "config_parser_failure_count": 0,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      },
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261127-110328.3914602.0",
+        "size": 596044,
+        "mtime_ns": 1795748614134401364,
+        "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+        "config_timeout_count": 0,
+        "config_parser_failure_count": 0,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      },
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261127-090737.3908885.0",
+        "size": 381857,
+        "mtime_ns": 1795741659897926420,
+        "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+        "config_timeout_count": 0,
+        "config_parser_failure_count": 0,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      },
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261127-090537.3908684.0",
+        "size": 408930,
+        "mtime_ns": 1795741539166208055,
+        "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+        "config_timeout_count": 0,
+        "config_parser_failure_count": 0,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      },
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261127-090130.3908366.0",
+        "size": 1000711,
+        "mtime_ns": 1795741306409003063,
+        "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+        "config_timeout_count": 1,
+        "config_parser_failure_count": 1,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      },
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261127-085645.3907435.0",
+        "size": 429248,
+        "mtime_ns": 1795741021165083544,
+        "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+        "config_timeout_count": 1,
+        "config_parser_failure_count": 1,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      },
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261127-085115.3907093.0",
+        "size": 345950,
+        "mtime_ns": 1795740676641184748,
+        "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+        "config_timeout_count": 0,
+        "config_parser_failure_count": 0,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      },
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261127-084817.3906864.0",
+        "size": 391900,
+        "mtime_ns": 1795740497949843031,
+        "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+        "config_timeout_count": 0,
+        "config_parser_failure_count": 0,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      },
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261127-084610.3906717.0",
+        "size": 392769,
+        "mtime_ns": 1795740371196941263,
+        "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+        "config_timeout_count": 0,
+        "config_parser_failure_count": 0,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      },
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261127-084219.3906336.0",
+        "size": 306658,
+        "mtime_ns": 1795740139589600300,
+        "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+        "config_timeout_count": 0,
+        "config_parser_failure_count": 0,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      },
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261127-083733.3905940.0",
+        "size": 344748,
+        "mtime_ns": 1795739853891744606,
+        "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+        "config_timeout_count": 0,
+        "config_parser_failure_count": 0,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      },
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261127-083148.3905436.0",
+        "size": 342770,
+        "mtime_ns": 1795739508757190168,
+        "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+        "config_timeout_count": 0,
+        "config_parser_failure_count": 0,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      },
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261127-082031.3904772.0",
+        "size": 14546,
+        "mtime_ns": 1795738838889789330,
+        "service_verdict": "LOCAL_GDK_CONFIG_ENDPOINTS_INCOMPLETE",
+        "config_timeout_count": 0,
+        "config_parser_failure_count": 0,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      },
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261126-155033.3792567.0",
+        "size": 338704,
+        "mtime_ns": 1795679434155936078,
+        "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+        "config_timeout_count": 0,
+        "config_parser_failure_count": 0,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      },
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261126-115537.3766038.0",
+        "size": 344484,
+        "mtime_ns": 1795665337885539112,
+        "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+        "config_timeout_count": 0,
+        "config_parser_failure_count": 0,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      },
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261126-113357.3764621.0",
+        "size": 322156,
+        "mtime_ns": 1795664037958253075,
+        "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+        "config_timeout_count": 0,
+        "config_parser_failure_count": 0,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      },
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261126-112508.3764049.0",
+        "size": 133478,
+        "mtime_ns": 1795663508749087948,
+        "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+        "config_timeout_count": 0,
+        "config_parser_failure_count": 0,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      },
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261126-111236.3763274.0",
+        "size": 136334,
+        "mtime_ns": 1795662756169985524,
+        "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+        "config_timeout_count": 0,
+        "config_parser_failure_count": 0,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      },
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261126-110755.3762943.0",
+        "size": 133478,
+        "mtime_ns": 1795662475861146273,
+        "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+        "config_timeout_count": 0,
+        "config_parser_failure_count": 0,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      },
+      {
+        "path": "/home/isaac-workstation/g2-project/dual_arm/python3.10.log.INFO.20261126-104658.3760384.0",
+        "size": 461068,
+        "mtime_ns": 1795661219318021557,
+        "service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+        "config_timeout_count": 0,
+        "config_parser_failure_count": 0,
+        "request_peer_seen": false,
+        "response_peer_seen": false
+      }
+    ]
+  },
+  "summary": {
+    "gdk_session_lifecycle_ok": true,
+    "gdk_read_paths_ok": true,
+    "config_topology_verdict": "CONFIG_SERVICE_NOT_DISCOVERED",
+    "aorta_service_verdict": "GDK_CONFIG_SERVICE_NOT_DISCOVERED",
+    "final_verdict": "GDK CONFIG SERVICE PEERS NOT DISCOVERED - inspect robot-side config service, AORTA discovery/domain/interface/QoS, and workstation/robot version compatibility.",
+    "motion_executed": false
+  }
+}

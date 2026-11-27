@@ -1,0 +1,4993 @@
+================================================================================================
+GDK 4.1.5 CONTROL CONTRACT EXTRACT
+Generated: 2026-11-27T17:02:15+08:00
+Source: /home/isaac-workstation/g2-project/dual_arm/GDK_SDK_4.1.5.md
+================================================================================================
+
+===== [1] MOVE_EE_POS =====
+17725-        arm_joint_names = [
+17726-            "idx21_arm_l_joint1", "idx22_arm_l_joint2", "idx23_arm_l_joint3",
+17727-            "idx24_arm_l_joint4", "idx25_arm_l_joint5", "idx26_arm_l_joint6",
+17728-            "idx27_arm_l_joint7",  # 左臂7个关节
+17729-            "idx61_arm_r_joint1", "idx62_arm_r_joint2", "idx63_arm_r_joint3",
+17730-            "idx64_arm_r_joint4", "idx65_arm_r_joint5", "idx66_arm_r_joint6",
+17731-            "idx67_arm_r_joint7"   # 右臂7个关节
+17732-        ]
+17733-        for i, joint_name in enumerate(arm_joint_names):
+17734-            print(f"  {joint_name}: {target_positions[i]:.3f} 弧度")
+17735-
+17736-        # 执行手臂关节位置伺服控制
+17737-        # 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+17738-        # 默认通常已是位控模式，若想用关节阻抗请先 robot.set_control_mode(3)。
+17739-        controller = ArmJointServoController(robot)
+17740-        controller.execute_arm_joint_servo_control(target_positions, 2)
+17741-
+17742-    except Exception as e:
+17743-        print(f"执行过程中发生错误: {e}")
+17744-    finally:
+17745-        # 释放GDK系统资源
+17746-        if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+17747-            print("GDK释放失败")
+17748-        else:
+17749-            print("GDK释放成功")
+17750-
+17751-if __name__ == "__main__":
+17752-    main()
+17753-```
+17754-
+17755:#### 17. `move_ee_pos()`
+17756-
+17757-- **功能**：控制末端执行器位置（夹爪开合，非阻塞式）
+17758-- **注意**：该接口不可与伺服接口同时使用，若有与伺服接口同时使用的需求请通过伺服接口控制末端执行器
+17759-- **参数**：`JointStates` 对象
+17760-
+17761-**JointStates对象结构**：
+17762-
+17763-| 属性名 | 类型 | 描述 | 单位 |
+17764-| --- | --- | --- | --- |
+17765-| `group` | `str` | 控制组，必须为 "left\_tool"、"right\_tool" 或 "dual\_tool" | 字符串 |
+17766-| `states` | `list[JointState]` | 关节状态列表（必需） | JointState列表 |
+17767-| `nums` | `int` | 关节数量，应等于 `len(states)` | 无单位 |
+17768-
+17769-**各末端类型的关节位置取值范围**：
+17770-
+17771-- **注意**：关节取值范围与版本绑定，使用时注意当前版本的取值范围，当前版本取值范围以文档为主
+17772-- **omnipicker**：`position` 取值范围为 `[-0.785, 0]`，其中 `-0.785` 表示打开，`0` 表示关闭
+17773-- **dahuan**：`position` 取值范围为 `[0, 0.025]`，其中 `0` 表示打开，`0.025` 表示关闭
+17774-- **ctek90d**：`position` 取值范围为 `[-0.91, 0]`，其中 `-0.91` 表示打开，`0` 表示关闭
+17775-- **o10\_t2**：各关节位置取值范围如下（单位：弧度）
+17776-
+17777-**左手关节限位值**：
+17778-
+17779-| 关节索引 | 关节名称 | 最小值 | 最大值 |
+17780-| --- | --- | --- | --- |
+17781-| 0 | `idx31_hand_l_thumb_roll_joint` | -1.1213740444063567 | 0.029670597283903602 |
+17782-| 1 | `idx32_hand_l_thumb_abad_joint` | -0.04537856055185257 | 1.642354826126664 |
+17783-| 2 | `idx33_hand_l_thumb_mcp_joint` | -0.8415977653116657 | 0.0 |
+17784-| 3 | `idx36_hand_l_index_abad_joint` | 0.0 | 0.16406094968746698 |
+17785-| 4 | `idx37_hand_l_index_pip_joint` | 0.0 | 1.4835298641951802 |
+17786-| 5 | `idx39_hand_l_middle_pip_joint` | 0.0 | 1.4835298641951802 |
+17787-| 6 | `idx41_hand_l_ring_abad_joint` | -0.16929693744344995 | 0.0 |
+17788-| 7 | `idx42_hand_l_ring_pip_joint` | 0.0 | 1.4835298641951802 |
+17789-| 8 | `idx44_hand_l_pinky_abad_joint` | -0.1850049007113989 | 0.0 |
+17790-| 9 | `idx45_hand_l_pinky_pip_joint` | 0.0 | 1.4835298641951802 |
+17791-
+17792-**右手关节限位值**：
+17793-
+17794-| 关节索引 | 关节名称 | 最小值 | 最大值 |
+17795-| --- | --- | --- | --- |
+17796-| 0 | `idx71_hand_r_thumb_roll_joint` | -0.029670597283903602 | 1.1213740444063567 |
+17797-| 1 | `idx72_hand_r_thumb_abad_joint` | -1.642354826126664 | 0.04537856055185257 |
+17798-| 2 | `idx73_hand_r_thumb_mcp_joint` | 0.0 | 0.8415977653116657 |
+17799-| 3 | `idx76_hand_r_index_abad_joint` | -0.16406094968746698 | 0.0 |
+17800-| 4 | `idx77_hand_r_index_pip_joint` | 0.0 | 1.4835298641951802 |
+17801-| 5 | `idx79_hand_r_middle_pip_joint` | 0.0 | 1.4835298641951802 |
+17802-| 6 | `idx81_hand_r_ring_abad_joint` | 0.0 | 0.16929693744344995 |
+17803-| 7 | `idx82_hand_r_ring_pip_joint` | 0.0 | 1.4835298641951802 |
+17804-| 8 | `idx84_hand_r_pinky_abad_joint` | 0.0 | 0.1850049007113989 |
+17805-| 9 | `idx85_hand_r_pinky_pip_joint` | 0.0 | 1.4835298641951802 |
+17806-
+17807-**典型状态值**：
+17808-- **左手开**：`[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]`
+17809-- **左手握**：`[-0.2, 1.45, -0.75, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 1.0]`
+17810-- **右手开**：`[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]`
+17811-- **右手握**：`[0.2, -1.45, 0.75, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 1.0]`
+17812-
+17813-- **o12\_t2**：各关节位置取值范围如下（单位：弧度）
+17814-
+17815-**左手关节限位值**：
+17816-
+17817-| 关节索引 | 关节名称 | 最小值 | 最大值 |
+17818-| --- | --- | --- | --- |
+17819-| 0 | `idx31_hand_l_thumb_roll_joint` | -0.9425 | 0.0 |
+17820-| 1 | `idx32_hand_l_thumb_abad_joint` | 0.0 | 1.3875 |
+17821-| 2 | `idx33_hand_l_thumb_mcp_joint` | -0.8273 | 0.0 |
+17822-| 3 | `idx34_hand_l_thumb_pip_joint` | -1.2915 | 0.0 |
+17823-| 4 | `idx36_hand_l_index_abad_joint` | -0.2618 | 0.2618 |
+17824-| 5 | `idx37_hand_l_index_mcp_joint` | 0.0 | 1.3526 |
+17825-| 6 | `idx38_hand_l_index_pip_joint` | 0.0 | 1.5307 |
+17826-| 7 | `idx40_hand_l_middle_abad_joint` | -0.2618 | 0.2618 |
+17827-| 8 | `idx41_hand_l_middle_mcp_joint` | 0.0 | 1.3579 |
+17828-| 9 | `idx42_hand_l_middle_pip_joint` | 0.0 | 1.8151 |
+17829-| 10 | `idx44_hand_l_ring_mcp_joint` | 0.0 | 1.5359 |
+17830-| 11 | `idx47_hand_l_pinky_mcp_joint` | 0.0 | 1.5359 |
+17831-
+17832-**右手关节限位值**：
+17833-
+17834-| 关节索引 | 关节名称 | 最小值 | 最大值 |
+17835-| --- | --- | --- | --- |
+17836-| 0 | `idx71_hand_r_thumb_roll_joint` | 0.0 | 0.9425 |
+17837-| 1 | `idx72_hand_r_thumb_abad_joint` | -1.3875 | 0.0 |
+17838-| 2 | `idx73_hand_r_thumb_mcp_joint` | -0.8273 | 0.0 |
+17839-| 3 | `idx74_hand_r_thumb_pip_joint` | -1.2915 | 0.0 |
+17840-| 4 | `idx76_hand_r_index_abad_joint` | -0.2618 | 0.2618 |
+17841-| 5 | `idx77_hand_r_index_mcp_joint` | 0.0 | 1.3526 |
+17842-| 6 | `idx78_hand_r_index_pip_joint` | 0.0 | 1.5307 |
+17843-| 7 | `idx80_hand_r_middle_abad_joint` | -0.2618 | 0.2618 |
+17844-| 8 | `idx81_hand_r_middle_mcp_joint` | 0.0 | 1.3579 |
+17845-| 9 | `idx82_hand_r_middle_pip_joint` | 0.0 | 1.8151 |
+17846-| 10 | `idx84_hand_r_ring_mcp_joint` | 0.0 | 1.5359 |
+17847-| 11 | `idx87_hand_r_pinky_mcp_joint` | 0.0 | 1.5359 |
+17848-
+17849-**典型状态值**：
+17850-- **左手开**：`[-0.53, 0.42, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]`
+17851-- **左手握**：`[-0.77, 0.5, -0.4, -0.36, -0.12, 0.69, 0.46, 0.0, 0.72, 0.5, 0.63, 0.63]`
+17852-- **右手开**：`[0.53, -0.42, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]`
+17853-- **右手握**：`[0.77, -0.5, -0.4, -0.36, 0.12, 0.69, 0.46, 0.0, 0.72, 0.5, 0.63, 0.63]`
+17854-
+17855-**JointState对象结构**：
+17856-
+17857-| 属性名 | 类型 | 描述 | 单位 |
+17858-| --- | --- | --- | --- |
+17859-| `position` | `float` | 关节位置（必需） | 开合度 |
+17860-
+17861-**参数说明**：
+17862-- `group` 必须为 "left\_tool"（左末端执行器）、"right\_tool"（右末端执行器）或 "dual\_tool"（双末端执行器）
+17863-- 当 `group` 为 "left\_tool" 或 "right\_tool" 时，`states` 列表的长度必须与末端执行器对应的关节数量要求完全匹配
+17864-- 当 `group` 为 "dual\_tool" 时，`states` 列表的长度必须为左右末端执行器对应的关节数量之和（前半部分用于左末端执行器，后半部分用于右末端执行器）
+17865-- `states` 是一个 `JointState` 对象列表，每个 `JointState` 只需要设置 `position` 字段
+17866-- `nums` 必须等于 `len(states)`
+17867-
+17868-- **返回值**：`int`，0表示成功，失败时抛出异常
+17869-- **异常说明**：
+17870-- 如果 `states` 的长度与末端执行器对应的关节数量不匹配（对于 "dual\_tool"，必须是左右末端执行器关节数量之和），底层将返回 `ErrorCode::kInvalidInput`
+17871-- 如果 `group` 不是 "left\_tool"、"right\_tool" 或 "dual\_tool"，底层将返回 `ErrorCode::kInvalidInput`
+17872-- 如果 `states` 为空，底层将返回 `ErrorCode::kInvalidInput`
+17873-- 如果关节位置值超出对应末端类型的取值范围，底层将返回 `ErrorCode::kInvalidInput`
+17874-- 如果控制命令执行失败，抛出 `RuntimeError("Failed to move end effector position")`
+17875-- **示例**：
+17876-
+17877-**示例1：控制左夹爪（omnipicker类型，需要1个关节）**
+17878-
+17879-```
+17880-import agibot_gdk
+17881-import time
+17882-
+17883-# 初始化GDK系统
+17884-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+17885-    print("GDK初始化失败")
+17886-    exit(1)
+17887-print("GDK初始化成功")
+17888-
+17889-robot = agibot_gdk.Robot()
+17890-
+17891-# 控制左夹爪（omnipicker类型，需要1个关节）
+17892-joint_states_left = agibot_gdk.JointStates()
+17893-joint_states_left.group = "left_tool"
+17894-
+17895-joint_state = agibot_gdk.JointState()
+17896-joint_state.position = 0  # 取值范围 [-0.785, 0]
+17897-joint_states_left.states = [joint_state]
+17898-joint_states_left.nums = len(joint_states_left.states)
+17899-
+17900-try:
+17901:    result = robot.move_ee_pos(joint_states_left)
+17902-    print("左夹爪控制成功")
+17903-except Exception as e:
+17904-    print(f"左夹爪控制失败: {e}")
+17905-
+17906-# 释放GDK系统资源
+17907-if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+17908-    print("GDK释放失败")
+17909-else:
+17910-    print("GDK释放成功")
+17911-```
+17912-
+17913-**示例2：控制右夹爪（dahuan类型，需要1个关节）**
+17914-
+17915-```
+17916-import agibot_gdk
+17917-import time
+17918-
+17919-# 初始化GDK系统
+17920-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+17921-    print("GDK初始化失败")
+17922-    exit(1)
+17923-print("GDK初始化成功")
+17924-
+17925-robot = agibot_gdk.Robot()
+17926-
+17927-# 控制右夹爪（dahuan类型，需要1个关节）
+17928-joint_states_right = agibot_gdk.JointStates()
+17929-joint_states_right.group = "right_tool"
+17930-
+17931-joint_state = agibot_gdk.JointState()
+17932-joint_state.position = 0  # 右手夹爪位置，取值范围 [0, 0.025]
+17933-joint_states_right.states = [joint_state]
+17934-joint_states_right.nums = len(joint_states_right.states)
+17935-
+17936-try:
+17937:    result = robot.move_ee_pos(joint_states_right)
+17938-    print("右夹爪控制成功")
+17939-except Exception as e:
+17940-    print(f"右夹爪控制失败: {e}")
+17941-
+17942-# 释放GDK系统资源
+17943-if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+17944-    print("GDK释放失败")
+17945-else:
+17946-    print("GDK释放成功")
+17947-```
+17948-
+17949-**示例3：控制左夹爪（ctek90d类型，需要1个关节）**
+17950-
+17951-```
+17952-import agibot_gdk
+17953-import time
+17954-
+17955-# 初始化GDK系统
+17956-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+17957-    print("GDK初始化失败")
+17958-    exit(1)
+17959-print("GDK初始化成功")
+17960-
+17961-robot = agibot_gdk.Robot()
+17962-
+17963-# 控制左夹爪（ctek90d类型，需要1个关节）
+17964-joint_states_left = agibot_gdk.JointStates()
+17965-joint_states_left.group = "left_tool"
+17966-
+17967-joint_state = agibot_gdk.JointState()
+17968-joint_state.position = -0.5  # 取值范围 [-0.91, 0]
+17969-joint_states_left.states = [joint_state]
+17970-joint_states_left.nums = len(joint_states_left.states)
+17971-
+17972-try:
+17973:    result = robot.move_ee_pos(joint_states_left)
+17974-    print("左夹爪（ctek90d）控制成功")
+17975-except Exception as e:
+17976-    print(f"左夹爪控制失败: {e}")
+17977-
+17978-# 释放GDK系统资源
+17979-if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+17980-    print("GDK释放失败")
+17981-else:
+17982-    print("GDK释放成功")
+17983-```
+17984-
+17985-**示例4：控制左末端执行器（o10\_t2类型，需要10个关节）**
+17986-
+17987-```
+17988-import agibot_gdk
+17989-import time
+17990-
+17991-# 初始化GDK系统
+17992-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+17993-    print("GDK初始化失败")
+17994-    exit(1)
+17995-print("GDK初始化成功")
+17996-
+17997-robot = agibot_gdk.Robot()
+17998-
+17999-# 控制左末端执行器（o10_t2类型，需要10个关节）
+18000-joint_states_left_o10 = agibot_gdk.JointStates()
+18001-joint_states_left_o10.group = "left_tool"
+18002-
+18003-# 创建关节状态列表
+18004-positions = [-0.2, 1.45, -0.75, 0, 1, 1, 0, 1, 0, 1]
+18005-states_list = []
+18006-for i in range(10):
+18007-    joint_state = agibot_gdk.JointState()
+18008-    joint_state.position = positions[i]
+18009-    states_list.append(joint_state)
+18010-# 直接赋值整个列表
+18011-joint_states_left_o10.states = states_list
+18012-joint_states_left_o10.nums = len(joint_states_left_o10.states)
+18013-
+18014-try:
+18015:    result = robot.move_ee_pos(joint_states_left_o10)
+18016-    print("左末端执行器（o10_t2）控制成功")
+18017-except Exception as e:
+18018-    print(f"左末端执行器控制失败: {e}")
+18019-
+18020-# 释放GDK系统资源
+18021-if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+18022-    print("GDK释放失败")
+18023-else:
+18024-    print("GDK释放成功")
+18025-```
+18026-
+18027-**示例5：控制右末端执行器（o12\_t2类型，需要12个关节）**
+18028-
+18029-```
+18030-import agibot_gdk
+18031-import time
+18032-
+18033-# 初始化GDK系统
+18034-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+18035-    print("GDK初始化失败")
+18036-    exit(1)
+18037-print("GDK初始化成功")
+18038-
+18039-robot = agibot_gdk.Robot()
+18040-
+18041-# 控制右末端执行器（o12_t2类型，需要12个关节）
+18042-joint_states_right_o12 = agibot_gdk.JointStates()
+18043-joint_states_right_o12.group = "right_tool"
+18044-
+18045-# 创建关节状态列表
+18046-states_list = []
+18047-for i in range(12):
+18048-    joint_state = agibot_gdk.JointState()
+18049-    joint_state.position = 0
+18050-    states_list.append(joint_state)
+18051-# 直接赋值整个列表
+18052-joint_states_right_o12.states = states_list
+18053-joint_states_right_o12.nums = len(joint_states_right_o12.states)
+18054-
+18055-try:
+18056:    result = robot.move_ee_pos(joint_states_right_o12)
+18057-    print("右末端执行器（o12_t2）控制成功")
+18058-except Exception as e:
+18059-    print(f"右末端执行器控制失败: {e}")
+18060-
+18061-# 释放GDK系统资源
+18062-if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+18063-    print("GDK释放失败")
+18064-else:
+18065-    print("GDK释放成功")
+18066-```
+18067-
+18068-**示例6：控制双末端执行器（dual\_tool，需要2倍关节数量）**
+18069-
+18070-```
+18071-import agibot_gdk
+18072-import time
+18073-
+18074-# 初始化GDK系统
+18075-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+18076-    print("GDK初始化失败")
+18077-    exit(1)
+18078-print("GDK初始化成功")
+18079-
+18080-robot = agibot_gdk.Robot()
+18081-
+18082-# 控制双末端执行器（dual_tool，需要2倍关节数量）
+18083-# 例如：使用 omnipicker 类型，需要 2 个关节（左1个 + 右1个）
+18084-joint_states_dual = agibot_gdk.JointStates()
+18085-joint_states_dual.group = "dual_tool"
+18086-
+18087-# 前半部分用于左末端执行器
+18088-joint_state_left = agibot_gdk.JointState()
+18089-joint_state_left.position = 0
+18090-# 后半部分用于右末端执行器
+18091-joint_state_right = agibot_gdk.JointState()
+18092-joint_state_right.position = 0
+18093-# 直接赋值整个列表
+18094-joint_states_dual.states = [joint_state_left, joint_state_right]
+18095-joint_states_dual.nums = len(joint_states_dual.states)
+18096-
+18097-try:
+18098:    result = robot.move_ee_pos(joint_states_dual)
+18099-    print("双末端执行器控制成功")
+18100-except Exception as e:
+18101-    print(f"双末端执行器控制失败: {e}")
+18102-
+18103-# 释放GDK系统资源
+18104-if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+18105-    print("GDK释放失败")
+18106-else:
+18107-    print("GDK释放成功")
+18108-```
+18109-
+18110-#### 18. `move_end_effector_joint()`
+18111-
+18112-- **功能**：控制末端执行器关节位置。
+18113-- **注意**：`group` 与关节数量需与当前末端类型一致（如 omnipicker 单手可传 1 个位置；`dual_tool` 为左右拼接，长度为单侧的 2 倍）。
+18114-- **参数**：
+18115-
+18116-| 参数名 | 类型 | 描述 |
+18117-| --- | --- | --- |
+18118-| `positions` | `list[float]` | 目标位置列表（ |
+18119-| `velocities` | `list[float]` | 与 `positions` 等长； |
+18120-| `group` | `str` | `left_tool`、`right_tool` 或 `dual_tool` |
+18121-
+18122-**参数说明**：
+18123-- `positions` 与 `velocities` 长度必须相同，否则底层返回错误。
+18124-
+18125-- **返回值**：`int`，成功为 `0`，失败时抛出 `RuntimeError`。
+18126-- **异常说明**：
+18127-- 若 `positions` 与 `velocities` 长度不一致、或 `group` 非法、或位置超限时，底层返回错误，Python 侧抛出 `RuntimeError`（信息为 `"Failed to move end effector joint "`）。
+18128-- **示例**：
+18129-
+18130-**示例1：左手单关节（如 omnipicker）**
+18131-
+18132-```
+18133-import agibot_gdk
+18134-import time
+18135-
+18136-def main():
+18137-
+18138-    if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+18139-        print("GDK初始化失败")
+18140-        return
+18141-    print("GDK初始化成功")
+18142-
+18143-    robot = agibot_gdk.Robot()
+18144-
+18145-    positions = [0.0]
+18146-    velocities = [0.0]
+18147-
+18148-    try:
+18149-        robot.move_end_effector_joint(positions, velocities, "left_tool")
+18150-        print("末端关节伺服成功")
+18151-    except Exception as e:
+18152-        print(f"末端关节伺服失败: {e}")
+18153-
+18154-    if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+18155-        print("GDK释放失败")
+18156-    else:
+18157-        print("GDK释放成功")
+18158-
+18159-if __name__ == "__main__":
+18160-    main()
+18161-```
+18162-
+18163-**示例2：双手 `dual_tool`（以 omnipicker 为例：左 1 个关节 + 右 1 个关节，共 2 个位置）**
+18164-
+18165-```
+18166-import agibot_gdk
+18167-import time
+18168-
+18169-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+18170-    print("GDK初始化失败")
+18171-    exit(1)
+18172-
+18173-robot = agibot_gdk.Robot()
+18174-
+18175-positions = [0.0, 0.0]   # 先左后右
+18176-velocities = [0.0, 0.0]  # 与 positions 等长
+18177-
+18178-try:
+18179-    robot.move_end_effector_joint(positions, velocities, "dual_tool")
+18180-    print("dual_tool 末端关节伺服成功")
+18181-except Exception as e:
+18182-    print(f"dual_tool 失败: {e}")
+18183-
+18184-if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+18185-    print("GDK释放失败")
+18186-else:
+18187-    print("GDK释放成功")
+18188-```
+18189-
+18190-#### 19. `end_effector_pose_control()`
+18191-
+18192-- **功能**：末端执行器位姿控制（非阻塞式）
+18193-- **支持的控制模式**：`1`（关节位控）、`2`（笛卡尔阻抗）、`3`（关节阻抗），使用关节阻抗模式或笛卡尔阻抗模式前，请先通过`set_control_mode()`切换。
+18194-- **不同模式下的行为**：
+18195-- `1` / `3`（位置控制 / 关节阻抗控制）：目标位姿经运控服务全身逆解后，在关节空间执行；关节阻抗控制模式下，底层会按`set_joint_impedance()`配置的阻抗参数柔顺跟踪。
+18196-- `2`（笛卡尔阻抗控制）：目标位姿直接在笛卡尔空间执行，底层会按`set_cartesian_impedance()`配置的阻抗参数柔顺跟踪。
+18197-- 位置控制时或关节阻抗控制时，末端位姿的参考坐标系是 end\_link（末端法兰中心位置）；笛卡尔阻抗控制时，末端位姿的参考坐标系为 tcp（末端执行器中心位置）。未特别配置时，tcp 与 end\_link 默认重合。
+18198-- **注意**：
+18199-- 该接口要求发送端以50hz频率发布控制命令，不允许阶越信号；该接口无碰撞检测，注意使用时环境。该接口的控制器不提供规划能力，只适合用于末端小范围的移动，请勿在奇异点位置使用该接口。
+18200-- 支持末端位姿与夹爪关节同步控制：填入 `end_effector_joint_names` / `end_effector_joint_positions` 时同步驱动对应关节，留空则只控制末端位姿。
+18201-- **参数**：`EndEffectorPose`对象，包含以下属性：
+18202-
+18203-| 属性名 | 类型 | 描述 | 单位 |
+18204-| --- | --- | --- | --- |
+18205-| `life_time` | `float` | 生命周期 | 秒 |
+18206-| `group` | `int` | 控制组 | 整数 |
+18207-| `left_end_effector_pose` | `Pose` | 左末端执行器位姿（base\_link坐标系下） | 位姿 |
+18208-| `right_end_effector_pose` | `Pose` | 右末端执行器位姿（base\_link坐标系下） | 位姿 |
+18209-| `end_effector_joint_names` | `list[str]` | 同步控制的末端关节名称列表（如夹爪关节），与 `end_effector_joint_positions` 一一对应，为空时不控制末端关节 | 无单位 |
+18210-| `end_effector_joint_positions` | `list[float]` | 末端关节目标位置列表，须与 `end_effector_joint_names` 长度相同 | 弧度 |
+18211-
+18212-- **返回值**：`int`，0表示成功，失败时抛出异常
+18213-- **示例**：（注意：为保证安全，该示例会将机器移动到初始位姿（站立），再调用末端位姿控制，请在确保机器人周围空间安全的情况下运行）
+18214-
+18215-```
+18216-import agibot_gdk
+18217-import time
+18218-import math
+--
+22849-| 获取所有关节角度 / 力矩 | `Robot.get_joint_states()` |
+22850-| 获取关节限位 | `Robot.get_joint_limits()` |
+22851-| 获取全身运动状态 | `Robot.get_whole_body_status()` |
+22852-| 获取末端执行器状态（夹爪类型等） | `Robot.get_end_state()` |
+22853-| 获取末端位姿控制当前参考坐标系 | `Robot.get_end_pose_control_frame()` |
+
+===== [2] MOTION CONTROL STATUS =====
+7042-    if (robot.GetWholeBodyStatus(whole_body_status) != agibot::gdk::GDKRes::kSuccess) {
+7043-        std::cout << "Failed to get whole body status" << std::endl;
+7044-    } else {
+7045-        std::cout << "全身状态信息:" << std::endl;
+7046-        std::cout << "右臂错误码: " << whole_body_status.right_arm_error << std::endl;
+7047-        std::cout << "左臂错误码: " << whole_body_status.left_arm_error << std::endl;
+7048-        std::cout << "右臂控制状态: " << (whole_body_status.right_arm_control ? "是" : "否") << std::endl;
+7049-        std::cout << "左臂控制状态: " << (whole_body_status.left_arm_control ? "是" : "否") << std::endl;
+7050-        std::cout << "右臂急停状态: " << (whole_body_status.right_arm_estop ? "是" : "否") << std::endl;
+7051-        std::cout << "左臂急停状态: " << (whole_body_status.left_arm_estop ? "是" : "否") << std::endl;
+7052-        std::cout << "右末端执行器型号: " << whole_body_status.right_end_model << std::endl;
+7053-        std::cout << "左末端执行器型号: " << whole_body_status.left_end_model << std::endl;
+7054-        std::cout << "腰部错误码: " << whole_body_status.waist_error << std::endl;
+7055-        std::cout << "升降错误码: " << whole_body_status.lift_error << std::endl;
+7056-        std::cout << "颈部错误码: " << whole_body_status.neck_error << std::endl;
+7057-        std::cout << "底盘错误码: " << whole_body_status.chassis_error << std::endl;
+7058-        std::cout << "时间戳: " << whole_body_status.timestamp << std::endl;
+7059-    }
+7060-
+7061-    // 释放GDK系统资源
+7062-    if (agibot::gdk::GDKRelease() != agibot::gdk::GDKRes::kSuccess) {
+7063-        std::cout << "GDK释放失败" << std::endl;
+7064-        return -1;
+7065-    }
+7066-    std::cout << "GDK释放成功" << std::endl;
+7067-
+7068-    return 0;
+7069-}
+7070-```
+7071-
+7072:#### 6. `GetMotionControlStatus()`
+7073-
+7074-- **功能**：获取末端控制状态信息
+7075-- **参数**：
+7076-
+7077-| 参数名 | 类型 | 描述 |
+7078-| --- | --- | --- |
+7079:| `status` | `MotionControlStatus&` | 输出参数，末端控制状态对象 |
+7080-
+7081-- **返回值**：`GDKRes`，操作结果状态码。成功时返回`GDKRes::kSuccess`，`status`参数包含运动控制状态信息
+7082-
+7083:#### MotionControlStatus对象详细说明
+7084-
+7085:**MotionControlStatus结构体包含以下成员**：
+7086-
+7087-| 成员名 | 类型 | 描述 | 单位 |
+7088-| --- | --- | --- | --- |
+7089-| `mode` | `uint8_t` | 运动模式，0为停止，1为伺服，2为规划 | 无单位 |
+7090-| `control_mode` | `uint8_t` | 控制模式，1为关节位控（PD/轨迹），2为笛卡尔阻抗，3为关节阻抗 | 无单位 |
+7091-| `error_code` | `uint8_t` | 错误码，0表示正常 | 无单位 |
+7092-| `error_msg` | `std::string` | 错误信息 | 字符串 |
+7093-| `frame_names` | `std::vector<std::string>` | 末端关节名称列表 | 无单位 |
+7094-| `frame_poses` | `std::vector<Pose>` | 末端关节位姿列表 | 米 |
+7095-| `twists` | `std::vector<Twist>` | 末端关节速度列表 | 米/秒 |
+7096-| `wrenches` | `std::vector<Wrench>` | 末端关节力矩列表 | 牛米（torque）、牛（force） |
+7097-| `arm_disturbance_force` | `std::vector<double>` | 各关节所受外力 | 牛米 |
+7098-| `collision_pairs_1` | `std::vector<std::string>` | 碰撞对列表1 | 无单位 |
+7099-| `collision_pairs_2` | `std::vector<std::string>` | 碰撞对列表2 | 无单位 |
+7100-
+7101-**碰撞对说明**：
+7102-碰撞对是指当前状态下发生碰撞的关节对，如有碰撞会在列表中注明碰撞信息（碰撞的link（urdf的link）），否则为空。
+7103-
+7104-```
+7105:struct MotionControlStatus {
+7106-  uint8_t mode{};          ///< motion mode, 0: stop, 1: servo, 2: planning
+7107-  uint8_t control_mode{};  ///< control mode, 1: joint position, 2: cartesian impedance, 3: joint impedance
+7108-  uint8_t error_code{};
+7109-  std::string error_msg{};
+7110-
+7111-  std::vector<std::string> frame_names{};
+7112-  std::vector<Pose> frame_poses{};
+7113-  std::vector<Twist> twists{};
+7114-  std::vector<Wrench> wrenches{};
+7115-
+7116-  std::vector<double> arm_disturbance_force{};
+7117-
+7118-  std::vector<std::string> collision_pairs_1{};
+7119-  std::vector<std::string> collision_pairs_2{};
+7120-};
+7121-```
+7122-
+7123-- **示例**：
+7124-
+7125-```
+7126-#include "gdk/gdk.h"
+7127-#include <iostream>
+7128-#include <chrono>
+7129-#include <thread>
+7130-
+7131-int main()
+7132-{
+7133-    // 初始化GDK系统
+7134-    if (agibot::gdk::GDKInit() != agibot::gdk::GDKRes::kSuccess) {
+7135-        std::cout << "GDK初始化失败" << std::endl;
+7136-        return -1;
+7137-    }
+7138-    std::cout << "GDK初始化成功" << std::endl;
+7139-
+7140-    agibot::gdk::Robot robot;
+7141-    std::cout << "Robot init" << std::endl;
+7142-
+7143:    agibot::gdk::MotionControlStatus status;
+7144:    if (robot.GetMotionControlStatus(status) != agibot::gdk::GDKRes::kSuccess) {
+7145-        std::cout << "Failed to get motion control status" << std::endl;
+7146-    } else {
+7147-        std::cout << "=== 运动控制状态 ===" << std::endl;
+7148-        std::cout << "运动模式(mode): " << static_cast<int>(status.mode) << std::endl;
+7149-        std::cout << "控制模式(control_mode): " << static_cast<int>(status.control_mode) << std::endl;
+7150-        std::cout << "错误码(error_code): " << static_cast<int>(status.error_code) << std::endl;
+7151-        std::cout << "错误信息(error_msg): " << status.error_msg << std::endl;
+7152-
+7153-        std::cout << "\n=== 末端关节名称(frame_names) ===" << std::endl;
+7154-        std::cout << "数量: " << status.frame_names.size() << std::endl;
+7155-        for (size_t i = 0; i < status.frame_names.size(); ++i) {
+7156-            std::cout << "  [" << i << "] " << status.frame_names[i] << std::endl;
+7157-        }
+7158-
+7159-        std::cout << "\n=== 末端关节位姿(frame_poses) ===" << std::endl;
+7160-        std::cout << "数量: " << status.frame_poses.size() << std::endl;
+7161-        for (size_t i = 0; i < status.frame_poses.size(); ++i) {
+7162-            const auto& pose = status.frame_poses[i];
+7163-            std::cout << "  [" << i << "] ";
+7164-            if (i < status.frame_names.size()) {
+7165-                std::cout << status.frame_names[i];
+7166-            } else {
+7167-                std::cout << "frame_" << i;
+7168-            }
+7169-            std::cout << ":" << std::endl;
+7170-            std::cout << "    position: x=" << pose.position.x
+7171-                      << ", y=" << pose.position.y
+7172-                      << ", z=" << pose.position.z << std::endl;
+7173-            std::cout << "    orientation: x=" << pose.orientation.x
+7174-                      << ", y=" << pose.orientation.y
+7175-                      << ", z=" << pose.orientation.z
+7176-                      << ", w=" << pose.orientation.w << std::endl;
+7177-        }
+7178-
+7179-        std::cout << "\n=== 末端关节速度(twists) ===" << std::endl;
+7180-        std::cout << "数量: " << status.twists.size() << std::endl;
+7181-        for (size_t i = 0; i < status.twists.size(); ++i) {
+7182-            const auto& twist = status.twists[i];
+7183-            std::cout << "  [" << i << "] ";
+7184-            if (i < status.frame_names.size()) {
+7185-                std::cout << status.frame_names[i];
+7186-            } else {
+7187-                std::cout << "frame_" << i;
+7188-            }
+7189-            std::cout << ":" << std::endl;
+7190-            std::cout << "    linear: x=" << twist.linear.x
+7191-                      << ", y=" << twist.linear.y
+7192-                      << ", z=" << twist.linear.z << std::endl;
+7193-            std::cout << "    angular: x=" << twist.angular.x
+7194-                      << ", y=" << twist.angular.y
+7195-                      << ", z=" << twist.angular.z << std::endl;
+7196-        }
+7197-
+7198-        std::cout << "\n=== 末端关节力/力矩(wrenches) ===" << std::endl;
+7199-        std::cout << "数量: " << status.wrenches.size() << std::endl;
+7200-        for (size_t i = 0; i < status.wrenches.size(); ++i) {
+7201-            const auto& wrench = status.wrenches[i];
+7202-            std::cout << "  [" << i << "] ";
+7203-            if (i < status.frame_names.size()) {
+7204-                std::cout << status.frame_names[i];
+7205-            } else {
+7206-                std::cout << "frame_" << i;
+7207-            }
+7208-            std::cout << ":" << std::endl;
+7209-            std::cout << "    force: x=" << wrench.force.x
+7210-                      << ", y=" << wrench.force.y
+7211-                      << ", z=" << wrench.force.z << std::endl;
+7212-            std::cout << "    torque: x=" << wrench.torque.x
+7213-                      << ", y=" << wrench.torque.y
+7214-                      << ", z=" << wrench.torque.z << std::endl;
+7215-        }
+7216-
+7217-        std::cout << "\n=== 各关节所受外力(arm_disturbance_force) ===" << std::endl;
+7218-        std::cout << "数量: " << status.arm_disturbance_force.size() << std::endl;
+7219-        for (size_t i = 0; i < status.arm_disturbance_force.size(); ++i) {
+7220-            std::cout << "  [" << i << "] " << status.arm_disturbance_force[i] << std::endl;
+7221-        }
+7222-
+7223-        std::cout << "\n=== 碰撞对(collision_pairs_1 / collision_pairs_2) ===" << std::endl;
+7224-        std::cout << "碰撞对数量: " << status.collision_pairs_1.size() << std::endl;
+7225-        for (size_t i = 0; i < status.collision_pairs_1.size() && i < status.collision_pairs_2.size(); ++i) {
+7226-            std::cout << "  [" << i << "] " << status.collision_pairs_1[i]
+7227-                      << " <-> " << status.collision_pairs_2[i] << std::endl;
+7228-        }
+7229-    }
+7230-
+7231-    // 释放GDK系统资源
+7232-    if (agibot::gdk::GDKRelease() != agibot::gdk::GDKRes::kSuccess) {
+7233-        std::cout << "GDK释放失败" << std::endl;
+7234-        return -1;
+7235-    }
+7236-    std::cout << "GDK释放成功" << std::endl;
+7237-
+7238-    return 0;
+7239-}
+7240-```
+7241-
+7242-#### 7. `GetChassisPowerState()`
+7243-
+7244-- **功能**：获取底盘电源状态
+7245-- **参数**：
+7246-
+7247-| 参数名 | 类型 | 描述 |
+7248-| --- | --- | --- |
+7249-| `chassis_power_state` | `ChassisPowerState&` | 底盘电源状态对象 |
+7250-
+7251-- **返回值**：`GDKRes`，操作结果状态码。成功时返回`GDKRes::kSuccess`
+7252-
+7253-#### ChassisPowerState对象详细说明
+7254-
+7255-**ChassisPowerState结构体包含以下成员**：
+7256-
+7257-| 成员名 | 类型 | 描述 | 单位 |
+7258-| --- | --- | --- | --- |
+7259-| `battery_main_power_switch_state` | `uint8_t` | 电池主电源开关状态 | 无单位 |
+7260-| `emergency_stop_pedal_state` | `uint8_t` | 急停踏板状态 | 无单位 |
+7261-| `battery_main_power_switch_fault_state` | `uint8_t` | 电池主电源开关故障状态 | 无单位 |
+7262-| `emergency_stop_pedal_fault_state` | `uint8_t` | 急停踏板故障状态 | 无单位 |
+7263-| `chassis_power_board_state` | `uint8_t` | 底盘电源板状态 | 无单位 |
+7264-| `chassis_left_traction_motor_power_state` | `uint8_t` | 底盘左牵引电机电源状态 | 无单位 |
+--
+9158-            pose.orientation.z = result[2];
+9159-            pose.orientation.w = result[3];
+9160-
+9161-            trajectory.push_back(pose);
+9162-        }
+9163-
+9164-        return trajectory;
+9165-    }
+9166-
+9167-    Pose findPoseByName(const std::vector<std::string>& frame_names,
+9168-                       const std::vector<Pose>& frame_poses,
+9169-                       const std::string& target_name) {
+9170-        for (size_t i = 0; i < frame_names.size(); i++) {
+9171-            if (frame_names[i] == target_name) {
+9172-                return frame_poses[i];
+9173-            }
+9174-        }
+9175-        throw std::runtime_error("Frame name " + target_name + " not found");
+9176-    }
+9177-
+9178-public:
+9179-    void executeEndPoseControl() {
+9180-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));  // 等待1秒
+9181-
+9182-        // EndEffectorPoseControl 支持 control_mode=1 / 2 / 3：
+9183-        //   1（关节位控）/ 3（关节阻抗）—— 经全身逆解后在关节空间执行
+9184-        //   2（笛卡尔阻抗）              —— 直接在笛卡尔空间执行，按 SetCartesianImpedance 配置柔顺跟踪
+9185-        // 默认通常已是位控模式（1）；想用关节阻抗 / 笛卡尔阻抗请先 robot_.SetControlMode(3 / 2)。
+9186-
+9187-        // 获取当前状态
+9188:        MotionControlStatus status;
+9189:        GDKRes result = robot_.GetMotionControlStatus(status);
+9190-        if (result != GDKRes::kSuccess) {
+9191-            std::cout << "获取运动控制状态失败" << std::endl;
+9192-            return;
+9193-        }
+9194-
+9195-        // 获取起始位姿
+9196-        Pose start_left_pose = findPoseByName(status.frame_names, status.frame_poses, LEFT_NAME);
+9197-        Pose start_right_pose = findPoseByName(status.frame_names, status.frame_poses, RIGHT_NAME);
+9198-
+9199-        // 计算步数
+9200-        int n_left = calculateNSteps(start_left_pose.position, TARGET_LEFT.position, MAX_STEP_CM);
+9201-        int n_right = calculateNSteps(start_right_pose.position, TARGET_RIGHT.position, MAX_STEP_CM);
+9202-        int n_steps = std::max(n_left, n_right);
+9203-
+9204-        std::cout << "左臂步数: " << n_left << ", 右臂步数: " << n_right << ", 总步数: " << n_steps << std::endl;
+9205-
+9206-        // 规划轨迹
+9207-        std::vector<Pose> traj_left = planTrajectory(start_left_pose, TARGET_LEFT, n_steps);
+9208-        std::vector<Pose> traj_right = planTrajectory(start_right_pose, TARGET_RIGHT, n_steps);
+9209-
+9210-        // 执行轨迹
+9211-        double dt = 1.0 / RATE_HZ;
+9212-        for (int i = 0; i < n_steps; i++) {
+9213-            EndEffectorPose end_pose;
+9214-            end_pose.life_time = LIFETIME;
+9215-            end_pose.group = CONTROL_GROUP;
+9216-            end_pose.left_end_effector_pose = traj_left[i];
+9217-            end_pose.right_end_effector_pose = traj_right[i];
+9218-
+9219-            result = robot_.EndEffectorPoseControl(end_pose);
+9220-            if (result != GDKRes::kSuccess) {
+9221-                std::cout << "控制命令发送失败，步数: " << i << std::endl;
+9222-                return;
+9223-            }
+9224-
+9225-            std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(dt * 1000)));
+9226-        }
+9227-
+9228-        // 保持最终位姿（对应Python版本）
+9229-        if (HOLD_FINAL) {
+9230-            std::cout << "进入末端位姿保持（Ctrl+C 结束）..." << std::endl;
+9231-            try {
+9232-                while (true) {
+9233-                    EndEffectorPose end_pose;
+9234-                    end_pose.life_time = LIFETIME;
+9235-                    end_pose.group = CONTROL_GROUP;
+9236-                    end_pose.left_end_effector_pose = traj_left.back();
+9237-                    end_pose.right_end_effector_pose = traj_right.back();
+9238-
+9239-                    result = robot_.EndEffectorPoseControl(end_pose);
+9240-                    if (result != GDKRes::kSuccess) {
+9241-                        std::cout << "保持位姿失败" << std::endl;
+9242-                        break;
+9243-                    }
+9244-
+9245-                    std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(dt * 1000)));
+9246-                }
+9247-            } catch (const std::exception& e) {
+9248-                std::cout << "已中断保持: " << e.what() << std::endl;
+9249-            }
+9250-        }
+9251-    }
+9252-};
+9253-
+9254-int main() {
+9255-    EndEffectorController controller;
+9256-    controller.executeEndPoseControl();
+9257-    return 0;
+9258-}
+9259-```
+9260-
+9261-- **工具坐标系（`tool0`）用例**：上面的示例以 `arm_l_end_link` / `arm_r_end_link`（法兰中心 end\_link）为末端参考坐标系。下面是以\*\*工具坐标系\*\* `left_tool0_body` / `right_tool0_body`（即 TCP）为参考点进行\*\*笛卡尔阻抗\*\*末端位姿控制的\*\*完整示例\*\*。与原示例的区别集中在 4 处（已在代码中用 `区别 N` 标注），轨迹规划与下发逻辑完全一致：
+9262-
+9263-```
+9264-#include "gdk/gdk.h"
+9265-#include <iostream>
+9266-#include <chrono>
+9267-#include <thread>
+9268-#include <cmath>
+9269-#include <vector>
+9270-#include <algorithm>
+9271-
+9272-using namespace agibot::gdk;
+9273-
+9274-// 区别 1：末端参考坐标系改用工具坐标系 tool0
+9275-//         （原示例为 arm_l_end_link / arm_r_end_link）
+9276-const std::string LEFT_NAME = "left_tool0_body";
+9277-const std::string RIGHT_NAME = "right_tool0_body";
+9278-const int32_t CONTROL_GROUP = 12;  // kBothArms
+9279-
+9280-// 目标位姿——请按 tool0（TCP）坐标系下的期望位姿设置
+9281-const Pose TARGET_LEFT = {
+9282-    {0.516, 0.433, 1.081},  // position
+9283-    {0.382, -0.146, 0.663, 0.626}  // orientation
+9284-};
+9285-
+9286-const Pose TARGET_RIGHT = {
+9287-    {0.579, -0.306, 1.158},  // position
+9288-    {0.320, 0.655, 0.651, 0.206}  // orientation
+9289-};
+9290-
+9291-const double MAX_STEP_CM = 0.1;  // 最大步长（厘米）
+9292-const double LIFETIME = 0.02;    // 生命周期（秒）
+9293-const double RATE_HZ = 50.0;     // 发送频率（Hz）
+9294-const bool HOLD_FINAL = true;    // 是否保持最终位姿
+9295-
+9296-class EndEffectorController {
+9297-private:
+9298-    Robot robot_;
+9299-
+9300-    void slerp(const double q0[4], const double q1[4], double t, double result[4]) {
+9301-        double dot = q0[0]*q1[0] + q0[1]*q1[1] + q0[2]*q1[2] + q0[3]*q1[3];
+9302-
+9303-        // 如果点积为负，取反q1以确保最短路径（取反一次，后续所有分支都用 q1c）
+9304-        double q1c[4] = {q1[0], q1[1], q1[2], q1[3]};
+9305-        if (dot < 0.0) {
+9306-            dot = -dot;
+9307-            for (int i = 0; i < 4; i++) {
+9308-                q1c[i] = -q1[i];
+9309-            }
+--
+9393-        }
+9394-        throw std::runtime_error("Frame name " + target_name + " not found");
+9395-    }
+9396-
+9397-public:
+9398-    // 进入工具坐标系（tool0）笛卡尔阻抗控制前的初始化
+9399-    void setupToolFrame() {
+9400-        // 区别 2（可选）：配置 TCP 相对法兰 end_link 的变换，
+9401-        // 例如沿 Z 轴前移 0.1m；不配置则 tool0 与 end_link 默认重合。
+9402-        // 注意：为确保安全，禁止在笛卡尔阻抗模式下设置 TCP；
+9403-        //       必须先设置 TCP 再 SetControlMode(2)，否则 TCP 设置会失败。
+9404-        DualArmTcpTransform tcp;
+9405-        tcp.left_arm.position = {0.0, 0.0, 0.1};
+9406-        tcp.left_arm.euler_zyx = {0.0, 0.0, 0.0};
+9407-        tcp.right_arm.position = {0.0, 0.0, 0.1};
+9408-        tcp.right_arm.euler_zyx = {0.0, 0.0, 0.0};
+9409-        robot_.SetTcpTransform(tcp);
+9410-
+9411-        // 区别 3：进入笛卡尔阻抗控制模式（tool_frame 仅在该模式下生效）
+9412-        robot_.SetControlMode(2);
+9413-
+9414-        // 区别 4：将目标坐标系切换到 tool0（left_tool0_body / right_tool0_body）。
+9415-        // 切换后 TCP 设置才会在末端位姿控制中生效；日志会打印当前生效的坐标系
+9416-        robot_.SwitchEndPoseControlFrame();
+9417-    }
+9418-
+9419-    void executeEndPoseControl() {
+9420-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));  // 等待1秒
+9421-
+9422-        // 获取当前状态
+9423:        MotionControlStatus status;
+9424:        GDKRes result = robot_.GetMotionControlStatus(status);
+9425-        if (result != GDKRes::kSuccess) {
+9426-            std::cout << "获取运动控制状态失败" << std::endl;
+9427-            return;
+9428-        }
+9429-
+9430-        // 获取起始位姿（LEFT_NAME / RIGHT_NAME 已指向 tool0）
+9431-        Pose start_left_pose = findPoseByName(status.frame_names, status.frame_poses, LEFT_NAME);
+9432-        Pose start_right_pose = findPoseByName(status.frame_names, status.frame_poses, RIGHT_NAME);
+9433-
+9434-        // 计算步数
+9435-        int n_left = calculateNSteps(start_left_pose.position, TARGET_LEFT.position, MAX_STEP_CM);
+9436-        int n_right = calculateNSteps(start_right_pose.position, TARGET_RIGHT.position, MAX_STEP_CM);
+9437-        int n_steps = std::max(n_left, n_right);
+9438-
+9439-        std::cout << "左臂步数: " << n_left << ", 右臂步数: " << n_right << ", 总步数: " << n_steps << std::endl;
+9440-
+9441-        // 规划轨迹
+9442-        std::vector<Pose> traj_left = planTrajectory(start_left_pose, TARGET_LEFT, n_steps);
+9443-        std::vector<Pose> traj_right = planTrajectory(start_right_pose, TARGET_RIGHT, n_steps);
+9444-
+9445-        // 执行轨迹
+9446-        double dt = 1.0 / RATE_HZ;
+9447-        for (int i = 0; i < n_steps; i++) {
+9448-            EndEffectorPose end_pose;
+9449-            end_pose.life_time = LIFETIME;
+9450-            end_pose.group = CONTROL_GROUP;
+9451-            end_pose.left_end_effector_pose = traj_left[i];
+9452-            end_pose.right_end_effector_pose = traj_right[i];
+9453-
+9454-            result = robot_.EndEffectorPoseControl(end_pose);
+9455-            if (result != GDKRes::kSuccess) {
+9456-                std::cout << "控制命令发送失败，步数: " << i << std::endl;
+9457-                return;
+9458-            }
+9459-
+9460-            std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(dt * 1000)));
+9461-        }
+9462-
+9463-        // 保持最终位姿
+9464-        if (HOLD_FINAL) {
+9465-            std::cout << "进入末端位姿保持（Ctrl+C 结束）..." << std::endl;
+9466-            try {
+9467-                while (true) {
+9468-                    EndEffectorPose end_pose;
+9469-                    end_pose.life_time = LIFETIME;
+9470-                    end_pose.group = CONTROL_GROUP;
+9471-                    end_pose.left_end_effector_pose = traj_left.back();
+9472-                    end_pose.right_end_effector_pose = traj_right.back();
+9473-
+9474-                    result = robot_.EndEffectorPoseControl(end_pose);
+9475-                    if (result != GDKRes::kSuccess) {
+9476-                        std::cout << "保持位姿失败" << std::endl;
+9477-                        break;
+9478-                    }
+9479-
+9480-                    std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(dt * 1000)));
+9481-                }
+9482-            } catch (const std::exception& e) {
+9483-                std::cout << "已中断保持: " << e.what() << std::endl;
+9484-            }
+9485-        }
+9486-    }
+9487-};
+9488-
+9489-int main() {
+9490-    EndEffectorController controller;
+9491-    controller.setupToolFrame();      // 切换到 tool0 工具坐标系（区别 2/3/4）
+9492-    controller.executeEndPoseControl();
+9493-    return 0;
+9494-}
+9495-```
+9496-
+9497-- **同时控制夹爪用例**：在末端位姿控制的同时，通过 `end_effector_joint_names` / `end_effector_joint_positions` 字段同步驱动夹爪关节。夹爪关节名从 `GetEndState` 动态获取（与 `JointServoControl` 同时控制末端示例保持一致），末端行程范围同样取 `-0.785`（下限）↔ `0.0`（上限）。与纯位姿示例相比，新增部分已用注释标出。
+9498-
+9499-```
+9500-#include "gdk/gdk.h"
+9501-#include <iostream>
+9502-#include <chrono>
+9503-#include <thread>
+9504-#include <cmath>
+9505-#include <vector>
+9506-#include <algorithm>
+9507-
+9508-using namespace agibot::gdk;
+9509-
+9510-const std::string LEFT_NAME  = "arm_l_end_link";
+9511-const std::string RIGHT_NAME = "arm_r_end_link";
+9512-const int32_t CONTROL_GROUP  = 12;  // kBothArms
+9513-
+9514-// 新增：末端行程范围（与 JointServoControl 同时控制末端示例保持一致）
+9515-const double EE_LOW  = -0.785;  // 末端行程下限
+
+===== [3] CONTROL_MODE =====
+6099-
+6100-using namespace agibot::gdk;
+6101-
+6102-int main() {
+6103-    Pnc pnc;
+6104-
+6105-    // 先获取当前任务状态以获取任务ID
+6106-    PNCTaskState task_state;
+6107-    if (pnc.GetTaskState(task_state) == GDKRes::kSuccess) {
+6108-        uint32_t task_id = task_state.id;
+6109-        GDKRes result = pnc.ResumeTask(task_id);
+6110-
+6111-        if (result == GDKRes::kSuccess) {
+6112-            std::cout << "任务恢复成功" << std::endl;
+6113-        } else {
+6114-            std::cout << "任务恢复失败" << std::endl;
+6115-        }
+6116-    }
+6117-
+6118-    return 0;
+6119-}
+6120-```
+6121-
+6122-#### 8. `RequestChassisControl()`
+6123-
+6124-- **功能**：请求底盘控制权限，用于远程控制模式
+6125-- **参数**：
+6126-
+6127-| 参数名 | 类型 | 描述 |
+6128-| --- | --- | --- |
+6129:| `control_mode` | `int32_t` | 控制请求：0 |
+6130-
+6131-- **返回值**：`GDKRes`，操作结果状态码。成功时返回`GDKRes::kSuccess`
+6132-
+6133-**控制模式说明**：
+6134-- **阿克曼模式**：适用于前轮转向的车辆运动学模型，通过线速度(`linear.x`)和角速度(`angular.z`)控制
+6135-- **蟹行模式**：支持全向移动，通过`linear.x`和`linear.y`分别控制前后和左右移动
+6136-
+6137-- **示例**：
+6138-
+6139-```
+6140-#include "gdk/gdk.h"
+6141-#include <iostream>
+6142-#include <thread>
+6143-#include <chrono>
+6144-
+6145-using namespace agibot::gdk;
+6146-
+6147-int main() {
+6148-    Pnc pnc;
+6149-
+6150-    // 请求远程控制
+6151-    GDKRes res = pnc.RequestChassisControl(0);
+6152-    if (res == GDKRes::kSuccess) {
+6153-        std::cout << "远程控制请求成功" << std::endl;
+6154-    } else {
+6155-        std::cout << "控制请求失败" << std::endl;
+6156-        return 1;
+6157-    }
+6158-
+6159-    // 等待控制权限生效
+6160-    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+6161-
+6162-    // 现在可以使用 MoveChassis() 控制底盘
+6163-    Twist twist;
+6164-    twist.linear.x = 0.3;
+6165-    twist.angular.z = 0.0;
+6166-    pnc.MoveChassis(twist);
+6167-
+6168-    return 0;
+6169-}
+6170-```
+6171-
+6172-#### 9. `MoveChassis()`
+6173-
+6174-- **功能**：移动底盘，用于远程控制模式下的底盘运动控制
+6175-- **参数**：
+6176-
+6177-| 参数名 | 类型 | 描述 |
+6178-| --- | --- | --- |
+6179-| `twist` | `const Twist&` | 速度指令对象，包含线速度和角速度 |
+6180-
+6181-- **返回值**：`GDKRes`，操作结果状态码。成功时返回`GDKRes::kSuccess`
+6182-
+6183-#### Twist对象详细说明
+6184-
+6185-**Twist结构体包含以下成员**：
+6186-
+6187-| 成员名 | 类型 | 描述 | 单位 |
+6188-| --- | --- | --- | --- |
+6189-| `linear` | `Vector3` | 线速度向量 | 米/秒 (m/s) |
+6190-| `angular` | `Vector3` | 角速度向量 | 弧度/秒 (rad/s) |
+6191-
+6192-**Vector3结构体**：
+6193-
+6194-| 成员名 | 类型 | 描述 | 单位 |
+6195-| --- | --- | --- | --- |
+6196-| `x` | `double` | X轴分量 | 根据上下文 |
+6197-| `y` | `double` | Y轴分量 | 根据上下文 |
+6198-| `z` | `double` | Z轴分量 | 根据上下文 |
+6199-
+6200-**使用说明**：
+6201-- 在调用`MoveChassis()`之前，需要先调用`RequestChassisControl()`请求底盘控制权限
+6202-- `linear.x`：前进/后退速度（正值为前进，负值为后退）
+6203-- `linear.y`：左右平移速度（蟹行模式使用，正值为左移，负值为右移）
+6204-- `linear.z`：通常为0
+6205-- `angular.z`：绕Z轴旋转角速度（正值为逆时针，负值为顺时针）
+6206-
+6207-- **示例**：
+6208-
+6209-```
+6210-#include "gdk/gdk.h"
+6211-#include <iostream>
+6212-#include <thread>
+6213-#include <chrono>
+6214-
+6215-using namespace agibot::gdk;
+6216-
+6217-int main() {
+6218-    Pnc pnc;
+6219-
+6220-    // 请求底盘控制权限
+6221-    GDKRes res = pnc.RequestChassisControl(0);
+6222-    if (res != GDKRes::kSuccess) {
+6223-        std::cout << "请求底盘控制失败" << std::endl;
+6224-        return 1;
+6225-    }
+6226-    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+6227-
+6228-    // 阿克曼模式：前进并右转
+6229-    Twist twist;
+6230-    twist.linear.x = 0.5;   // 前进速度 0.5 m/s
+6231-    twist.linear.y = 0.0;
+6232-    twist.linear.z = 0.0;
+6233-    twist.angular.x = 0.0;
+6234-    twist.angular.y = 0.0;
+6235-    twist.angular.z = -0.3; // 右转角速度 0.3 rad/s
+6236-
+6237-    // 蟹行模式：向左平移
+6238-    /*
+6239-    Twist twist;
+6240-    twist.linear.x = 0.0;
+6241-    twist.linear.y = 0.5; // 向左平移速度 0.5 m/s
+6242-    twist.linear.z = 0.0;
+6243-    twist.angular.x = 0.0;
+6244-    twist.angular.y = 0.0;
+6245-    twist.angular.z = 0.0;
+6246-    */
+6247-
+6248-    res = pnc.MoveChassis(twist);
+6249-    if (res == GDKRes::kSuccess) {
+--
+6426-<!-- source: contents_reference_C++_robot -->
+6427-
+6428-# Robot
+6429-
+6430-# GDK Robot 接口文档（C++）
+6431-
+6432-## 概述
+6433-
+6434-Robot（机器人）模块为G02机器人提供了统一的机器人控制接口，集成了机器人本体状态获取、运动控制、关节控制、末端执行器控制等功能。通过C++接口，开发者可以方便地实现对机器人的全面控制，适用于机器人控制、状态监控、动作执行、路径规划等多种场景。
+6435-
+6436-## 关于运动控制模式的说明
+6437-
+6438-机器人双臂的运动控制接口支持不同的\*\*运动控制模式\*\*：`1`（关节位控/位置控制）、`2`（笛卡尔阻抗控制）、`3`（关节阻抗控制）。机器人启动后默认处于力控模式；使用其他控制模式时，需通过`SetControlMode()`切换。
+6439-
+6440-机器人的运动控制模式是持久的，即一旦切换（无论是通过GDK还是通过其他方式）后会一直保持，直到再次切换或机器人重启。调用相关控制接口前，GDK 会检查机器人\*\*当前实际\*\*的运动控制模式是否在该接口支持的模式列表中，若不在则直接返回 `kRuntimeError`，并在日志中打印原因。各接口的支持情况请参考下方"支持的控制模式"说明。
+6441-
+6442-### 力控使用工作流
+6443-
+6444-笛卡尔/关节力控（阻抗控制）依赖于准确的动力学模型，控制器会基于"机器人本体 + 末端负载"的整体动力学进行重力补偿与柔顺跟踪。若末端实际负载与配置不一致，会导致力反馈失真、柔顺跟踪偏移、甚至触发误报警。建议按以下顺序进入力控：
+6445-
+6446-1. **设置负载**（仅当末端确实存在负载时）：通过 `SetPayload()` 配置末端负载的质量、质心、惯性张量。空载场景应保持/重置为零负载，详见 [`SetPayload()`](#30-setpayload) 中的"使用建议"。
+6447-2. **传感器零点标定**（持久负载场景）：负载长期挂载（如固定工具、夹爪上常驻物）时，设置完 `SetPayload()` 后调用一次 `TorqueSensorCalibration()`，补偿传感器零点偏置。短期搬运类任务无需每次标定。
+6448-3. **切换控制模式**：`SetControlMode(2)` 进入笛卡尔力控，或 `SetControlMode(3)` 进入关节力控。
+6449-4. **配置阻抗参数**：进入对应控制模式后，再调用 `SetCartesianImpedance()` 或 `SetJointImpedance()` 设置参数；仅 `kp` 字段当前生效。
+6450-5. **下发目标位姿/关节量**：使用 `EndEffectorPoseControl()`、`JointControl()` 等接口下发目标，底层按已配置的阻抗参数柔顺跟踪。
+6451-
+6452-### 笛卡尔阻抗 vs 关节阻抗
+6453-
+6454-两类阻抗都用于实现"柔顺跟踪 + 力反馈"，区别在于刚度/柔顺性是定义在哪个空间，进而影响控制目标的下发形式与适合的任务类型：
+6455-
+6456:| 维度 | 笛卡尔阻抗（`control_mode=2`） | 关节阻抗（`control_mode=3`） |
+6457-| --- | --- | --- |
+6458-| **刚度定义空间** | 末端笛卡尔空间（`x/y/z/roll/pitch/yaw` 6 维） | 关节空间（每个关节单独配置，单臂 7 维） |
+6459-| **执行轨迹** | 目标位姿直接在笛卡尔空间执行，不经过全身逆解 | 目标关节量在关节空间执行；如下发的是位姿，会先经全身逆解再到关节空间柔顺跟踪 |
+6460-| **适合任务** | 接触类任务、装配、贴合、沿笛卡尔某轴方向柔顺（如 z 向贴合） | 拖拽示教、关节级柔顺、对单关节刚度有差异化要求的任务 |
+6461-| **可观察柔顺性方向** | 在笛卡尔轴上更直观（如降低 z 向 `kp` 让末端在垂直方向更"软"） | 在关节维度上更直观（如降低肘关节 `kp` 让肘部更"软"） |
+6462-| **配置接口** | [`SetCartesianImpedance()`](#24-setcartesianimpedance) | [`SetJointImpedance()`](#28-setjointimpedance) |
+6463-| **`kp` 维度** | 单臂 6 维：`x/y/z/roll/pitch/yaw` | 单臂 7 维：关节 1~7 |
+6464-
+6465-**共同要点**：
+6466-
+6467-- 设置阻抗参数前，必须先切换到对应控制模式：笛卡尔阻抗参数需先 `SetControlMode(2)`，关节阻抗参数需先 `SetControlMode(3)`。
+6468-- 当前实现仅 `kp` 字段生效（刚度系数），`ki` / `kv` 暂未启用。
+6469-- 重启后参数会丢失，每次需重新下发；详见 [`TorqueSensorCalibration()`](#31-torquesensorcalibration) 的"持久化说明"。
+6470-- 两种阻抗模式互斥：同一时刻只能处于其中一种，切换需重新调用 `SetControlMode()`。
+6471-- 进入阻抗模式前请先按"力控使用工作流"配置好负载，避免因动力学不匹配导致柔顺跟踪偏移。
+6472-
+6473-**注意事项**：
+6474-
+6475-- 控制关节角度的相关接口，支持位控模式和关节阻抗模式；
+6476-- 控制末端位姿势的相关接口，支持位控模式，笛卡尔阻抗模式和关节阻抗模式；
+6477-- 在不同的控制模式下控制末端位姿时，需要使用不同的参考坐标系，详细可参考EndEffectorPoseControl()的使用说明。
+6478-
+6479-## 接口说明
+6480-
+6481-### Robot 类
+6482-
+6483-该类封装了机器人的主要控制接口，集成了HAL（硬件抽象层）和运动控制功能。
+6484-
+6485-#### 1. `GetJointStates()`
+6486-
+6487-- **注意事项**：使用motor\_position和motor\_velocity获取电机位置和速度，position和velocity为低速电机预留字段，当前版本无需关注
+6488-- **功能**：获取机器人关节状态信息
+6489-- **参数**：
+6490-
+6491-| 参数名 | 类型 | 描述 |
+6492-| --- | --- | --- |
+6493-| `joint_states` | `JointStates&` | 输出参数，关节状态信息对象 |
+6494-
+6495-- **返回值**：`GDKRes`，操作结果状态码。成功时返回`GDKRes::kSuccess`，`joint_states`参数包含关节状态信息
+6496-
+6497-#### JointStates对象详细说明
+6498-
+6499-**JointStates结构体包含以下成员**：
+6500-
+6501-| 成员名 | 类型 | 描述 | 单位 |
+6502-| --- | --- | --- | --- |
+6503-| `nums` | `size_t` | 关节数量 | 无单位 |
+6504-| `states` | `std::vector<JointState>` | 关节状态列表 | 关节状态列表 |
+6505-| `timestamp` | `uint64_t` | 时间戳 | 纳秒 |
+6506-
+6507-```
+6508-struct JointStates {
+6509-  size_t nums{};                     ///< number of joint states
+6510-  std::vector<JointState> states{};  ///< joint states
+6511-  uint64_t timestamp{};              ///< joint states timestamp(ns)
+6512-};
+6513-```
+6514-
+6515-**JointState结构体**：
+6516-
+6517-| 成员名 | 类型 | 描述 | 单位 |
+6518-| --- | --- | --- | --- |
+6519-| `name` | `std::string` | 关节名称 | 字符串 |
+6520-| `mode` | `uint32_t` | 关节模式 | 无单位 |
+6521-| `position` | `double` | 关节位置 | 弧度 |
+6522-| `velocity` | `double` | 关节速度 | 弧度/秒 |
+6523-| `effort` | `double` | 关节力矩 | N·m |
+6524-| `motor_position` | `double` | 电机位置 | 弧度 |
+6525-| `motor_velocity` | `double` | 电机速度 | 弧度/秒 |
+6526-| `motor_current` | `double` | 电机电流 | A |
+6527-| `error_code` | `uint32_t` | 错误码，0表示正常 | 无单位 |
+6528-
+6529-```
+6530-struct JointState {
+6531-  std::string name{};
+6532-  uint32_t mode{};
+6533-  double position{};
+6534-  double velocity{};
+6535-  double effort{};
+6536-  double motor_position{};
+6537-  double motor_velocity{};
+6538-  double motor_current{};
+6539-  uint32_t error_code{};
+6540-};
+6541-```
+6542-
+6543-- **示例**：
+6544-
+6545-```
+6546-#include "gdk/gdk.h"
+6547-#include <iostream>
+6548-#include <chrono>
+6549-#include <thread>
+6550-
+6551-int main()
+6552-{
+6553-    // 初始化GDK系统
+6554-    if (agibot::gdk::GDKInit() != agibot::gdk::GDKRes::kSuccess) {
+6555-        std::cout << "GDK初始化失败" << std::endl;
+6556-        return -1;
+6557-    }
+6558-    std::cout << "GDK初始化成功" << std::endl;
+6559-
+6560-    agibot::gdk::Robot robot;
+6561-    std::cout << "Robot init" << std::endl;
+6562-
+6563-    agibot::gdk::JointStates joint_states;
+6564-    if (robot.GetJointStates(joint_states) != agibot::gdk::GDKRes::kSuccess) {
+6565-        std::cout << "Failed to get joint states" << std::endl;
+6566-    } else {
+6567-        std::cout << "关节数量: " << joint_states.nums << std::endl;
+6568-        std::cout << "时间戳: " << joint_states.timestamp << std::endl;
+6569-        for (const auto& joint_state : joint_states.states) {
+6570-            std::cout << "关节: " << joint_state.name
+6571-                      << ", 位置: " << joint_state.position
+6572-                      << ", 速度: " << joint_state.velocity
+6573-                      << ", 力矩: " << joint_state.effort
+6574-                      << ", 错误码: " << joint_state.error_code << std::endl;
+6575-        }
+6576-    }
+--
+7060-
+7061-    // 释放GDK系统资源
+7062-    if (agibot::gdk::GDKRelease() != agibot::gdk::GDKRes::kSuccess) {
+7063-        std::cout << "GDK释放失败" << std::endl;
+7064-        return -1;
+7065-    }
+7066-    std::cout << "GDK释放成功" << std::endl;
+7067-
+7068-    return 0;
+7069-}
+7070-```
+7071-
+7072-#### 6. `GetMotionControlStatus()`
+7073-
+7074-- **功能**：获取末端控制状态信息
+7075-- **参数**：
+7076-
+7077-| 参数名 | 类型 | 描述 |
+7078-| --- | --- | --- |
+7079-| `status` | `MotionControlStatus&` | 输出参数，末端控制状态对象 |
+7080-
+7081-- **返回值**：`GDKRes`，操作结果状态码。成功时返回`GDKRes::kSuccess`，`status`参数包含运动控制状态信息
+7082-
+7083-#### MotionControlStatus对象详细说明
+7084-
+7085-**MotionControlStatus结构体包含以下成员**：
+7086-
+7087-| 成员名 | 类型 | 描述 | 单位 |
+7088-| --- | --- | --- | --- |
+7089-| `mode` | `uint8_t` | 运动模式，0为停止，1为伺服，2为规划 | 无单位 |
+7090:| `control_mode` | `uint8_t` | 控制模式，1为关节位控（PD/轨迹），2为笛卡尔阻抗，3为关节阻抗 | 无单位 |
+7091-| `error_code` | `uint8_t` | 错误码，0表示正常 | 无单位 |
+7092-| `error_msg` | `std::string` | 错误信息 | 字符串 |
+7093-| `frame_names` | `std::vector<std::string>` | 末端关节名称列表 | 无单位 |
+7094-| `frame_poses` | `std::vector<Pose>` | 末端关节位姿列表 | 米 |
+7095-| `twists` | `std::vector<Twist>` | 末端关节速度列表 | 米/秒 |
+7096-| `wrenches` | `std::vector<Wrench>` | 末端关节力矩列表 | 牛米（torque）、牛（force） |
+7097-| `arm_disturbance_force` | `std::vector<double>` | 各关节所受外力 | 牛米 |
+7098-| `collision_pairs_1` | `std::vector<std::string>` | 碰撞对列表1 | 无单位 |
+7099-| `collision_pairs_2` | `std::vector<std::string>` | 碰撞对列表2 | 无单位 |
+7100-
+7101-**碰撞对说明**：
+7102-碰撞对是指当前状态下发生碰撞的关节对，如有碰撞会在列表中注明碰撞信息（碰撞的link（urdf的link）），否则为空。
+7103-
+7104-```
+7105-struct MotionControlStatus {
+7106-  uint8_t mode{};          ///< motion mode, 0: stop, 1: servo, 2: planning
+7107:  uint8_t control_mode{};  ///< control mode, 1: joint position, 2: cartesian impedance, 3: joint impedance
+7108-  uint8_t error_code{};
+7109-  std::string error_msg{};
+7110-
+7111-  std::vector<std::string> frame_names{};
+7112-  std::vector<Pose> frame_poses{};
+7113-  std::vector<Twist> twists{};
+7114-  std::vector<Wrench> wrenches{};
+7115-
+7116-  std::vector<double> arm_disturbance_force{};
+7117-
+7118-  std::vector<std::string> collision_pairs_1{};
+7119-  std::vector<std::string> collision_pairs_2{};
+7120-};
+7121-```
+7122-
+7123-- **示例**：
+7124-
+7125-```
+7126-#include "gdk/gdk.h"
+7127-#include <iostream>
+7128-#include <chrono>
+7129-#include <thread>
+7130-
+7131-int main()
+7132-{
+7133-    // 初始化GDK系统
+7134-    if (agibot::gdk::GDKInit() != agibot::gdk::GDKRes::kSuccess) {
+7135-        std::cout << "GDK初始化失败" << std::endl;
+7136-        return -1;
+7137-    }
+7138-    std::cout << "GDK初始化成功" << std::endl;
+7139-
+7140-    agibot::gdk::Robot robot;
+7141-    std::cout << "Robot init" << std::endl;
+7142-
+7143-    agibot::gdk::MotionControlStatus status;
+7144-    if (robot.GetMotionControlStatus(status) != agibot::gdk::GDKRes::kSuccess) {
+7145-        std::cout << "Failed to get motion control status" << std::endl;
+7146-    } else {
+7147-        std::cout << "=== 运动控制状态 ===" << std::endl;
+7148-        std::cout << "运动模式(mode): " << static_cast<int>(status.mode) << std::endl;
+7149:        std::cout << "控制模式(control_mode): " << static_cast<int>(status.control_mode) << std::endl;
+7150-        std::cout << "错误码(error_code): " << static_cast<int>(status.error_code) << std::endl;
+7151-        std::cout << "错误信息(error_msg): " << status.error_msg << std::endl;
+7152-
+7153-        std::cout << "\n=== 末端关节名称(frame_names) ===" << std::endl;
+7154-        std::cout << "数量: " << status.frame_names.size() << std::endl;
+7155-        for (size_t i = 0; i < status.frame_names.size(); ++i) {
+7156-            std::cout << "  [" << i << "] " << status.frame_names[i] << std::endl;
+7157-        }
+7158-
+7159-        std::cout << "\n=== 末端关节位姿(frame_poses) ===" << std::endl;
+7160-        std::cout << "数量: " << status.frame_poses.size() << std::endl;
+7161-        for (size_t i = 0; i < status.frame_poses.size(); ++i) {
+7162-            const auto& pose = status.frame_poses[i];
+7163-            std::cout << "  [" << i << "] ";
+7164-            if (i < status.frame_names.size()) {
+7165-                std::cout << status.frame_names[i];
+7166-            } else {
+7167-                std::cout << "frame_" << i;
+7168-            }
+7169-            std::cout << ":" << std::endl;
+7170-            std::cout << "    position: x=" << pose.position.x
+7171-                      << ", y=" << pose.position.y
+7172-                      << ", z=" << pose.position.z << std::endl;
+7173-            std::cout << "    orientation: x=" << pose.orientation.x
+7174-                      << ", y=" << pose.orientation.y
+7175-                      << ", z=" << pose.orientation.z
+7176-                      << ", w=" << pose.orientation.w << std::endl;
+7177-        }
+7178-
+7179-        std::cout << "\n=== 末端关节速度(twists) ===" << std::endl;
+7180-        std::cout << "数量: " << status.twists.size() << std::endl;
+7181-        for (size_t i = 0; i < status.twists.size(); ++i) {
+7182-            const auto& twist = status.twists[i];
+7183-            std::cout << "  [" << i << "] ";
+7184-            if (i < status.frame_names.size()) {
+7185-                std::cout << status.frame_names[i];
+7186-            } else {
+7187-                std::cout << "frame_" << i;
+7188-            }
+7189-            std::cout << ":" << std::endl;
+7190-            std::cout << "    linear: x=" << twist.linear.x
+7191-                      << ", y=" << twist.linear.y
+7192-                      << ", z=" << twist.linear.z << std::endl;
+7193-            std::cout << "    angular: x=" << twist.angular.x
+7194-                      << ", y=" << twist.angular.y
+7195-                      << ", z=" << twist.angular.z << std::endl;
+7196-        }
+7197-
+7198-        std::cout << "\n=== 末端关节力/力矩(wrenches) ===" << std::endl;
+7199-        std::cout << "数量: " << status.wrenches.size() << std::endl;
+7200-        for (size_t i = 0; i < status.wrenches.size(); ++i) {
+7201-            const auto& wrench = status.wrenches[i];
+7202-            std::cout << "  [" << i << "] ";
+7203-            if (i < status.frame_names.size()) {
+7204-                std::cout << status.frame_names[i];
+7205-            } else {
+7206-                std::cout << "frame_" << i;
+7207-            }
+7208-            std::cout << ":" << std::endl;
+7209-            std::cout << "    force: x=" << wrench.force.x
+7210-                      << ", y=" << wrench.force.y
+7211-                      << ", z=" << wrench.force.z << std::endl;
+7212-            std::cout << "    torque: x=" << wrench.torque.x
+7213-                      << ", y=" << wrench.torque.y
+7214-                      << ", z=" << wrench.torque.z << std::endl;
+7215-        }
+7216-
+7217-        std::cout << "\n=== 各关节所受外力(arm_disturbance_force) ===" << std::endl;
+7218-        std::cout << "数量: " << status.arm_disturbance_force.size() << std::endl;
+7219-        for (size_t i = 0; i < status.arm_disturbance_force.size(); ++i) {
+7220-            std::cout << "  [" << i << "] " << status.arm_disturbance_force[i] << std::endl;
+7221-        }
+7222-
+7223-        std::cout << "\n=== 碰撞对(collision_pairs_1 / collision_pairs_2) ===" << std::endl;
+7224-        std::cout << "碰撞对数量: " << status.collision_pairs_1.size() << std::endl;
+7225-        for (size_t i = 0; i < status.collision_pairs_1.size() && i < status.collision_pairs_2.size(); ++i) {
+7226-            std::cout << "  [" << i << "] " << status.collision_pairs_1[i]
+7227-                      << " <-> " << status.collision_pairs_2[i] << std::endl;
+7228-        }
+7229-    }
+7230-
+7231-    // 释放GDK系统资源
+7232-    if (agibot::gdk::GDKRelease() != agibot::gdk::GDKRes::kSuccess) {
+7233-        std::cout << "GDK释放失败" << std::endl;
+7234-        return -1;
+7235-    }
+7236-    std::cout << "GDK释放成功" << std::endl;
+7237-
+7238-    return 0;
+7239-}
+7240-```
+7241-
+7242-#### 7. `GetChassisPowerState()`
+7243-
+7244-- **功能**：获取底盘电源状态
+7245-- **参数**：
+7246-
+7247-| 参数名 | 类型 | 描述 |
+7248-| --- | --- | --- |
+7249-| `chassis_power_state` | `ChassisPowerState&` | 底盘电源状态对象 |
+7250-
+7251-- **返回值**：`GDKRes`，操作结果状态码。成功时返回`GDKRes::kSuccess`
+7252-
+7253-#### ChassisPowerState对象详细说明
+7254-
+7255-**ChassisPowerState结构体包含以下成员**：
+
+===== [4] JOINT_IMPEDANCE =====
+15942-- **相对移动**：基于当前位置的相对位移控制
+15943-- **任务控制**：动态暂停、恢复或取消导航任务
+15944-
+15945-
+15946-
+15947----
+15948-
+15949-<!-- source: contents_reference_Python_robot -->
+15950-
+15951-# Robot
+15952-
+15953-# GDK 机器人控制接口文档（Python）
+15954-
+15955-## 概述
+15956-
+15957-机器人控制模块为G02机器人提供了获取关节状态、控制机器人运动、获取全身状态等功能。通过Python接口，开发者可以方便地实现对机器人运动的精细化控制，适用于基础控制、状态检测、动作录制回放等多种场景。
+15958-
+15959-## 关于运动控制模式的说明
+15960-
+15961-机器人双臂的运动控制接口支持不同的\*\*运动控制模式\*\*：`1`（关节位控/位置控制）、`2`（笛卡尔阻抗控制）、`3`（关节阻抗控制）。机器人启动后默认处于力控模式；使用其他控制模式时，需通过`set_control_mode()`切换。
+15962-
+15963-机器人的运动控制模式是持久的，即一旦切换（无论是通过GDK还是通过其他方式）后会一直保持，直到再次切换或机器人重启。调用相关控制接口前，GDK 会检查机器人\*\*当前实际\*\*的运动控制模式是否在该接口支持的模式列表中，若不在则会抛出运行时异常，并在日志中打印原因。各接口的支持情况请参考下方"支持的控制模式"说明。
+15964-
+15965-### 力控使用工作流
+15966-
+15967-笛卡尔/关节力控（阻抗控制）依赖于准确的动力学模型，控制器会基于"机器人本体 + 末端负载"的整体动力学进行重力补偿与柔顺跟踪。若末端实际负载与配置不一致，会导致力反馈失真、柔顺跟踪偏移、甚至触发误报警。建议按以下顺序进入力控：
+15968-
+15969-1. **设置负载**（仅当末端确实存在负载时）：通过 `set_payload()` 配置末端负载的质量、质心、惯性张量。空载场景应保持/重置为零负载，详见 [`set_payload()`](#30-set_payload) 中的"使用建议"。
+15970-2. **传感器零点标定**（持久负载场景）：负载长期挂载（如固定工具、夹爪上常驻物）时，设置完 `set_payload()` 后调用一次 `torque_sensor_calibration()`，补偿传感器零点偏置。短期搬运类任务无需每次标定。
+15971-3. **切换控制模式**：`set_control_mode(2)` 进入笛卡尔力控，或 `set_control_mode(3)` 进入关节力控。
+15972:4. **配置阻抗参数**：进入对应控制模式后，再调用 `set_cartesian_impedance()` 或 `set_joint_impedance()` 设置参数；仅 `kp` 字段当前生效。
+15973-5. **下发目标位姿/关节量**：使用 `end_effector_pose_control()`、`joint_control()` 等接口下发目标，底层按已配置的阻抗参数柔顺跟踪。
+15974-
+15975-### 笛卡尔阻抗 vs 关节阻抗
+15976-
+15977-两类阻抗都用于实现"柔顺跟踪 + 力反馈"，区别在于刚度/柔顺性是定义在哪个空间，进而影响控制目标的下发形式与适合的任务类型：
+15978-
+15979-| 维度 | 笛卡尔阻抗（`control_mode=2`） | 关节阻抗（`control_mode=3`） |
+15980-| --- | --- | --- |
+15981-| **刚度定义空间** | 末端笛卡尔空间（`x/y/z/roll/pitch/yaw` 6 维） | 关节空间（每个关节单独配置，单臂 7 维） |
+15982-| **执行轨迹** | 目标位姿直接在笛卡尔空间执行，不经过全身逆解 | 目标关节量在关节空间执行；如下发的是位姿，会先经全身逆解再到关节空间柔顺跟踪 |
+15983-| **适合任务** | 接触类任务、装配、贴合、沿笛卡尔某轴方向柔顺（如 z 向贴合） | 拖拽示教、关节级柔顺、对单关节刚度有差异化要求的任务 |
+15984-| **可观察柔顺性方向** | 在笛卡尔轴上更直观（如降低 z 向 `kp` 让末端在垂直方向更"软"） | 在关节维度上更直观（如降低肘关节 `kp` 让肘部更"软"） |
+15985:| **配置接口** | [`set_cartesian_impedance()`](#24-set_cartesian_impedance) | [`set_joint_impedance()`](#28-set_joint_impedance) |
+15986-| **`kp` 维度** | 单臂 6 维：`x/y/z/roll/pitch/yaw` | 单臂 7 维：关节 1~7 |
+15987-
+15988-**共同要点**：
+15989-
+15990-- 设置阻抗参数前，必须先切换到对应控制模式：笛卡尔阻抗参数需先 `set_control_mode(2)`，关节阻抗参数需先 `set_control_mode(3)`。
+15991-- 当前实现仅 `kp` 字段生效（刚度系数），`ki` / `kv` 暂未启用。
+15992-- 重启后参数会丢失，每次需重新下发；详见 [`torque_sensor_calibration()`](#31-torque_sensor_calibration) 的"持久化说明"。
+15993-- 两种阻抗模式互斥：同一时刻只能处于其中一种，切换需重新调用 `set_control_mode()`。
+15994-- 进入阻抗模式前请先按"力控使用工作流"配置好负载，避免因动力学不匹配导致柔顺跟踪偏移。
+15995-
+15996-**注意事项**：
+15997-
+15998-- 控制关节角度的相关接口，支持位控模式和关节阻抗模式；
+15999-- 控制末端位姿势的相关接口，支持位控模式，笛卡尔阻抗模式和关节阻抗模式；
+16000-- 在不同的控制模式下控制末端位姿时，需要使用不同的参考坐标系，详细可参考end\_effector\_pose\_control()的使用说明。
+16001-
+16002-## 接口说明
+16003-
+16004-### Robot 类
+16005-
+16006-该类封装了机器人控制的主要功能接口。
+16007-
+16008-#### 1. `get_joint_states()`
+16009-
+16010-- **注意事项**：使用motor\_position和motor\_velocity获取电机位置和速度，position和velocity为低速电机预留字段，当前版本无需关注
+16011-- **功能**：获取关节状态信息
+16012-- **参数**：无
+16013-- **返回值**：`dict`，包含以下属性：
+16014-
+16015-| 属性名 | 类型 | 描述 | 单位 |
+16016-| --- | --- | --- | --- |
+16017-| `timestamp` | `int` | 时间戳 | 纳秒 |
+16018-| `nums` | `int` | 关节数量 | 整数 |
+16019-| `states` | `list[dict]` | 关节状态列表 | 字典列表 |
+16020-
+16021-**states中每个关节状态结构**：
+16022-
+16023-| 属性名 | 类型 | 描述 | 单位 |
+16024-| --- | --- | --- | --- |
+16025-| `name` | `str` | 关节名称 | 字符串 |
+16026-| `mode` | `int` | 关节模式 | 整数 |
+16027-| `position` | `float` | 关节位置 | 弧度 |
+16028-| `velocity` | `float` | 关节速度 | 弧度/秒 |
+16029-| `effort` | `float` | 关节力矩 | 牛顿·米 |
+16030-| `motor_position` | `float` | 电机位置 | 弧度 |
+16031-| `motor_velocity` | `float` | 电机速度 | 弧度/秒 |
+16032-| `motor_current` | `float` | 电机电流 | 安培 |
+16033-| `error_code` | `int` | 错误码 | 整数 |
+16034-
+16035-- **示例**：
+16036-
+16037-```
+16038-import agibot_gdk
+16039-import time
+16040-
+16041-# 初始化GDK系统
+16042-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+16043-    print("GDK初始化失败")
+16044-    exit(1)
+16045-print("GDK初始化成功")
+16046-
+16047-robot = agibot_gdk.Robot()
+16048-
+16049-# 获取关节状态
+16050-joint_states = robot.get_joint_states()
+16051-print(f"关节数量: {joint_states['nums']}")
+16052-print(f"时间戳: {joint_states['timestamp']}")
+16053-
+16054-for state in joint_states['states']:
+16055-    print(f"关节: {state['name']}")
+16056-    print(f"  位置: {state['position']:.3f} 弧度")
+16057-    print(f"  速度: {state['velocity']:.3f} 弧度/秒")
+16058-    print(f"  力矩: {state['effort']:.3f} 牛顿·米")
+16059-    print(f"  电机位置: {state['motor_position']:.3f} 弧度")
+16060-    print(f"  电机电流: {state['motor_current']:.3f} 安培")
+16061-    print(f"  错误码: {state['error_code']}")
+16062-
+16063-# 释放GDK系统资源
+16064-if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+16065-    print("GDK释放失败")
+16066-else:
+16067-    print("GDK释放成功")
+16068-```
+16069-
+16070-#### 2. `get_joint_limits()`
+16071-
+16072-- **功能**：获取机器人关节限位信息
+16073-- **参数**：无
+16074-- **返回值**：`dict[str, dict]`，键为关节名，值为关节限位信息字典，结构如下：
+16075-
+16076-| 属性名 | 类型 | 描述 | 单位 |
+16077-| --- | --- | --- | --- |
+16078-| `min` | `float` | 关节最小位置限位 | 弧度 |
+16079-| `max` | `float` | 关节最大位置限位 | 弧度 |
+16080-
+16081-- **说明**：当前返回结果包含机器人本体关节与末端执行器关节（`left_tool`/`right_tool`）的限位信息。
+16082-
+16083-G02 各关节限位参考值（单位：弧度）：
+16084-
+16085-| 关节名 | 分组 | 最小值 | 最大值 |
+16086-| --- | --- | --- | --- |
+16087-| `idx01_body_joint1` | 躯干 | -1.0821 | 0.0002 |
+16088-| `idx02_body_joint2` | 躯干 | -0.0002 | 2.6529 |
+16089-| `idx03_body_joint3` | 躯干 | -1.9199 | 1.5710 |
+16090-| `idx04_body_joint4` | 躯干 | -0.4363 | 0.4363 |
+16091-| `idx05_body_joint5` | 躯干 | -3.0456 | 3.0456 |
+16092-| `idx11_head_joint1` | 头部 | -1.5710 | 1.5710 |
+16093-| `idx12_head_joint2` | 头部 | -0.3492 | 0.3492 |
+16094-| `idx13_head_joint3` | 头部 | -0.5348 | 0.5348 |
+16095-| `idx21_arm_l_joint1` | 左臂 | -3.0718 | 3.0718 |
+16096-| `idx22_arm_l_joint2` | 左臂 | -2.0595 | 2.0595 |
+16097-| `idx23_arm_l_joint3` | 左臂 | -3.0718 | 3.0718 |
+16098-| `idx24_arm_l_joint4` | 左臂 | -2.4958 | 1.0123 |
+16099-| `idx25_arm_l_joint5` | 左臂 | -3.0718 | 3.0718 |
+16100-| `idx26_arm_l_joint6` | 左臂 | -1.0123 | 1.0123 |
+16101-| `idx27_arm_l_joint7` | 左臂 | -1.5359 | 1.5359 |
+16102-| `idx61_arm_r_joint1` | 右臂 | -3.0718 | 3.0718 |
+16103-| `idx62_arm_r_joint2` | 右臂 | -2.0595 | 2.0595 |
+16104-| `idx63_arm_r_joint3` | 右臂 | -3.0718 | 3.0718 |
+16105-| `idx64_arm_r_joint4` | 右臂 | -2.4958 | 1.0123 |
+--
+18165-```
+18166-import agibot_gdk
+18167-import time
+18168-
+18169-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+18170-    print("GDK初始化失败")
+18171-    exit(1)
+18172-
+18173-robot = agibot_gdk.Robot()
+18174-
+18175-positions = [0.0, 0.0]   # 先左后右
+18176-velocities = [0.0, 0.0]  # 与 positions 等长
+18177-
+18178-try:
+18179-    robot.move_end_effector_joint(positions, velocities, "dual_tool")
+18180-    print("dual_tool 末端关节伺服成功")
+18181-except Exception as e:
+18182-    print(f"dual_tool 失败: {e}")
+18183-
+18184-if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+18185-    print("GDK释放失败")
+18186-else:
+18187-    print("GDK释放成功")
+18188-```
+18189-
+18190-#### 19. `end_effector_pose_control()`
+18191-
+18192-- **功能**：末端执行器位姿控制（非阻塞式）
+18193-- **支持的控制模式**：`1`（关节位控）、`2`（笛卡尔阻抗）、`3`（关节阻抗），使用关节阻抗模式或笛卡尔阻抗模式前，请先通过`set_control_mode()`切换。
+18194-- **不同模式下的行为**：
+18195:- `1` / `3`（位置控制 / 关节阻抗控制）：目标位姿经运控服务全身逆解后，在关节空间执行；关节阻抗控制模式下，底层会按`set_joint_impedance()`配置的阻抗参数柔顺跟踪。
+18196-- `2`（笛卡尔阻抗控制）：目标位姿直接在笛卡尔空间执行，底层会按`set_cartesian_impedance()`配置的阻抗参数柔顺跟踪。
+18197-- 位置控制时或关节阻抗控制时，末端位姿的参考坐标系是 end\_link（末端法兰中心位置）；笛卡尔阻抗控制时，末端位姿的参考坐标系为 tcp（末端执行器中心位置）。未特别配置时，tcp 与 end\_link 默认重合。
+18198-- **注意**：
+18199-- 该接口要求发送端以50hz频率发布控制命令，不允许阶越信号；该接口无碰撞检测，注意使用时环境。该接口的控制器不提供规划能力，只适合用于末端小范围的移动，请勿在奇异点位置使用该接口。
+18200-- 支持末端位姿与夹爪关节同步控制：填入 `end_effector_joint_names` / `end_effector_joint_positions` 时同步驱动对应关节，留空则只控制末端位姿。
+18201-- **参数**：`EndEffectorPose`对象，包含以下属性：
+18202-
+18203-| 属性名 | 类型 | 描述 | 单位 |
+18204-| --- | --- | --- | --- |
+18205-| `life_time` | `float` | 生命周期 | 秒 |
+18206-| `group` | `int` | 控制组 | 整数 |
+18207-| `left_end_effector_pose` | `Pose` | 左末端执行器位姿（base\_link坐标系下） | 位姿 |
+18208-| `right_end_effector_pose` | `Pose` | 右末端执行器位姿（base\_link坐标系下） | 位姿 |
+18209-| `end_effector_joint_names` | `list[str]` | 同步控制的末端关节名称列表（如夹爪关节），与 `end_effector_joint_positions` 一一对应，为空时不控制末端关节 | 无单位 |
+18210-| `end_effector_joint_positions` | `list[float]` | 末端关节目标位置列表，须与 `end_effector_joint_names` 长度相同 | 弧度 |
+18211-
+18212-- **返回值**：`int`，0表示成功，失败时抛出异常
+18213-- **示例**：（注意：为保证安全，该示例会将机器移动到初始位姿（站立），再调用末端位姿控制，请在确保机器人周围空间安全的情况下运行）
+18214-
+18215-```
+18216-import agibot_gdk
+18217-import time
+18218-import math
+18219-
+18220-# 常量定义
+18221-# 默认以法兰中心 end_link 为末端参考坐标系。
+18222-# 若需以工具坐标系 tool0（TCP）为参考，请改用 left_tool0_body / right_tool0_body，
+18223-# 并配合 switch_end_pose_control_frame()，详见本节末尾“工具坐标系（tool0）用例”。
+18224-LEFT_NAME = "arm_l_end_link"
+18225-RIGHT_NAME = "arm_r_end_link"
+18226-
+18227-# 目标位姿（位置和四元数）
+18228-TARGET_LEFT_POSITION = [0.76755,0.301127306,1.08398]
+18229-TARGET_LEFT_ORIENTATION =  [0.5858436, -0.02614889,0.80973243,0.02089957]
+18230-
+18231-TARGET_RIGHT_POSITION = [0.6099763,-0.3903393, 1.050190472]
+18232-TARGET_RIGHT_ORIENTATION =  [0.648815,-0.001096,0.76094223696, 0.0020416]
+18233-
+18234-# 控制参数
+18235-MAX_STEP_CM = 0.1  # 最大步长（厘米）
+18236-LIFETIME = 0.02    # 生命周期（秒）
+18237-RATE_HZ = 50.0     # 发送频率（Hz）
+18238-HOLD_FINAL = True  # 是否保持最终位姿
+18239-
+18240-class EndEffectorController:
+18241-    def __init__(self, robot):
+18242-        self.robot = robot
+18243-
+18244-    def slerp(self, q0, q1, t):
+18245-        """
+18246-        四元数球面线性插值
+18247-        q0, q1: 四元数 [x, y, z, w]
+18248-        t: 插值参数 [0, 1]
+18249-        返回: 插值后的四元数 [x, y, z, w]
+18250-        """
+18251-        # 计算点积
+18252-        dot = q0[0]*q1[0] + q0[1]*q1[1] + q0[2]*q1[2] + q0[3]*q1[3]
+18253-
+18254-        # 如果点积为负，取反q1以确保最短路径（取反一次，后续所有分支都用 q1c）
+18255-        q1c = list(q1)
+18256-        if dot < 0.0:
+18257-            dot = -dot
+18258-            q1c = [-q1[i] for i in range(4)]
+18259-
+18260-        # 限制点积范围
+18261-        dot = max(-1.0, min(1.0, dot))
+18262-
+18263-        if dot > 0.9995:
+18264-            # 线性插值
+18265-            result = [q0[i] + t * (q1c[i] - q0[i]) for i in range(4)]
+18266-            norm = math.sqrt(sum(r*r for r in result))
+18267-            if norm > 0.0:
+18268-                result = [r / norm for r in result]
+18269-        else:
+18270-            # 球面线性插值
+18271-            theta_0 = math.acos(dot)
+18272-            sin_theta_0 = math.sin(theta_0)
+18273-            theta = theta_0 * t
+18274-            sin_theta = math.sin(theta)
+18275-            s0 = math.cos(theta) - dot * sin_theta / sin_theta_0
+18276-            s1 = sin_theta / sin_theta_0
+18277-
+18278-            result = [s0 * q0[i] + s1 * q1c[i] for i in range(4)]
+18279-
+18280-        return result
+18281-
+18282-    def distance_between_points(self, p1, p2):
+18283-        """计算两点之间的距离"""
+18284-        dx = p2[0] - p1[0]
+18285-        dy = p2[1] - p1[1]
+18286-        dz = p2[2] - p1[2]
+18287-        return math.sqrt(dx*dx + dy*dy + dz*dz)
+18288-
+18289-    def calculate_n_steps(self, start_pos, goal_pos, max_step_cm):
+18290-        """计算需要的步数"""
+18291-        dist_cm = self.distance_between_points(start_pos, goal_pos) * 100.0
+18292-        return max(int(math.ceil(dist_cm / max_step_cm)), 1)
+18293-
+18294-    def plan_trajectory(self, start_pose, goal_pose, n_steps):
+18295-        """
+18296-        规划轨迹
+18297-        start_pose, goal_pose: 包含position和orientation的字典
+18298-        n_steps: 步数
+18299-        返回: 轨迹列表
+18300-        """
+18301-        trajectory = []
+18302-
+18303-        for i in range(n_steps):
+18304-            t = float(i) / (n_steps - 1) if n_steps > 1 else 0.0
+18305-
+18306-            # 位置线性插值
+18307-            pos = [
+18308-                start_pose['position'][0] + t * (goal_pose['position'][0] - start_pose['position'][0]),
+18309-                start_pose['position'][1] + t * (goal_pose['position'][1] - start_pose['position'][1]),
+18310-                start_pose['position'][2] + t * (goal_pose['position'][2] - start_pose['position'][2])
+18311-            ]
+18312-
+18313-            # 四元数SLERP插值
+18314-            q0 = start_pose['orientation']
+18315-            q1 = goal_pose['orientation']
+--
+19299-
+19300-- **功能**：设置碰撞检测配置
+19301-- **参数**：
+19302-
+19303-| 参数名 | 类型 | 描述 |
+19304-| --- | --- | --- |
+19305-| `config` | `CollisionDetectionConfig` | 碰撞检测配置 |
+19306-
+19307-- **返回值**：`int`，0 表示成功，失败时抛出异常
+19308-- **示例**：
+19309-
+19310-```
+19311-import agibot_gdk
+19312-import time
+19313-
+19314-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+19315-    print("GDK初始化失败")
+19316-    exit(1)
+19317-
+19318-robot = agibot_gdk.Robot()
+19319-
+19320-config = agibot_gdk.CollisionDetectionConfig()
+19321-config.is_enabled = True
+19322-config.sensitivity = 2
+19323-config.checkout_timeout_ms = 500
+19324-robot.set_collision_detection_config(config)
+19325-
+19326-agibot_gdk.gdk_release()
+19327-```
+19328-
+19329:#### 27. `get_joint_impedance()`
+19330-
+19331-- **功能**：获取关节阻抗参数
+19332-- **参数**：无
+19333-- **返回值**：`list[Impedance]`，每个关节的阻抗参数
+19334-- **示例**：
+19335-
+19336-```
+19337-import agibot_gdk
+19338-import time
+19339-
+19340-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+19341-    print("GDK初始化失败")
+19342-    exit(1)
+19343-
+19344-robot = agibot_gdk.Robot()
+19345-
+19346:impedances = robot.get_joint_impedance()
+19347-for i, imp in enumerate(impedances):
+19348-    print(f"joint {i}: kp={imp.kp}, ki={imp.ki}, kv={imp.kv}")
+19349-
+19350-agibot_gdk.gdk_release()
+19351-```
+19352-
+19353:#### 28. `set_joint_impedance()`
+19354-
+19355-- **功能**：设置关节阻抗参数（必须先切换到 `control_mode=3`（关节阻抗）后再调用）。当前实现仅支持设置 `kp`（刚度系数），`ki` / `kv` 暂未启用。
+19356-- **参数**：
+19357-
+19358-| 参数名 | 类型 | 描述 |
+19359-| --- | --- | --- |
+19360-| `impedances` | `list[Impedance]` | 每个关节的阻抗参数；当前实现仅读取并应用 `kp`，`ki` / `kv` 字段会被忽略。`control_group=0/1` 时长度为单臂关节数，`control_group=2` 时长度为双臂关节数之和（前 N 个为左臂，后 N 个为右臂） |
+19361-| `control_group` | `int` | 控制组，0: 左臂，1: 右臂，2: 双臂 |
+19362-
+19363-- **返回值**：`int`，0 表示成功，失败时抛出异常
+19364-- **kp 取值说明**：
+19365-
+19366-单臂的 7 维 `kp` 按顺序对应该臂从基座到末端的 **关节 1 ~ 关节 7**。各关节建议取值范围：
+19367-
+19368-| 关节序号 | 下限 | 上限 | 单位 |
+19369-| --- | --- | --- | --- |
+19370-| 关节 1 / 2 / 3（大臂） | 50 | 500 | N·m/rad |
+19371-| 关节 4（肘） | 60 | 600 | N·m/rad |
+19372-| 关节 5 / 6 / 7（小臂/腕） | 30 | 300 | N·m/rad |
+19373-
+19374-即单臂 `kp` 下限为 `(50, 50, 50, 60, 30, 30, 30)`，上限为 `(500, 500, 500, 600, 300, 300, 300)`。`control_group=2`（双臂）时长度为 14，前 7 维为左臂、后 7 维为右臂，每一臂分别遵循上述顺序与范围。
+19375-
+19376-- `kp` 越大刚度越高，关节对位置误差恢复力强，但抗冲击/柔顺性下降；
+19377-- `kp` 越小越柔顺，更适合接触类或拖拽类任务，但跟踪误差更大；
+19378-- 超出推荐范围可能引发振荡或柔顺度严重不足，请按工况在区间内调试。
+19379-- **示例**：
+19380-
+19381-```
+19382-import agibot_gdk
+19383-import time
+19384-
+19385-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+19386-    print("GDK初始化失败")
+19387-    exit(1)
+19388-
+19389-robot = agibot_gdk.Robot()
+19390-
+19391-# 先切换到关节阻抗控制模式（control_mode=3），再设置对应参数
+19392-robot.set_control_mode(3)
+19393-
+19394-impedances = [agibot_gdk.Impedance(kp=100.0) for _ in range(7)]  # 单臂 7 个关节，仅 kp 生效
+19395:robot.set_joint_impedance(impedances, 0)  # 左臂
+19396-
+19397-agibot_gdk.gdk_release()
+19398-```
+19399-
+19400-#### 29. `get_payload()`
+19401-
+19402-- **功能**：获取双臂末端负载信息
+19403-- **参数**：无
+19404-- **返回值**：`PayloadInfo` 对象
+19405-
+19406-**PayloadInfo对象详细说明**：
+19407-
+19408-| 属性名 | 类型 | 描述 |
+19409-| --- | --- | --- |
+19410-| `left_arm` | `InertiaInfo` | 左臂末端负载信息 |
+19411-| `right_arm` | `InertiaInfo` | 右臂末端负载信息 |
+19412-
+19413-**InertiaInfo对象详细说明**：
+19414-
+19415-| 属性名 | 类型 | 描述 | 单位 |
+19416-| --- | --- | --- | --- |
+19417-| `mass` | `float` | 负载质量 | kg |
+19418-| `center_of_mass` | `list[float]` | 负载重心位置（长度 3） | m |
+19419-| `inertia` | `list[float]` | 负载惯性矩阵（长度 9，3x3 按行展开） | kg·m² |
+19420-
+19421-- **示例**：
+19422-
+19423-```
+19424-import agibot_gdk
+19425-import time
+19426-
+19427-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+19428-    print("GDK初始化失败")
+19429-    exit(1)
+19430-
+19431-robot = agibot_gdk.Robot()
+19432-
+19433-info = robot.get_payload()
+19434-print(f"left mass={info.left_arm.mass}, right mass={info.right_arm.mass}")
+19435-
+19436-agibot_gdk.gdk_release()
+19437-```
+19438-
+19439-#### 30. `set_payload()`
+19440-
+19441-- **功能**：设置双臂末端负载信息。负载参数会进入控制器的动力学补偿，是力控（笛卡尔阻抗 / 关节阻抗）下力反馈与重力补偿正确性的前提。
+19442-- **参考坐标系**：负载的质心（`center_of_mass`）与惯性张量（`inertia`）均以末端 `end_link` 坐标系（末端法兰中心位置）为参考，填写时请确保数值在该坐标系下表达。
+19443-- **参数**：
+19444-
+19445-| 参数名 | 类型 | 描述 |
+19446-| --- | --- | --- |
+19447-| `payload_info` | `PayloadInfo` | 负载信息 |
+19448-
+19449-- **返回值**：`int`，0 表示成功，失败时抛出异常
+19450-- **使用建议**：
+19451-- **仅在末端确实存在负载时设置**：空载状态不应保留旧的非零负载参数，否则控制器会按虚构的额外重力进行补偿，导致力控柔顺跟踪偏移、力反馈失真。空载或负载移除时，请显式调用本接口将质量/质心/惯量重置为零。
+19452-- **持久负载（长期挂载）**：当末端常驻同一负载（如固定工具、长期挂载的物体）时，调用 `set_payload()` 后应立即调用一次 [`torque_sensor_calibration()`](#31-torque_sensor_calibration)，补偿当前装配下传感器的零点偏置。标定一次后即可持续使用。
+19453-- **短期负载（搬运类场景）**：搬重物前先 `set_payload()` 配置当前负载；放下后再次 `set_payload()` 重置为零负载。这种短周期切换通常不需要每次都重新做传感器零点标定，但负载参数必须随实际抓持状态同步更新。
+19454-- **静止下设置**：建议在机械臂静止时调用，避免与运动控制指令产生竞争。
+19455-- **最大负载**：G02机器标称为5kg，请不要超过最大负载，否则会导致机械臂运动异常。
+19456-- **示例**：
+19457-
+19458-```
+19459-import agibot_gdk
+19460-import time
+19461-
+19462-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+19463-    print("GDK初始化失败")
+19464-    exit(1)
+19465-
+19466-robot = agibot_gdk.Robot()
+19467-
+19468-info = agibot_gdk.PayloadInfo()
+19469-info.left_arm.mass = 0.5
+19470-info.left_arm.center_of_mass = [0.0, 0.0, 0.05]
+19471-info.left_arm.inertia = [0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001]
+19472-info.right_arm.mass = 0.5
+19473-info.right_arm.center_of_mass = [0.0, 0.0, 0.05]
+19474-info.right_arm.inertia = [0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001]
+19475-robot.set_payload(info)
+19476-
+19477-agibot_gdk.gdk_release()
+19478-```
+19479-
+19480-#### 31. `torque_sensor_calibration()`
+19481-
+
+===== [5] JOINT_POSITION =====
+811-
+812-### 引入头文件
+813-
+814-```
+815-#include "gdk/gdk.h"
+816-```
+817-
+818-### 初始化GDK
+819-
+820-```
+821-if (agibot::gdk::GDKInit() != agibot::gdk::GDKRes::kSuccess) {
+822-    std::cout << "GDK初始化失败" << std::endl;
+823-    return -1;
+824-}
+825-```
+826-
+827-### 初始化机器人对象
+828-
+829-```
+830-agibot::gdk::Robot robot;
+831-std::cout << "Robot init" << std::endl;
+832-std::this_thread::sleep_for(std::chrono::seconds(1));
+833-```
+834-
+835-### 设置控制的关节与对应的关节角位置，执行速度
+836-
+837-```
+838-agibot::gdk::JointControlReq joint_control;
+839-joint_control.life_time = 5.0;
+840-joint_control.joint_names = {"arm_l_joint1", "arm_l_joint2", "arm_l_joint3"};
+841:joint_control.joint_positions = {0.5, -0.3, 0.8};
+842-joint_control.joint_velocities = {0.3, 0.3, 0.3};
+843-```
+844-
+845-### 发送关节控制命令
+846-
+847-```
+848-if (robot.JointControl(joint_control) != agibot::gdk::GDKRes::kSuccess) {
+849-    std::cout << "Failed to control joints" << std::endl;
+850-} else {
+851-    std::cout << "关节控制指令发送成功" << std::endl;
+852-}
+853-```
+854-
+855-## 编译
+856-
+857-### CMake编译配置
+858-
+859-GDK的头文件和动态库部署在GDK\_HOME目录，混合部署下GDK\_HOME默认在~/.cache/agibot。
+860-将以下内容添加到你的CMakeLists.txt当中，来将你的程序与链接gdk链接库以及头文件，并使用该方法创建编译项目
+861-
+862-```
+863-if(NOT DEFINED ENV{GDK_HOME})
+864-    set(GDK_HOME_PATH ~/.cache/agibot)
+865-else()
+866-    set(GDK_HOME_PATH $ENV{GDK_HOME})
+867-endif()
+868-
+869-function(add_adapter name)
+870-    add_executable(${name} src/${name}.cpp)
+871-
+872-    if(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64")
+873-        target_include_directories(${name} PRIVATE ${GDK_HOME_PATH}/app/gdk/build_dep/cpp/x86_64/include)
+874-        target_link_directories(${name} PRIVATE ${GDK_HOME_PATH}/app/gdk/build_dep/cpp/x86_64/lib)
+875-        target_link_libraries(${name} PRIVATE ${GDK_HOME_PATH}/app/gdk/build_dep/cpp/x86_64/lib/libgdk_adapter.so)
+876-    elseif(CMAKE_SYSTEM_PROCESSOR STREQUAL "aarch64")
+877-        target_include_directories(${name} PRIVATE ${GDK_HOME_PATH}/app/gdk/build_dep/cpp/aarch64/include)
+878-        target_link_directories(${name} PRIVATE ${GDK_HOME_PATH}/app/gdk/build_dep/cpp/aarch64/lib)
+879-        target_link_libraries(${name} PRIVATE ${GDK_HOME_PATH}/app/gdk/build_dep/cpp/aarch64/lib/libgdk_adapter.so)
+880-    endif()
+881-endfunction()
+882-
+883-add_adapter(your_program)
+884-```
+885-
+886-### 声明编译链接库路径
+887-
+888-```
+889-source ~/.cache/agibot/app/env.sh
+890-```
+891-
+892-### 编译
+893-
+894-动态库版本一致性
+895-
+896-确保编译与运行时链接的动态库版本一致。版本不匹配时 GDK 会输出错误：
+897-
+898-```
+899-Version mismatch, runtime version: 2.2.0, build version: 2.2.1
+900-```
+901-
+902-```
+903-cmake -B build
+904-make -C build
+905-```
+906-
+907-编译产物可在build文件夹中查询
+908-
+909-### 运行程序
+910-
+911-运行前需先执行 `source ~/.cache/agibot/app/env.sh`，该脚本会自动将所有 GDK 动态库路径加入 `LD_LIBRARY_PATH`。
+912-
+913-```
+914-./build/your_program
+915-```
+916-
+917-
+918-
+919----
+920-
+921-<!-- source: contents_howto_deploy -->
+922-
+923-# 部署
+924-
+925-# 部署
+926-
+927-## 环境要求
+928-
+929-### 硬件需求
+930-
+931-- 符合ISO/IEC 11801：2002和EIA/TIA 568B或ISO/IEC 11801:2002和EIA/TIA 568-B.2-1标准的网线
+932-- 开发机（Ubuntu22.04，x86\_64，Intel i9及以上性能CPU）
+933-
+934-### 网络配置
+935-
+936-使用网线连接G2接口面板的Debug网口和开发机网口，然后给开发机的网卡配置静态IP：
+937-
+938-```
+939-IP：10.42.1.xxx（除 10.42.1.101 外均可使用，101 为 G2 默认 IP）
+940-MASK：255.255.255.0
+941-```
+942-
+943-在开发机上验证与G2的通信是否正常：
+944-
+945-```
+946-ping 10.42.1.101
+947-```
+948-
+949-## 安装GDK
+950-
+951-### 混合部署">混合部署
+952-
+953-在开发机执行以下命令安装GDK：
+954-
+955-```
+956-curl -sSL http://10.42.1.101:8849/install.sh | bash
+957-```
+958-
+959-## 获取示例代码
+960-
+961-### 从G2上获取示例代码压缩包
+--
+1447-**步骤 1：完成环境初始化**
+1448-
+1449-在开始 C++ 编译前，应先执行「1. 环境要求」中的操作
+1450-
+1451-若未完成该步骤，后续 C++ 程序开发过程可能出现以下问题：
+1452-
+1453-- ros2 命令不可用
+1454-- `colcon build` 无法正确继承 ROS2 环境
+1455-- 工作空间下的 C++ 代码无法识别 `gdk_msgs` 运行环境
+1456-
+1457-**步骤 2：创建并进入 ROS 2 工作空间**
+1458-
+1459-创建开发工作空间，假设在 `~/` 路径下创建名为 `ros2_ws` 的工作空间：
+1460-
+1461-```
+1462-mkdir -p ~/ros2_ws/src  # 路径无严格要求、工作空间命名无严格要求
+1463-```
+1464-
+1465-进入 `~/ros2_ws/src`：
+1466-
+1467-```
+1468-cd ~/ros2_ws/src  # ROS 官方推荐将工作空间中的任何包放置在 src 目录中
+1469-```
+1470-
+1471-**步骤 3：编写最小 C++ ROS2 节点**
+1472-
+1473-本步骤用于说明在工作空间中如何编写一个基于 `gdk_msgs` 向 `/gdk/joint_pos_request` 发布一条关节位置控制命令的 ROS2 C++ 节点
+1474-
+1475-一、创建功能包目录
+1476-
+1477:在 `~/ros2_ws/src` 下创建一个示例功能包，例如命名为 `joint_position_demo`：
+1478-
+1479-```
+1480:mkdir -p ~/ros2_ws/src/joint_position_demo/src
+1481:cd ~/ros2_ws/src/joint_position_demo/src
+1482-```
+1483-
+1484-二、编写节点源码
+1485-
+1486:在 `~/ros2_ws/src/joint_position_demo/src` 下创建 `joint_position_pub.cpp` 文件。
+1487-
+1488-编写 C++ 源码时，应先引入当前程序实际需要使用的 ROS2 头文件和 `gdk_msgs` 消息头文件：
+1489-
+1490-```
+1491-#include <chrono>
+1492-#include <memory>
+1493-#include <string>
+1494-#include <vector>
+1495-
+1496-#include <boost/uuid/uuid.hpp>
+1497-#include <boost/uuid/uuid_generators.hpp>
+1498-#include <boost/uuid/uuid_io.hpp>
+1499-#include <rclcpp/rclcpp.hpp>
+1500-#include <rclcpp/qos.hpp>
+1501-
+1502:#include "gdk_msgs/msg/joint_position_requst.hpp"
+1503-```
+1504-
+1505-QoS 策略建议显式配置如下：
+1506-
+1507-```
+1508-auto qos = rclcpp::QoS(rclcpp::KeepLast(5));
+1509-qos.best_effort();
+1510-qos.durability_volatile();
+1511-qos.deadline(std::chrono::nanoseconds(10000000));
+1512-```
+1513-
+1514-控制命令通常需要携带唯一标识，用于区分不同请求，可通过 `boost::uuid` 生成 UUID：
+1515-
+1516-```
+1517-inline std::string generate_uuid_boost() {
+1518-  boost::uuids::random_generator gen;
+1519-  return boost::uuids::to_string(gen());
+1520-}
+1521-```
+1522-
+1523-创建 `/gdk/joint_pos_request` 发布器，可向机器人发送关节位置控制命令：
+1524-
+1525-```
+1526:pub_joint_position_ =
+1527-    this->create_publisher<gdk_msgs::msg::JointPositionRequst>(
+1528-        "/gdk/joint_pos_request",
+1529-        qos
+1530-    );
+1531-```
+1532-
+1533-构造控制命令并发布：
+1534-
+1535-```
+1536-gdk_msgs::msg::JointPositionRequst request;
+1537-request.lifetime = 1.0;
+1538-request.joint_names = joint_names;
+1539:request.joint_positions = target_positions;
+1540-request.joint_velocities = target_velocity;
+1541-request.uuid = generate_uuid_boost();
+1542-
+1543:pub_joint_position_->publish(request);
+1544-```
+1545-
+1546-完整的最小控制节点示例如下：
+1547-
+1548-> 该节点启动后会等待 1 秒，然后向 `/gdk/joint_pos_request` 发布一条控制命令
+1549-
+1550-```
+1551-inline std::string generate_uuid_boost() {
+1552-  boost::uuids::random_generator gen;
+1553-  return boost::uuids::to_string(gen());
+1554-}
+1555-
+1556-class JointPositionPublisherNode : public rclcpp::Node {
+1557- public:
+1558:  JointPositionPublisherNode() : Node("joint_position_publisher_demo") {
+1559-    auto qos = rclcpp::QoS(rclcpp::KeepLast(5));
+1560-    qos.best_effort();
+1561-    qos.durability_volatile();
+1562-    qos.deadline(std::chrono::nanoseconds(10000000));
+1563-
+1564-    publisher_ = this->create_publisher<gdk_msgs::msg::JointPositionRequst>(
+1565-        "/gdk/joint_pos_request", qos);
+1566-
+1567-    timer_ = this->create_wall_timer(
+1568-        std::chrono::seconds(1),
+1569-        std::bind(&JointPositionPublisherNode::publish_once, this));
+1570-  }
+1571-
+1572- private:
+1573-  void publish_once() {
+1574-    if (published_) {
+1575-      return;
+1576-    }
+1577-
+1578-    gdk_msgs::msg::JointPositionRequst request;
+1579-    request.lifetime = 1.0;
+1580-    request.joint_names = {"idx21_arm_l_joint1"};
+1581:    request.joint_positions = {0.5};
+1582-    request.joint_velocities = {0.3};
+1583-    request.uuid = generate_uuid_boost();
+1584-    request.detail = "joint position demo";
+1585-
+1586-    publisher_->publish(request);
+1587-    published_ = true;
+1588-
+1589-    RCLCPP_INFO(this->get_logger(),
+1590-                "published joint position request to /gdk/joint_pos_request");
+1591-  }
+1592-
+1593-  bool published_ = false;
+1594-  rclcpp::TimerBase::SharedPtr timer_;
+1595-  rclcpp::Publisher<gdk_msgs::msg::JointPositionRequst>::SharedPtr publisher_;
+1596-};
+1597-
+1598-int main(int argc, char* argv[]) {
+1599-  rclcpp::init(argc, argv);
+1600-  auto node = std::make_shared<JointPositionPublisherNode>();
+1601-  rclcpp::spin(node);
+1602-  rclcpp::shutdown();
+1603-  return 0;
+1604-}
+1605-```
+1606-
+1607-说明：
+1608-
+1609-- `gdk_msgs::msg::JointPositionRequst` 是控制命令消息类型；
+1610-- `/gdk/joint_pos_request` 是当前对外暴露的关节位置控制请求话题；
+1611:- `joint_names`、`joint_positions`、`joint_velocities` 三个列表长度必须一致；
+1612-- 示例中的关节名 `idx21_arm_l_joint1` 仅用于演示，实际使用时应替换为目标机器人上真实存在的关节名称；
+1613-- 示例中使用 `timer_` 延迟 1 秒发送一次命令，便于节点启动完成后再执行发布。
+1614-
+1615-三、编写 CMakeLists.txt
+1616-
+1617:在 `~/ros2_ws/src/joint_position_demo` 下创建 `CMakeLists.txt` 文件
+1618-
+1619-若程序中使用了 `gdk_msgs` 消息类型，则 `CMakeLists.txt` 中至少应声明以下依赖：
+1620-
+1621-```
+1622-find_package(ament_cmake REQUIRED)
+1623-find_package(rclcpp REQUIRED)
+1624-find_package(gdk_msgs REQUIRED)
+1625-
+1626-ament_target_dependencies(control_example
+1627-  rclcpp
+1628-  gdk_msgs
+1629-)
+1630-```
+1631-
+1632-说明：
+1633-
+1634-- `find_package(gdk_msgs REQUIRED)` 用于引入 `gdk_msgs` 消息包；
+1635-- `ament_target_dependencies(...)` 中必须包含 `gdk_msgs`，否则编译时无法正确解析消息类型相关头文件与依赖。
+1636-
+1637-四、编写 package.xml
+1638-
+1639:在 `~/ros2_ws/src/joint_position_demo` 下创建 `package.xml` 文件
+1640-
+1641-对应的 `package.xml` 中至少应声明：
+1642-
+1643-```
+1644-<buildtool_depend>ament_cmake</buildtool_depend>
+1645-
+1646-<depend>rclcpp</depend>
+1647-<depend>gdk_msgs</depend>
+1648-```
+1649-
+1650-若程序还依赖其他 ROS2 包，应继续补充对应 `<depend>`
+1651-
+1652-**步骤 4：生成最小 gdk\_msgs 源码包脚本**
+1653-
+1654-当用户需要在工作空间中编译依赖 `gdk_msgs` 的 C++ 程序时，应先在工作空间中准备一份可编译的 `gdk_msgs` 源码包
+1655-
+1656-详细操作如下：
+1657-
+1658-若工作空间路径为 `~/ros2_ws/src`，则执行：
+1659-
+1660-```
+1661-sudo chmod +x ~/.cache/agibot/app/gdk/scripts/deploy_gdk_msgs.sh
+1662-~/.cache/agibot/app/gdk/scripts/deploy_gdk_msgs.sh ~/ros2_ws/src
+1663-```
+1664-
+1665-执行完成后，应生成：
+1666-
+1667-```
+1668-~/ros2_ws/src/gdk_msgs
+1669-```
+1670-
+1671-**步骤 5：执行工作空间编译**
+1672-
+1673-如果环境里缺少 JSON 解析库，请先安装 nlohmann-json3-dev：
+1674-
+1675-```
+1676-sudo apt update
+1677-sudo apt install -y nlohmann-json3-dev
+1678-```
+1679-
+1680-执行下述命令返回工作空间根目录：
+1681-
+1682-```
+1683-cd ~/ros2_ws
+1684-```
+1685-
+1686-执行编译命令：
+1687-
+1688-```
+1689-colcon build
+1690-```
+1691-
+1692-**步骤 6：加载本地 install 并运行程序**
+1693-
+1694-编译完成后执行：
+1695-
+1696-```
+1697-source install/setup.bash
+1698-ros2 run <your_pkg> <your_executable>
+1699-```
+1700-
+1701-**步骤 7：验证编译结果**
+1702-
+1703-编译成功时，应满足以下条件：
+1704-
+1705-1. `colcon build` 正常结束
+1706-2. 工作空间中生成 `build/`、`install/`、`log/`目录
+1707-3. `source install/setup.bash` 后可以正常执行 `ros2 run`
+1708-4. 业务程序中可正常包含并使用 `gdk_msgs` 消息类型
+1709-
+1710-### 5. 启动Rviz进行URDF可视化
+1711-
+1712-#### 环境说明
+1713-
+1714-需要一份机器人描述文件,文件路径示例为：
+1715-
+1716-```
+1717-your_path/robot_description/urdf/xxx.urdf
+1718-```
+1719-
+1720-mesh 资源目录示例：
+1721-
+1722-```
+1723-your_path/robot_description/meshes
+1724-```
+1725-
+1726-#### 可视化工具安装
+1727-
+1728-```
+1729-source /opt/ros/humble/setup.bash
+1730-
+1731-sudo apt update
+1732-sudo apt install -y \
+1733-  ros-humble-rviz2 \
+1734-  ros-humble-robot-state-publisher \
+1735-  ros-humble-joint-state-publisher \
+1736-  ros-humble-joint-state-publisher-gui \
+1737-  liburdfdom-tools
+1738-```
+1739-
+1740-#### 新建工作空间
+1741-
+1742-##### 创建工作空间
+1743-
+1744-```
+1745-mkdir -p ~/rviz_ws/src
+1746-cd ~/rviz_ws
+1747-source /opt/ros/humble/setup.bash
+1748-colcon build
+1749-```
+1750-
+1751-##### 配置环境变量
+1752-
+1753-每次打开新终端时运行：
+1754-
+1755-```
+1756-source /opt/ros/humble/setup.bash
+1757-source ~/rviz_ws/install/setup.bash
+1758-```
+1759-
+--
+7568-        std::cout << "GDK释放失败" << std::endl;
+7569-        return -1;
+7570-    }
+7571-    std::cout << "GDK释放成功" << std::endl;
+7572-
+7573-    return 0;
+7574-}
+7575-```
+7576-
+7577-#### 9. `JointControl()`
+7578-
+7579-- **功能**：关节控制接口（路径规划控制，阻塞式），执行到目标位置后，接口返回。
+7580-- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`SetControlMode()`切换。
+7581-- **参数**：
+7582-
+7583-| 参数名 | 类型 | 描述 |
+7584-| --- | --- | --- |
+7585-| `joint_control_req` | `const JointControlReq&` | 关节控制请求对象 |
+7586-
+7587-- **返回值**：`GDKRes`，操作结果状态码。成功时返回`GDKRes::kSuccess`
+7588-
+7589-#### JointControlReq对象详细说明
+7590-
+7591-**JointControlReq结构体包含以下成员**：
+7592-
+7593-| 成员名 | 类型 | 描述 | 单位 |
+7594-| --- | --- | --- | --- |
+7595-| `uuid` | `std::string` | 请求唯一标识 | 字符串 |
+7596-| `life_time` | `double` | 请求生命周期 | 秒 |
+7597-| `joint_names` | `std::vector<std::string>` | 关节名称列表 | 字符串列表 |
+7598:| `joint_positions` | `std::vector<double>` | 关节位置列表 | 弧度 |
+7599-| `joint_velocities` | `std::vector<double>` | 关节速度列表 | 弧度/秒 |
+7600-| `detail` | `std::string` | 详细信息 | 字符串 |
+7601-
+
+===== [6] SET_CONTROL_MODE =====
+15931-7. **异常处理**：所有接口在失败时会抛出`RuntimeError`异常，需要适当处理
+15932-8. **资源管理**：在程序退出前确保调用`cancel_task()`停止正在进行的任务
+15933-
+15934-## 应用场景
+15935-
+15936-- **自主导航**：实现机器人在环境中的自主移动
+15937-- **路径规划**：规划从起点到终点的最优路径
+15938-- **任务调度**：管理多个导航任务的执行
+15939-- **位置控制**：精确控制机器人到达指定位置和姿态
+15940-- **避障导航**：在动态环境中实现安全导航
+15941-- **高精度导航**：需要精确定位的应用场景
+15942-- **相对移动**：基于当前位置的相对位移控制
+15943-- **任务控制**：动态暂停、恢复或取消导航任务
+15944-
+15945-
+15946-
+15947----
+15948-
+15949-<!-- source: contents_reference_Python_robot -->
+15950-
+15951-# Robot
+15952-
+15953-# GDK 机器人控制接口文档（Python）
+15954-
+15955-## 概述
+15956-
+15957-机器人控制模块为G02机器人提供了获取关节状态、控制机器人运动、获取全身状态等功能。通过Python接口，开发者可以方便地实现对机器人运动的精细化控制，适用于基础控制、状态检测、动作录制回放等多种场景。
+15958-
+15959-## 关于运动控制模式的说明
+15960-
+15961:机器人双臂的运动控制接口支持不同的\*\*运动控制模式\*\*：`1`（关节位控/位置控制）、`2`（笛卡尔阻抗控制）、`3`（关节阻抗控制）。机器人启动后默认处于力控模式；使用其他控制模式时，需通过`set_control_mode()`切换。
+15962-
+15963-机器人的运动控制模式是持久的，即一旦切换（无论是通过GDK还是通过其他方式）后会一直保持，直到再次切换或机器人重启。调用相关控制接口前，GDK 会检查机器人\*\*当前实际\*\*的运动控制模式是否在该接口支持的模式列表中，若不在则会抛出运行时异常，并在日志中打印原因。各接口的支持情况请参考下方"支持的控制模式"说明。
+15964-
+15965-### 力控使用工作流
+15966-
+15967-笛卡尔/关节力控（阻抗控制）依赖于准确的动力学模型，控制器会基于"机器人本体 + 末端负载"的整体动力学进行重力补偿与柔顺跟踪。若末端实际负载与配置不一致，会导致力反馈失真、柔顺跟踪偏移、甚至触发误报警。建议按以下顺序进入力控：
+15968-
+15969-1. **设置负载**（仅当末端确实存在负载时）：通过 `set_payload()` 配置末端负载的质量、质心、惯性张量。空载场景应保持/重置为零负载，详见 [`set_payload()`](#30-set_payload) 中的"使用建议"。
+15970-2. **传感器零点标定**（持久负载场景）：负载长期挂载（如固定工具、夹爪上常驻物）时，设置完 `set_payload()` 后调用一次 `torque_sensor_calibration()`，补偿传感器零点偏置。短期搬运类任务无需每次标定。
+15971:3. **切换控制模式**：`set_control_mode(2)` 进入笛卡尔力控，或 `set_control_mode(3)` 进入关节力控。
+15972-4. **配置阻抗参数**：进入对应控制模式后，再调用 `set_cartesian_impedance()` 或 `set_joint_impedance()` 设置参数；仅 `kp` 字段当前生效。
+15973-5. **下发目标位姿/关节量**：使用 `end_effector_pose_control()`、`joint_control()` 等接口下发目标，底层按已配置的阻抗参数柔顺跟踪。
+15974-
+15975-### 笛卡尔阻抗 vs 关节阻抗
+15976-
+15977-两类阻抗都用于实现"柔顺跟踪 + 力反馈"，区别在于刚度/柔顺性是定义在哪个空间，进而影响控制目标的下发形式与适合的任务类型：
+15978-
+15979-| 维度 | 笛卡尔阻抗（`control_mode=2`） | 关节阻抗（`control_mode=3`） |
+15980-| --- | --- | --- |
+15981-| **刚度定义空间** | 末端笛卡尔空间（`x/y/z/roll/pitch/yaw` 6 维） | 关节空间（每个关节单独配置，单臂 7 维） |
+15982-| **执行轨迹** | 目标位姿直接在笛卡尔空间执行，不经过全身逆解 | 目标关节量在关节空间执行；如下发的是位姿，会先经全身逆解再到关节空间柔顺跟踪 |
+15983-| **适合任务** | 接触类任务、装配、贴合、沿笛卡尔某轴方向柔顺（如 z 向贴合） | 拖拽示教、关节级柔顺、对单关节刚度有差异化要求的任务 |
+15984-| **可观察柔顺性方向** | 在笛卡尔轴上更直观（如降低 z 向 `kp` 让末端在垂直方向更"软"） | 在关节维度上更直观（如降低肘关节 `kp` 让肘部更"软"） |
+15985-| **配置接口** | [`set_cartesian_impedance()`](#24-set_cartesian_impedance) | [`set_joint_impedance()`](#28-set_joint_impedance) |
+15986-| **`kp` 维度** | 单臂 6 维：`x/y/z/roll/pitch/yaw` | 单臂 7 维：关节 1~7 |
+15987-
+15988-**共同要点**：
+15989-
+15990:- 设置阻抗参数前，必须先切换到对应控制模式：笛卡尔阻抗参数需先 `set_control_mode(2)`，关节阻抗参数需先 `set_control_mode(3)`。
+15991-- 当前实现仅 `kp` 字段生效（刚度系数），`ki` / `kv` 暂未启用。
+15992-- 重启后参数会丢失，每次需重新下发；详见 [`torque_sensor_calibration()`](#31-torque_sensor_calibration) 的"持久化说明"。
+15993:- 两种阻抗模式互斥：同一时刻只能处于其中一种，切换需重新调用 `set_control_mode()`。
+15994-- 进入阻抗模式前请先按"力控使用工作流"配置好负载，避免因动力学不匹配导致柔顺跟踪偏移。
+15995-
+15996-**注意事项**：
+15997-
+15998-- 控制关节角度的相关接口，支持位控模式和关节阻抗模式；
+15999-- 控制末端位姿势的相关接口，支持位控模式，笛卡尔阻抗模式和关节阻抗模式；
+16000-- 在不同的控制模式下控制末端位姿时，需要使用不同的参考坐标系，详细可参考end\_effector\_pose\_control()的使用说明。
+16001-
+16002-## 接口说明
+16003-
+16004-### Robot 类
+16005-
+16006-该类封装了机器人控制的主要功能接口。
+16007-
+16008-#### 1. `get_joint_states()`
+16009-
+16010-- **注意事项**：使用motor\_position和motor\_velocity获取电机位置和速度，position和velocity为低速电机预留字段，当前版本无需关注
+16011-- **功能**：获取关节状态信息
+16012-- **参数**：无
+16013-- **返回值**：`dict`，包含以下属性：
+16014-
+16015-| 属性名 | 类型 | 描述 | 单位 |
+16016-| --- | --- | --- | --- |
+16017-| `timestamp` | `int` | 时间戳 | 纳秒 |
+16018-| `nums` | `int` | 关节数量 | 整数 |
+16019-| `states` | `list[dict]` | 关节状态列表 | 字典列表 |
+16020-
+16021-**states中每个关节状态结构**：
+16022-
+16023-| 属性名 | 类型 | 描述 | 单位 |
+16024-| --- | --- | --- | --- |
+16025-| `name` | `str` | 关节名称 | 字符串 |
+16026-| `mode` | `int` | 关节模式 | 整数 |
+16027-| `position` | `float` | 关节位置 | 弧度 |
+16028-| `velocity` | `float` | 关节速度 | 弧度/秒 |
+16029-| `effort` | `float` | 关节力矩 | 牛顿·米 |
+16030-| `motor_position` | `float` | 电机位置 | 弧度 |
+16031-| `motor_velocity` | `float` | 电机速度 | 弧度/秒 |
+16032-| `motor_current` | `float` | 电机电流 | 安培 |
+16033-| `error_code` | `int` | 错误码 | 整数 |
+16034-
+16035-- **示例**：
+16036-
+16037-```
+16038-import agibot_gdk
+16039-import time
+16040-
+16041-# 初始化GDK系统
+16042-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+16043-    print("GDK初始化失败")
+16044-    exit(1)
+16045-print("GDK初始化成功")
+16046-
+16047-robot = agibot_gdk.Robot()
+16048-
+16049-# 获取关节状态
+16050-joint_states = robot.get_joint_states()
+16051-print(f"关节数量: {joint_states['nums']}")
+16052-print(f"时间戳: {joint_states['timestamp']}")
+16053-
+16054-for state in joint_states['states']:
+16055-    print(f"关节: {state['name']}")
+16056-    print(f"  位置: {state['position']:.3f} 弧度")
+16057-    print(f"  速度: {state['velocity']:.3f} 弧度/秒")
+16058-    print(f"  力矩: {state['effort']:.3f} 牛顿·米")
+16059-    print(f"  电机位置: {state['motor_position']:.3f} 弧度")
+16060-    print(f"  电机电流: {state['motor_current']:.3f} 安培")
+16061-    print(f"  错误码: {state['error_code']}")
+16062-
+16063-# 释放GDK系统资源
+16064-if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+16065-    print("GDK释放失败")
+16066-else:
+16067-    print("GDK释放成功")
+16068-```
+16069-
+16070-#### 2. `get_joint_limits()`
+16071-
+16072-- **功能**：获取机器人关节限位信息
+16073-- **参数**：无
+16074-- **返回值**：`dict[str, dict]`，键为关节名，值为关节限位信息字典，结构如下：
+16075-
+16076-| 属性名 | 类型 | 描述 | 单位 |
+16077-| --- | --- | --- | --- |
+16078-| `min` | `float` | 关节最小位置限位 | 弧度 |
+16079-| `max` | `float` | 关节最大位置限位 | 弧度 |
+16080-
+16081-- **说明**：当前返回结果包含机器人本体关节与末端执行器关节（`left_tool`/`right_tool`）的限位信息。
+16082-
+16083-G02 各关节限位参考值（单位：弧度）：
+16084-
+16085-| 关节名 | 分组 | 最小值 | 最大值 |
+16086-| --- | --- | --- | --- |
+16087-| `idx01_body_joint1` | 躯干 | -1.0821 | 0.0002 |
+16088-| `idx02_body_joint2` | 躯干 | -0.0002 | 2.6529 |
+16089-| `idx03_body_joint3` | 躯干 | -1.9199 | 1.5710 |
+16090-| `idx04_body_joint4` | 躯干 | -0.4363 | 0.4363 |
+16091-| `idx05_body_joint5` | 躯干 | -3.0456 | 3.0456 |
+16092-| `idx11_head_joint1` | 头部 | -1.5710 | 1.5710 |
+16093-| `idx12_head_joint2` | 头部 | -0.3492 | 0.3492 |
+16094-| `idx13_head_joint3` | 头部 | -0.5348 | 0.5348 |
+16095-| `idx21_arm_l_joint1` | 左臂 | -3.0718 | 3.0718 |
+16096-| `idx22_arm_l_joint2` | 左臂 | -2.0595 | 2.0595 |
+16097-| `idx23_arm_l_joint3` | 左臂 | -3.0718 | 3.0718 |
+16098-| `idx24_arm_l_joint4` | 左臂 | -2.4958 | 1.0123 |
+16099-| `idx25_arm_l_joint5` | 左臂 | -3.0718 | 3.0718 |
+16100-| `idx26_arm_l_joint6` | 左臂 | -1.0123 | 1.0123 |
+16101-| `idx27_arm_l_joint7` | 左臂 | -1.5359 | 1.5359 |
+16102-| `idx61_arm_r_joint1` | 右臂 | -3.0718 | 3.0718 |
+16103-| `idx62_arm_r_joint2` | 右臂 | -2.0595 | 2.0595 |
+16104-| `idx63_arm_r_joint3` | 右臂 | -3.0718 | 3.0718 |
+16105-| `idx64_arm_r_joint4` | 右臂 | -2.4958 | 1.0123 |
+16106-| `idx65_arm_r_joint5` | 右臂 | -3.0718 | 3.0718 |
+16107-| `idx66_arm_r_joint6` | 右臂 | -1.0123 | 1.0123 |
+16108-| `idx67_arm_r_joint7` | 右臂 | -1.5359 | 1.5359 |
+16109-
+16110-- **示例**：
+16111-
+16112-```
+16113-import agibot_gdk
+16114-import time
+16115-
+16116-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+16117-    print("GDK初始化失败")
+16118-    exit(1)
+16119-
+16120-robot = agibot_gdk.Robot()
+16121-
+16122-joint_limits = robot.get_joint_limits()
+16123-for name, limit in joint_limits.items():
+16124-    print(f"{name}: [{limit['min']}, {limit['max']}]")
+16125-
+16126-agibot_gdk.gdk_release()
+16127-```
+16128-
+16129-#### 3. `get_whole_body_status()`
+16130-
+16131-- **功能**：获取全身状态信息
+16132-- **参数**：无
+16133-- **返回值**：`dict`，包含以下属性：
+--
+16592-| `chest_power_board_fault_state` | `int` | 胸部电源板故障状态 | 无单位 |
+16593-
+16594-- **示例**：
+16595-
+16596-```
+16597-import agibot_gdk
+16598-import time
+16599-
+16600-# 初始化GDK系统
+16601-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+16602-    print("GDK初始化失败")
+16603-    exit(1)
+16604-print("GDK初始化成功")
+16605-
+16606-robot = agibot_gdk.Robot()
+16607-
+16608-# 获取胸部电源状态
+16609-chest_power_state = robot.get_chest_power_state()
+16610-print(chest_power_state)
+16611-
+16612-# 释放GDK系统资源
+16613-if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+16614-    print("GDK释放失败")
+16615-else:
+16616-    print("GDK释放成功")
+16617-```
+16618-
+16619-#### 9. `joint_control_request()`
+16620-
+16621-- **功能**：关节位置规划控制接口（阻塞式），执行到目标位置后，接口返回。
+16622:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`set_control_mode()`切换。
+16623-- **参数**：`JointControlReq`对象，包含以下属性：
+16624-
+16625-| 属性名 | 类型 | 描述 | 单位 |
+16626-| --- | --- | --- | --- |
+16627-| `life_time` | `float` | 生命周期 | 秒 |
+16628-| `joint_names` | `list[str]` | 关节名称列表 | 字符串列表 |
+16629-| `joint_positions` | `list[float]` | 关节位置列表 | 弧度 |
+16630-| `joint_velocities` | `list[float]` | 关节速度列表 | 弧度/秒 |
+16631-| `detail` | `str` | 详细信息 | 字符串 |
+16632-
+16633-- **返回值**：`int`，0表示成功，失败时抛出异常
+16634-- **示例**：
+16635-
+16636-```
+16637-import agibot_gdk
+16638-import time
+16639-
+16640-# 初始化GDK系统
+16641-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+16642-    print("GDK初始化失败")
+16643-    exit(1)
+16644-print("GDK初始化成功")
+16645-
+16646-robot = agibot_gdk.Robot()
+16647-
+16648-# 创建关节控制请求
+16649-joint_control_req = agibot_gdk.JointControlReq()
+16650-joint_control_req.joint_names = ["idx01_body_joint1", "idx02_body_joint2"]
+16651-joint_control_req.joint_positions = [0.0, 0.0]
+16652-joint_control_req.joint_velocities = [0.1, 0.1]
+16653-joint_control_req.life_time = 5.0
+16654-joint_control_req.detail = "测试关节控制"
+16655-
+16656-try:
+16657-    # 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+16658:    # 默认通常已是位控模式，若想用关节阻抗请先 robot.set_control_mode(3)。
+16659-    result = robot.joint_control_request(joint_control_req)
+16660-    print("关节控制请求成功")
+16661-except Exception as e:
+16662-    print(f"关节控制请求失败: {e}")
+16663-
+16664-# 释放GDK系统资源
+16665-if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+16666-    print("GDK释放失败")
+16667-else:
+16668-    print("GDK释放成功")
+16669-```
+16670-
+16671-#### 10. `move_head_joint()`
+16672-
+16673-- **功能**：头部关节位置规划控制接口（阻塞式），执行到目标位置后，接口返回。
+16674:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`set_control_mode()`切换。
+16675-- **参数**：
+16676-- `positions`：`list[float]`，头部关节位置列表，按照"idx11\_head\_joint1", "idx12\_head\_joint2", "idx13\_head\_joint3"顺序
+16677-- `velocities`：`list[float]`，头部关节速度列表（弧度/秒），按照"idx11\_head\_joint1", "idx12\_head\_joint2", "idx13\_head\_joint3"顺序
+16678-- **返回值**：`int`，0表示成功，失败时抛出异常
+16679-- **示例**：
+16680-
+16681-```
+16682-import agibot_gdk
+16683-import time
+16684-
+16685-# 初始化GDK系统
+16686-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+16687-    print("GDK初始化失败")
+16688-    exit(1)
+16689-print("GDK初始化成功")
+16690-
+16691-robot = agibot_gdk.Robot()
+16692-
+16693-# 控制头部位置（按照关节顺序：idx11_head_joint1, idx12_head_joint2, idx13_head_joint3）
+16694-head_positions = [0.0, 0.0, 0.0]  # 头部关节位置列表
+16695-head_velocities = [0.3, 0.3, 0.3]  # 头部关节速度列表
+16696-
+16697-try:
+16698-    # 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+16699:    # 默认通常已是位控模式，若想用关节阻抗请先 robot.set_control_mode(3)。
+16700-    result = robot.move_head_joint(head_positions, head_velocities)
+16701-    print("头部控制成功")
+16702-except Exception as e:
+16703-    print(f"头部控制失败: {e}")
+16704-
+16705-# 释放GDK系统资源
+16706-if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+16707-    print("GDK释放失败")
+16708-else:
+16709-    print("GDK释放成功")
+16710-```
+16711-
+16712-#### 11. `move_waist_joint()`
+16713-
+16714-- **功能**：腰部关节位置规划控制接口（阻塞式），执行到目标位置后，接口返回。
+16715:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`set_control_mode()`切换。
+16716-- **参数**：
+16717-- `positions`：`list[float]`，腰部关节位置列表，按照"idx01\_body\_joint1", "idx02\_body\_joint2", "idx03\_body\_joint3", "idx04\_body\_joint4", "idx05\_body\_joint5"顺序
+16718-- `velocities`：`list[float]`，腰部关节速度列表（弧度/秒），按照"idx01\_body\_joint1", "idx02\_body\_joint2", "idx03\_body\_joint3", "idx04\_body\_joint4", "idx05\_body\_joint5"顺序
+16719-- **返回值**：`int`，0表示成功，失败时抛出异常
+16720-- **示例**：
+16721-
+16722-```
+16723-import agibot_gdk
+16724-import time
+16725-
+16726-# 初始化GDK系统
+16727-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+16728-    print("GDK初始化失败")
+16729-    exit(1)
+16730-print("GDK初始化成功")
+16731-
+16732-robot = agibot_gdk.Robot()
+16733-
+16734-# 控制腰部位置（按照关节顺序：idx01_body_joint1, idx02_body_joint2, idx03_body_joint3, idx04_body_joint4, idx05_body_joint5）
+16735-waist_positions = [0.0, 0.0, 0.0, 0.0, 0.0]  # 腰部关节位置列表
+16736-waist_velocities = [0.3, 0.3, 0.3, 0.3, 0.3]  # 腰部关节速度列表
+16737-
+16738-try:
+16739-    # 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+16740:    # 默认通常已是位控模式，若想用关节阻抗请先 robot.set_control_mode(3)。
+16741-    result = robot.move_waist_joint(waist_positions, waist_velocities)
+16742-    print("腰部控制成功")
+16743-except Exception as e:
+16744-    print(f"腰部控制失败: {e}")
+16745-
+16746-# 释放GDK系统资源
+16747-if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+16748-    print("GDK释放失败")
+16749-else:
+16750-    print("GDK释放成功")
+16751-```
+16752-
+16753-#### 12. `move_arm_joint()`
+16754-
+16755-- **功能**：手臂关节位置规划控制接口（阻塞式），执行到目标位置后，接口返回。
+16756:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`set_control_mode()`切换。
+16757-- **参数**：
+16758-- `positions`：`list[float]`，手臂关节位置列表，按照"idx21\_arm\_l\_joint1", "idx22\_arm\_l\_joint2", "idx23\_arm\_l\_joint3", "idx24\_arm\_l\_joint4", "idx25\_arm\_l\_joint5", "idx26\_arm\_l\_joint6", "idx27\_arm\_l\_joint7", "idx61\_arm\_r\_joint1", "idx62\_arm\_r\_joint2", "idx63\_arm\_r\_joint3", "idx64\_arm\_r\_joint4", "idx65\_arm\_r\_joint5", "idx66\_arm\_r\_joint6", "idx67\_arm\_r\_joint7"顺序
+16759-- `velocities`：`list[float]`，手臂关节速度列表（弧度/秒），按照"idx21\_arm\_l\_joint1", "idx22\_arm\_l\_joint2", "idx23\_arm\_l\_joint3", "idx24\_arm\_l\_joint4", "idx25\_arm\_l\_joint5", "idx26\_arm\_l\_joint6", "idx27\_arm\_l\_joint7", "idx61\_arm\_r\_joint1", "idx62\_arm\_r\_joint2", "idx63\_arm\_r\_joint3", "idx64\_arm\_r\_joint4", "idx65\_arm\_r\_joint5", "idx66\_arm\_r\_joint6", "idx67\_arm\_r\_joint7"顺序
+16760-- `control_group`：`int`，控制组，0表示控制左臂，1表示控制右臂，2表示控制双臂
+16761-- **返回值**：`int`，0表示成功，失败时抛出异常
+16762-- **示例**：
+16763-
+16764-```
+16765-import agibot_gdk
+16766-import time
+16767-
+16768-# 初始化GDK系统
+16769-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+16770-    print("GDK初始化失败")
+16771-    exit(1)
+16772-print("GDK初始化成功")
+16773-
+16774-robot = agibot_gdk.Robot()
+16775-
+16776-# 控制手臂位置（按照关节顺序：左臂7个关节 + 右臂7个关节）
+16777-arm_positions = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  # 左臂7个关节
+16778-                 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]  # 右臂7个关节
+16779-arm_velocities = [0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3,  # 左臂7个关节速度
+16780-                  0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3]  # 右臂7个关节速度
+16781-
+16782-try:
+16783-    # 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+16784:    # 默认通常已是位控模式，若想用关节阻抗请先 robot.set_control_mode(3)。
+16785-    result = robot.move_arm_joint(arm_positions, arm_velocities, 2)
+16786-    print("手臂控制成功")
+16787-except Exception as e:
+16788-    print(f"手臂控制失败: {e}")
+16789-
+16790-# 释放GDK系统资源
+16791-if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+16792-    print("GDK释放失败")
+16793-else:
+16794-    print("GDK释放成功")
+16795-```
+16796-
+16797-#### 13. `joint_servo_control()`
+16798-
+16799-- **功能**：关节位置伺服控制接口（非阻塞式），需要以100hz的控制频率进行控制，支持正常模式和低延时模式，默认使用正常模式。该接口支持同时控制末端执行器。
+16800:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`set_control_mode()`切换。
+16801-- **注意**：低延时模式下，该接口绕过运控算法保护，直接驱动电机，仅在必要时使用。潜在风险：自碰撞、机体倾倒、与环境碰撞，可能导致财产损失或人员伤害。开发者须自行评估环境与工况，并实现必要的安全保护措施。如需同时控制末端执行器，需要使用该接口下发控制指令，具体参考以下示例。
+16802-- **参数**：
+16803-- `joint_servo_control_req`：`JointServoControlReq`对象，包含以下属性：
+16804-
+16805-| 属性名 | 类型 | 描述 | 单位 |
+16806-| --- | --- | --- | --- |
+16807-| `control_period` | `float` | 控制周期 | 秒 |
+16808-| `joint_names` | `list[str]` | 关节名称列表 | 字符串列表 |
+16809-| `joint_positions` | `list[float]` | 关节位置列表 | 弧度 |
+16810-| `joint_velocities` | `list[float]` | 关节速度列表 | 弧度/秒 |
+16811-
+16812-- `enable_low_latency`：`bool`，可选参数，默认为`False`。
+16813-
+16814-**参数说明**：
+16815-- `control_period` 表示控制周期，单位为秒,建议比控制频率稍大
+16816-- `joint_names`、`joint_positions` 两个列表的长度必须相同
+16817-- `joint_positions` 中的值必须在对应关节的限位范围内（限位参考值见 [`get_joint_limits()`](#get_joint_limits)），否则将抛出异常
+16818-- `joint_names`、`joint_positions` 不能为空，否则将抛出异常
+16819-- `joint_velocities` 预留参数，目前不使用，可以为空
+16820-- `enable_low_latency` 用于选择控制通道，低延时模式适用于对实时性要求更高的场景
+16821-- **返回值**：`int`，0表示成功，失败时抛出异常
+16822-
+16823-- **异常说明**：
+16824-- 如果 `joint_names`、`joint_positions` 为空，底层将返回 `ErrorCode::kInvalidInput`，Python 将抛出 `RuntimeError("JointServoControlRequest failed")`
+16825-- 如果 `joint_positions` 中的值超出对应关节的限位范围，底层将返回 `ErrorCode::kInvalidInput`，Python 将抛出异常
+16826-- 如果配置解析器获取失败，底层将返回 `ErrorCode::kRuntimeError`，Python 将抛出异常
+16827-- **示例**：
+16828-
+16829-```
+16830-import agibot_gdk
+16831-import time
+16832-import math
+16833-
+16834-# 控制参数
+16835-CONTROL_PERIOD = 0.01  # 控制周期（秒）
+16836-RATE_HZ = 100.0        # 发送频率（Hz）
+16837-DURATION = 5.0         # 控制持续时间（秒）
+16838-MAX_POSITION_DELTA = 0.1  # 最大位置变化量（弧度）
+16839-
+16840-class JointServoControlController:
+16841-    def __init__(self, robot):
+16842-        self.robot = robot
+16843-
+16844-    def get_joint_position_by_name(self, joint_states, joint_name):
+16845-        """根据关节名称获取关节位置"""
+16846-        for state in joint_states['states']:
+16847-            if state['name'] == joint_name:
+16848-                return state['motor_position']
+16849-        raise RuntimeError(f"Joint name {joint_name} not found")
+16850-
+16851-    def interpolate_position(self, start_pos, target_pos, t):
+16852-        """线性插值计算中间位置"""
+16853-        return start_pos + t * (target_pos - start_pos)
+16854-
+16855-    def execute_joint_servo_control(self, target_joint_names, target_positions):
+16856-        """执行关节位置伺服控制"""
+16857-        time.sleep(1.0)  # 等待1秒
+16858-
+16859-        # 获取当前关节状态
+16860-        current_joint_states = self.robot.get_joint_states()
+16861-        print(f"当前关节数量: {current_joint_states['nums']}")
+16862-
+16863-        # 获取起始位置
+16864-        start_positions = []
+16865-        for joint_name in target_joint_names:
+16866-            try:
+16867-                pos = self.get_joint_position_by_name(current_joint_states, joint_name)
+16868-                start_positions.append(pos)
+16869-                print(f"关节 {joint_name} 当前位置: {pos:.3f} 弧度")
+16870-            except RuntimeError as e:
+16871-                print(f"错误: {e}")
+16872-                return
+16873-
+16874-        # 计算步数
+16875-        n_steps = int(DURATION * RATE_HZ)
+16876-        print(f"总步数: {n_steps}, 持续时间: {DURATION} 秒")
+16877-
+16878-        # 执行轨迹
+16879-        dt = 1.0 / RATE_HZ
+16880-        start_time = time.time()
+16881-
+16882-        for i in range(n_steps):
+16883-            t = float(i) / (n_steps - 1) if n_steps > 1 else 0.0
+16884-
+16885-            # 创建关节位置伺服请求
+16886-            joint_servo_control_req = agibot_gdk.JointServoControlReq()
+16887-            joint_servo_control_req.control_period = CONTROL_PERIOD
+16888-
+16889-            # 计算当前目标位置（线性插值）
+16890-            current_positions = []
+16891-            for j, joint_name in enumerate(target_joint_names):
+16892-                interp_pos = self.interpolate_position(
+16893-                    start_positions[j], target_positions[j], t
+16894-                )
+16895-                current_positions.append(interp_pos)
+16896-
+16897-            joint_servo_control_req.joint_names = target_joint_names
+16898-            joint_servo_control_req.joint_positions = current_positions
+16899-
+16900-            try:
+16901-                # 使用普通模式（enable_low_latency=False，默认值）
+16902-                result = self.robot.joint_servo_control(joint_servo_control_req)
+16903-                # 如需使用低延时模式，可传入 enable_low_latency=True：
+16904-                # 注意：低延时模式下，该接口绕过运控算法保护，直接驱动电机。
+16905-                # 潜在风险：自碰撞、机体倾倒、与环境碰撞，可能导致财产损失或人员伤害。
+16906-                # result = self.robot.joint_servo_control(joint_servo_control_req, enable_low_latency=True)
+16907-                if result != 0:
+16908-                    print(f"控制命令发送失败，步数: {i}")
+16909-                    return
+16910-            except Exception as e:
+16911-                print(f"控制命令发送异常，步数: {i}, 错误: {e}")
+16912-                return
+16913-
+16914-            # 控制发送频率
+16915-            elapsed = time.time() - start_time
+16916-            expected_time = (i + 1) * dt
+16917-            sleep_time = expected_time - elapsed
+16918-            if sleep_time > 0:
+16919-                time.sleep(sleep_time)
+16920-
+16921-        print("关节位置伺服控制完成")
+16922-
+16923-        # 保持最终位置
+16924-        print("进入最终位置保持（Ctrl+C 结束）...")
+16925-        try:
+16926-            while True:
+16927-                joint_servo_control_req = agibot_gdk.JointServoControlReq()
+16928-                joint_servo_control_req.control_period = CONTROL_PERIOD
+16929-                joint_servo_control_req.joint_names = target_joint_names
+16930-                joint_servo_control_req.joint_positions = target_positions
+16931-
+16932-                try:
+16933-                    # 使用普通模式（enable_low_latency=False，默认值）
+16934-                    result = self.robot.joint_servo_control(joint_servo_control_req)
+16935-                    # 如需使用低延时模式，可传入 enable_low_latency=True：
+16936-                    # 注意：低延时模式下，该接口绕过运控算法保护，直接驱动电机。
+16937-                    # 潜在风险：自碰撞、机体倾倒、与环境碰撞，可能导致财产损失或人员伤害。
+16938-                    # result = self.robot.joint_servo_control(joint_servo_control_req, enable_low_latency=True)
+16939-                    if result != 0:
+16940-                        print("保持位置失败")
+--
+16963-        print(f"当前关节数量: {current_joint_states['nums']}")
+16964-
+16965-        # 定义要控制的关节（示例：左臂前3个关节）
+16966-        target_joint_names = [
+16967-            "idx21_arm_l_joint1",
+16968-            "idx22_arm_l_joint2",
+16969-            "idx23_arm_l_joint3"
+16970-        ]
+16971-
+16972-        # 获取当前位置作为起始位置（用于插值）
+16973-        controller = JointServoControlController(robot)
+16974-        start_positions = []
+16975-        for joint_name in target_joint_names:
+16976-            pos = controller.get_joint_position_by_name(current_joint_states, joint_name)
+16977-            start_positions.append(pos)
+16978-            print(f"关节 {joint_name} 当前位置: {pos:.3f} 弧度")
+16979-
+16980-        # 设置目标角度（直接指定目标角度值，单位：弧度）
+16981-        target_positions = [
+16982-            0.0,  # idx21_arm_l_joint1: 目标角度 0.0 弧度
+16983-            0.0,  # idx22_arm_l_joint2: 目标角度 0.0 弧度
+16984-            0.0   # idx23_arm_l_joint3: 目标角度 0.0 弧度
+16985-        ]
+16986-
+16987-        print(f"\n目标角度:")
+16988-        for i, joint_name in enumerate(target_joint_names):
+16989-            print(f"  {joint_name}: {target_positions[i]:.3f} 弧度")
+16990-
+16991-        # 执行关节位置伺服控制
+16992-        # 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+16993:        # 默认通常已是位控模式，若想用关节阻抗请先 robot.set_control_mode(3)。
+16994-        controller.execute_joint_servo_control(
+16995-            target_joint_names, target_positions)
+16996-
+16997-    except Exception as e:
+16998-        print(f"执行过程中发生错误: {e}")
+16999-    finally:
+17000-        # 释放GDK系统资源
+17001-        if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+17002-            print("GDK释放失败")
+17003-        else:
+17004-            print("GDK释放成功")
+17005-
+17006-if __name__ == "__main__":
+17007-    main()
+17008-```
+
+===== [7] O10_T2 =====
+10031-    if (agibot::gdk::GDKRelease() != agibot::gdk::GDKRes::kSuccess) {
+10032-        std::cout << "GDK释放失败" << std::endl;
+10033-        return -1;
+10034-    }
+10035-    std::cout << "GDK释放成功" << std::endl;
+10036-
+10037-    return 0;
+10038-}
+10039-```
+10040-
+10041-**示例4：控制左末端执行器（o10\_t2类型，需要10个关节）**
+10042-
+10043-```
+10044-#include "gdk/gdk.h"
+10045-#include <iostream>
+10046-#include <chrono>
+10047-#include <thread>
+10048-
+10049-int main()
+10050-{
+10051-    // 初始化GDK系统
+10052-    if (agibot::gdk::GDKInit() != agibot::gdk::GDKRes::kSuccess) {
+10053-        std::cout << "GDK初始化失败" << std::endl;
+10054-        return -1;
+10055-    }
+10056-    std::cout << "GDK初始化成功" << std::endl;
+10057-
+10058-    agibot::gdk::Robot robot;
+10059-    std::cout << "Robot init" << std::endl;
+10060-
+10061:    // 控制左末端执行器（o10_t2类型，需要10个关节）
+10062-    agibot::gdk::JointStates left_o10_states;
+10063-    left_o10_states.group = "left_tool";
+10064-    left_o10_states.states.resize(10);
+10065-    for (size_t i = 0; i < 10; ++i) {
+10066-        left_o10_states.states[i].position = 0.0;
+10067-    }
+10068-    left_o10_states.nums = left_o10_states.states.size();
+10069-
+10070-    if (robot.MoveEEPos(left_o10_states) != agibot::gdk::GDKRes::kSuccess) {
+10071:        std::cout << "Failed to move left end effector (o10_t2)" << std::endl;
+10072-    } else {
+10073:        std::cout << "左末端执行器（o10_t2）位置控制成功" << std::endl;
+10074-    }
+10075-
+10076-    // 释放GDK系统资源
+10077-    if (agibot::gdk::GDKRelease() != agibot::gdk::GDKRes::kSuccess) {
+10078-        std::cout << "GDK释放失败" << std::endl;
+10079-        return -1;
+10080-    }
+10081-    std::cout << "GDK释放成功" << std::endl;
+10082-
+10083-    return 0;
+10084-}
+10085-```
+10086-
+10087-**示例5：控制右末端执行器（o12\_t2类型，需要12个关节）**
+10088-
+10089-```
+10090-#include "gdk/gdk.h"
+10091-#include <iostream>
+10092-#include <chrono>
+10093-#include <thread>
+10094-
+10095-int main()
+10096-{
+10097-    // 初始化GDK系统
+10098-    if (agibot::gdk::GDKInit() != agibot::gdk::GDKRes::kSuccess) {
+10099-        std::cout << "GDK初始化失败" << std::endl;
+10100-        return -1;
+10101-    }
+10102-    std::cout << "GDK初始化成功" << std::endl;
+10103-
+10104-    agibot::gdk::Robot robot;
+10105-    std::cout << "Robot init" << std::endl;
+10106-
+10107-    // 控制右末端执行器（o12_t2类型，需要12个关节）
+10108-    agibot::gdk::JointStates right_o12_states;
+10109-    right_o12_states.group = "right_tool";
+10110-    right_o12_states.states.resize(12);
+10111-    for (size_t i = 0; i < 12; ++i) {
+10112-        right_o12_states.states[i].position = 0.0;
+10113-    }
+10114-    right_o12_states.nums = right_o12_states.states.size();
+10115-
+10116-    if (robot.MoveEEPos(right_o12_states) != agibot::gdk::GDKRes::kSuccess) {
+10117-        std::cout << "Failed to move right end effector (o12_t2)" << std::endl;
+10118-    } else {
+10119-        std::cout << "右末端执行器（o12_t2）位置控制成功" << std::endl;
+10120-    }
+10121-
+10122-    // 释放GDK系统资源
+10123-    if (agibot::gdk::GDKRelease() != agibot::gdk::GDKRes::kSuccess) {
+10124-        std::cout << "GDK释放失败" << std::endl;
+10125-        return -1;
+10126-    }
+10127-    std::cout << "GDK释放成功" << std::endl;
+10128-
+10129-    return 0;
+10130-}
+10131-```
+10132-
+10133-**示例6：控制双末端执行器（dual\_tool，需要2倍关节数量）**
+10134-
+10135-```
+10136-#include "gdk/gdk.h"
+10137-#include <iostream>
+10138-#include <chrono>
+10139-#include <thread>
+10140-
+10141-int main()
+10142-{
+10143-    // 初始化GDK系统
+10144-    if (agibot::gdk::GDKInit() != agibot::gdk::GDKRes::kSuccess) {
+10145-        std::cout << "GDK初始化失败" << std::endl;
+10146-        return -1;
+10147-    }
+10148-    std::cout << "GDK初始化成功" << std::endl;
+10149-
+10150-    agibot::gdk::Robot robot;
+10151-    std::cout << "Robot init" << std::endl;
+10152-
+10153-    // 控制双末端执行器（dual_tool，需要2倍关节数量）
+10154-    // 例如：使用 omnipicker 类型，需要 2 个关节（左1个 + 右1个）
+10155-    agibot::gdk::JointStates dual_states;
+10156-    dual_states.group = "dual_tool";
+10157-    dual_states.states.resize(2);
+10158-    // 前半部分用于左末端执行器
+10159-    dual_states.states[0].position = 0.0;
+10160-    // 后半部分用于右末端执行器
+10161-    dual_states.states[1].position = 0.0;
+10162-    dual_states.nums = dual_states.states.size();
+10163-
+10164-    if (robot.MoveEEPos(dual_states) != agibot::gdk::GDKRes::kSuccess) {
+10165-        std::cout << "Failed to move dual end effector" << std::endl;
+10166-    } else {
+10167-        std::cout << "双末端执行器位置控制成功" << std::endl;
+10168-    }
+10169-
+10170-    // 释放GDK系统资源
+10171-    if (agibot::gdk::GDKRelease() != agibot::gdk::GDKRes::kSuccess) {
+10172-        std::cout << "GDK释放失败" << std::endl;
+10173-        return -1;
+10174-    }
+10175-    std::cout << "GDK释放成功" << std::endl;
+10176-
+10177-    return 0;
+10178-}
+10179-```
+10180-
+10181-#### 21. `MoveEndEffectorJoint()`
+10182-
+10183-- **功能**：控制末端执行器关节位置
+10184-- **参数**：
+10185-
+10186-| 参数名 | 类型 | 描述 |
+10187-| --- | --- | --- |
+10188-| `positions` | `const std::vector<double>&` | 目标位置，顺序需与实际关节执行器顺序相同 |
+10189-| `velocities` | `const std::vector<double>&` | 与 `positions` 等长，执行速度 |
+10190-| `group` | `const std::string&` | `left_tool`、`right_tool` 或 `dual_tool` |
+10191-
+10192-- **返回值**：`GDKRes`。成功为 `GDKRes::kSuccess`。
+10193-- **说明**：`dual_tool` 时 `positions` 为先左后右拼接。控制消息发布至 `/wbc/joint_control`。
+10194-
+10195-**示例**：
+10196-
+10197-```
+10198-#include "gdk/gdk.h"
+10199-#include <chrono>
+10200-#include <iostream>
+10201-#include <thread>
+10202-#include <vector>
+10203-
+10204-int main()
+10205-{
+10206-    if (agibot::gdk::GDKInit() != agibot::gdk::GDKRes::kSuccess) {
+10207-        std::cout << "GDK初始化失败" << std::endl;
+10208-        return -1;
+10209-    }
+10210-    std::cout << "GDK初始化成功" << std::endl;
+10211-
+10212-    agibot::gdk::Robot robot;
+10213-    std::cout << "Robot init" << std::endl;
+--
+17969-joint_states_left.states = [joint_state]
+17970-joint_states_left.nums = len(joint_states_left.states)
+17971-
+17972-try:
+17973-    result = robot.move_ee_pos(joint_states_left)
+17974-    print("左夹爪（ctek90d）控制成功")
+17975-except Exception as e:
+17976-    print(f"左夹爪控制失败: {e}")
+17977-
+17978-# 释放GDK系统资源
+17979-if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+17980-    print("GDK释放失败")
+17981-else:
+17982-    print("GDK释放成功")
+17983-```
+17984-
+17985-**示例4：控制左末端执行器（o10\_t2类型，需要10个关节）**
+17986-
+17987-```
+17988-import agibot_gdk
+17989-import time
+17990-
+17991-# 初始化GDK系统
+17992-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+17993-    print("GDK初始化失败")
+17994-    exit(1)
+17995-print("GDK初始化成功")
+17996-
+17997-robot = agibot_gdk.Robot()
+17998-
+17999:# 控制左末端执行器（o10_t2类型，需要10个关节）
+18000-joint_states_left_o10 = agibot_gdk.JointStates()
+18001-joint_states_left_o10.group = "left_tool"
+18002-
+18003-# 创建关节状态列表
+18004-positions = [-0.2, 1.45, -0.75, 0, 1, 1, 0, 1, 0, 1]
+18005-states_list = []
+18006-for i in range(10):
+18007-    joint_state = agibot_gdk.JointState()
+18008-    joint_state.position = positions[i]
+18009-    states_list.append(joint_state)
+18010-# 直接赋值整个列表
+18011-joint_states_left_o10.states = states_list
+18012-joint_states_left_o10.nums = len(joint_states_left_o10.states)
+18013-
+18014-try:
+18015-    result = robot.move_ee_pos(joint_states_left_o10)
+18016:    print("左末端执行器（o10_t2）控制成功")
+18017-except Exception as e:
+18018-    print(f"左末端执行器控制失败: {e}")
+18019-
+18020-# 释放GDK系统资源
+18021-if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+18022-    print("GDK释放失败")
+18023-else:
+18024-    print("GDK释放成功")
+18025-```
+18026-
+18027-**示例5：控制右末端执行器（o12\_t2类型，需要12个关节）**
+18028-
+18029-```
+18030-import agibot_gdk
+18031-import time
+18032-
+18033-# 初始化GDK系统
+18034-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+18035-    print("GDK初始化失败")
+18036-    exit(1)
+18037-print("GDK初始化成功")
+18038-
+18039-robot = agibot_gdk.Robot()
+18040-
+18041-# 控制右末端执行器（o12_t2类型，需要12个关节）
+18042-joint_states_right_o12 = agibot_gdk.JointStates()
+18043-joint_states_right_o12.group = "right_tool"
+18044-
+18045-# 创建关节状态列表
+18046-states_list = []
+18047-for i in range(12):
+18048-    joint_state = agibot_gdk.JointState()
+18049-    joint_state.position = 0
+18050-    states_list.append(joint_state)
+18051-# 直接赋值整个列表
+18052-joint_states_right_o12.states = states_list
+18053-joint_states_right_o12.nums = len(joint_states_right_o12.states)
+18054-
+18055-try:
+18056-    result = robot.move_ee_pos(joint_states_right_o12)
+18057-    print("右末端执行器（o12_t2）控制成功")
+18058-except Exception as e:
+18059-    print(f"右末端执行器控制失败: {e}")
+18060-
+18061-# 释放GDK系统资源
+18062-if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+18063-    print("GDK释放失败")
+18064-else:
+18065-    print("GDK释放成功")
+18066-```
+18067-
+18068-**示例6：控制双末端执行器（dual\_tool，需要2倍关节数量）**
+18069-
+18070-```
+18071-import agibot_gdk
+18072-import time
+18073-
+18074-# 初始化GDK系统
+18075-if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+18076-    print("GDK初始化失败")
+18077-    exit(1)
+18078-print("GDK初始化成功")
+18079-
+18080-robot = agibot_gdk.Robot()
+18081-
+18082-# 控制双末端执行器（dual_tool，需要2倍关节数量）
+18083-# 例如：使用 omnipicker 类型，需要 2 个关节（左1个 + 右1个）
+18084-joint_states_dual = agibot_gdk.JointStates()
+18085-joint_states_dual.group = "dual_tool"
+18086-
+18087-# 前半部分用于左末端执行器
+18088-joint_state_left = agibot_gdk.JointState()
+18089-joint_state_left.position = 0
+18090-# 后半部分用于右末端执行器
+18091-joint_state_right = agibot_gdk.JointState()
+18092-joint_state_right.position = 0
+18093-# 直接赋值整个列表
+18094-joint_states_dual.states = [joint_state_left, joint_state_right]
+18095-joint_states_dual.nums = len(joint_states_dual.states)
+18096-
+18097-try:
+18098-    result = robot.move_ee_pos(joint_states_dual)
+18099-    print("双末端执行器控制成功")
+18100-except Exception as e:
+18101-    print(f"双末端执行器控制失败: {e}")
+18102-
+18103-# 释放GDK系统资源
+18104-if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+18105-    print("GDK释放失败")
+18106-else:
+18107-    print("GDK释放成功")
+18108-```
+18109-
+18110-#### 18. `move_end_effector_joint()`
+18111-
+18112-- **功能**：控制末端执行器关节位置。
+18113-- **注意**：`group` 与关节数量需与当前末端类型一致（如 omnipicker 单手可传 1 个位置；`dual_tool` 为左右拼接，长度为单侧的 2 倍）。
+18114-- **参数**：
+18115-
+18116-| 参数名 | 类型 | 描述 |
+18117-| --- | --- | --- |
+18118-| `positions` | `list[float]` | 目标位置列表（ |
+18119-| `velocities` | `list[float]` | 与 `positions` 等长； |
+18120-| `group` | `str` | `left_tool`、`right_tool` 或 `dual_tool` |
+18121-
+18122-**参数说明**：
+18123-- `positions` 与 `velocities` 长度必须相同，否则底层返回错误。
+18124-
+18125-- **返回值**：`int`，成功为 `0`，失败时抛出 `RuntimeError`。
+18126-- **异常说明**：
+18127-- 若 `positions` 与 `velocities` 长度不一致、或 `group` 非法、或位置超限时，底层返回错误，Python 侧抛出 `RuntimeError`（信息为 `"Failed to move end effector joint "`）。
+18128-- **示例**：
+18129-
+18130-**示例1：左手单关节（如 omnipicker）**
+18131-
+18132-```
+18133-import agibot_gdk
+18134-import time
+18135-
+18136-def main():
+18137-
+18138-    if agibot_gdk.gdk_init() != agibot_gdk.GDKRes.kSuccess:
+18139-        print("GDK初始化失败")
+18140-        return
+18141-    print("GDK初始化成功")
+18142-
+18143-    robot = agibot_gdk.Robot()
+18144-
+18145-    positions = [0.0]
+18146-    velocities = [0.0]
+18147-
+18148-    try:
+18149-        robot.move_end_effector_joint(positions, velocities, "left_tool")
+18150-        print("末端关节伺服成功")
+18151-    except Exception as e:
+18152-        print(f"末端关节伺服失败: {e}")
+18153-
+18154-    if agibot_gdk.gdk_release() != agibot_gdk.GDKRes.kSuccess:
+18155-        print("GDK释放失败")
+18156-    else:
+
+===== [8] LEFT_TOOL =====
+9026-
+9027-| 成员名 | 类型 | 描述 | 单位 |
+9028-| --- | --- | --- | --- |
+9029-| `x` | `double` | X坐标 | 米 |
+9030-| `y` | `double` | Y坐标 | 米 |
+9031-| `z` | `double` | Z坐标 | 米 |
+9032-
+9033-**Orientation结构体**：
+9034-
+9035-| 成员名 | 类型 | 描述 | 单位 |
+9036-| --- | --- | --- | --- |
+9037-| `x` | `double` | 四元数X分量 | 无单位 |
+9038-| `y` | `double` | 四元数Y分量 | 无单位 |
+9039-| `z` | `double` | 四元数Z分量 | 无单位 |
+9040-| `w` | `double` | 四元数W分量 | 无单位 |
+9041-
+9042-- **示例**：
+9043-
+9044-```
+9045-#include "gdk/gdk.h"
+9046-#include <iostream>
+9047-#include <chrono>
+9048-#include <thread>
+9049-#include <cmath>
+9050-#include <vector>
+9051-#include <algorithm>
+9052-
+9053-using namespace agibot::gdk;
+9054-
+9055-// 默认以法兰中心 end_link 为末端参考坐标系。
+9056:// 若需以工具坐标系 tool0（TCP）为参考，请改用 left_tool0_body / right_tool0_body，
+9057-// 并配合 SwitchEndPoseControlFrame()，详见本节末尾“工具坐标系（tool0）用例”。
+9058-const std::string LEFT_NAME = "arm_l_end_link";
+9059-const std::string RIGHT_NAME = "arm_r_end_link";
+9060-const int32_t CONTROL_GROUP = 12;  // kBothArms
+9061-
+9062-const Pose TARGET_LEFT = {
+9063-    {0.516, 0.433, 1.081},  // position
+9064-    {0.382, -0.146, 0.663, 0.626}  // orientation
+9065-};
+9066-
+9067-const Pose TARGET_RIGHT = {
+9068-    {0.579, -0.306, 1.158},  // position
+9069-    {0.320, 0.655, 0.651, 0.206}  // orientation
+9070-};
+9071-
+9072-const double MAX_STEP_CM = 0.1;  // 最大步长（厘米）
+9073-const double LIFETIME = 0.02;    // 生命周期（秒）
+9074-const double RATE_HZ = 50.0;     // 发送频率（Hz）
+9075-const bool HOLD_FINAL = true;    // 是否保持最终位姿
+9076-
+9077-class EndEffectorController {
+9078-private:
+9079-    Robot robot_;
+9080-
+9081-    void slerp(const double q0[4], const double q1[4], double t, double result[4]) {
+9082-        double dot = q0[0]*q1[0] + q0[1]*q1[1] + q0[2]*q1[2] + q0[3]*q1[3];
+9083-
+9084-        // 如果点积为负，取反q1以确保最短路径（取反一次，后续所有分支都用 q1c）
+9085-        double q1c[4] = {q1[0], q1[1], q1[2], q1[3]};
+9086-        if (dot < 0.0) {
+9087-            dot = -dot;
+9088-            for (int i = 0; i < 4; i++) {
+9089-                q1c[i] = -q1[i];
+9090-            }
+9091-        }
+9092-
+9093-        // 限制点积范围
+9094-        dot = std::clamp(dot, -1.0, 1.0);
+9095-
+9096-        if (dot > 0.9995) {
+9097-            // 线性插值
+9098-            for (int i = 0; i < 4; i++) {
+9099-                result[i] = q0[i] + t * (q1c[i] - q0[i]);
+9100-            }
+9101-            double norm = 0.0;
+9102-            for (int i = 0; i < 4; i++) {
+9103-                norm += result[i] * result[i];
+9104-            }
+9105-            norm = std::sqrt(norm);
+9106-            if (norm > 0.0) {
+9107-                for (int i = 0; i < 4; i++) {
+9108-                    result[i] /= norm;
+9109-                }
+9110-            }
+9111-        } else {
+9112-            // 球面线性插值
+9113-            double theta_0 = std::acos(dot);
+9114-            double sin_theta_0 = std::sin(theta_0);
+9115-            double theta = theta_0 * t;
+9116-            double sin_theta = std::sin(theta);
+9117-            double s0 = std::cos(theta) - dot * sin_theta / sin_theta_0;
+9118-            double s1 = sin_theta / sin_theta_0;
+9119-
+9120-            for (int i = 0; i < 4; i++) {
+9121-                result[i] = s0 * q0[i] + s1 * q1c[i];
+9122-            }
+9123-        }
+9124-    }
+9125-
+9126-    double distanceBetweenPoints(const Vector3& p1, const Vector3& p2) {
+9127-        double dx = p2.x - p1.x;
+9128-        double dy = p2.y - p1.y;
+9129-        double dz = p2.z - p1.z;
+9130-        return std::sqrt(dx*dx + dy*dy + dz*dz);
+9131-    }
+9132-
+9133-    int calculateNSteps(const Vector3& start, const Vector3& goal, double max_step_cm) {
+9134-        double dist_cm = distanceBetweenPoints(start, goal) * 100.0;
+9135-        return std::max(static_cast<int>(std::ceil(dist_cm / max_step_cm)), 1);
+9136-    }
+9137-
+9138-    std::vector<Pose> planTrajectory(const Pose& start, const Pose& goal, int n_steps) {
+9139-        std::vector<Pose> trajectory;
+9140-
+9141-        for (int i = 0; i < n_steps; i++) {
+9142-            double t = static_cast<double>(i) / (n_steps - 1);
+9143-            Pose pose;
+9144-
+9145-            // 位置线性插值
+9146-            pose.position.x = start.position.x + t * (goal.position.x - start.position.x);
+9147-            pose.position.y = start.position.y + t * (goal.position.y - start.position.y);
+9148-            pose.position.z = start.position.z + t * (goal.position.z - start.position.z);
+9149-
+9150-            // 四元数SLERP插值
+9151-            double q0[4] = {start.orientation.x, start.orientation.y, start.orientation.z, start.orientation.w};
+9152-            double q1[4] = {goal.orientation.x, goal.orientation.y, goal.orientation.z, goal.orientation.w};
+9153-            double result[4];
+9154-            slerp(q0, q1, t, result);
+9155-
+9156-            pose.orientation.x = result[0];
+9157-            pose.orientation.y = result[1];
+9158-            pose.orientation.z = result[2];
+9159-            pose.orientation.w = result[3];
+9160-
+9161-            trajectory.push_back(pose);
+9162-        }
+9163-
+9164-        return trajectory;
+9165-    }
+9166-
+9167-    Pose findPoseByName(const std::vector<std::string>& frame_names,
+9168-                       const std::vector<Pose>& frame_poses,
+9169-                       const std::string& target_name) {
+9170-        for (size_t i = 0; i < frame_names.size(); i++) {
+9171-            if (frame_names[i] == target_name) {
+9172-                return frame_poses[i];
+9173-            }
+9174-        }
+9175-        throw std::runtime_error("Frame name " + target_name + " not found");
+9176-    }
+--
+9231-            try {
+9232-                while (true) {
+9233-                    EndEffectorPose end_pose;
+9234-                    end_pose.life_time = LIFETIME;
+9235-                    end_pose.group = CONTROL_GROUP;
+9236-                    end_pose.left_end_effector_pose = traj_left.back();
+9237-                    end_pose.right_end_effector_pose = traj_right.back();
+9238-
+9239-                    result = robot_.EndEffectorPoseControl(end_pose);
+9240-                    if (result != GDKRes::kSuccess) {
+9241-                        std::cout << "保持位姿失败" << std::endl;
+9242-                        break;
+9243-                    }
+9244-
+9245-                    std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(dt * 1000)));
+9246-                }
+9247-            } catch (const std::exception& e) {
+9248-                std::cout << "已中断保持: " << e.what() << std::endl;
+9249-            }
+9250-        }
+9251-    }
+9252-};
+9253-
+9254-int main() {
+9255-    EndEffectorController controller;
+9256-    controller.executeEndPoseControl();
+9257-    return 0;
+9258-}
+9259-```
+9260-
+9261:- **工具坐标系（`tool0`）用例**：上面的示例以 `arm_l_end_link` / `arm_r_end_link`（法兰中心 end\_link）为末端参考坐标系。下面是以\*\*工具坐标系\*\* `left_tool0_body` / `right_tool0_body`（即 TCP）为参考点进行\*\*笛卡尔阻抗\*\*末端位姿控制的\*\*完整示例\*\*。与原示例的区别集中在 4 处（已在代码中用 `区别 N` 标注），轨迹规划与下发逻辑完全一致：
+9262-
+9263-```
+9264-#include "gdk/gdk.h"
+9265-#include <iostream>
+9266-#include <chrono>
+9267-#include <thread>
+9268-#include <cmath>
+9269-#include <vector>
+9270-#include <algorithm>
+9271-
+9272-using namespace agibot::gdk;
+9273-
+9274-// 区别 1：末端参考坐标系改用工具坐标系 tool0
+9275-//         （原示例为 arm_l_end_link / arm_r_end_link）
+9276:const std::string LEFT_NAME = "left_tool0_body";
+9277-const std::string RIGHT_NAME = "right_tool0_body";
+9278-const int32_t CONTROL_GROUP = 12;  // kBothArms
+9279-
+9280-// 目标位姿——请按 tool0（TCP）坐标系下的期望位姿设置
+9281-const Pose TARGET_LEFT = {
+9282-    {0.516, 0.433, 1.081},  // position
+9283-    {0.382, -0.146, 0.663, 0.626}  // orientation
+9284-};
+9285-
+9286-const Pose TARGET_RIGHT = {
+9287-    {0.579, -0.306, 1.158},  // position
+9288-    {0.320, 0.655, 0.651, 0.206}  // orientation
+9289-};
+9290-
+9291-const double MAX_STEP_CM = 0.1;  // 最大步长（厘米）
+9292-const double LIFETIME = 0.02;    // 生命周期（秒）
+9293-const double RATE_HZ = 50.0;     // 发送频率（Hz）
+9294-const bool HOLD_FINAL = true;    // 是否保持最终位姿
+9295-
+9296-class EndEffectorController {
+9297-private:
+9298-    Robot robot_;
+9299-
+9300-    void slerp(const double q0[4], const double q1[4], double t, double result[4]) {
+9301-        double dot = q0[0]*q1[0] + q0[1]*q1[1] + q0[2]*q1[2] + q0[3]*q1[3];
+9302-
+9303-        // 如果点积为负，取反q1以确保最短路径（取反一次，后续所有分支都用 q1c）
+9304-        double q1c[4] = {q1[0], q1[1], q1[2], q1[3]};
+9305-        if (dot < 0.0) {
+9306-            dot = -dot;
+9307-            for (int i = 0; i < 4; i++) {
+9308-                q1c[i] = -q1[i];
+9309-            }
+9310-        }
+9311-
+9312-        // 限制点积范围
+9313-        dot = std::clamp(dot, -1.0, 1.0);
+9314-
+9315-        if (dot > 0.9995) {
+9316-            // 线性插值
+9317-            for (int i = 0; i < 4; i++) {
+9318-                result[i] = q0[i] + t * (q1c[i] - q0[i]);
+9319-            }
+9320-            double norm = 0.0;
+9321-            for (int i = 0; i < 4; i++) {
+9322-                norm += result[i] * result[i];
+9323-            }
+9324-            norm = std::sqrt(norm);
+9325-            if (norm > 0.0) {
+9326-                for (int i = 0; i < 4; i++) {
+9327-                    result[i] /= norm;
+9328-                }
+9329-            }
+9330-        } else {
+9331-            // 球面线性插值
+9332-            double theta_0 = std::acos(dot);
+9333-            double sin_theta_0 = std::sin(theta_0);
+9334-            double theta = theta_0 * t;
+9335-            double sin_theta = std::sin(theta);
+9336-            double s0 = std::cos(theta) - dot * sin_theta / sin_theta_0;
+9337-            double s1 = sin_theta / sin_theta_0;
+9338-
+9339-            for (int i = 0; i < 4; i++) {
+9340-                result[i] = s0 * q0[i] + s1 * q1c[i];
+9341-            }
+9342-        }
+9343-    }
+9344-
+9345-    double distanceBetweenPoints(const Vector3& p1, const Vector3& p2) {
+9346-        double dx = p2.x - p1.x;
+9347-        double dy = p2.y - p1.y;
+9348-        double dz = p2.z - p1.z;
+9349-        return std::sqrt(dx*dx + dy*dy + dz*dz);
+9350-    }
+9351-
+9352-    int calculateNSteps(const Vector3& start, const Vector3& goal, double max_step_cm) {
+9353-        double dist_cm = distanceBetweenPoints(start, goal) * 100.0;
+9354-        return std::max(static_cast<int>(std::ceil(dist_cm / max_step_cm)), 1);
+9355-    }
+9356-
+9357-    std::vector<Pose> planTrajectory(const Pose& start, const Pose& goal, int n_steps) {
+9358-        std::vector<Pose> trajectory;
+9359-
+9360-        for (int i = 0; i < n_steps; i++) {
+9361-            double t = static_cast<double>(i) / (n_steps - 1);
+9362-            Pose pose;
+9363-
+9364-            // 位置线性插值
+9365-            pose.position.x = start.position.x + t * (goal.position.x - start.position.x);
+9366-            pose.position.y = start.position.y + t * (goal.position.y - start.position.y);
+9367-            pose.position.z = start.position.z + t * (goal.position.z - start.position.z);
+9368-
+9369-            // 四元数SLERP插值
+9370-            double q0[4] = {start.orientation.x, start.orientation.y, start.orientation.z, start.orientation.w};
+9371-            double q1[4] = {goal.orientation.x, goal.orientation.y, goal.orientation.z, goal.orientation.w};
+9372-            double result[4];
+9373-            slerp(q0, q1, t, result);
+9374-
+9375-            pose.orientation.x = result[0];
+9376-            pose.orientation.y = result[1];
+9377-            pose.orientation.z = result[2];
+9378-            pose.orientation.w = result[3];
+9379-
+9380-            trajectory.push_back(pose);
+9381-        }
+9382-
+9383-        return trajectory;
+9384-    }
+9385-
+9386-    Pose findPoseByName(const std::vector<std::string>& frame_names,
+9387-                       const std::vector<Pose>& frame_poses,
+9388-                       const std::string& target_name) {
+9389-        for (size_t i = 0; i < frame_names.size(); i++) {
+9390-            if (frame_names[i] == target_name) {
+9391-                return frame_poses[i];
+9392-            }
+9393-        }
+9394-        throw std::runtime_error("Frame name " + target_name + " not found");
+9395-    }
+9396-
+9397-public:
+9398-    // 进入工具坐标系（tool0）笛卡尔阻抗控制前的初始化
+9399-    void setupToolFrame() {
+9400-        // 区别 2（可选）：配置 TCP 相对法兰 end_link 的变换，
+9401-        // 例如沿 Z 轴前移 0.1m；不配置则 tool0 与 end_link 默认重合。
+9402-        // 注意：为确保安全，禁止在笛卡尔阻抗模式下设置 TCP；
+9403-        //       必须先设置 TCP 再 SetControlMode(2)，否则 TCP 设置会失败。
+9404-        DualArmTcpTransform tcp;
+9405-        tcp.left_arm.position = {0.0, 0.0, 0.1};
+9406-        tcp.left_arm.euler_zyx = {0.0, 0.0, 0.0};
+9407-        tcp.right_arm.position = {0.0, 0.0, 0.1};
+9408-        tcp.right_arm.euler_zyx = {0.0, 0.0, 0.0};
+9409-        robot_.SetTcpTransform(tcp);
+9410-
+9411-        // 区别 3：进入笛卡尔阻抗控制模式（tool_frame 仅在该模式下生效）
+9412-        robot_.SetControlMode(2);
+9413-
+9414:        // 区别 4：将目标坐标系切换到 tool0（left_tool0_body / right_tool0_body）。
+9415-        // 切换后 TCP 设置才会在末端位姿控制中生效；日志会打印当前生效的坐标系
+9416-        robot_.SwitchEndPoseControlFrame();
+9417-    }
+9418-
+9419-    void executeEndPoseControl() {
+9420-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));  // 等待1秒
+9421-
+9422-        // 获取当前状态
+9423-        MotionControlStatus status;
+9424-        GDKRes result = robot_.GetMotionControlStatus(status);
+9425-        if (result != GDKRes::kSuccess) {
+9426-            std::cout << "获取运动控制状态失败" << std::endl;
+9427-            return;
+9428-        }
+9429-
+9430-        // 获取起始位姿（LEFT_NAME / RIGHT_NAME 已指向 tool0）
+9431-        Pose start_left_pose = findPoseByName(status.frame_names, status.frame_poses, LEFT_NAME);
+9432-        Pose start_right_pose = findPoseByName(status.frame_names, status.frame_poses, RIGHT_NAME);
+9433-
+9434-        // 计算步数
+9435-        int n_left = calculateNSteps(start_left_pose.position, TARGET_LEFT.position, MAX_STEP_CM);
+9436-        int n_right = calculateNSteps(start_right_pose.position, TARGET_RIGHT.position, MAX_STEP_CM);
+9437-        int n_steps = std::max(n_left, n_right);
+9438-
+9439-        std::cout << "左臂步数: " << n_left << ", 右臂步数: " << n_right << ", 总步数: " << n_steps << std::endl;
+9440-
+9441-        // 规划轨迹
+9442-        std::vector<Pose> traj_left = planTrajectory(start_left_pose, TARGET_LEFT, n_steps);
+9443-        std::vector<Pose> traj_right = planTrajectory(start_right_pose, TARGET_RIGHT, n_steps);
+9444-
+9445-        // 执行轨迹
+9446-        double dt = 1.0 / RATE_HZ;
+9447-        for (int i = 0; i < n_steps; i++) {
+9448-            EndEffectorPose end_pose;
+9449-            end_pose.life_time = LIFETIME;
+9450-            end_pose.group = CONTROL_GROUP;
+9451-            end_pose.left_end_effector_pose = traj_left[i];
+9452-            end_pose.right_end_effector_pose = traj_right[i];
+9453-
+9454-            result = robot_.EndEffectorPoseControl(end_pose);
+9455-            if (result != GDKRes::kSuccess) {
+9456-                std::cout << "控制命令发送失败，步数: " << i << std::endl;
+9457-                return;
+9458-            }
+9459-
+9460-            std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(dt * 1000)));
+9461-        }
+9462-
+9463-        // 保持最终位姿
+9464-        if (HOLD_FINAL) {
+9465-            std::cout << "进入末端位姿保持（Ctrl+C 结束）..." << std::endl;
+9466-            try {
+9467-                while (true) {
+9468-                    EndEffectorPose end_pose;
+9469-                    end_pose.life_time = LIFETIME;
+9470-                    end_pose.group = CONTROL_GROUP;
+9471-                    end_pose.left_end_effector_pose = traj_left.back();
+9472-                    end_pose.right_end_effector_pose = traj_right.back();
+9473-
+9474-                    result = robot_.EndEffectorPoseControl(end_pose);
+9475-                    if (result != GDKRes::kSuccess) {
+9476-                        std::cout << "保持位姿失败" << std::endl;
+9477-                        break;
+9478-                    }
+9479-
+9480-                    std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(dt * 1000)));
+9481-                }
+9482-            } catch (const std::exception& e) {
+9483-                std::cout << "已中断保持: " << e.what() << std::endl;
+9484-            }
+9485-        }
+9486-    }
+9487-};
+9488-
+9489-int main() {
+9490-    EndEffectorController controller;
+9491-    controller.setupToolFrame();      // 切换到 tool0 工具坐标系（区别 2/3/4）
+9492-    controller.executeEndPoseControl();
+9493-    return 0;
+9494-}
+9495-```
+9496-
+9497-- **同时控制夹爪用例**：在末端位姿控制的同时，通过 `end_effector_joint_names` / `end_effector_joint_positions` 字段同步驱动夹爪关节。夹爪关节名从 `GetEndState` 动态获取（与 `JointServoControl` 同时控制末端示例保持一致），末端行程范围同样取 `-0.785`（下限）↔ `0.0`（上限）。与纯位姿示例相比，新增部分已用注释标出。
+9498-
+9499-```
+9500-#include "gdk/gdk.h"
+9501-#include <iostream>
+9502-#include <chrono>
+9503-#include <thread>
+9504-#include <cmath>
+9505-#include <vector>
+9506-#include <algorithm>
+9507-
+9508-using namespace agibot::gdk;
+9509-
+9510-const std::string LEFT_NAME  = "arm_l_end_link";
+9511-const std::string RIGHT_NAME = "arm_r_end_link";
+9512-const int32_t CONTROL_GROUP  = 12;  // kBothArms
+9513-
+9514-// 新增：末端行程范围（与 JointServoControl 同时控制末端示例保持一致）
+9515-const double EE_LOW  = -0.785;  // 末端行程下限
+9516-const double EE_HIGH =  0.0;    // 末端行程上限
+9517-
+9518-const Pose TARGET_LEFT = {
+9519-    {0.516, 0.433, 1.081},
+9520-    {0.382, -0.146, 0.663, 0.626}
+9521-};
+9522-const Pose TARGET_RIGHT = {
+9523-    {0.579, -0.306, 1.158},
+9524-    {0.320, 0.655, 0.651, 0.206}
+9525-};
+9526-
+9527-const double MAX_STEP_CM = 0.1;
+9528-const double LIFETIME    = 0.02;
+9529-const double RATE_HZ     = 50.0;
+9530-const bool   HOLD_FINAL  = true;
+9531-
+9532-// 新增：从 GetEndState 中取出指定侧末端关节名与当前位置（同 JointServoControl 示例）
+9533-void getEENamesAndPositions(const DualEndState& end_state,
+9534-                            bool use_left,
+--
+9682-                }
+9683-            } catch (...) {}
+9684-        }
+9685-    }
+9686-};
+9687-
+9688-int main() {
+9689-    if (GDKInit() != GDKRes::kSuccess) {
+9690-        std::cout << "GDK初始化失败" << std::endl;
+9691-        return -1;
+9692-    }
+9693-    EndEffectorWithGripperController controller;
+9694-    controller.execute();
+9695-    GDKRelease();
+9696-    return 0;
+9697-}
+9698-```
+9699-
+9700-#### 18. `GetEndPoseControlFrame()`
+9701-
+9702-- **功能**：获取 `EndEffectorPoseControl()` 在\*\*笛卡尔阻抗控制（`control_mode=2`）\*\*下使用的目标参考坐标系。
+9703-- **参数**：
+9704-
+9705-| 参数名 | 类型 | 描述 |
+9706-| --- | --- | --- |
+9707-| `frame_names` | `std::vector<std::string>&` | 输出参数，当前目标参考坐标系名称，按左臂 / 右臂顺序返回 |
+9708-
+9709-- **返回值**：`GDKRes`，操作结果状态码。成功时返回 `GDKRes::kSuccess`
+9710-- **说明**：
+9711-- 默认返回 `arm_l_end_link` / `arm_r_end_link`（末端法兰中心）。
+9712:- 调用 [`SwitchEndPoseControlFrame()`](#19-switchendposecontrolframe) 切换到工具坐标系后，返回 `left_tool0_body` / `right_tool0_body`。
+9713-- 该接口仅查询当前配置的目标坐标系，不会改变控制状态。
+9714-- **示例**：
+9715-
+9716-```
+9717-#include "gdk/gdk.h"
+9718-#include <iostream>
+9719-#include <vector>
+9720-
+9721-using namespace agibot::gdk;
+9722-
+9723-int main() {
+9724-    if (GDKInit() != GDKRes::kSuccess) {
+9725-        std::cout << "GDK初始化失败" << std::endl;
+9726-        return -1;
+9727-    }
+9728-
+9729-    Robot robot;
+9730-    std::vector<std::string> frame_names;
+9731-    if (robot.GetEndPoseControlFrame(frame_names) == GDKRes::kSuccess) {
+9732-        std::cout << "left frame: " << frame_names[0]
+9733-                  << ", right frame: " << frame_names[1] << std::endl;
+9734-    }
+9735-
+9736-    GDKRelease();
+9737-    return 0;
+9738-}
+9739-```
+9740-
+9741-#### 19. `SwitchEndPoseControlFrame()`
+9742-
+9743-- **功能**：切换 `EndEffectorPoseControl()` 在\*\*笛卡尔阻抗控制（`control_mode=2`）\*\*下使用的目标参考坐标系。每次调用在以下两组坐标系之间切换，并在日志中打印切换后当前使用的坐标系：
+9744-- `arm_l_end_link` / `arm_r_end_link`（默认，末端法兰中心）
+9745:- `left_tool0_body` / `right_tool0_body`（末端执行器/工具坐标系）
+9746-- **参数**：无
+9747-- **返回值**：`GDKRes`，操作结果状态码。成功时返回 `GDKRes::kSuccess`
+9748-- **说明**：
+9749-- 仅影响笛卡尔阻抗控制（`control_mode=2`）下的目标坐标系；关节位控（`1`）/ 关节阻抗（`3`）模式不受影响。
+9750-- 切换后会在日志中打印当前生效的坐标系，也可以调用 [`GetEndPoseControlFrame()`](#18-getendposecontrolframe) 查询当前坐标系。
+9751:- **与 TCP 设置配合使用**：通过 [`SetTcpTransform()`](#35-settcptransform) 设置的 TCP 变换作用于 `tool0`（`left_tool0_body` / `right_tool0_body`）坐标系。设置 TCP 后必须调用本接口切换到工具坐标系，TCP 变换才会在笛卡尔阻抗末端位姿控制中生效。
+9752-- **示例**：
+9753-
+9754-```
+9755-#include "gdk/gdk.h"
+9756-#include <iostream>
+9757-
+9758-using namespace agibot::gdk;
+9759-
+9760-int main() {
+9761-    if (GDKInit() != GDKRes::kSuccess) {
+9762-        std::cout << "GDK初始化失败" << std::endl;
+9763-        return -1;
+9764-    }
+9765-
+9766-    Robot robot;
+9767-
+9768-    // 切换笛卡尔阻抗末端位姿控制的目标坐标系，
+9769:    // 在 arm_l_end_link/arm_r_end_link 与 left_tool0_body/right_tool0_body 间切换
+9770-    if (robot.SwitchEndPoseControlFrame() == GDKRes::kSuccess) {
+9771-        std::cout << "已切换末端位姿控制坐标系（详见日志）" << std::endl;
+9772-    } else {
+9773-        std::cerr << "切换末端位姿控制坐标系失败" << std::endl;
+9774-    }
+9775-
+9776-    GDKRelease();
+9777-    return 0;
+9778-}
+9779-```
+9780-
+9781-#### 20. `MoveEEPos()`
+9782-
+9783-- **功能**：控制末端执行器位置(非阻塞式)
+9784-- **注意**：该接口不可与伺服接口同时使用，若有与伺服接口同时使用的需求请通过伺服接口控制末端执行器
+9785-- **参数**：
+9786-
+9787-| 参数名 | 类型 | 描述 |
+9788-| --- | --- | --- |
+9789-| `joint_states` | `const JointStates&` | 关节状态控制参数 |
+9790-
+9791-#### JointStates对象详细说明（用于MoveEEPos）
+9792-
+9793-**JointStates结构体包含以下成员**：
+9794-
+9795-| 成员名 | 类型 | 描述 | 单位 |
+9796-| --- | --- | --- | --- |
+9797-| `nums` | `size_t` | 关节数量，应等于 `states.size()` | 无单位 |
+9798-| `group` | `std::string` | 控制组，必须为 "left\_tool"、"right\_tool" 或 "dual\_tool" | 字符串 |
+9799-| `states` | `std::vector<JointState>` | 关节状态列表（必需） | 关节状态列表 |
+9800-
+9801-**各末端类型的关节位置取值范围**：
+9802-
+9803-- **注意**：关节取值范围与版本绑定，使用时注意当前版本的取值范围，当前版本取值范围以文档为主
+9804-- **omnipicker**：`position` 取值范围为 `[-0.785,0]`，其中 `-0.785` 表示打开，`0` 表示关闭
+9805-- **dahuan**：`position` 取值范围为 `[0,0.025]`，其中 `0` 表示打开，`0.025` 表示关闭
+9806-- **ctek90d**：`position` 取值范围为 `[-0.91, 0]`，其中 `-0.91` 表示打开，`0` 表示关闭
+9807-- **o10\_t2**：各关节位置取值范围如下（单位：弧度）
+9808-
+9809-**左手关节限位值**：
+9810-
+9811-| 关节索引 | 关节名称 | 最小值 | 最大值 |
+9812-| --- | --- | --- | --- |
+9813-| 0 | `idx31_hand_l_thumb_roll_joint` | -1.1213740444063567 | 0.029670597283903602 |
+9814-| 1 | `idx32_hand_l_thumb_abad_joint` | -0.04537856055185257 | 1.642354826126664 |
+9815-| 2 | `idx33_hand_l_thumb_mcp_joint` | -0.8415977653116657 | 0.0 |
+9816-| 3 | `idx36_hand_l_index_abad_joint` | 0.0 | 0.16406094968746698 |
+9817-| 4 | `idx37_hand_l_index_pip_joint` | 0.0 | 1.4835298641951802 |
+9818-| 5 | `idx39_hand_l_middle_pip_joint` | 0.0 | 1.4835298641951802 |
+9819-| 6 | `idx41_hand_l_ring_abad_joint` | -0.16929693744344995 | 0.0 |
+9820-| 7 | `idx42_hand_l_ring_pip_joint` | 0.0 | 1.4835298641951802 |
+9821-| 8 | `idx44_hand_l_pinky_abad_joint` | -0.1850049007113989 | 0.0 |
+9822-| 9 | `idx45_hand_l_pinky_pip_joint` | 0.0 | 1.4835298641951802 |
+9823-
+9824-**右手关节限位值**：
+
+===== [9] JOINTSTATES =====
+6455-
+6456-| 维度 | 笛卡尔阻抗（`control_mode=2`） | 关节阻抗（`control_mode=3`） |
+6457-| --- | --- | --- |
+6458-| **刚度定义空间** | 末端笛卡尔空间（`x/y/z/roll/pitch/yaw` 6 维） | 关节空间（每个关节单独配置，单臂 7 维） |
+6459-| **执行轨迹** | 目标位姿直接在笛卡尔空间执行，不经过全身逆解 | 目标关节量在关节空间执行；如下发的是位姿，会先经全身逆解再到关节空间柔顺跟踪 |
+6460-| **适合任务** | 接触类任务、装配、贴合、沿笛卡尔某轴方向柔顺（如 z 向贴合） | 拖拽示教、关节级柔顺、对单关节刚度有差异化要求的任务 |
+6461-| **可观察柔顺性方向** | 在笛卡尔轴上更直观（如降低 z 向 `kp` 让末端在垂直方向更"软"） | 在关节维度上更直观（如降低肘关节 `kp` 让肘部更"软"） |
+6462-| **配置接口** | [`SetCartesianImpedance()`](#24-setcartesianimpedance) | [`SetJointImpedance()`](#28-setjointimpedance) |
+6463-| **`kp` 维度** | 单臂 6 维：`x/y/z/roll/pitch/yaw` | 单臂 7 维：关节 1~7 |
+6464-
+6465-**共同要点**：
+6466-
+6467-- 设置阻抗参数前，必须先切换到对应控制模式：笛卡尔阻抗参数需先 `SetControlMode(2)`，关节阻抗参数需先 `SetControlMode(3)`。
+6468-- 当前实现仅 `kp` 字段生效（刚度系数），`ki` / `kv` 暂未启用。
+6469-- 重启后参数会丢失，每次需重新下发；详见 [`TorqueSensorCalibration()`](#31-torquesensorcalibration) 的"持久化说明"。
+6470-- 两种阻抗模式互斥：同一时刻只能处于其中一种，切换需重新调用 `SetControlMode()`。
+6471-- 进入阻抗模式前请先按"力控使用工作流"配置好负载，避免因动力学不匹配导致柔顺跟踪偏移。
+6472-
+6473-**注意事项**：
+6474-
+6475-- 控制关节角度的相关接口，支持位控模式和关节阻抗模式；
+6476-- 控制末端位姿势的相关接口，支持位控模式，笛卡尔阻抗模式和关节阻抗模式；
+6477-- 在不同的控制模式下控制末端位姿时，需要使用不同的参考坐标系，详细可参考EndEffectorPoseControl()的使用说明。
+6478-
+6479-## 接口说明
+6480-
+6481-### Robot 类
+6482-
+6483-该类封装了机器人的主要控制接口，集成了HAL（硬件抽象层）和运动控制功能。
+6484-
+6485:#### 1. `GetJointStates()`
+6486-
+6487-- **注意事项**：使用motor\_position和motor\_velocity获取电机位置和速度，position和velocity为低速电机预留字段，当前版本无需关注
+6488-- **功能**：获取机器人关节状态信息
+6489-- **参数**：
+6490-
+6491-| 参数名 | 类型 | 描述 |
+6492-| --- | --- | --- |
+6493:| `joint_states` | `JointStates&` | 输出参数，关节状态信息对象 |
+6494-
+6495-- **返回值**：`GDKRes`，操作结果状态码。成功时返回`GDKRes::kSuccess`，`joint_states`参数包含关节状态信息
+6496-
+6497:#### JointStates对象详细说明
+6498-
+6499:**JointStates结构体包含以下成员**：
+6500-
+6501-| 成员名 | 类型 | 描述 | 单位 |
+6502-| --- | --- | --- | --- |
+6503-| `nums` | `size_t` | 关节数量 | 无单位 |
+6504-| `states` | `std::vector<JointState>` | 关节状态列表 | 关节状态列表 |
+6505-| `timestamp` | `uint64_t` | 时间戳 | 纳秒 |
+6506-
+6507-```
+6508:struct JointStates {
+6509-  size_t nums{};                     ///< number of joint states
+6510-  std::vector<JointState> states{};  ///< joint states
+6511-  uint64_t timestamp{};              ///< joint states timestamp(ns)
+6512-};
+6513-```
+6514-
+6515-**JointState结构体**：
+6516-
+6517-| 成员名 | 类型 | 描述 | 单位 |
+6518-| --- | --- | --- | --- |
+6519-| `name` | `std::string` | 关节名称 | 字符串 |
+6520-| `mode` | `uint32_t` | 关节模式 | 无单位 |
+6521-| `position` | `double` | 关节位置 | 弧度 |
+6522-| `velocity` | `double` | 关节速度 | 弧度/秒 |
+6523-| `effort` | `double` | 关节力矩 | N·m |
+6524-| `motor_position` | `double` | 电机位置 | 弧度 |
+6525-| `motor_velocity` | `double` | 电机速度 | 弧度/秒 |
+6526-| `motor_current` | `double` | 电机电流 | A |
+6527-| `error_code` | `uint32_t` | 错误码，0表示正常 | 无单位 |
+6528-
+6529-```
+6530-struct JointState {
+6531-  std::string name{};
+6532-  uint32_t mode{};
+6533-  double position{};
+6534-  double velocity{};
+6535-  double effort{};
+6536-  double motor_position{};
+6537-  double motor_velocity{};
+6538-  double motor_current{};
+6539-  uint32_t error_code{};
+6540-};
+6541-```
+6542-
+6543-- **示例**：
+6544-
+6545-```
+6546-#include "gdk/gdk.h"
+6547-#include <iostream>
+6548-#include <chrono>
+6549-#include <thread>
+6550-
+6551-int main()
+6552-{
+6553-    // 初始化GDK系统
+6554-    if (agibot::gdk::GDKInit() != agibot::gdk::GDKRes::kSuccess) {
+6555-        std::cout << "GDK初始化失败" << std::endl;
+6556-        return -1;
+6557-    }
+6558-    std::cout << "GDK初始化成功" << std::endl;
+6559-
+6560-    agibot::gdk::Robot robot;
+6561-    std::cout << "Robot init" << std::endl;
+6562-
+6563:    agibot::gdk::JointStates joint_states;
+6564:    if (robot.GetJointStates(joint_states) != agibot::gdk::GDKRes::kSuccess) {
+6565-        std::cout << "Failed to get joint states" << std::endl;
+6566-    } else {
+6567-        std::cout << "关节数量: " << joint_states.nums << std::endl;
+6568-        std::cout << "时间戳: " << joint_states.timestamp << std::endl;
+6569-        for (const auto& joint_state : joint_states.states) {
+6570-            std::cout << "关节: " << joint_state.name
+6571-                      << ", 位置: " << joint_state.position
+6572-                      << ", 速度: " << joint_state.velocity
+6573-                      << ", 力矩: " << joint_state.effort
+6574-                      << ", 错误码: " << joint_state.error_code << std::endl;
+6575-        }
+6576-    }
+6577-
+6578-    // 释放GDK系统资源
+6579-    if (agibot::gdk::GDKRelease() != agibot::gdk::GDKRes::kSuccess) {
+6580-        std::cout << "GDK释放失败" << std::endl;
+6581-        return -1;
+6582-    }
+6583-    std::cout << "GDK释放成功" << std::endl;
+6584-
+6585-    return 0;
+6586-}
+6587-```
+6588-
+6589-#### 2. `GetJointLimits()`
+6590-
+6591-- **功能**：获取机器人关节限位信息
+6592-- **参数**：
+6593-
+6594-| 参数名 | 类型 | 描述 |
+6595-| --- | --- | --- |
+6596-| `joint_limits` | `std::unordered_map<std::string, JointLimit>&` | 输出参数，键为关节名，值为关节限位信息 |
+6597-
+6598-- **返回值**：`GDKRes`，操作结果状态码。成功时返回`GDKRes::kSuccess`，`joint_limits`参数包含关节限位信息
+6599-
+6600-#### JointLimit对象详细说明
+6601-
+6602-**JointLimit结构体包含以下成员**：
+6603-
+6604-| 成员名 | 类型 | 描述 | 单位 |
+6605-| --- | --- | --- | --- |
+6606-| `min` | `double` | 关节最小位置限位 | 弧度 |
+6607-| `max` | `double` | 关节最大位置限位 | 弧度 |
+6608-
+6609-```
+6610-struct JointLimit {
+6611-    double min{};
+6612-    double max{};
+6613-};
+6614-```
+6615-
+6616-- **说明**：当前返回结果包含机器人本体关节与末端执行器关节（left\_tool/right\_tool）的限位信息。
+6617-
+6618-G02 各关节限位参考值（单位：弧度）：
+6619-
+6620-| 关节名 | 分组 | 最小值 | 最大值 |
+6621-| --- | --- | --- | --- |
+6622-| `idx01_body_joint1` | 躯干 | -1.0821 | 0.0002 |
+6623-| `idx02_body_joint2` | 躯干 | -0.0002 | 2.6529 |
+6624-| `idx03_body_joint3` | 躯干 | -1.9199 | 1.5710 |
+6625-| `idx04_body_joint4` | 躯干 | -0.4363 | 0.4363 |
+6626-| `idx05_body_joint5` | 躯干 | -3.0456 | 3.0456 |
+6627-| `idx11_head_joint1` | 头部 | -1.5710 | 1.5710 |
+6628-| `idx12_head_joint2` | 头部 | -0.3492 | 0.3492 |
+6629-| `idx13_head_joint3` | 头部 | -0.5348 | 0.5348 |
+6630-| `idx21_arm_l_joint1` | 左臂 | -3.0718 | 3.0718 |
+6631-| `idx22_arm_l_joint2` | 左臂 | -2.0595 | 2.0595 |
+6632-| `idx23_arm_l_joint3` | 左臂 | -3.0718 | 3.0718 |
+6633-| `idx24_arm_l_joint4` | 左臂 | -2.4958 | 1.0123 |
+6634-| `idx25_arm_l_joint5` | 左臂 | -3.0718 | 3.0718 |
+6635-| `idx26_arm_l_joint6` | 左臂 | -1.0123 | 1.0123 |
+6636-| `idx27_arm_l_joint7` | 左臂 | -1.5359 | 1.5359 |
+6637-| `idx61_arm_r_joint1` | 右臂 | -3.0718 | 3.0718 |
+6638-| `idx62_arm_r_joint2` | 右臂 | -2.0595 | 2.0595 |
+6639-| `idx63_arm_r_joint3` | 右臂 | -3.0718 | 3.0718 |
+6640-| `idx64_arm_r_joint4` | 右臂 | -2.4958 | 1.0123 |
+6641-| `idx65_arm_r_joint5` | 右臂 | -3.0718 | 3.0718 |
+6642-| `idx66_arm_r_joint6` | 右臂 | -1.0123 | 1.0123 |
+6643-| `idx67_arm_r_joint7` | 右臂 | -1.5359 | 1.5359 |
+6644-
+6645-- **示例**：
+6646-
+6647-  ```
+6648-  #include "gdk/gdk.h"
+6649-  #include <iostream>
+6650-  #include <unordered_map>
+6651-
+6652-  int main() {
+6653-      if (agibot::gdk::GDKInit() != agibot::gdk::GDKRes::kSuccess) {
+6654-          std::cout << "GDK初始化失败" << std::endl;
+6655-          return -1;
+6656-      }
+6657-
+6658-      agibot::gdk::Robot robot;
+6659-      std::unordered_map<std::string, agibot::gdk::JointLimit> joint_limits;
+6660-      if (robot.GetJointLimits(joint_limits) != agibot::gdk::GDKRes::kSuccess) {
+6661-          std::cout << "Failed to get joint limits" << std::endl;
+6662-      } else {
+6663-          for (const auto& [name, limit] : joint_limits) {
+6664-              std::cout << name << ": [" << limit.min << ", " << limit.max << "]" << std::endl;
+6665-          }
+6666-      }
+6667-
+6668-      agibot::gdk::GDKRelease();
+6669-      return 0;
+6670-  }
+6671-  ```
+6672-
+6673-#### 3. `GetEndState()`
+6674-
+6675-- **功能**：获取末端执行器状态信息
+6676-- **参数**：
+6677-
+6678-| 参数名 | 类型 | 描述 |
+6679-| --- | --- | --- |
+6680-| `end_state` | `DualEndState&` | 输出参数，双末端执行器状态信息对象 |
+6681-
+6682-- **返回值**：`GDKRes`，操作结果状态码。成功时返回`GDKRes::kSuccess`，`end_state`参数包含末端执行器状态信息
+6683-
+6684-#### DualEndState对象详细说明
+--
+7880-- `joint_names`、`joint_positions`、`joint_velocities` 不能为空，否则返回 `ErrorCode::kInvalidInput`
+7881-- `joint_velocities` 预留参数，目前不使用，可以为空
+7882-
+7883-- **错误处理**：
+7884-- 如果 `joint_names`、`joint_positions`为空，返回 `ErrorCode::kInvalidInput`
+7885-- 如果 `joint_positions` 中的值超出对应关节的限位范围，返回 `ErrorCode::kInvalidInput`
+7886-- 如果配置解析器获取失败，返回 `ErrorCode::kRuntimeError`
+7887-- 其他错误情况返回相应的错误码
+7888-- **示例**：
+7889-
+7890-```
+7891-#include "gdk/gdk.h"
+7892-#include <iostream>
+7893-#include <chrono>
+7894-#include <thread>
+7895-#include <iostream>
+7896-#include <vector>
+7897-#include <algorithm>
+7898-
+7899-using namespace agibot::gdk;
+7900-
+7901-// 控制参数
+7902-const double CONTROL_PERIOD = 0.01;  // 控制周期（秒）
+7903-const double RATE_HZ = 100.0;        // 发送频率（Hz）
+7904-const double DURATION = 5.0;         // 控制持续时间（秒）
+7905-
+7906-class JointServoControlController {
+7907-private:
+7908-    Robot robot_;
+7909-
+7910:    double getJointPositionByName(const JointStates& joint_states, const std::string& joint_name) {
+7911-        for (const auto& state : joint_states.states) {
+7912-            if (state.name == joint_name) {
+7913-                return state.motor_position;
+7914-            }
+7915-        }
+7916-        throw std::runtime_error("Joint name " + joint_name + " not found");
+7917-    }
+7918-
+7919-    double interpolatePosition(double start_pos, double target_pos, double t) {
+7920-        return start_pos + t * (target_pos - start_pos);
+7921-    }
+7922-
+7923-public:
+7924-    void executeJointServoControl(const std::vector<std::string>& target_joint_names,
+7925-                                   const std::vector<double>& target_positions) {
+7926-        std::this_thread::sleep_for(std::chrono::seconds(1));  // 等待1秒
+7927-
+7928-        // 获取当前关节状态
+7929:        JointStates current_joint_states;
+7930:        if (robot_.GetJointStates(current_joint_states) != GDKRes::kSuccess) {
+7931-            std::cout << "获取关节状态失败" << std::endl;
+7932-            return;
+7933-        }
+7934-        std::cout << "当前关节数量: " << current_joint_states.nums << std::endl;
+7935-
+7936-        // 获取起始位置
+7937-        std::vector<double> start_positions;
+7938-        for (const auto& joint_name : target_joint_names) {
+7939-            try {
+7940-                double pos = getJointPositionByName(current_joint_states, joint_name);
+7941-                start_positions.push_back(pos);
+7942-                std::cout << "关节 " << joint_name << " 当前位置: " << pos << " 弧度" << std::endl;
+7943-            } catch (const std::exception& e) {
+7944-                std::cout << "错误: " << e.what() << std::endl;
+7945-                return;
+7946-            }
+7947-        }
+7948-
+7949-        // 计算步数
+7950-        int n_steps = static_cast<int>(DURATION * RATE_HZ);
+7951-        std::cout << "总步数: " << n_steps << ", 持续时间: " << DURATION << " 秒" << std::endl;
+7952-
+7953-        // 执行轨迹
+7954-        double dt = 1.0 / RATE_HZ;
+7955-        auto start_time = std::chrono::steady_clock::now();
+7956-
+7957-        for (int i = 0; i < n_steps; i++) {
+7958-            double t = static_cast<double>(i) / (n_steps - 1);
+7959-
+7960-            // 创建关节位置伺服请求
+7961-            JointServoControlReq joint_position_servo_req;
+7962-            joint_position_servo_req.control_period = CONTROL_PERIOD;
+7963-
+7964-            // 计算当前目标位置（线性插值）
+7965-            std::vector<double> current_positions;
+7966-            for (size_t j = 0; j < target_joint_names.size(); j++) {
+7967-                double interp_pos = interpolatePosition(
+7968-                    start_positions[j], target_positions[j], t
+7969-                );
+7970-                current_positions.push_back(interp_pos);
+7971-            }
+7972-
+7973-            joint_position_servo_req.joint_names = target_joint_names;
+7974-            joint_position_servo_req.joint_positions = current_positions;
+7975-
+7976-            // 使用普通模式（enable_low_latency=false，默认值）
+7977-            auto res = robot_.JointServoControl(joint_position_servo_req);
+7978-            // 如需使用低延时模式，可传入 enable_low_latency=true：
+7979-            // 注意：低延时模式下，该接口绕过运控算法保护，直接驱动电机。
+7980-            // 潜在风险：自碰撞、机体倾倒、与环境碰撞，可能导致财产损失或人员伤害。
+7981-            // auto res = robot_.JointServoControl(joint_position_servo_req, true);
+7982-            if (res != GDKRes::kSuccess) {
+7983-                std::cout << "控制命令发送失败，步数: " << i << std::endl;
+7984-                return;
+7985-            }
+7986-
+7987-            // 控制发送频率
+7988-            auto elapsed = std::chrono::steady_clock::now() - start_time;
+7989-            auto expected_time = std::chrono::milliseconds(static_cast<int>((i + 1) * dt * 1000));
+7990-            auto sleep_time = expected_time - elapsed;
+7991-            if (sleep_time.count() > 0) {
+7992-                std::this_thread::sleep_for(sleep_time);
+7993-            }
+7994-        }
+7995-
+7996-        std::cout << "关节位置伺服控制完成" << std::endl;
+7997-
+7998-        // 保持最终位置
+7999-        std::cout << "进入最终位置保持（Ctrl+C 结束）..." << std::endl;
+8000-        try {
+8001-            while (true) {
+8002-                JointServoControlReq joint_position_servo_req;
+8003-                joint_position_servo_req.control_period = CONTROL_PERIOD;
+8004-                joint_position_servo_req.joint_names = target_joint_names;
+8005-                joint_position_servo_req.joint_positions = target_positions;
+8006-
+8007-                // 使用普通模式（enable_low_latency=false，默认值）
+8008-                auto res = robot_.JointServoControl(joint_position_servo_req);
+8009-                // 如需使用低延时模式，可传入 enable_low_latency=true：
+8010-                // 注意：低延时模式下，该接口绕过运控算法保护，直接驱动电机。
+8011-                // 潜在风险：自碰撞、机体倾倒、与环境碰撞，可能导致财产损失或人员伤害。
+8012-                // auto res = robot_.JointServoControl(joint_position_servo_req, true);
+8013-                if (res != GDKRes::kSuccess) {
+8014-                    std::cout << "保持位置失败" << std::endl;
+8015-                    break;
+8016-                }
+8017-
+8018-                std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(dt * 1000)));
+8019-            }
+8020-        } catch (const std::exception& e) {
+8021-            std::cout << "已中断保持: " << e.what() << std::endl;
+8022-        }
+8023-    }
+8024-};
+8025-
+8026-int main() {
+8027-    // 初始化GDK系统
+8028-    if (GDKInit() != GDKRes::kSuccess) {
+8029-        std::cout << "GDK初始化失败" << std::endl;
+8030-        return -1;
+8031-    }
+8032-    std::cout << "GDK初始化成功" << std::endl;
+8033-
+8034-    Robot robot;
+8035-    std::cout << "Robot init" << std::endl;
+8036-
+8037-    // 获取当前关节状态
+8038:    JointStates current_joint_states;
+8039:    if (robot.GetJointStates(current_joint_states) != GDKRes::kSuccess) {
+8040-        std::cout << "获取关节状态失败" << std::endl;
+8041-        GDKRelease();
+8042-        return -1;
+8043-    }
+8044-    std::cout << "当前关节数量: " << current_joint_states.nums << std::endl;
+8045-
+8046-    // 定义要控制的关节（示例：左臂前3个关节）
+8047-    std::vector<std::string> target_joint_names = {
+8048-        "idx21_arm_l_joint1",
+8049-        "idx22_arm_l_joint2",
+8050-        "idx23_arm_l_joint3"
+8051-    };
+8052-
+8053-    // 获取当前位置作为起始位置（用于插值）
+8054-    std::vector<double> start_positions;
+8055-    for (const auto& joint_name : target_joint_names) {
+8056-        bool found = false;
+8057-        for (const auto& state : current_joint_states.states) {
+8058-            if (state.name == joint_name) {
+8059-                start_positions.push_back(state.motor_position);
+8060-                std::cout << "关节 " << joint_name << " 当前位置: " << state.motor_position << " 弧度" << std::endl;
+8061-                found = true;
+8062-                break;
+8063-            }
+8064-        }
+8065-        if (!found) {
+8066-            std::cout << "错误: 关节 " << joint_name << " 未找到" << std::endl;
+8067-            GDKRelease();
+8068-            return -1;
+8069-        }
+8070-    }
+8071-
+8072-    // 设置目标角度（直接指定目标角度值，单位：弧度）
+8073-    std::vector<double> target_positions = {
+8074-        0.0,  // idx21_arm_l_joint1: 目标角度 0.0 弧度
+8075-        0.0,  // idx22_arm_l_joint2: 目标角度 0.0 弧度
+8076-        0.0   // idx23_arm_l_joint3: 目标角度 0.0 弧度
+8077-    };
+8078-
+8079-    std::cout << "\n目标角度:" << std::endl;
+8080-    for (size_t i = 0; i < target_joint_names.size(); i++) {
+8081-        std::cout << "  " << target_joint_names[i] << ": " << target_positions[i] << " 弧度" << std::endl;
+8082-    }
+8083-
+8084-    // 执行关节位置伺服控制
+8085-    // 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+8086-    // 默认通常已是位控模式，若想用关节阻抗请先 robot.SetControlMode(3)。
+8087-    JointServoControlController controller;
+8088-    controller.executeJointServoControl(
+8089-        target_joint_names, target_positions);
+8090-
+8091-    // 释放GDK系统资源
+8092-    if (GDKRelease() != GDKRes::kSuccess) {
+8093-        std::cout << "GDK释放失败" << std::endl;
+8094-        return -1;
+8095-    }
+8096-    std::cout << "GDK释放成功" << std::endl;
+8097-
+8098-    return 0;
+8099-}
+8100-```
+8101-
+8102-- **同时控制机械臂与末端的示例**：
+8103-
+8104-```
+8105-#include "gdk/gdk.h"
+8106-#include <iostream>
+8107-#include <chrono>
+8108-#include <thread>
+8109-#include <iostream>
+8110-#include <vector>
+8111-
+8112-using namespace agibot::gdk;
+8113-
+8114-const double CONTROL_PERIOD = 0.01;
+8115-const double RATE_HZ = 100.0;
+8116-const double DURATION = 3.0;
+8117-const double HOLD_DURATION = 0.5;    // 在 -0.785 或 0 处保持的时间（秒）
+8118-const int NUM_CYCLES = 3;            // 往复运动次数
+8119-
+8120-static const std::vector<std::string> ARM_L_JOINT_NAMES = {
+8121-    "idx21_arm_l_joint1", "idx22_arm_l_joint2", "idx23_arm_l_joint3",
+8122-    "idx24_arm_l_joint4", "idx25_arm_l_joint5", "idx26_arm_l_joint6",
+8123-    "idx27_arm_l_joint7",
+8124-};
+8125-
+8126:// 从 GetJointStates 的返回中按关节名取出位置列表
+8127:std::vector<double> getArmPositionsByName(const JointStates& joint_states,
+8128-                                          const std::vector<std::string>& joint_names) {
+8129-    std::vector<double> positions;
+8130-    for (const auto& name : joint_names) {
+8131-        for (const auto& state : joint_states.states) {
+8132-            if (state.name == name) {
+8133-                positions.push_back(state.motor_position);
+8134-                break;
+8135-            }
+8136-        }
+8137-    }
+8138-    return positions;
+8139-}
+8140-
+8141-// 从 GetEndState 的返回中取出指定侧末端的关节名列表和位置列表
+8142-// use_left 为 true 取 left_end_state，为 false 取 right_end_state
+8143-void getEENamesAndPositions(const DualEndState& end_state,
+8144-                            bool use_left,
+8145-                            std::vector<std::string>& names,
+8146-                            std::vector<double>& positions) {
+8147-    const EndState& state = use_left ? end_state.left_end_state : end_state.right_end_state;
+8148-    names = state.names;
+8149-    positions.clear();
+8150-    for (const auto& motor : state.end_states) {
+8151-        positions.push_back(motor.position);
+8152-    }
+8153-}
+8154-
+8155-int main() {
+8156-    if (GDKInit() != GDKRes::kSuccess) {
+8157-        std::cout << "GDK初始化失败" << std::endl;
+8158-        return -1;
+8159-    }
+8160-    std::cout << "GDK初始化成功" << std::endl;
+8161-
+8162-    Robot robot;
+8163-
+8164:    JointStates joint_states;
+8165:    if (robot.GetJointStates(joint_states) != GDKRes::kSuccess) {
+8166-        std::cout << "获取关节状态失败" << std::endl;
+8167-        GDKRelease();
+8168-        return -1;
+8169-    }
+8170-
+8171-    DualEndState end_state;
+8172-    if (robot.GetEndState(end_state) != GDKRes::kSuccess) {
+8173-        std::cout << "获取末端状态失败" << std::endl;
+8174-        GDKRelease();
+8175-        return -1;
+8176-    }
+8177-
+8178-    std::vector<std::string> ee_names;
+8179-    std::vector<double> ee_positions;
+8180-    getEENamesAndPositions(end_state, true, ee_names, ee_positions);  // 左侧末端
+8181-
+8182-    std::vector<std::string> all_names = ARM_L_JOINT_NAMES;
+8183-    all_names.insert(all_names.end(), ee_names.begin(), ee_names.end());
+8184-
+8185-    std::vector<double> arm_positions = getArmPositionsByName(joint_states, ARM_L_JOINT_NAMES);
+8186-    if (arm_positions.size() != ARM_L_JOINT_NAMES.size()) {
+8187-        std::cout << "左臂关节数量不匹配" << std::endl;
+8188-        GDKRelease();
+8189-        return -1;
+8190-    }
+8191-
+8192-    // 机械臂按之前方式做小幅关节空间运动（来回），末端关节在 -0.785 和 0 之间往复运动
+8193-    std::vector<double> arm_start = arm_positions;                    // 机械臂初始姿态
+8194-    std::vector<double> arm_target = arm_positions;                   // 机械臂目标姿态（小幅偏移）
+8195-    for (auto& v : arm_target) v += 0.05;
+8196-    const double ee_low = -0.785;                                     // 末端下限
+8197-    const double ee_high = 0.0;                                       // 末端上限
+8198-
+8199-    std::cout << "控制关节数: 机械臂 " << ARM_L_JOINT_NAMES.size()
+8200-              << " + 末端 " << ee_names.size() << " = " << all_names.size() << std::endl;
+8201-    std::cout << "机械臂将在关节空间 arm_start ↔ arm_target 之间运动，末端关节在 "
+8202-              << ee_low << " 和 " << ee_high << " 之间往复 " << NUM_CYCLES << " 次" << std::endl;
+8203-
+8204-    int n_steps = static_cast<int>(DURATION * RATE_HZ);           // 单次移动的步数
+8205-    int hold_steps = static_cast<int>(HOLD_DURATION * RATE_HZ);   // 保持阶段的步数
+8206-    double dt = 1.0 / RATE_HZ;
+8207-
+8208-    // 辅助函数：发送控制命令
+8209-    // JointServoControl 支持 control_mode=1（关节位控）/ 3（关节阻抗），
+8210-    // 默认通常已是位控模式，若想用关节阻抗请先 robot.SetControlMode(3)。
+8211-    auto sendControlCommand = [&](const std::vector<double>& arm_vals, const std::vector<double>& ee_vals) -> bool {
+8212-        std::vector<double> current = arm_vals;
+8213-        current.insert(current.end(), ee_vals.begin(), ee_vals.end());
+8214-        JointServoControlReq req;
+8215-        req.control_period = CONTROL_PERIOD;
+8216-        req.joint_names = all_names;
+8217-        req.joint_positions = current;
+8218-        req.joint_velocities = std::vector<double>(current.size(), 0.0);
+8219-        return robot.JointServoControl(req) == GDKRes::kSuccess;
+8220-    };
+8221-
+8222-    for (int cycle = 0; cycle < NUM_CYCLES; cycle++) {
+8223-        std::cout << "\n=== 周期 " << (cycle + 1) << "/" << NUM_CYCLES
+8224-                  << ": 机械臂 arm_start -> arm_target, 末端 " << ee_low << " -> " << ee_high << " ===" << std::endl;
+8225-        auto start_time = std::chrono::steady_clock::now();
+8226-
+8227-        // 第一段：机械臂 arm_start -> arm_target，末端 ee_low -> ee_high
+8228-        for (int i = 0; i < n_steps; i++) {
+8229-            double t = (n_steps > 1) ? static_cast<double>(i) / (n_steps - 1) : 1.0;
+8230-            std::vector<double> current_arm;
+8231-            for (size_t j = 0; j < arm_start.size(); j++) {
+8232-                current_arm.push_back(arm_start[j] + t * (arm_target[j] - arm_start[j]));
+8233-            }
+8234-            std::vector<double> current_ee(ee_names.size(), ee_low + t * (ee_high - ee_low));
+8235-
+8236-            if (!sendControlCommand(current_arm, current_ee)) {
+8237-                std::cout << "发送失败，周期=" << (cycle + 1) << ", 阶段=0->1, 步数=" << i << std::endl;
+8238-                GDKRelease();
+8239-                return -1;
+8240-            }
+8241-
+8242-            auto elapsed = std::chrono::steady_clock::now() - start_time;
+8243-            auto expected_ms = static_cast<int>((i + 1) * dt * 1000);
+8244-            auto sleep_time = std::chrono::milliseconds(expected_ms) - elapsed;
+8245-            if (sleep_time.count() > 0) {
+8246-                std::this_thread::sleep_for(sleep_time);
+8247-            }
+8248-        }
+
+===== [10] CONTROL MODE + MOVE END EFFECTOR RELATED SENTENCES =====
+841:joint_control.joint_positions = {0.5, -0.3, 0.8};
+1477:在 `~/ros2_ws/src` 下创建一个示例功能包，例如命名为 `joint_position_demo`：
+1480:mkdir -p ~/ros2_ws/src/joint_position_demo/src
+1481:cd ~/ros2_ws/src/joint_position_demo/src
+1486:在 `~/ros2_ws/src/joint_position_demo/src` 下创建 `joint_position_pub.cpp` 文件。
+1502:#include "gdk_msgs/msg/joint_position_requst.hpp"
+1526:pub_joint_position_ =
+1527:    this->create_publisher<gdk_msgs::msg::JointPositionRequst>(
+1536:gdk_msgs::msg::JointPositionRequst request;
+1539:request.joint_positions = target_positions;
+1543:pub_joint_position_->publish(request);
+1556:class JointPositionPublisherNode : public rclcpp::Node {
+1558:  JointPositionPublisherNode() : Node("joint_position_publisher_demo") {
+1564:    publisher_ = this->create_publisher<gdk_msgs::msg::JointPositionRequst>(
+1569:        std::bind(&JointPositionPublisherNode::publish_once, this));
+1578:    gdk_msgs::msg::JointPositionRequst request;
+1581:    request.joint_positions = {0.5};
+1584:    request.detail = "joint position demo";
+1590:                "published joint position request to /gdk/joint_pos_request");
+1595:  rclcpp::Publisher<gdk_msgs::msg::JointPositionRequst>::SharedPtr publisher_;
+1600:  auto node = std::make_shared<JointPositionPublisherNode>();
+1609:- `gdk_msgs::msg::JointPositionRequst` 是控制命令消息类型；
+1611:- `joint_names`、`joint_positions`、`joint_velocities` 三个列表长度必须一致；
+1617:在 `~/ros2_ws/src/joint_position_demo` 下创建 `CMakeLists.txt` 文件
+1639:在 `~/ros2_ws/src/joint_position_demo` 下创建 `package.xml` 文件
+6129:| `control_mode` | `int32_t` | 控制请求：0 |
+6438:机器人双臂的运动控制接口支持不同的\*\*运动控制模式\*\*：`1`（关节位控/位置控制）、`2`（笛卡尔阻抗控制）、`3`（关节阻抗控制）。机器人启动后默认处于力控模式；使用其他控制模式时，需通过`SetControlMode()`切换。
+6448:3. **切换控制模式**：`SetControlMode(2)` 进入笛卡尔力控，或 `SetControlMode(3)` 进入关节力控。
+6449:4. **配置阻抗参数**：进入对应控制模式后，再调用 `SetCartesianImpedance()` 或 `SetJointImpedance()` 设置参数；仅 `kp` 字段当前生效。
+6456:| 维度 | 笛卡尔阻抗（`control_mode=2`） | 关节阻抗（`control_mode=3`） |
+6462:| **配置接口** | [`SetCartesianImpedance()`](#24-setcartesianimpedance) | [`SetJointImpedance()`](#28-setjointimpedance) |
+6467:- 设置阻抗参数前，必须先切换到对应控制模式：笛卡尔阻抗参数需先 `SetControlMode(2)`，关节阻抗参数需先 `SetControlMode(3)`。
+6470:- 两种阻抗模式互斥：同一时刻只能处于其中一种，切换需重新调用 `SetControlMode()`。
+7090:| `control_mode` | `uint8_t` | 控制模式，1为关节位控（PD/轨迹），2为笛卡尔阻抗，3为关节阻抗 | 无单位 |
+7107:  uint8_t control_mode{};  ///< control mode, 1: joint position, 2: cartesian impedance, 3: joint impedance
+7149:        std::cout << "控制模式(control_mode): " << static_cast<int>(status.control_mode) << std::endl;
+7580:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`SetControlMode()`切换。
+7598:| `joint_positions` | `std::vector<double>` | 关节位置列表 | 弧度 |
+7606:  std::vector<double> joint_positions{};
+7647:    joint_control.joint_positions = {0.0, 0.0, 0.0};
+7651:    // 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+7652:    // 默认通常已是位控模式，若想用关节阻抗请先 robot.SetControlMode(3)。
+7673:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`SetControlMode()`切换。
+7705:    // 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+7706:    // 默认通常已是位控模式，若想用关节阻抗请先 robot.SetControlMode(3)。
+7727:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`SetControlMode()`切换。
+7759:    // 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+7760:    // 默认通常已是位控模式，若想用关节阻抗请先 robot.SetControlMode(3)。
+7781:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`SetControlMode()`切换。
+7823:    // 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+7824:    // 默认通常已是位控模式，若想用关节阻抗请先 robot.SetControlMode(3)。
+7845:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`SetControlMode()`切换。
+7864:| `joint_positions` | `std::vector<double>` | 关节位置列表 | 弧度 |
+7871:  std::vector<double> joint_positions{};
+7878:- `joint_names`、`joint_positions`、`joint_velocities` 三个列表的长度必须相同
+7879:- `joint_positions` 中的值必须在对应关节的限位范围内（限位参考值见 [`GetJointLimits()`](#2-getjointlimits)），否则返回 `ErrorCode::kInvalidInput`
+7880:- `joint_names`、`joint_positions`、`joint_velocities` 不能为空，否则返回 `ErrorCode::kInvalidInput`
+7884:- 如果 `joint_names`、`joint_positions`为空，返回 `ErrorCode::kInvalidInput`
+7885:- 如果 `joint_positions` 中的值超出对应关节的限位范围，返回 `ErrorCode::kInvalidInput`
+7910:    double getJointPositionByName(const JointStates& joint_states, const std::string& joint_name) {
+7940:                double pos = getJointPositionByName(current_joint_states, joint_name);
+7961:            JointServoControlReq joint_position_servo_req;
+7962:            joint_position_servo_req.control_period = CONTROL_PERIOD;
+7973:            joint_position_servo_req.joint_names = target_joint_names;
+7974:            joint_position_servo_req.joint_positions = current_positions;
+7977:            auto res = robot_.JointServoControl(joint_position_servo_req);
+7981:            // auto res = robot_.JointServoControl(joint_position_servo_req, true);
+8002:                JointServoControlReq joint_position_servo_req;
+8003:                joint_position_servo_req.control_period = CONTROL_PERIOD;
+8004:                joint_position_servo_req.joint_names = target_joint_names;
+8005:                joint_position_servo_req.joint_positions = target_positions;
+8008:                auto res = robot_.JointServoControl(joint_position_servo_req);
+8012:                // auto res = robot_.JointServoControl(joint_position_servo_req, true);
+8085:    // 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+8086:    // 默认通常已是位控模式，若想用关节阻抗请先 robot.SetControlMode(3)。
+8209:    // JointServoControl 支持 control_mode=1（关节位控）/ 3（关节阻抗），
+8210:    // 默认通常已是位控模式，若想用关节阻抗请先 robot.SetControlMode(3)。
+8217:        req.joint_positions = current;
+8336:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`SetControlMode()`切换。
+8379:    double getJointPositionByName(const JointStates& joint_states, const std::string& joint_name) {
+8410:                double pos = getJointPositionByName(current_joint_states, joint_name);
+8525:    // 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+8526:    // 默认通常已是位控模式，若想用关节阻抗请先 robot.SetControlMode(3)。
+8544:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`SetControlMode()`切换。
+8587:    double getJointPositionByName(const JointStates& joint_states, const std::string& joint_name) {
+8619:                double pos = getJointPositionByName(current_joint_states, joint_name);
+8737:    // 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+8738:    // 默认通常已是位控模式，若想用关节阻抗请先 robot.SetControlMode(3)。
+8756:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`SetControlMode()`切换。
+8801:    double getJointPositionByName(const JointStates& joint_states, const std::string& joint_name) {
+8837:                double pos = getJointPositionByName(current_joint_states, joint_name);
+8958:    // 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+8959:    // 默认通常已是位控模式，若想用关节阻抗请先 robot.SetControlMode(3)。
+8977:- **支持的控制模式**：`1`（关节位控）、`2`（笛卡尔阻抗）、`3`（关节阻抗），使用关节阻抗模式或笛卡尔阻抗模式前，请先通过`SetControlMode()`切换。
+8979:- `1` / `3`（位置控制 / 关节阻抗控制）：目标位姿经运控服务全身逆解后，在关节空间执行；关节阻抗控制模式下，底层会按`SetJointImpedance()`配置的阻抗参数柔顺跟踪。
+8984:- 支持末端位姿与夹爪关节同步控制：填入 `end_effector_joint_names` / `end_effector_joint_positions` 时同步驱动对应关节，留空则只控制末端位姿。
+9003:| `end_effector_joint_names` | `std::vector<std::string>` | 同步控制的末端关节名称列表（如夹爪关节），与 `end_effector_joint_positions` 一一对应，为空时不控制末端关节 | 无单位 |
+9004:| `end_effector_joint_positions` | `std::vector<double>` | 末端关节目标位置列表，须与 `end_effector_joint_names` 长度相同 | 弧度 |
+9014:  std::vector<double> end_effector_joint_positions{};
+9056:// 若需以工具坐标系 tool0（TCP）为参考，请改用 left_tool0_body / right_tool0_body，
+9182:        // EndEffectorPoseControl 支持 control_mode=1 / 2 / 3：
+9185:        // 默认通常已是位控模式（1）；想用关节阻抗 / 笛卡尔阻抗请先 robot_.SetControlMode(3 / 2)。
+9261:- **工具坐标系（`tool0`）用例**：上面的示例以 `arm_l_end_link` / `arm_r_end_link`（法兰中心 end\_link）为末端参考坐标系。下面是以\*\*工具坐标系\*\* `left_tool0_body` / `right_tool0_body`（即 TCP）为参考点进行\*\*笛卡尔阻抗\*\*末端位姿控制的\*\*完整示例\*\*。与原示例的区别集中在 4 处（已在代码中用 `区别 N` 标注），轨迹规划与下发逻辑完全一致：
+9276:const std::string LEFT_NAME = "left_tool0_body";
+9403:        //       必须先设置 TCP 再 SetControlMode(2)，否则 TCP 设置会失败。
+9412:        robot_.SetControlMode(2);
+9414:        // 区别 4：将目标坐标系切换到 tool0（left_tool0_body / right_tool0_body）。
+9497:- **同时控制夹爪用例**：在末端位姿控制的同时，通过 `end_effector_joint_names` / `end_effector_joint_positions` 字段同步驱动夹爪关节。夹爪关节名从 `GetEndState` 动态获取（与 `JointServoControl` 同时控制末端示例保持一致），末端行程范围同样取 `-0.785`（下限）↔ `0.0`（上限）。与纯位姿示例相比，新增部分已用注释标出。
+9655:            end_pose.end_effector_joint_positions.resize(gripper_names.size());
+9657:                end_pose.end_effector_joint_positions[j] =
+9679:                    end_pose.end_effector_joint_positions  = gripper_target;
+9702:- **功能**：获取 `EndEffectorPoseControl()` 在\*\*笛卡尔阻抗控制（`control_mode=2`）\*\*下使用的目标参考坐标系。
+9712:- 调用 [`SwitchEndPoseControlFrame()`](#19-switchendposecontrolframe) 切换到工具坐标系后，返回 `left_tool0_body` / `right_tool0_body`。
+9743:- **功能**：切换 `EndEffectorPoseControl()` 在\*\*笛卡尔阻抗控制（`control_mode=2`）\*\*下使用的目标参考坐标系。每次调用在以下两组坐标系之间切换，并在日志中打印切换后当前使用的坐标系：
+9745:- `left_tool0_body` / `right_tool0_body`（末端执行器/工具坐标系）
+9749:- 仅影响笛卡尔阻抗控制（`control_mode=2`）下的目标坐标系；关节位控（`1`）/ 关节阻抗（`3`）模式不受影响。
+9751:- **与 TCP 设置配合使用**：通过 [`SetTcpTransform()`](#35-settcptransform) 设置的 TCP 变换作用于 `tool0`（`left_tool0_body` / `right_tool0_body`）坐标系。设置 TCP 后必须调用本接口切换到工具坐标系，TCP 变换才会在笛卡尔阻抗末端位姿控制中生效。
+9769:    // 在 arm_l_end_link/arm_r_end_link 与 left_tool0_body/right_tool0_body 间切换
+9931:    left_joint_states.group = "left_tool";
+10019:    left_joint_states.group = "left_tool";
+10061:    // 控制左末端执行器（o10_t2类型，需要10个关节）
+10063:    left_o10_states.group = "left_tool";
+10071:        std::cout << "Failed to move left end effector (o10_t2)" << std::endl;
+10073:        std::cout << "左末端执行器（o10_t2）位置控制成功" << std::endl;
+10190:| `group` | `const std::string&` | `left_tool`、`right_tool` 或 `dual_tool` |
+10217:    if (robot.MoveEndEffectorJoint(positions, velocities, "left_tool")
+10234:#### 22. `SetControlMode()`
+10241:| `control_mode` | `uint8_t` | 控制模式整数值，仅允许 ½/3，见下方说明 |
+10244:- **说明**：`MotionControlMode` 中的其他字段（`target`、`safe_mode`、`priority`）以及内部使用的 `input_source` 均使用默认值（`0` / `0` / `10` 以及固定的 `6`），调用方无需也无法在此接口中覆盖。
+10248:`control_mode` 仅允许以下整数：
+10277:    if (robot.SetControlMode(2) != GDKRes::kSuccess) {
+10362:- **功能**：设置笛卡尔阻抗参数（必须先切换到 `control_mode=2`（笛卡尔阻抗）后再调用）。当前实现仅支持设置 `kp`（刚度系数），`ki` / `kv` 暂未启用。
+10404:    // 先切换到笛卡尔阻抗控制模式（control_mode=2），再设置对应参数
+10405:    robot.SetControlMode(2);
+10447:- **检测到碰撞**：当外力超过当前灵敏度对应的阈值时，**自动切换到位置控制模式（`control_mode=1`）以保障安全**，停止当前柔顺/规划运动；
+10450:- **触发后期间**：被切换到位控期间，下发笛卡尔阻抗 / 关节阻抗模式专属的接口会因模式不匹配而被拒绝，应等待自动恢复或显式重新 `SetControlMode()` 后再继续。
+10521:#### 27. `GetJointImpedance()`
+10551:    if (robot.GetJointImpedance(impedances) == GDKRes::kSuccess) {
+10565:#### 28. `SetJointImpedance()`
+10567:- **功能**：设置关节阻抗参数（必须先切换到 `control_mode=3`（关节阻抗）后再调用）。当前实现仅支持设置 `kp`（刚度系数），`ki` / `kv` 暂未启用。
+10610:    // 先切换到关节阻抗控制模式（control_mode=3），再设置对应参数
+10611:    robot.SetControlMode(3);
+10614:    robot.SetJointImpedance(impedances, 0);  // 左臂
+10748:| 关节阻抗参数 | [`SetJointImpedance()`](#28-setjointimpedance) |
+10751:| 运动控制模式 | [`SetControlMode()`](#22-setcontrolmode) |
+10934:- **注意（安全限制 / 调用顺序）**：为确保安全，**禁止在笛卡尔阻抗模式（`control_mode=2`）下设置TCP 坐标**。先调用 `SetTcpTransform()` 设置 TCP，再通过 `SetControlMode(2)` 进入笛卡尔阻抗模式；如果在笛卡尔阻抗模式下调用本接口，TCP 设置会\*\*失败\*\*。设置完成并进入笛卡尔阻抗模式后，还需调用 [`SwitchEndPoseControlFrame()`](#19-switchendposecontrolframe) 将末端位姿控制的目标 frame 切换到工具坐标系（`left_tool0_body` / `right_tool0_body`），TCP 变换才会在 `EndEffectorPoseControl()` 中生效。推荐顺序：`SetTcpTransform()` → `SetControlMode(2)` → `SwitchEndPoseControlFrame()`。
+10946:- **先设置 TCP，再进入笛卡尔模式**：为确保安全，禁止在笛卡尔阻抗模式（`control_mode=2`）下设置/切换 TCP，必须先 `SetTcpTransform()` 再 `SetControlMode(2)`，否则 TCP 设置会\*\*失败\*\*。
+10947:- **需切换到工具坐标系后生效**：`SetTcpTransform()` 配置的是 `tool0`（`left_tool0_body` / `right_tool0_body`）相对法兰的变换。`EndEffectorPoseControl()` 在笛卡尔阻抗控制下默认仍以 `arm_l_end_link` / `arm_r_end_link`（法兰中心）为目标 frame，**TCP 设置不会自动生效**。需调用 [`SwitchEndPoseControlFrame()`](#19-switchendposecontrolframe) 切换到工具坐标系（`left_tool0_body` / `right_tool0_body`）后，新的 TCP 变换才会作用于末端位姿控制。
+15833:| `control_mode` | `int` | 控制请求：0 |
+15961:机器人双臂的运动控制接口支持不同的\*\*运动控制模式\*\*：`1`（关节位控/位置控制）、`2`（笛卡尔阻抗控制）、`3`（关节阻抗控制）。机器人启动后默认处于力控模式；使用其他控制模式时，需通过`set_control_mode()`切换。
+15971:3. **切换控制模式**：`set_control_mode(2)` 进入笛卡尔力控，或 `set_control_mode(3)` 进入关节力控。
+15972:4. **配置阻抗参数**：进入对应控制模式后，再调用 `set_cartesian_impedance()` 或 `set_joint_impedance()` 设置参数；仅 `kp` 字段当前生效。
+15979:| 维度 | 笛卡尔阻抗（`control_mode=2`） | 关节阻抗（`control_mode=3`） |
+15985:| **配置接口** | [`set_cartesian_impedance()`](#24-set_cartesian_impedance) | [`set_joint_impedance()`](#28-set_joint_impedance) |
+15990:- 设置阻抗参数前，必须先切换到对应控制模式：笛卡尔阻抗参数需先 `set_control_mode(2)`，关节阻抗参数需先 `set_control_mode(3)`。
+15993:- 两种阻抗模式互斥：同一时刻只能处于其中一种，切换需重新调用 `set_control_mode()`。
+16081:- **说明**：当前返回结果包含机器人本体关节与末端执行器关节（`left_tool`/`right_tool`）的限位信息。
+16225:| `control_mode` | `int` | 控制模式，1为关节位控（PD/轨迹），2为笛卡尔阻抗，3为关节阻抗 | 无单位 |
+16258:print(f"控制模式(control_mode): {status.control_mode}")
+16622:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`set_control_mode()`切换。
+16629:| `joint_positions` | `list[float]` | 关节位置列表 | 弧度 |
+16651:joint_control_req.joint_positions = [0.0, 0.0]
+16657:    # 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+16658:    # 默认通常已是位控模式，若想用关节阻抗请先 robot.set_control_mode(3)。
+16674:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`set_control_mode()`切换。
+16698:    # 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+16699:    # 默认通常已是位控模式，若想用关节阻抗请先 robot.set_control_mode(3)。
+16715:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`set_control_mode()`切换。
+16739:    # 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+16740:    # 默认通常已是位控模式，若想用关节阻抗请先 robot.set_control_mode(3)。
+16756:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`set_control_mode()`切换。
+16783:    # 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+16784:    # 默认通常已是位控模式，若想用关节阻抗请先 robot.set_control_mode(3)。
+16800:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`set_control_mode()`切换。
+16809:| `joint_positions` | `list[float]` | 关节位置列表 | 弧度 |
+16816:- `joint_names`、`joint_positions` 两个列表的长度必须相同
+16817:- `joint_positions` 中的值必须在对应关节的限位范围内（限位参考值见 [`get_joint_limits()`](#get_joint_limits)），否则将抛出异常
+16818:- `joint_names`、`joint_positions` 不能为空，否则将抛出异常
+16824:- 如果 `joint_names`、`joint_positions` 为空，底层将返回 `ErrorCode::kInvalidInput`，Python 将抛出 `RuntimeError("JointServoControlRequest failed")`
+16825:- 如果 `joint_positions` 中的值超出对应关节的限位范围，底层将返回 `ErrorCode::kInvalidInput`，Python 将抛出异常
+16844:    def get_joint_position_by_name(self, joint_states, joint_name):
+16867:                pos = self.get_joint_position_by_name(current_joint_states, joint_name)
+16898:            joint_servo_control_req.joint_positions = current_positions
+16930:                joint_servo_control_req.joint_positions = target_positions
+16976:            pos = controller.get_joint_position_by_name(current_joint_states, joint_name)
+16992:        # 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+16993:        # 默认通常已是位控模式，若想用关节阻抗请先 robot.set_control_mode(3)。
+17082:            joint_servo_control 支持 control_mode=1（关节位控）/ 3（关节阻抗），
+17083:            默认通常已是位控模式，若想用关节阻抗请先 robot.set_control_mode(3)。
+17089:            req.joint_positions = current
+17187:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`set_control_mode()`切换。
+17220:    def get_joint_position_by_name(self, joint_states, joint_name):
+17243:                pos = self.get_joint_position_by_name(current_joint_states, joint_name)
+17348:        # 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+17349:        # 默认通常已是位控模式，若想用关节阻抗请先 robot.set_control_mode(3)。
+17369:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`set_control_mode()`切换。
+17402:    def get_joint_position_by_name(self, joint_states, joint_name):
+17428:                pos = self.get_joint_position_by_name(current_joint_states, joint_name)
+17539:        # 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+17540:        # 默认通常已是位控模式，若想用关节阻抗请先 robot.set_control_mode(3)。
+17560:- **支持的控制模式**：`1`（关节位控）、`3`（关节阻抗），使用关节阻抗模式前，请先通过`set_control_mode()`切换。
+17595:    def get_joint_position_by_name(self, joint_states, joint_name):
+17625:                pos = self.get_joint_position_by_name(current_joint_states, joint_name)
+17737:        # 该接口支持 control_mode=1（关节位控）/ 3（关节阻抗），需先确保已切换；
+17738:        # 默认通常已是位控模式，若想用关节阻抗请先 robot.set_control_mode(3)。
+17755:#### 17. `move_ee_pos()`
+17893:joint_states_left.group = "left_tool"
+17901:    result = robot.move_ee_pos(joint_states_left)
+17937:    result = robot.move_ee_pos(joint_states_right)
+17965:joint_states_left.group = "left_tool"
+17973:    result = robot.move_ee_pos(joint_states_left)
+17999:# 控制左末端执行器（o10_t2类型，需要10个关节）
+18001:joint_states_left_o10.group = "left_tool"
+18015:    result = robot.move_ee_pos(joint_states_left_o10)
+18016:    print("左末端执行器（o10_t2）控制成功")
+18056:    result = robot.move_ee_pos(joint_states_right_o12)
+18098:    result = robot.move_ee_pos(joint_states_dual)
+18120:| `group` | `str` | `left_tool`、`right_tool` 或 `dual_tool` |
+18149:        robot.move_end_effector_joint(positions, velocities, "left_tool")
+18179:    robot.move_end_effector_joint(positions, velocities, "dual_tool")
+18193:- **支持的控制模式**：`1`（关节位控）、`2`（笛卡尔阻抗）、`3`（关节阻抗），使用关节阻抗模式或笛卡尔阻抗模式前，请先通过`set_control_mode()`切换。
+18195:- `1` / `3`（位置控制 / 关节阻抗控制）：目标位姿经运控服务全身逆解后，在关节空间执行；关节阻抗控制模式下，底层会按`set_joint_impedance()`配置的阻抗参数柔顺跟踪。
+18200:- 支持末端位姿与夹爪关节同步控制：填入 `end_effector_joint_names` / `end_effector_joint_positions` 时同步驱动对应关节，留空则只控制末端位姿。
+18209:| `end_effector_joint_names` | `list[str]` | 同步控制的末端关节名称列表（如夹爪关节），与 `end_effector_joint_positions` 一一对应，为空时不控制末端关节 | 无单位 |
+18210:| `end_effector_joint_positions` | `list[float]` | 末端关节目标位置列表，须与 `end_effector_joint_names` 长度相同 | 弧度 |
+18222:# 若需以工具坐标系 tool0（TCP）为参考，请改用 left_tool0_body / right_tool0_body，
+18340:        end_effector_pose_control 支持 control_mode=1 / 2 / 3：
+18343:        默认通常已是位控模式（1）；想用关节阻抗 / 笛卡尔阻抗请先 self.robot.set_control_mode(3 / 2)。
+18482:        joint_control_req.joint_positions = [-0.12526109443163597,
+18530:- **工具坐标系（`tool0`）用例**：上面的示例以 `arm_l_end_link` / `arm_r_end_link`（法兰中心 end\_link）为末端参考坐标系。下面是以\*\*工具坐标系\*\* `left_tool0_body` / `right_tool0_body`（即 TCP）为参考点进行\*\*笛卡尔阻抗\*\*末端位姿控制的\*\*完整示例\*\*。与原示例的区别集中在 4 处（已在代码中用 `# 区别 N` 标注），轨迹规划与下发逻辑完全一致：
+18540:LEFT_NAME = "left_tool0_body"
+18792:        joint_control_req.joint_positions = [-0.12526109443163597,
+18827:        #       必须先设置 TCP 再 set_control_mode(2)，否则 TCP 设置会失败。
+18836:        robot.set_control_mode(2)
+18838:        # 区别 4：将目标坐标系切换到 tool0（left_tool0_body / right_tool0_body）。
+18858:- **同时控制夹爪用例**：在末端位姿控制的同时，通过 `end_effector_joint_names` / `end_effector_joint_positions` 字段同步驱动夹爪关节。夹爪关节名从 `get_end_state()` 动态获取（与 `joint_servo_control()` 同时控制末端示例保持一致），末端行程范围同样取 `-0.785`（下限）↔ `0.0`（上限）。与纯位姿示例相比，新增部分已用注释标出。
+18988:            end_pose.end_effector_joint_positions = [
+19030:                    end_pose.end_effector_joint_positions  = gripper_target
+19056:- **功能**：获取 `end_effector_pose_control()` 在\*\*笛卡尔阻抗控制（`control_mode=2`）\*\*下使用的目标参考坐标系。
+19061:- 调用 [`switch_end_pose_control_frame()`](#21-switch_end_pose_control_frame) 切换到工具坐标系后，返回 `left_tool0_body` / `right_tool0_body`。
+19086:- **功能**：切换 `end_effector_pose_control()` 在\*\*笛卡尔阻抗控制（`control_mode=2`）\*\*下使用的目标参考坐标系。每次调用在以下两组坐标系之间切换，并在日志中打印切换后当前使用的坐标系：
+19088:- `left_tool0_body` / `right_tool0_body`（末端执行器/工具坐标系）
+19092:- 仅影响笛卡尔阻抗控制（`control_mode=2`）下的目标坐标系；关节位控（`1`）/ 关节阻抗（`3`）模式不受影响。
+19108:    # 在 arm_l_end_link/arm_r_end_link 与 left_tool0_body/right_tool0_body 间切换
+19117:#### 22. `set_control_mode()`
+19124:| `control_mode` | `int`（uint8） | 控制模式整数值，仅允许 ½/3，见下方说明 |
+19130:`control_mode` 仅允许以下整数：
+19152:    robot.set_control_mode(2)
+19209:- **功能**：设置笛卡尔阻抗参数（必须先切换到 `control_mode=2`（笛卡尔阻抗）后再调用）。当前实现仅支持设置 `kp`（刚度系数），`ki` / `kv` 暂未启用。
+19244:# 先切换到笛卡尔阻抗控制模式（control_mode=2），再设置对应参数
+19245:robot.set_control_mode(2)
+19275:- **检测到碰撞**：当外力超过当前灵敏度对应的阈值时，**自动切换到位置控制模式（`control_mode=1`）以保障安全**，停止当前柔顺/规划运动；
+19278:- **触发后期间**：被切换到位控期间，下发笛卡尔阻抗 / 关节阻抗模式专属的接口会因模式不匹配而被拒绝，应等待自动恢复或显式重新 `set_control_mode()` 后再继续。
+19329:#### 27. `get_joint_impedance()`
+19346:impedances = robot.get_joint_impedance()
+19353:#### 28. `set_joint_impedance()`
+19355:- **功能**：设置关节阻抗参数（必须先切换到 `control_mode=3`（关节阻抗）后再调用）。当前实现仅支持设置 `kp`（刚度系数），`ki` / `kv` 暂未启用。
+19391:# 先切换到关节阻抗控制模式（control_mode=3），再设置对应参数
+19392:robot.set_control_mode(3)
+19395:robot.set_joint_impedance(impedances, 0)  # 左臂
+19503:| 关节阻抗参数 | [`set_joint_impedance()`](#28-set_joint_impedance) |
+19507:| 运动控制模式 | [`set_control_mode()`](#22-set_control_mode) |
+19643:- **注意（安全限制 / 调用顺序）**：为确保安全，**禁止在笛卡尔阻抗模式（`control_mode=2`）下设置或切换 TCP 坐标**。因此必须先调用 `set_tcp_transform()` 设置 TCP，再通过 `set_control_mode(2)` 进入笛卡尔阻抗模式；若已处于笛卡尔阻抗模式下再调用本接口，TCP 设置会\*\*失败\*\*。设置完成并进入笛卡尔阻抗模式后，还需调用 [`switch_end_pose_control_frame()`](#21-switch_end_pose_control_frame) 将末端位姿控制的目标 frame 切换到工具坐标系（`left_tool0_body` / `right_tool0_body`），TCP 变换才会在 `end_effector_pose_control()` 中生效。推荐顺序：`set_tcp_transform()` → `set_control_mode(2)` → `switch_end_pose_control_frame()`。
+19655:- **先设置 TCP，再进入笛卡尔模式**：为确保安全，禁止在笛卡尔阻抗模式（`control_mode=2`）下设置TCP，必须先 `set_tcp_transform()` 再 `set_control_mode(2)`，否则 TCP 设置会\*\*失败\*\*。
+19656:- **需切换到工具坐标系后生效**：`set_tcp_transform()` 配置的是 `tool0`（`left_tool0_body` / `right_tool0_body`）相对法兰的变换。`end_effector_pose_control()` 在笛卡尔阻抗控制下默认仍以 `arm_l_end_link` / `arm_r_end_link`（法兰中心）为目标 frame，**TCP 设置不会自动生效**。需调用 [`switch_end_pose_control_frame()`](#21-switch_end_pose_control_frame) 切换到工具坐标系（`left_tool0_body` / `right_tool0_body`）后，新的 TCP 变换才会作用于末端位姿控制。
+21305:| `joint_positions` | `list[float]` | 关节位置列表 | 弧度 |
+21319:joint_control_req.joint_positions = [0.0, 0.0]
+22118:#  * the control mode (csp 0, cst 1)
+22151:- **消息类型:** `gdk_msgs::msg::JointPositionRequst`
+22159:float64[] joint_positions
+22171:- `joint_names`、`joint_positions`、`joint_velocities` 不应为空。
+22172:- `joint_names`、`joint_positions`、`joint_velocities` 三个列表长度应保持一致。
+22173:- `joint_positions` 中的目标值应位于对应关节限位范围内。
+22187:ros2 topic pub -t 2 /gdk/joint_pos_request gdk_msgs/msg/JointPositionRequst \
+22188:"{lifetime: 0.0, joint_names: ['idx21_arm_l_joint1'], joint_positions: [0.5], joint_velocities: [0.3], uuid: 'test_uuid', detail: 'ros2 cli test'}"
+22260:- **消息类型:** `gdk_msgs::msg::JointPositionServo`
+22269:float64[] joint_positions
+22279:- `joint_names`、`joint_positions` 不应为空。
+22280:- `joint_names` 与 `joint_positions` 的长度应保持一致。
+22281:- `joint_positions` 中的目标值应位于对应关节限位范围内。
+22294:from gdk_msgs.msg import JointState, JointPositionServo, MotionControlStatus
+22329:            JointPositionServo,
+22348:    def get_joint_position_by_name(self, joint_name: str) -> float:
+22362:    def publish_servo(self, joint_names, joint_positions):
+22363:        msg = JointPositionServo()
+22366:        msg.joint_positions = list(joint_positions)
+22375:            pos = self.get_joint_position_by_name(joint_name)
+22450:- **消息类型:** `gdk_msgs::msg::JointPositionServo`
+22459:float64[] joint_positions
+22879:| 按笛卡尔位置控制末端 | `Robot.move_ee_pos()` |
+23184:      "joint_positions": [0.5, -0.3]
+23188:      "joint_positions": [0.8, -0.5]
+
+================================================================================================
+END OF GDK 4.1.5 CONTROL CONTRACT EXTRACT
+================================================================================================
