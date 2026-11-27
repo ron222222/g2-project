@@ -14,9 +14,11 @@ Default behavior is DRY-RUN. Real transmission requires BOTH:
 
 No automatic return command is sent. This program transmits at most one motion
 command per process. It blocks execution if state, order, limits, health,
-physical stillness, the normal mode=1 SERVO + control_mode=1 status contract,
-payload shape, confirmation, or the fresh-state recheck fails. The source audit
-also proves that this process contains no joint_servo_control transmission flow.
+physical stillness, the normal mode=1 SERVO status contract, payload shape,
+confirmation, or the fresh-state recheck fails. If this Python binding exposes
+control_mode it must be the documented value 1; if absent it is recorded as
+NOT_EXPOSED_BY_BINDING and does not independently block. The source audit also
+proves that this process contains no joint_servo_control transmission flow.
 
 Document truth source
 ---------------------
@@ -86,6 +88,7 @@ CONTROL_MODE_MAP = {
     2: "CARTESIAN_IMPEDANCE",
     3: "JOINT_IMPEDANCE",
 }
+CONTROL_MODE_NOT_EXPOSED = "NOT_EXPOSED_BY_BINDING"
 DEFAULT_GDK_ENV = Path.home() / ".cache/agibot/app/env.sh"
 BOOTSTRAP_MARKER = "AGIBOT_GDK_ENV_RESTARTED_FOR_110_V1_3"
 
@@ -553,15 +556,17 @@ def validate_motion_status(robot: Any, gates: GateResult, prefix: str) -> Any:
     is instead excluded by this program's AST allow-list: the only control call
     is one explicit move_ee_pos(payload); no joint_servo_control call exists.
 
-    The gate therefore requires stable mode=1, control_mode=1, finite and still
-    documented frame twists, error_code=0, and empty collision lists. mode=2,
-    undocumented modes, non-still frames, errors, and collisions are blocked.
-    Left O10 physical stillness is validated separately from its ten velocities.
+    The gate therefore requires stable mode=1, finite and still documented frame
+    twists, error_code=0, and empty collision lists. If control_mode is exposed,
+    it must be the documented value 1 and remain stable. If the current Python
+    binding does not expose it, the report records NOT_EXPOSED_BY_BINDING and no
+    value is invented. mode=2, undocumented modes, non-still frames, errors, and
+    collisions are blocked. Left O10 physical stillness is validated separately.
     """
     statuses: List[Any] = []
     records: List[
         Tuple[
-            int,
+            Optional[int],
             int,
             int,
             str,
@@ -575,7 +580,10 @@ def validate_motion_status(robot: Any, gates: GateResult, prefix: str) -> Any:
         try:
             status = robot.get_motion_control_status()
             mode = int(read_field(status, "mode"))
-            control_mode = int(read_field(status, "control_mode"))
+            control_mode_raw = read_field(status, "control_mode", MISSING)
+            control_mode = (
+                None if control_mode_raw is MISSING else int(control_mode_raw)
+            )
             error_code = int(read_field(status, "error_code"))
             error_msg = str(read_field(status, "error_msg", ""))
             collision_1 = list(read_field(status, "collision_pairs_1", []))
@@ -613,7 +621,10 @@ def validate_motion_status(robot: Any, gates: GateResult, prefix: str) -> Any:
             f"{prefix} motion status sample {sample_index:02d} readable",
             True,
             f"type={type_name(status)}, mode={mode}({MOTION_MODE_MAP.get(mode, 'UNDOCUMENTED')}), "
-            f"control_mode={control_mode}({CONTROL_MODE_MAP.get(control_mode, 'UNDOCUMENTED')}), "
+            f"control_mode="
+            f"{CONTROL_MODE_NOT_EXPOSED if control_mode is None else control_mode}, "
+            f"control_mode_label="
+            f"{CONTROL_MODE_NOT_EXPOSED if control_mode is None else CONTROL_MODE_MAP.get(control_mode, 'UNDOCUMENTED')}, "
             f"frames={len(frame_names)}, max_linear={max_linear:.6f} m/s, "
             f"max_angular={max_angular:.6f} rad/s",
         )
@@ -634,16 +645,35 @@ def validate_motion_status(robot: Any, gates: GateResult, prefix: str) -> Any:
         all(value in MOTION_MODE_MAP for value in modes),
         f"modes={modes!r}, labels={[MOTION_MODE_MAP.get(value, 'UNDOCUMENTED') for value in modes]!r}",
     )
+    exposed_control_modes = [value for value in control_modes if value is not None]
+    control_mode_exposure_consistent = (
+        len(exposed_control_modes) == 0
+        or len(exposed_control_modes) == len(control_modes)
+    )
     gates.add(
-        f"{prefix} documented control-mode values",
-        all(value in CONTROL_MODE_MAP for value in control_modes),
-        f"control_modes={control_modes!r}, "
-        f"labels={[CONTROL_MODE_MAP.get(value, 'UNDOCUMENTED') for value in control_modes]!r}",
+        f"{prefix} control_mode binding exposure consistent",
+        control_mode_exposure_consistent,
+        f"control_modes="
+        f"{[CONTROL_MODE_NOT_EXPOSED if value is None else value for value in control_modes]!r}",
+    )
+    gates.add(
+        f"{prefix} exposed control_mode contract",
+        not exposed_control_modes
+        or all(value in CONTROL_MODE_MAP for value in exposed_control_modes),
+        (
+            CONTROL_MODE_NOT_EXPOSED
+            if not exposed_control_modes
+            else f"values={exposed_control_modes!r}, "
+            f"labels={[CONTROL_MODE_MAP.get(value, 'UNDOCUMENTED') for value in exposed_control_modes]!r}"
+        ),
     )
     gates.add(
         f"{prefix} motion status stable across samples",
-        len(set(modes)) == 1 and len(set(control_modes)) == 1,
-        f"modes={modes!r}, control_modes={control_modes!r}",
+        len(set(modes)) == 1
+        and control_mode_exposure_consistent
+        and len(set(exposed_control_modes)) <= 1,
+        f"modes={modes!r}, control_modes="
+        f"{[CONTROL_MODE_NOT_EXPOSED if value is None else value for value in control_modes]!r}",
     )
     gates.add(
         f"{prefix} normal idle-SERVO status",
@@ -653,8 +683,13 @@ def validate_motion_status(robot: Any, gates: GateResult, prefix: str) -> Any:
     )
     gates.add(
         f"{prefix} joint-position control mode",
-        all(value == 1 for value in control_modes),
-        f"control_modes={control_modes!r}; required 1=JOINT_POSITION_PD_TRAJECTORY",
+        not exposed_control_modes or all(value == 1 for value in exposed_control_modes),
+        (
+            f"{CONTROL_MODE_NOT_EXPOSED}; not independently blocking"
+            if not exposed_control_modes
+            else f"control_modes={exposed_control_modes!r}; "
+            "required 1=JOINT_POSITION_PD_TRAJECTORY"
+        ),
     )
     frame_names_stable = all(
         names == frame_names_samples[0] for names in frame_names_samples[1:]
@@ -1105,6 +1140,18 @@ def run_self_test(reporter: Reporter) -> bool:
     validate_motion_status(status_robot, status_gates, "test")
     tests.append(("stable documented SERVO mode accepted", status_gates.passed, "mode=1"))
 
+    no_control_mode_robot = FakeRobot(nominal_fake_state(), motion_mode=1)
+    delattr(no_control_mode_robot.motion_status, "control_mode")
+    no_control_mode_gates = GateResult()
+    validate_motion_status(no_control_mode_robot, no_control_mode_gates, "test")
+    tests.append(
+        (
+            "control_mode absent in binding accepted",
+            no_control_mode_gates.passed,
+            CONTROL_MODE_NOT_EXPOSED,
+        )
+    )
+
     stop_robot = FakeRobot(nominal_fake_state(), motion_mode=0)
     stop_gates = GateResult()
     validate_motion_status(stop_robot, stop_gates, "test")
@@ -1231,8 +1278,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         reporter.emit("Read-only Robot calls: get_end_state(), get_motion_control_status().")
         reporter.emit("Concurrent joint_servo_control flow in this process: NONE.")
         reporter.emit(
-            "MotionStatus gate: 3 stable samples; mode=1 SERVO; control_mode=1; "
-            "robot frames and LEFT O10 physically still."
+            "MotionStatus gate: 3 stable samples; mode=1 SERVO; robot frames and LEFT O10 "
+            "physically still; control_mode=1 when exposed, otherwise "
+            "NOT_EXPOSED_BY_BINDING (non-blocking)."
         )
     if not audit_ok:
         reporter.emit("ABORTED before GDK import/initialization.")
